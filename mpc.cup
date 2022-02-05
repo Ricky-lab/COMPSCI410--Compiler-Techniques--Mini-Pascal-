@@ -1,0 +1,73 @@
+// JavaCup specification for Mini-Pascal Compiler (mpc) parser
+
+package MPC;
+
+import java_cup.runtime.*;
+import java.util.*;
+import java.io.*;
+
+parser code {:
+
+  // this controls whether the parser offers extra debugging output
+  public static boolean debug;
+
+  // this indicates whether there was a parsing error
+  public boolean error;
+
+  private PrintStream errorStream;
+
+  public Parser (MPCScanner s, PrintStream es) {
+    super(s);
+    errorStream = es;
+  }
+
+  public void syntax_error (Symbol currentToken) {
+    Token t = (Token) currentToken.value;
+    mpc.ShowError (currentToken.left, "Syntax Error: " + t.toPrettyString());
+    error = true;
+  }
+
+
+:}
+
+// Terminals (tokens returned by the scanner).
+// Note: does not include EOF, which is included automatically.
+
+// Keywords
+terminal TokenKey ABSTRACT, AND, ARRAY, BEGIN, CASE, CONST, DIV, DO, DOWNTO, ELSE, END;
+terminal TokenKey FOR, FUNCTION, IF, METHODS, MOD, NIL, NOT, OBJECT, OF, OR;
+terminal TokenKey OVERRIDES, PROCEDURE, PROGRAM, RECORD, REPEAT, THEN, TO, TYPE;
+terminal TokenKey UNTIL, VAR, WHILE;
+
+// Operators
+terminal TokenOp LPAREN, RPAREN, COMMA, DOT, COLON, SEMI, LT, EQ, GT;
+terminal TokenOp LE, NE, GE, ASSIGN;
+terminal TokenOp AST, PLUS, MINUS, LBRACK, RBRACK, CARET, DOTDOT;
+
+
+// Terminals with values
+terminal TokenInt    INT;
+terminal TokenString STRING;
+terminal TokenId     ID;
+
+// Non-terminal symbols with their Java types
+non terminal Program     program;
+
+non terminal Token       token;
+
+program
+    ::=               {: RESULT = (Program)null; :}
+     |  program token {: RESULT = (Program)null; :}
+     |  error         {: RESULT = (Program)null; :}
+     ;
+
+token
+    ::= ABSTRACT | AND | ARRAY | BEGIN | CASE | CONST | DIV | DO | DOWNTO
+     |  ELSE | END | FOR | FUNCTION | IF | METHODS | MOD | NIL | NOT
+     |  OBJECT | OF | OR | OVERRIDES | PROCEDURE | PROGRAM |  RECORD | REPEAT
+     |  THEN | TO | TYPE | UNTIL | VAR | WHILE
+     |  LPAREN | RPAREN | COMMA | DOT | COLON | SEMI
+     |  LT | EQ | GT | LE | NE | GE | ASSIGN
+     |  AST | PLUS | MINUS | LBRACK | RBRACK | CARET | DOTDOT
+     |  INT | STRING | ID
+     ;

@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="MPC" basedir="." default="compile">
+   
+   <!--========== global properties ==========-->
+
+   <property name="build.compiler"      value="javac1.8"/>
+   <property name="force"               value="false"/>
+   <property name="build.sysclasspath"  value="ignore"/>
+
+
+
+   <!--========== external task definitions ==========-->
+
+   <taskdef resource="net/sf/antcontrib/antlib.xml">
+      <classpath>
+         <pathelement location="ant-contrib.jar"/>
+      </classpath>
+   </taskdef>
+
+
+   <taskdef
+         name="diff"
+         classname="edu.umass.cs.ali.cs610.DiffTask">
+      <classpath>
+         <pathelement location="diff.jar"/>
+      </classpath>
+   </taskdef>
+
+
+   <taskdef
+         name="cup"
+         classname="java_cup.anttask.CUPTask">
+      <classpath>
+         <pathelement location="java_cup.jar"/>
+      </classpath>
+   </taskdef>
+
+
+   <!--========== targets: cleaning ==========-->
+
+   <target
+         name="clean"
+         description="Delete mpc outputs and derivatives.">
+      <delete quiet="true">
+         <fileset dir="." includes="reports.txt,*.out,*.err,*.diff,*.report,*.token"/>
+      </delete>
+   </target>
+
+
+   <target
+         name="oclean"
+         description="Clean, then delete Java compiled files and java_cup output."
+         depends="clean">
+      <delete quiet="true">
+         <fileset dir="." includes="bin/MPC/*.class,src/MPC/Parser.java,src/MPC/sym.java"/>
+      </delete>
+   </target>
+
+
+   <target
+         name="javacup"
+         description="Runs Java CUP to generate Parser.java and sym.java">
+      <uptodate property="javacup.uptodate" srcfile="./mpc.cup">
+         <mapper>
+            <mapper type="merge" to="src/MPC/Parser.java"/>
+            <mapper type="merge" to="src/MPC/sym.java"/>
+         </mapper>
+      </uptodate>
+      <if>
+         <or>
+            <isfalse value="${javacup.uptodate}"/>
+            <istrue  value="${force}"/>
+         </or>
+         <then>
+            <cup srcfile="${basedir}/mpc.cup" destdir="src" parser="Parser" expect="0"/>
+         </then>
+      </if>
+   </target>
+
+
+   <target
+         name="javacup-dump"
+         description="Runs Java CUP to generate Parser.java and sym.java and dumps tables">
+      <uptodate property="javacup.uptodate" srcfile="./mpc.cup">
+         <mapper>
+            <mapper type="merge" to="src/MPC/Parser.java"/>
+            <mapper type="merge" to="src/MPC/sym.java"/>
+         </mapper>
+      </uptodate>
+      <if>
+         <or>
+            <isfalse value="${javacup.uptodate}"/>
+            <istrue  value="${force}"/>
+         </or>
+         <then>
+            <cup srcfile="${basedir}/mpc.cup" destdir="src" parser="Parser" dump="true" expect="0"/>
+         </then>
+      </if>
+   </target>
+
+
+   <target
+         name="compile"
+         description="Compiles mpc."
+         depends="javacup">
+      <uptodate property="mpc.uptodate">
+         <srcfiles dir="src/MPC" includes="*.java" excludes=".*.java"/>
+         <regexpmapper handledirsep="true" from="^([a-zA-Z].*)\.java" to="bin/MPC/\1\.class"/>
+      </uptodate>
+      <if>
+         <or>
+            <isfalse value="${mpc.uptodate}"/>
+            <istrue value="${force}"/>
+         </or>
+         <then>
+            <mkdir dir="bin"/>
+            <javac srcdir="src/MPC"
+                   destdir="bin"
+                   source="1.7"
+                   target="1.8"
+            	     includes="**/*.java"
+                   excludes="**/.*.java"
+                   debug="true">
+               <classpath>
+                  <pathelement location="src"/>
+                  <pathelement location="java_cup.jar"/>
+               </classpath>
+            </javac>
+         </then>
+      </if>
+   </target>
+
+
+   <target
+         name="-pascal"
+         description="insure we have a Pascal source file name to process"
+         unless="pas">
+      <input addproperty="pas">Pascal program to process: </input>
+      <input addproperty="flags">Additional compiler flags: </input>
+   </target>
+
+
+   <target
+         name="-pascalname"
+         description="insure we have an existing Pascal source file name in proper format"
+         depends="-pascal">
+      <basename property="pascal.base" file="${pas}" suffix=".pas"/>
+      <available property="pascal.avail" file="${pascal.base}.pas"/>
+      <fail message="Pascal file does not exist" unless="pascal.avail"/>
+   </target>
+
+
+   <target
+         name="-getflags"
+         description="obtain MPC flag settings from user">
+      <input addproperty="flags">Compiler flags: </input>
+   </target>
+
+
+   <target
+         name="testone"
+         description="Test the MPC compiler (saving standard output and error)."
+         depends="-pascalname,compile">
+      <for param="test.file">
+         <path>
+            <fileset dir="." includes="${pascal.base}.pas"/>
+         </path>
+         <sequential>
+            <basename property="test.basename:@{test.file}" file="@{test.file}" suffix=".pas"/>
+            <test.body testfile="${test.basename:@{test.file}}"/>
+         </sequential>
+      </for>
+   </target>
+
+
+   <target
+         name="tests"
+         description="Produce test output for all Pascal files"
+         depends="compile">
+      <sequential>
+         <property name="flags" value=""/>
+         <for param="test.file">
+            <path>
+               <fileset dir="." includes="*.pas" excludes=".*.pas"/>
+            </path>
+            <sequential>
+               <basename property="test.basename:@{test.file}" file="@{test.file}" suffix=".pas"/>
+               <test.body testfile="${test.basename:@{test.file}}"/>
+            </sequential>
+         </for>
+      </sequential>
+   </target>
+
+
+   <target
+         name="tests-with-flags"
+         description="Produce test output for all Pascal files, using specified MPC flags"
+         depends="-getflags,compile">
+      <for param="test.file">
+         <path>
+            <fileset dir="." includes="*.pas" excludes=".*.pas"/>
+         </path>
+         <sequential>
+            <basename property="test.basename:@{test.file}" file="@{test.file}" suffix=".pas"/>
+            <test.body testfile="${test.basename:@{test.file}}"/>
+         </sequential>
+      </for>
+   </target>
+
+
+   <macrodef
+         name="test.body"
+         description="Test the MPC compiler (saving standard output and error).">
+      <attribute name="testfile"/>
+      <sequential>
+         <uptodate property="test.uptodate:@{testfile}">
+            <srcfiles dir="." includes="bin/MPC/*.class,@{testfile}.pas"/>
+            <mapper>
+               <mapper type="merge" to="@{testfile}.out"/>
+               <mapper type="merge" to="@{testfile}.err"/>
+               <mapper type="merge" to="@{testfile}.token"/>
+            </mapper>
+         </uptodate>
+         <if>
+            <or>
+               <isfalse value="${test.uptodate:@{testfile}}"/>
+               <istrue  value="${force}"/>
+            </or>
+            <then>
+               <delete quiet="true">
+                  <fileset dir="." includes="@{testfile}.out,@{testfile}.err"/>
+               </delete>
+               <delete quiet="true">
+                  <fileset dir="." includes="@{testfile}.token"/>
+               </delete>
+               <echo message="testing compiler on @{testfile}"/>
+               <java
+                     classname="MPC.mpc"
+                     output="@{testfile}.out"
+                     error="@{testfile}.err"
+                     fork="true">
+                  <classpath>
+                     <pathelement location="bin"/>
+                     <pathelement location="java_cup.jar"/>
+                  </classpath>
+                  <jvmarg value="-ea"/>
+                  <arg value="${flags}"/>
+                  <arg value="@{testfile}"/>
+               </java>
+            </then>
+         </if>
+      </sequential>
+   </macrodef>
+
+
+   <target
+         name="reportone"
+         description="Compare MPC output for one Pascal file against regression reference."
+         depends="testone">
+      <for param="report.file">
+         <path>
+            <fileset dir="." includes="${pascal.base}.pas"/>
+         </path>
+         <sequential>
+            <basename property="report.basename:@{report.file}" file="@{report.file}" suffix=".pas"/>
+            <report.body reportfile="${report.basename:@{report.file}}"/>
+         </sequential>
+      </for>
+   </target>
+
+
+   <target
+         name="reports"
+         description="Produce regression test report for all Pascal files"
+         depends="compile,tests">
+      <for param="report.file">
+         <path>
+            <fileset dir="." includes="*.pas" excludes=".*.pas"/>
+         </path>
+         <sequential>
+            <basename property="report.basename:@{report.file}" file="@{report.file}" suffix=".pas"/>
+            <report.body reportfile="${report.basename:@{report.file}}"/>
+         </sequential>
+      </for>
+      <concat destfile="reports.txt">
+         <fileset dir="." includes="*.report"/>
+      </concat>
+   </target>
+
+
+   <target
+         name="reports-with-flags"
+         description="Produce regression test report for all Pascal files, using specific MPC flags"
+         depends="compile,tests-with-flags">
+      <for param="report.file">
+         <path>
+            <fileset dir="." includes="*.pas" excludes=".*.pas"/>
+         </path>
+         <sequential>
+            <basename property="report.basename:@{report.file}" file="@{report.file}" suffix=".pas"/>
+            <report.body reportfile="${report.basename:@{report.file}}"/>
+         </sequential>
+      </for>
+      <concat destfile="reports.txt">
+         <fileset dir="." includes="*.report"/>
+      </concat>
+   </target>
+
+
+   <macrodef
+         name="report.body"
+         description="Compare MPC output for one Pascal file against regression reference.">
+      <attribute name="reportfile"/>
+      <sequential>
+         <uptodate property="diff.uptodate:@{reportfile}">
+            <srcfiles dir="." includes="@{reportfile}.out,@{reportfile}.err,@{reportfile}.token"/>
+            <mapper type="glob" from="*" to="*.diff"/>
+         </uptodate>
+         <if>
+            <or>
+               <istrue  value="${force}"/>
+               <isfalse value="${diff.uptodate:@{reportfile}}"/>
+            </or>
+            <then>
+               <sequential>
+               <for param="regression.file">
+                  <path>
+                     <fileset dir="regression" includes="@{reportfile}.*"/>
+                  </path>
+                  <sequential>
+                     <touch file="@{regression.file}">
+                        <mapper type="flatten"/>
+                     </touch>
+                  </sequential>
+               </for>
+               <diff
+                     regressiondir="regression"
+                     userdir="."
+                     diffExtension="diff">
+                  <fileset dir="." includes="@{reportfile}.pas"/>
+                  <globmapper from="*.pas" to="*.out"  />
+                  <globmapper from="@{reportfile}.pas" to="@{reportfile}.err"  />
+                  <globmapper from="@{reportfile}.pas" to="@{reportfile}.token"/>
+
+               </diff>
+               </sequential>
+            </then>
+         </if>
+         <uptodate property="report.uptodate:@{reportfile}">
+            <srcfiles dir="." includes="@{reportfile}.*.diff"/>
+            <mapper>
+               <mapper type="merge" to="@{reportfile}.report"/>
+            </mapper>
+         </uptodate>
+         <if>
+            <or>
+               <istrue  value="${force}"/>
+               <isfalse value="${report.uptodate:@{reportfile}}"/>
+            </or>
+            <then>
+               <concat destfile="@{reportfile}.report">
+                  <fileset dir="." includes="@{reportfile}.*.diff"/>
+               </concat>
+            </then>
+         </if>
+      </sequential> 
+   </macrodef>
+
+
+   <target
+         name="run"
+         description="Run the MPC compiler."
+         depends="-pascalname,compile">
+      <java classname="MPC.mpc" fork="true">
+         <classpath>
+            <pathelement location="bin"/>
+            <pathelement location="java_cup.jar"/>
+         </classpath>
+         <jvmarg value="-ea"/>
+         <arg value="${flags}"/>
+         <arg value="${pascal.base}"/>
+      </java>
+   </target>
+
+
+   <target
+         name="run-ref"
+         description="Run the reference compiler on one input (saving standard output and error)."
+         depends="-pascalname">
+      <for param="ref.file">
+         <path>
+            <fileset dir="." includes="${pascal.base}.pas"/>
+         </path>
+         <sequential>
+            <basename property="ref.basename:@{ref.file}" file="@{ref.file}" suffix=".pas"/>
+            <run-ref.body ref-file="${ref.basename:@{ref.file}}"/>
+         </sequential>
+      </for>
+   </target>
+
+
+   <macrodef
+         name="run-ref.body"
+         description="Run the reference compiler (saving standard output and error).">
+      <attribute name="ref-file"/>
+      <sequential>
+         <uptodate property="ref.uptodate:@{ref-file}">
+            <srcfiles dir="." includes="@{ref-file}.pas"/>
+            <mapper>
+               <mapper type="merge" to="@{ref-file}.out"/>
+               <mapper type="merge" to="@{ref-file}.err"/>
+               <mapper type="merge" to="@{ref-file}.token"/>
+            </mapper>
+         </uptodate>
+         <if>
+            <or>
+               <isfalse value="${ref.uptodate:@{ref-file}}"/>
+               <istrue  value="${force}"/>
+            </or>
+            <then>
+               <delete quiet="true">
+                  <fileset dir="." includes="@{ref-file}.out,@{ref-file}.err"/>
+               </delete>
+               <delete quiet="true">
+                  <fileset dir="." includes="@{ref-file}.token"/>
+               </delete>
+               <java
+                     jar="ref.jar"
+                     output="@{ref-file}.out"
+                     error="@{ref-file}.err"
+                     fork="true">
+                  <jvmarg value="-ea"/>
+                  <arg value="${flags}"/>
+                  <arg value="@{ref-file}"/>
+               </java>
+            </then>
+         </if>
+      </sequential>
+   </macrodef>
+
+
+   <target
+         name="make-jar"
+         description="Build a jar file for turning in"
+         depends="compile">
+      <jar destfile="p10x.jar" filesetmanifest="mergewithoutmain">
+         <manifest>
+            <attribute name="Built-By" value="${user.name}"/>
+            <attribute name="Main-Class" value="MPC.mpc"/>
+            <attribute name="Class-Path" value="."/>
+         </manifest>
+         <fileset dir="." includes="**/*.java regression/* *.cup *.pas *.xml"/>
+         <fileset dir="bin" includes="**/*.class" />
+         <zipfileset excludes="META-INF/*.SF" src="ant-contrib.jar"/>
+         <zipfileset excludes="META-INF/*.SF" src="diff.jar"/>
+         <zipfileset excludes="META-INF/*.SF" src="java_cup.jar"/>
+      </jar>
+   </target>
+
+</project>
