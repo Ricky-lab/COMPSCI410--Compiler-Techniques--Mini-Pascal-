@@ -1,0 +1,72 @@
+gcd.err:
+0a1,9
+> Exception occurred:
+> java.lang.IllegalStateException: Operator was not found in the operator table: x,
+> 	at MPC.TokenOp.get(TokenOp.java:89)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
+> 	at MPC.Parse.perform(Parse.java:45)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+gcd.token:
+2,54c2
+< $gcd
+< @;
+< var
+< $x
+< @,
+< $y
+< @:
+< $integer
+< @;
+< begin
+< $readln
+< @(
+< $x
+< @,
+< $y
+< @)
+< @;
+< while
+< $x
+< @<>
+< $y
+< do
+< begin
+< if
+< $x
+< @>
+< $y
+< then
+< $x
+< @:=
+< $x
+< @-
+< $y
+< else
+< $y
+< @:=
+< $y
+< @-
+< $x
+< @;
+< end
+< @;
+< $writeln
+< @(
+< 'GCD = '
+< @,
+< $x
+< @)
+< @;
+< end
+< @.
+< EOF
+< EOF
+---
+> $gcd;var
+
+

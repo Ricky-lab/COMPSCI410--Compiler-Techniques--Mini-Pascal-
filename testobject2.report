@@ -1,0 +1,86 @@
+testobject2.err:
+0a1,9
+> Exception occurred:
+> java.lang.IllegalStateException: Operator was not found in the operator table: integer;
+> 	at MPC.TokenOp.get(TokenOp.java:89)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
+> 	at MPC.Parse.perform(Parse.java:45)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testobject2.token:
+2,4c2
+< $testobject2
+< @;
+< type
+---
+> $testobject2;type
+7,19c5
+< object
+< @;
+< $object2
+< @=
+< object
+< $a
+< @:
+< $integer
+< @;
+< methods
+< end
+< @;
+< $object3
+---
+> $object;object2
+24,70d9
+< $integer
+< @;
+< overrides
+< $myprint
+< @=
+< $obj3print
+< end
+< @;
+< var
+< $o1
+< @:
+< $object1
+< @;
+< $o2
+< @:
+< $object2
+< @;
+< $o3
+< @:
+< $object3
+< @;
+< begin
+< $o1
+< @:=
+< $new
+< @(
+< $object1
+< @)
+< @;
+< $o2
+< @:=
+< $new
+< @(
+< $object2
+< @)
+< @;
+< $o3
+< @:=
+< $new
+< @(
+< $object3
+< @)
+< @;
+< end
+< @.
+< EOF
+< EOF
+
+

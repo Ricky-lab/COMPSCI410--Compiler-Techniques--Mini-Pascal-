@@ -1,0 +1,66 @@
+testmin.token:
+2,4c2
+< $test
+< @;
+< const
+---
+> $test;const
+7,9c5
+< $true
+< @;
+< var
+---
+> $true;var
+12,61d7
+< $boolean
+< @;
+< $w1
+< @,
+< $w2
+< @,
+< $w3
+< @:
+< $boolean
+< @;
+< begin
+< $b
+< @:=
+< $false
+< @;
+< while
+< $b
+< @=
+< $n
+< do
+< begin
+< $w1
+< @:=
+< $w1
+< and
+< $true
+< @;
+< $w2
+< @:=
+< $w2
+< or
+< $false
+< @;
+< $w3
+< @:=
+< not
+< @(
+< $w3
+< or
+< $w2
+< and
+< $w1
+< @)
+< @;
+< end
+< @;
+< end
+< @.
+< EOF
+< EOF
+
+

@@ -1,0 +1,73 @@
+testobject2.token:
+2,4c2
+< $testobject2
+< @;
+< type
+---
+> $testobject2;type
+7,19c5
+< object
+< @;
+< $object2
+< @=
+< object
+< $a
+< @:
+< $integer
+< @;
+< methods
+< end
+< @;
+< $object3
+---
+> $object;object2
+24,70d9
+< $integer
+< @;
+< overrides
+< $myprint
+< @=
+< $obj3print
+< end
+< @;
+< var
+< $o1
+< @:
+< $object1
+< @;
+< $o2
+< @:
+< $object2
+< @;
+< $o3
+< @:
+< $object3
+< @;
+< begin
+< $o1
+< @:=
+< $new
+< @(
+< $object1
+< @)
+< @;
+< $o2
+< @:=
+< $new
+< @(
+< $object2
+< @)
+< @;
+< $o3
+< @:=
+< $new
+< @(
+< $object3
+< @)
+< @;
+< end
+< @.
+< EOF
+< EOF
+
+

@@ -1,0 +1,12 @@
+scanstringnl.err:
+1,8d0
+< line 3: Unexpected character: '\u000a' (code = 10 = 012 = \u000a)
+< 'Hello, 
+< ^
+< resetting to scan a new token
+< line 4: Unexpected character: '\u000a' (code = 10 = 012 = \u000a)
+< COINS 610'
+< ^
+< resetting to scan a new token
+
+

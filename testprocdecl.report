@@ -1,0 +1,198 @@
+testprocdecl.err:
+0a1,9
+> Exception occurred:
+> java.lang.IllegalStateException: Operator was not found in the operator table: (:
+> 	at MPC.TokenOp.get(TokenOp.java:89)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
+> 	at MPC.Parse.perform(Parse.java:45)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testprocdecl.token:
+2,4c2
+< $testprocdecl
+< @;
+< type
+---
+> $testprocdecl;type
+7,9c5
+< $integer
+< @;
+< procedure
+---
+> $integer;procedure
+11,179d6
+< @(
+< $a
+< @:
+< $a
+< @)
+< @;
+< begin
+< end
+< @;
+< procedure
+< $p2
+< @(
+< $t1
+< @:
+< $t1
+< @)
+< @;
+< begin
+< end
+< @;
+< procedure
+< $p3
+< @(
+< $x
+< @:
+< $y
+< @)
+< @;
+< begin
+< end
+< @;
+< procedure
+< $p4
+< @(
+< $x
+< @:
+< $t2
+< @)
+< @;
+< begin
+< end
+< @;
+< function
+< $f1
+< @(
+< $a
+< @:
+< $a
+< @)
+< @:
+< $integer
+< @;
+< begin
+< end
+< @;
+< function
+< $f2
+< @(
+< $t1
+< @:
+< $t1
+< @)
+< @:
+< $integer
+< @;
+< begin
+< end
+< @;
+< function
+< $f3
+< @(
+< $x
+< @:
+< $y
+< @)
+< @:
+< $integer
+< @;
+< begin
+< end
+< @;
+< function
+< $f4
+< @(
+< $x
+< @:
+< $t2
+< @)
+< @:
+< $integer
+< @;
+< begin
+< end
+< @;
+< function
+< $f5
+< @(
+< $x
+< @:
+< $integer
+< @)
+< @:
+< $x
+< @;
+< begin
+< end
+< @;
+< function
+< $f6
+< @(
+< $x
+< @:
+< $integer
+< @)
+< @:
+< $y
+< @;
+< begin
+< end
+< @;
+< function
+< $f7
+< @(
+< $x
+< @:
+< $integer
+< @)
+< @:
+< $t1
+< @;
+< begin
+< end
+< @;
+< function
+< $f8
+< @(
+< $t1
+< @:
+< $integer
+< @)
+< @:
+< $t1
+< @;
+< begin
+< end
+< @;
+< function
+< $f9
+< @(
+< $x
+< @:
+< $integer
+< @)
+< @:
+< $t2
+< @;
+< begin
+< end
+< @;
+< type
+< $t2
+< @=
+< $boolean
+< @;
+< begin
+< end
+< @.
+< EOF
+< EOF
+
+

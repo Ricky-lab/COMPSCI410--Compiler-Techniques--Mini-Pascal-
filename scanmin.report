@@ -1,0 +1,45 @@
+scanmin.err:
+0a1,9
+> Exception occurred:
+> java.lang.IllegalStateException: Operator was not found in the operator table: a,
+> 	at MPC.TokenOp.get(TokenOp.java:89)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
+> 	at MPC.Parse.perform(Parse.java:45)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+scanmin.token:
+62,64c62
+< @(
+< @)
+< $x
+---
+> $(x
+68,87c66
+< $scantest
+< @;
+< var
+< $a
+< @,
+< $b
+< @:
+< $integer
+< @;
+< begin
+< $a
+< @:=
+< #3000
+< and
+< $b
+< @;
+< end
+< @.
+< EOF
+< EOF
+---
+> $scantest;var
+
+

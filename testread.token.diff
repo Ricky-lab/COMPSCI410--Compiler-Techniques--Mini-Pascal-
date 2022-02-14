@@ -1,0 +1,33 @@
+testread.token:
+2,4c2
+< $testread
+< @;
+< var
+---
+> $testread;var
+7,9c5
+< $integer
+< @;
+< begin
+---
+> $integer;begin
+11,27d6
+< @(
+< $x
+< @,
+< $x
+< @)
+< @;
+< $writeln
+< @(
+< 'x = '
+< @,
+< $x
+< @)
+< @;
+< end
+< @.
+< EOF
+< EOF
+
+

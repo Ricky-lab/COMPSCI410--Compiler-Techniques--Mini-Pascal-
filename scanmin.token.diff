@@ -1,0 +1,32 @@
+scanmin.token:
+62,64c62
+< @(
+< @)
+< $x
+---
+> $(x
+68,87c66
+< $scantest
+< @;
+< var
+< $a
+< @,
+< $b
+< @:
+< $integer
+< @;
+< begin
+< $a
+< @:=
+< #3000
+< and
+< $b
+< @;
+< end
+< @.
+< EOF
+< EOF
+---
+> $scantest;var
+
+

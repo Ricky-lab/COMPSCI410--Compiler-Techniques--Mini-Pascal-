@@ -27,7 +27,18 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     GT,     // greater than >
     COL,    // colon :
     OTH,    // other non-bad characters
-    BAD;    // illegal characters
+    BAD,    // illegal characters
+    
+	//New added char class
+	QUO, 	// for the quote character ''
+	AST,	// for the asterisk  *
+	LP,		// left parenthesis  (
+	RP,		// right parenthesis )
+	NL,		// new line sign
+	HASH,	// number sign	# 
+	UNDER,	// underscore   _
+	DOT,	// for operator .
+	STR;	// for string
   }
 
   /**
@@ -87,7 +98,9 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     new ClassRange(CharClass.LET  , '\141', '\172'),  // a-z
     new ClassRange(CharClass.DIG  , '\060', '\071'),  // 0-9
     new ClassRange(CharClass.OP   , '\050', '\051'),  // ( )
+    new ClassRange(CharClass.OP   , '\053', '\053'),  // +
     new ClassRange(CharClass.OP   , '\054', '\054'),  // ,
+    new ClassRange(CharClass.OP   , '\055', '\055'),  // -
     new ClassRange(CharClass.OP   , '\056', '\056'),  // .
     new ClassRange(CharClass.OP   , '\073', '\073'),  // ;
     new ClassRange(CharClass.COL  , '\072', '\072'),  // :
@@ -96,8 +109,22 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     new ClassRange(CharClass.GT   , '\076', '\076'),  // >
     new ClassRange(CharClass.LC   , '\173', '\173'),  // {
     new ClassRange(CharClass.RC   , '\175', '\175'),  // }
+    
     // here is a good place to insert additional entries :-)
-    new ClassRange(CharClass.EOF  , '\u0100', '\u0100')}; // EOF is 256 (only)
+    // New added class range according to the new added CharClass
+  	//new ClassRange(CharClass.QUO  , '\042', '\042'),  // "
+  	new ClassRange(CharClass.QUO  , '\047', '\047'),  // '
+  	new ClassRange(CharClass.AST  , '\052', '\052'),  // *
+  	new ClassRange(CharClass.LP   , '\050', '\050'),  // (
+  	new ClassRange(CharClass.RP   , '\051', '\051'),  // )
+  	new ClassRange(CharClass.NL   , '\012', '\012'),  // newline
+  	new ClassRange(CharClass.HASH , '\043', '\043'),  // #
+  	new ClassRange(CharClass.UNDER, '\137', '\137'),  // _
+  	new ClassRange(CharClass.DOT  , '\056', '\056'),  // operator ..
+  	
+    new ClassRange(CharClass.EOF  , '\u0100', '\u0100')
+  	}; // EOF is 256 (only)
+  
 
   /**
    * routine to initialize the characters class table given the data
@@ -148,11 +175,30 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     SGC (Accept.OP  ), // saw a > or :
     SCom(Accept.NONE), // in a comment
     SErr(Accept.NONE), // the error state
-    SEOF(Accept.EOF ); // saw EOF
+    SEOF(Accept.EOF ), // saw EOF
+    SQUO(Accept.STR ), // saw ' (left ')
+    
+    //New added states according to new characters
+	SDOT(Accept.OP  ), // for operator ..
+	SLP (Accept.NONE), // for just having see a left parenthesis
+	SCA (Accept.NONE), // for being in a comment but having seen an AST
+	SSCA(Accept.NONE), // for being in a comment but having second AST
+	SEMP(Accept.NONE), // for empty string which is illegally ''
+	
+	SNL (Accept.NONE), // for new line
+	SSTR(Accept.STR) , // in the string
+	SUND(Accept.NONE), // for identifier just after an underscore
+	
+	SHas(Accept.NONE), // for integers just having seen hash 
+	SNHa(Accept.NONE), // for integers just having seen an underscore without ever having seen a hash
+	SNtH(Accept.NONE), // for integers just having hash after digits
+	SUaH(Accept.NONE); // for integers just seen an underscore after having seen an earlier hash
+	
+	
 
     /**
      * Which kind of token to accept at this, if any, if the input does not
-     * allow a transition
+     * allow a transitions
      */
     public final Accept accept;         // accept
 
@@ -264,14 +310,46 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     State.SBeg.setTransition(CharClass.LT   , new Transition(State.SLt , Action.HASH )); // start: single/double character operator
     State.SBeg.setTransition(CharClass.GT   , new Transition(State.SGC , Action.HASH )); // start: single/double character operator
     State.SBeg.setTransition(CharClass.COL  , new Transition(State.SGC , Action.HASH )); // start: single/double character operator
-    State.SBeg.setTransition(CharClass.LC   , new Transition(State.SCom)); // start: left curly bracket => comment
-
+    State.SBeg.setTransition(CharClass.LC   , new Transition(State.SCom));               // start: left curly bracket => comment
+    State.SBeg.setTransition(CharClass.NL   , new Transition(State.SBeg));               // start: new line of the text; head of the text
+    State.SBeg.setTransition(CharClass.DOT  , new Transition(State.SDOT , Action.HASH));// start: .
+    State.SBeg.setTransition(CharClass.LP   , new Transition(State.SLP , Action.HASH));  // start: for the comments: just saw the left (
+    State.SBeg.setTransition(CharClass.QUO  , new Transition(State.SQUO , Action.HASH));// start: for the start of a string
+    
+    //single char operators
+    State.SOp.setDefault(new Transition(State.SBeg));						 // single character operator
+    State.SOp .setTransition(CharClass.NL  , new Transition(State.SBeg));	 // new line of ;
+    
+    // normal left parenthesis ( + Identifier
+    State.SLP.setDefault(new Transition(State.SBeg));						 
+    //State.SLP.setTransition(CharClass.LP   , new Transition(State.SLP , Action.HASH));
+    
     State.SId .setTransition(CharClass.LET  , new Transition(State.SId , Action.LOWER, Action.HASH)); // identifiers continue with LET or DIG
     State.SId .setTransition(CharClass.DIG  , new Transition(State.SId , Action.HASH));
-
+    //State.SId .setTransition(CharClass.LP   , new Transition(State.SId , Action.HASH));
+    State.SId .setTransition(CharClass.RP   , new Transition(State.SId , Action.HASH));  // right parenthesis ) 
+    //State.SId .setTransition(CharClass.DOT  , new Transition(State.SId , Action.HASH));
+    State.SId .setTransition(CharClass.QUO  , new Transition(State.SQUO, Action.HASH));
+    State.SId .setTransition(CharClass.DOT  , new Transition(State.SDOT, Action.HASH));
+    State.SId .setTransition(CharClass.OP   , new Transition(State.SOp , Action.HASH)); 				 // after an operator
+    //State.SOp .setTransition(CharClass.NL   , new Transition(State.SBeg ,Action.HASH));
+    
     State.SNum.setTransition(CharClass.DIG  , new Transition(State.SNum, Action.DIGIT)); // integer literals continue with DIG
-
-
+    
+    State.SQUO .setTransition(CharClass.DOT , new Transition(State.SEMP));  			 // meet an empty string
+    State.SQUO .setDefault(new Transition(State.SSTR, Action.HASH));	   				 // begin the string
+    State.SSTR .setDefault(new Transition(State.SSTR, Action.HASH)); 					 // in the string
+    State.SSTR .setTransition(CharClass.DOT , new Transition(State.SId, Action.HASH)); 	 // end the string
+    
+    State.SDOT .setTransition(CharClass.DOT , new Transition(State.SOp , Action.HASH)); // operator ..
+    
+    //comments
+    State.SLP  .setTransition(CharClass.AST , new Transition(State.SCA , Action.HASH)); // first left parenthesis
+    State.SCA  .setDefault(new Transition(State.SCom, Action.HASH)); 					// start the comments
+    State.SCA  .setDefault(new Transition(State.SCom, Action.HASH)); 					// in the comments
+    State.SCom .setTransition(CharClass.AST , new Transition(State.SSCA , Action.HASH));// saw the second star
+    State.SSCA .setTransition(CharClass.RP  , new Transition(State.SBeg)); 				// finish a comment with *)
+    State.SCom .setTransition(CharClass.RC  , new Transition(State.SBeg)); 			    // finish a comment with }
     // SOp has no outgoing transitions
 
     State.SLt .setTransition(CharClass.EQ , new Transition(State.SOp, Action.HASH)); // double char operator <=
@@ -279,7 +357,7 @@ public class MPCScanner implements java_cup.runtime.Scanner {
 
     State.SGC .setTransition(CharClass.EQ , new Transition(State.SOp, Action.HASH)); // double char operators >= and :=
 
-    State.SCom.setTransition(CharClass.RC , new Transition(State.SBeg)); // finish a comment
+    
                                       // most things continue it; see defaults
 
     // SEOF has no outgoing transitions
@@ -453,10 +531,7 @@ public class MPCScanner implements java_cup.runtime.Scanner {
             switch (action) {
 
             case CLEAR:
-              tokBuf.setLength(0);  // reset things so that they will be normal when
-              currHash = 0;         // resuming building a token
-              base = 10;
-              currValue = 0;
+              reset();
               break;
 
             case DIGIT: {

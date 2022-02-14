@@ -1,0 +1,130 @@
+scanints.err:
+5c5
+< line 7: Requested integer base 0 not in range 2 to 36
+---
+> line 7: Unexpected character: '#' (code = 35 = 043 = \u0023)
+9c9
+< line 8: Requested integer base 1 not in range 2 to 36
+---
+> line 8: Unexpected character: '#' (code = 35 = 043 = \u0023)
+13c13
+< line 9: Requested integer base 37 not in range 2 to 36
+---
+> line 9: Unexpected character: '#' (code = 35 = 043 = \u0023)
+17,19c17,35
+< line 11: Integer literal digit 2 too large for number base 2
+< 2#102
+< ----^
+---
+> line 10: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 2#
+> -^
+> resetting to scan a new token
+> line 11: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 2#
+> -^
+> resetting to scan a new token
+> line 12: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 10#
+> --^
+> resetting to scan a new token
+> line 13: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 16#
+> --^
+> resetting to scan a new token
+> line 14: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 16#
+> --^
+21,22c37,54
+< line 12: Integer literal digit a too large for number base 10
+< 10#10A
+---
+> line 15: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 35#
+> --^
+> resetting to scan a new token
+> line 16: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 35#
+> --^
+> resetting to scan a new token
+> line 17: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 35#
+> --^
+> resetting to scan a new token
+> line 18: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 2_
+> -^
+> resetting to scan a new token
+> line 18: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 2_000_
+25,27c57,59
+< line 14: Integer literal digit g too large for number base 16
+< 16#G
+< ---^
+---
+> line 18: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 2_000_000_
+> ---------^
+29,31c61,71
+< line 17: Integer literal digit z too large for number base 35
+< 35#Z
+< ---^
+---
+> line 19: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 2#
+> -^
+> resetting to scan a new token
+> line 19: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 2#1000_
+> ------^
+> resetting to scan a new token
+> line 20: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 16#
+> --^
+33,35c73,87
+< line 20: Integer literal value too large
+< 16#dead_beef
+< -----------^
+---
+> line 20: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 16#dead_
+> -------^
+> resetting to scan a new token
+> line 21: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 16#
+> --^
+> resetting to scan a new token
+> line 21: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 16#4ead_
+> -------^
+> resetting to scan a new token
+> line 22: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 2_
+> -^
+41c93
+< line 23: Unexpected character: ' ' (code = 32 = 040 = \u0020)
+---
+> line 23: Unexpected character: '_' (code = 95 = 137 = \u005f)
+42a95,102
+> --^
+> resetting to scan a new token
+> line 24: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 2#
+> -^
+> resetting to scan a new token
+> line 24: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> 2#1_
+49c109,113
+< line 25: Unexpected character: ' ' (code = 32 = 040 = \u0020)
+---
+> line 25: Unexpected character: '#' (code = 35 = 043 = \u0023)
+> 2#
+> -^
+> resetting to scan a new token
+> line 25: Unexpected character: '_' (code = 95 = 137 = \u005f)
+51c115
+< -----^
+---
+> ----^
+
+

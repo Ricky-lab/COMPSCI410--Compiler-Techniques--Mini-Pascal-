@@ -1,0 +1,87 @@
+testdead.token:
+2,4c2
+< $test
+< @;
+< type
+---
+> $test;type
+11,87d8
+< $integer
+< @;
+< end
+< @;
+< $tconc11
+< @=
+< $tabs1
+< object
+< $y
+< @:
+< $integer
+< @;
+< end
+< @;
+< $tconc12
+< @=
+< $tabs1
+< object
+< $z
+< @:
+< $integer
+< @;
+< end
+< @;
+< $tabs2
+< @=
+< abstract
+< object
+< $b
+< @:
+< $boolean
+< @;
+< end
+< @;
+< var
+< $p1
+< @:
+< $tabs1
+< @;
+< begin
+< $p1
+< @:=
+< $new
+< @(
+< $tconc11
+< @)
+< @;
+< $writeln
+< @(
+< 'Got here!'
+< @)
+< @;
+< while
+< $true
+< do
+< $writeln
+< @(
+< 'Hello World'
+< @)
+< @;
+< while
+< $false
+< do
+< $writeln
+< @(
+< 'Not more?'
+< @)
+< @;
+< $writeln
+< @(
+< 'More?'
+< @)
+< @;
+< end
+< @.
+< EOF
+< EOF
+
+

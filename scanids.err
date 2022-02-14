@@ -1,0 +1,24 @@
+line 2: Unexpected character: '_' (code = 95 = 137 = \u005f)
+x_
+-^
+resetting to scan a new token
+line 3: Unexpected character: '_' (code = 95 = 137 = \u005f)
+x_
+-^
+resetting to scan a new token
+line 4: Unexpected character: '_' (code = 95 = 137 = \u005f)
+X_
+-^
+resetting to scan a new token
+line 6: Unexpected character: '_' (code = 95 = 137 = \u005f)
+X_
+-^
+resetting to scan a new token
+line 6: Unexpected character: '_' (code = 95 = 137 = \u005f)
+X__
+--^
+resetting to scan a new token
+line 7: Unexpected character: '_' (code = 95 = 137 = \u005f)
+x_
+-^
+resetting to scan a new token

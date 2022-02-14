@@ -1,0 +1,100 @@
+testdead.err:
+0a1,9
+> Exception occurred:
+> java.lang.IllegalStateException: Operator was not found in the operator table: integer;
+> 	at MPC.TokenOp.get(TokenOp.java:89)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
+> 	at MPC.Parse.perform(Parse.java:45)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testdead.token:
+2,4c2
+< $test
+< @;
+< type
+---
+> $test;type
+11,87d8
+< $integer
+< @;
+< end
+< @;
+< $tconc11
+< @=
+< $tabs1
+< object
+< $y
+< @:
+< $integer
+< @;
+< end
+< @;
+< $tconc12
+< @=
+< $tabs1
+< object
+< $z
+< @:
+< $integer
+< @;
+< end
+< @;
+< $tabs2
+< @=
+< abstract
+< object
+< $b
+< @:
+< $boolean
+< @;
+< end
+< @;
+< var
+< $p1
+< @:
+< $tabs1
+< @;
+< begin
+< $p1
+< @:=
+< $new
+< @(
+< $tconc11
+< @)
+< @;
+< $writeln
+< @(
+< 'Got here!'
+< @)
+< @;
+< while
+< $true
+< do
+< $writeln
+< @(
+< 'Hello World'
+< @)
+< @;
+< while
+< $false
+< do
+< $writeln
+< @(
+< 'Not more?'
+< @)
+< @;
+< $writeln
+< @(
+< 'More?'
+< @)
+< @;
+< end
+< @.
+< EOF
+< EOF
+
+

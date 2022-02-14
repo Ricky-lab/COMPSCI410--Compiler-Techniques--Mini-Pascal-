@@ -1,0 +1,29 @@
+scanids.err:
+1c1
+< line 3: Unexpected character: '\u000a' (code = 10 = 012 = \u000a)
+---
+> line 2: Unexpected character: '_' (code = 95 = 137 = \u005f)
+3c3
+< ^
+---
+> -^
+4a5,16
+> line 3: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> x_
+> -^
+> resetting to scan a new token
+> line 4: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> X_
+> -^
+> resetting to scan a new token
+> line 6: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> X_
+> -^
+> resetting to scan a new token
+8a21,24
+> line 7: Unexpected character: '_' (code = 95 = 137 = \u005f)
+> x_
+> -^
+> resetting to scan a new token
+
+
