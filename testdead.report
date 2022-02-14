@@ -1,24 +1,24 @@
 testdead.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: integer;
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,4
+> line 13: Unexpected character: '!' (code = 33 = 041 = \u0021)
+>    writeln('Got here!
+> --------------------^
+> resetting to scan a new token
 
 
 testdead.token:
-2,4c2
+2,3c2,3
 < $test
 < @;
-< type
 ---
-> $test;type
-11,87d8
+> $test;
+> 
+6,7c6
+< @=
+< abstract
+---
+> $= abstract
+11,17c10,12
 < $integer
 < @;
 < end
@@ -26,9 +26,11 @@ testdead.token:
 < $tconc11
 < @=
 < $tabs1
-< object
-< $y
-< @:
+---
+> $integer; end; 
+> $(* *tconc11
+> $= tabs1
+21,27c16,18
 < $integer
 < @;
 < end
@@ -36,9 +38,11 @@ testdead.token:
 < $tconc12
 < @=
 < $tabs1
-< object
-< $z
-< @:
+---
+> $integer; end; 
+> $(* *tconc12
+> $= tabs1
+31,37c22,24
 < $integer
 < @;
 < end
@@ -46,20 +50,26 @@ testdead.token:
 < $tabs2
 < @=
 < abstract
-< object
-< $b
-< @:
+---
+> $integer; end; 
+> $(* *tabs2
+> $= abstract
+41,45c28,29
 < $boolean
 < @;
 < end
 < @;
 < var
-< $p1
-< @:
+---
+> $boolean; end; 
+> $(* *var
+48,49c32,33
 < $tabs1
 < @;
-< begin
-< $p1
+---
+> $tabs1;
+> 
+52,78c36,38
 < @:=
 < $new
 < @(
@@ -87,14 +97,27 @@ testdead.token:
 < 'Not more?'
 < @)
 < @;
-< $writeln
+---
+> $:= new
+> $(conc11);
+> 
+80,85c40,49
 < @(
 < 'More?'
 < @)
 < @;
 < end
 < @.
-< EOF
-< EOF
+---
+> $(got
+> $here
+> '');
+>    while true do
+>       writeln('Hello World');
+>    while false do
+>       writeln('Not more?');
+>    writeln('More?');
+> end.
+> '
 
 

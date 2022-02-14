@@ -1,53 +1,45 @@
-gcd.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: x,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
 gcd.token:
-2,54c2
+2,3c2,3
 < $gcd
 < @;
-< var
-< $x
+---
+> $gcd;
+> 
+6,7c6
 < @,
 < $y
-< @:
+---
+> $, y
+9,10c8,9
 < $integer
 < @;
-< begin
-< $readln
+---
+> $integer;
+> 
+13,18c12,13
 < @(
 < $x
 < @,
 < $y
 < @)
 < @;
-< while
-< $x
+---
+> $(, y);
+> 
+21,22c16
 < @<>
 < $y
-< do
-< begin
-< if
-< $x
-< @>
-< $y
-< then
-< $x
+---
+> $<> y
+31,34c25,26
 < @:=
 < $x
 < @-
 < $y
-< else
-< $y
+---
+> $:= x
+> $- y
+37,43c29,33
 < @:=
 < $y
 < @-
@@ -55,7 +47,13 @@ gcd.token:
 < @;
 < end
 < @;
-< $writeln
+---
+> $:= y
+> $- x;
+> 
+> $end;
+> 
+45,52c35,38
 < @(
 < 'GCD = '
 < @,
@@ -64,10 +62,11 @@ gcd.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
 ---
-> $gcd;var
+> $(gcd
+> '= ', x);
+> END.
+> '
 
 
 proctest.err:
@@ -75,7 +74,7 @@ proctest.err:
 > Exception occurred:
 > java.lang.IllegalStateException: Operator was not found in the operator table: (:
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -84,26 +83,34 @@ proctest.err:
 
 
 proctest.token:
-2,4c2
+2,3c2,3
 < $procfunctest
 < @;
-< type
 ---
-> $procfunctest;type
-10,17c8,10
+> $procfunctest;
+> 
+6,10c6,8
+< @=
+< #1
+< @..
+< #10
 < @;
-< procedure
+---
+> $= 1
+> $.. 10;
+> 
+12,13c10
 < $p0
 < @;
-< begin
+---
+> $p0;
+15,16c12,13
 < end
 < @;
-< procedure
 ---
-> $;procedure
-> $p0;begin
-> $end;procedure
-19,452d11
+> $end;
+> 
+19,452d15
 < @(
 < $x
 < @:
@@ -541,7 +548,7 @@ proctest.token:
 
 
 scangood.err:
-0a1,161
+0a1,132
 > line 7: Unexpected character: '*' (code = 42 = 052 = \u002a)
 > { some more challenging ones **
 > ------------------------------^
@@ -674,35 +681,6 @@ scangood.err:
 > 2#1000_0001 2_000_000 1_2_3_
 > ---------------------------^
 > resetting to scan a new token
-> line 33: Unexpected character: '/' (code = 47 = 057 = \u002f)
-> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-./
-> ------------------------------------------------------------------------^
-> resetting to scan a new token
-> line 33: Unexpected character: '"' (code = 34 = 042 = \u0022)
-> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-./:"
-> --------------------------------------------------------------------------^
-> resetting to scan a new token
-> line 38: Unexpected character: '[' (code = 91 = 133 = \u005b)
-> +-*.:==<><<=>>=,;:..()[
-> ----------------------^
-> resetting to scan a new token
-> line 38: Unexpected character: ']' (code = 93 = 135 = \u005d)
-> +-*.:==<><<=>>=,;:..()[]
-> -----------------------^
-> resetting to scan a new token
-> line 38: Unexpected character: '^' (code = 94 = 136 = \u005e)
-> +-*.:==<><<=>>=,;:..()[]^
-> ------------------------^
-> resetting to scan a new token
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: a,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
 
 
 scangood.token:
@@ -729,7 +707,7 @@ scangood.token:
 > $c
 63a69
 > #10
-65,79c71,97
+65,97c71,80
 < #9
 < #63
 < #48879
@@ -745,6 +723,24 @@ scangood.token:
 < @-
 < @*
 < @.
+< @:=
+< @=
+< @<>
+< @<
+< @<=
+< @>
+< @>=
+< @,
+< @;
+< @:
+< @..
+< @(
+< @)
+< @[
+< @]
+< @^
+< $x
+< $w
 ---
 > #2
 > #1001
@@ -756,30 +752,8 @@ scangood.token:
 > $zyx
 > #2
 > #1000
-> #1
-> #2
-> #0
-> #0
-> #1
-> #2
-> #3
-> #4
-> $'Hello, COINS 610'
-> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-.
-> @:
-> $'
-> ''' umatched ''quote'' '
-> 'test'' nested'' string'
-> 
-> { Arithmetic, logical ops  and others}
-> +-*.
-91,95d108
-< @(
-< @)
-< @[
-< @]
-< @^
-100,119c113
+99,117c82,111
+< program
 < $scantest
 < @;
 < var
@@ -798,10 +772,37 @@ scangood.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
 ---
-> $scantest;var
+> #2
+> #0
+> #0
+> #1
+> #2
+> #3
+> #4
+> ''Hello, COINS 610'
+> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-./:"'
+> ''' umatched ''quote'' '
+> 'test'' nested'' string'
+> 
+> { Arithmetic, logical ops  and others}
+> +-*.:==<><<=>>=,;:..()[]^
+> 
+> { whitespace test: before the identifiers and numbers are unprintable
+>  characters }
+> 	x
+> w
+>  1
+> 
+> { a simple pascal subset program here! }
+> 
+> program scantest;
+> { simple variable declaration }
+> VAR a,b : INTEGER;
+> BEGIN
+>   a := 3000 + b;
+> END.
+> '
 
 
 scanids.err:
@@ -1036,11 +1037,12 @@ scanints.token:
 
 
 scanmin.err:
-0a1,9
+0a1,10
 > Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: a,
+> java.lang.IllegalStateException: Operator was not found in the operator table: b;
+> end.
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -1049,35 +1051,53 @@ scanmin.err:
 
 
 scanmin.token:
-62,64c62
+51,63c51,54
+< @:=
+< @=
+< @<>
+< @<
+< @<=
+< @>
+< @>=
+< @,
+< @;
+< @:
+< @..
 < @(
 < @)
-< $x
 ---
-> $(x
-68,87c66
+> $:==
+> $<><
+> $<=>
+> $>=,;:..()
+68,69c59,60
 < $scantest
 < @;
-< var
-< $a
+---
+> $scantest;
+> 
+72,73c63
 < @,
 < $b
-< @:
+---
+> $,b
+75,76c65
 < $integer
 < @;
-< begin
-< $a
+---
+> $integer;
+79,80c68
 < @:=
 < #3000
-< and
+---
+> $:= 3000
+82,87d69
 < $b
 < @;
 < end
 < @.
 < EOF
 < EOF
----
-> $scantest;var
 
 
 scanstringnl.err:
@@ -1103,53 +1123,57 @@ scanstringnl.token:
 > '
 
 
-testbranch.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: x,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
 testbranch.token:
-2,200c2,3
+2,3c2,3
 < $testbranch
 < @;
-< procedure
+---
+> $testbranch;
+> 
+5,6c5
 < $reached
 < @;
-< var
-< $x
+---
+> $reached;
+9,10c8
 < @,
 < $y
-< @:
+---
+> $, y
+12,13c10
 < $integer
 < @;
-< begin
-< $x
+---
+> $integer;
+16,18c13,14
 < @:=
 < #1
 < @;
-< $y
+---
+> $:= 1;
+> 
+20,24c16,18
 < @:=
 < #2
 < @-
 < $x
 < @;
-< if
-< $x
+---
+> $:= 2
+> $- x;
+> 
+27,28c21
 < @<>
 < $y
-< then
-< begin
+---
+> $<> y
+31,32c24,25
 < $unreached
 < @;
-< $write
+---
+> $unreached;
+> 
+34,198c27,59
 < @(
 < 'bar'
 < @)
@@ -1315,34 +1339,63 @@ testbranch.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
 ---
-> $testbranch;procedure
-> $reached;var
+> '(bar');
+>    END;
+>    WRITELN ('foo');
+> END; { reached }
+> 
+> PROCEDURE unreached;
+> BEGIN
+> END; { unreached }
+> 
+> PROCEDURE branchingForms;
+> VAR
+>    x, y, z, a, b, c : integer;
+>    bb               : boolean;
+> BEGIN
+>    IF (x < y) AND (y < z) THEN bb := true;
+>    WHILE (a <> b) OR (z = 0) DO x := x + 1;
+>    REPEAT z := z + 2; UNTIL NOT ((a = b) OR (y <> z) OR bb);
+> END;
+> 
+> VAR
+>    z: integer;
+> 
+> BEGIN
+>    z := 0;
+>    reached;
+>    IF z <> 0
+>       THEN IF z <> 1 THEN z := 2 ELSE z := 3
+>       ELSE IF z <> 4 THEN z := 5 ELSE z := 6;
+>    WHILE FALSE DO
+>       z := z + 1;
+>    z := z + 100;
+> END.
+> '
 
 
 testdead.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: integer;
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,4
+> line 13: Unexpected character: '!' (code = 33 = 041 = \u0021)
+>    writeln('Got here!
+> --------------------^
+> resetting to scan a new token
 
 
 testdead.token:
-2,4c2
+2,3c2,3
 < $test
 < @;
-< type
 ---
-> $test;type
-11,87d8
+> $test;
+> 
+6,7c6
+< @=
+< abstract
+---
+> $= abstract
+11,17c10,12
 < $integer
 < @;
 < end
@@ -1350,9 +1403,11 @@ testdead.token:
 < $tconc11
 < @=
 < $tabs1
-< object
-< $y
-< @:
+---
+> $integer; end; 
+> $(* *tconc11
+> $= tabs1
+21,27c16,18
 < $integer
 < @;
 < end
@@ -1360,9 +1415,11 @@ testdead.token:
 < $tconc12
 < @=
 < $tabs1
-< object
-< $z
-< @:
+---
+> $integer; end; 
+> $(* *tconc12
+> $= tabs1
+31,37c22,24
 < $integer
 < @;
 < end
@@ -1370,20 +1427,26 @@ testdead.token:
 < $tabs2
 < @=
 < abstract
-< object
-< $b
-< @:
+---
+> $integer; end; 
+> $(* *tabs2
+> $= abstract
+41,45c28,29
 < $boolean
 < @;
 < end
 < @;
 < var
-< $p1
-< @:
+---
+> $boolean; end; 
+> $(* *var
+48,49c32,33
 < $tabs1
 < @;
-< begin
-< $p1
+---
+> $tabs1;
+> 
+52,78c36,38
 < @:=
 < $new
 < @(
@@ -1411,23 +1474,37 @@ testdead.token:
 < 'Not more?'
 < @)
 < @;
-< $writeln
+---
+> $:= new
+> $(conc11);
+> 
+80,85c40,49
 < @(
 < 'More?'
 < @)
 < @;
 < end
 < @.
-< EOF
-< EOF
+---
+> $(got
+> $here
+> '');
+>    while true do
+>       writeln('Hello World');
+>    while false do
+>       writeln('Not more?');
+>    writeln('More?');
+> end.
+> '
 
 
 testfor.err:
-0a1,9
+0a1,10
 > Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: integer;m,
+> java.lang.IllegalStateException: Operator was not found in the operator table: + 2;
+> end.
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -1436,96 +1513,114 @@ testfor.err:
 
 
 testfor.token:
-2,4c2
+2,3c2
 < $testfor
 < @;
-< var
 ---
-> $testfor;var
-7,98d4
+> $testfor;
+7,8c6,7
 < $integer
 < @;
-< $m
+---
+> $integer;
+> 
+10,11c9
 < @,
 < $n
-< @:
-< #1
+---
+> $, n
+14,16c12,13
 < @..
 < #10
 < @;
-< $x
-< @:
+---
+> $.. 10;
+> 
+19,20c16
 < $integer
 < @;
-< begin
-< $x
+---
+> $integer;
+23,25c19,20
 < @:=
 < #0
 < @;
-< for
-< $i
+---
+> $:= 0;
+> 
+28,29c23
 < @:=
 < #1
-< to
-< #10
-< do
-< $x
+---
+> $:= 1
+34,38c28,30
 < @:=
 < $x
 < @+
 < $i
 < @;
-< $x
+---
+> $:= x
+> $+ i;
+> 
+40,42c32,33
 < @:=
 < #0
 < @;
-< for
-< $n
+---
+> $:= 0;
+> 
+45,46c36
 < @:=
 < #1
-< to
-< #10
-< do
-< $x
+---
+> $:= 1
+51,55c41,43
 < @:=
 < $x
 < @+
 < #1
 < @;
-< for
-< $n
+---
+> $:= x
+> $+ 1;
+> 
+58,59c46
 < @:=
 < #1
-< to
-< $m
-< do
-< $x
+---
+> $:= 1
+64,68c51,53
 < @:=
 < $x
 < @+
 < #1
 < @;
-< for
-< $n
+---
+> $:= x
+> $+ 1;
+> 
+71,72c56
 < @:=
 < $m
-< downto
-< $m
-< do
-< $x
+---
+> $:= m
+77,81c61,63
 < @:=
 < $x
 < @-
 < #1
 < @;
-< for
-< $n
+---
+> $:= x
+> $- 1;
+> 
+84,85c66
 < @:=
 < $i
-< to
-< $i
-< do
-< $x
+---
+> $:= i
+90,98c71
 < @:=
 < $x
 < @+
@@ -1535,14 +1630,17 @@ testfor.token:
 < @.
 < EOF
 < EOF
+---
+> $:= x
 
 
 testmin.err:
-0a1,9
+0a1,10
 > Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: boolean;w1,
+> java.lang.IllegalStateException: Operator was not found in the operator table: end;
+> end.
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -1551,60 +1649,79 @@ testmin.err:
 
 
 testmin.token:
-2,4c2
+2,3c2,3
 < $test
 < @;
-< const
 ---
-> $test;const
-7,9c5
+> $test;
+> 
+6,8c6,7
+< @=
 < $true
 < @;
-< var
 ---
-> $true;var
-12,61d7
+> $=true;
+> 
+12,13c11,12
 < $boolean
 < @;
-< $w1
+---
+> $boolean;
+> 
+15,18c14,15
 < @,
 < $w2
 < @,
 < $w3
-< @:
+---
+> $,w2
+> $,w3
+20,21c17
 < $boolean
 < @;
-< begin
-< $b
+---
+> $boolean;
+24,26c20
 < @:=
 < $false
 < @;
-< while
-< $b
+---
+> $:=false; 
+29,30c23
 < @=
 < $n
-< do
-< begin
-< $w1
+---
+> $=n
+34,35c27
 < @:=
 < $w1
-< and
+---
+> $:=w1
+37,38c29,30
 < $true
 < @;
-< $w2
+---
+> $true;
+> 
+40,41c32
 < @:=
 < $w2
-< or
+---
+> $:=w2
+43,48c34,35
 < $false
 < @;
 < $w3
 < @:=
 < not
 < @(
-< $w3
-< or
-< $w2
-< and
+---
+> $false;
+> 
+49a37,38
+> $:=Not
+> #3
+53,61c42,43
 < $w1
 < @)
 < @;
@@ -1614,40 +1731,31 @@ testmin.token:
 < @.
 < EOF
 < EOF
-
-
-testmisc2.err:
-0a1,13
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: 'string constant';
->   c2 = 100;
+---
+> $w1);
 > 
-> type
->   t1 = 100..
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
 
 
 testmisc2.token:
-2,4c2
+2,3c2,3
 < $bigtest
 < @;
-< const
 ---
-> $bigtest;const
-7,789d4
+> $bigtest;
+> 
+6,12c6,8
+< @=
 < 'string constant'
 < @;
 < $c2
 < @=
 < #100
 < @;
-< type
+---
+> '= 'string constant';
+>   c2 = 100;
+> 
+14,111c10,25
 < $t1
 < @=
 < #100
@@ -1746,7 +1854,24 @@ testmisc2.token:
 < @;
 < end
 < @;
-< const
+---
+>   t1 = 100..200;
+>   t2 = 'string1'..'string2';
+> 
+> var
+>   v1, v2 : array[10..20,20..30,30..40] of integer;
+>   v3,v4 : array[10..20] of array[20..30,30..40] of integer;
+>   v5 : array[10..20] of array [20..30] of array[30..40] of integer;
+> 
+> procedure p1;
+>   begin
+>   end;
+> 
+> function f1 : integer;
+>   begin;
+>   end;
+> 
+113,203c27,41
 < $c1
 < @=
 < @+
@@ -1838,7 +1963,23 @@ testmisc2.token:
 < @;
 < end
 < @;
-< type
+---
+>   c1 = +100;
+>   c2 = -c1;
+>   c3 = +100;
+>   c4 = -c3;
+> 
+> var
+>   a, b, c, d, e, f, g, h, i : 
+>     array[1..100] of 
+>       record
+>         a,b : array[50..60] of integer;
+>         c,d,e,f : array[100..110] of array[5..10,80..90] of
+>           record
+>           end;
+>       end;
+> 
+205,245c43,48
 < $ptr
 < @=
 < @^
@@ -1880,7 +2021,14 @@ testmisc2.token:
 < @:
 < $sometype
 < @;
-< type
+---
+>   ptr = ^sometype;
+> 
+> function f1(a:integer;
+>             var a,b,c:integer;
+>             d,e,f:integer;
+>             var g,h,i:integer):sometype;
+247,302c50,51
 < $a
 < @=
 < record
@@ -1937,7 +2085,10 @@ testmisc2.token:
 < @^
 < $integer
 < @;
-< const
+---
+>     a=record a:integer;b:integer;c:integer;end;
+>     b=record a:integer;b:integer;c:integer end;
+304,343c53,54
 < $c2
 < @=
 < #30000
@@ -1978,10 +2129,19 @@ testmisc2.token:
 < $integer
 < @)
 < @;
-< begin
+---
+>     constant = 1000;
+>   function infunc:type1;
+345,346c56,60
 < end
 < @;
-< begin
+---
+>     end;
+>   var x,y,z:^integer;
+>   const c2 = 30000; c4 = -2; c5 = 'this is a test';
+>   procedure inproc( var a:integer; var b:integer; c:integer;
+>              d:integer; var e:integer );
+348,395c62
 < end
 < @;
 < type
@@ -2030,10 +2190,15 @@ testmisc2.token:
 < procedure
 < $foo
 < @;
-< begin
+---
+>     end;
+397,398c64,65
 < end
 < @;
-< type
+---
+>   end;
+> 
+400,497c67,98
 < $a
 < @=
 < $integer
@@ -2132,11 +2297,46 @@ testmisc2.token:
 < $g
 < @:=
 < $h
-< else
+---
+>   x = record
+>         y: record
+>           z : record
+>             a: array [1..2,3..4,5..6,7..8,9..10] of integer;
+>           end;
+>         end;
+>       end;
+> 
+> procedure foo;
+>   begin
+>   end;
+> 
+> type a = integer;
+> 
+> var 
+>   a : integer;
+> 
+> function func1
+>   (var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z:type1):type2;
+>   begin
+>   end;
+> 
+> procedure proc1;
+>   begin
+>   end;
+> 
+> begin
+> 
+>   if a = b then
+>     if c = d then
+>       if e = f then
+>         g := h
+499,501c100
 < $g
 < @:=
 < #2
-< else
+---
+>         g := 2
+503,529c102,105
 < $g
 < @:=
 < #3
@@ -2164,11 +2364,17 @@ testmisc2.token:
 < #12
 < @)
 < do
-< begin
+---
+>       g := 3;
+> 
+>   a := 0;
+>   while (a <= 100) or (b > 20) or (g = 12) do
+531,532c107
 < end
 < @;
-< repeat
-< begin
+---
+>     end;
+535,787c110,159
 < end
 < @;
 < until
@@ -2422,133 +2628,211 @@ testmisc2.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
-
-
-testobject.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: (elf,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+---
+>     end;
+>   until (a <= 100) or (b > 20) or (g = 12);
+> 
+>   A := 10;
+>   B := 20;
+>   C := A * B;
+>   (* C := nil; *)
+>   A := A + 10 * B - C;
+>   A := - A + 10 * B - C;
+> 
+>   A := 0;
+>   B := 2;
+>   REPEAT
+>     A := A + 1;
+>     B := B * 2;
+>   UNTIL A = 10;
+> 
+>   FOR A := (10 + 20) TO (100 - 10) DO
+>     BEGIN
+>     B := B + 1;
+>     C := C + 2;
+>     END;
+>   
+>   FOR A := (10 + 20) DOWNTO (100 - 10) DO
+>     BEGIN
+>     B := B + 1;
+>     C := C + 2;
+>     END;
+>  
+>   CASE A OF
+>     1,2,3: B := 10;
+>     4,5,6: B := 20
+>   END;
+> 
+>   CASE A OF
+>     1,2,3: B := 10;
+>     4,5,6: B := 20;
+>   END;
+> 
+>   A := A.B.C.D;
+>   A := A.B.C.D^;
+>   A := A;
+> 
+>   B := A( 10, A + C, 'this is a test' );
+> 
+>   A := B[1];
+>   A := B[1,2,3,4,5];
+>  
+> end.
+> '
 
 
 testobject.token:
-2,4c2
+2,3c2,3
 < $testobject
 < @;
-< type
 ---
-> $testobject;type
-12,13c10
+> $testobject;
+> 
+6,7c6
+< @=
+< abstract
+---
+> $= abstract
+12,13c11
 < @(
 < $self
 ---
 > $(elf
-15,20c12
+15,19c13,16
 < $anyobject
 < @)
 < @;
 < end
 < @;
+---
+> $anyobject);
+> 
+> $end;
+> 
+21,25c18,20
+< @=
+< #1
+< @..
+< #12
+< @;
+---
+> $= 1
+> $.. 12;
+> 
+27,31c22,24
+< @=
+< #1
+< @..
+< #31
+< @;
+---
+> $= 1
+> $.. 31;
+> 
+33,34c26
+< @=
+< $anyobject
+---
+> $= anyobject
+38,39c30,31
 < $month
----
-> $anyobject);end;month
-25,26c17
 < @;
-< $dayofmonth
 ---
-> $;dayofmonth
-31,32c22
-< @;
-< $date
----
-> $;date
-38,40c28
-< $month
-< @;
-< $d
----
-> $month;d
-42,44c30
+> $month;
+> 
+42,43c34,35
 < $dayofmonth
 < @;
-< $y
 ---
-> $dayofmonth;y
-46,48c32
+> $dayofmonth;
+> 
+46,47c38,39
 < $integer
 < @;
-< methods
 ---
-> $integer;methods
-51,52c35
+> $integer;
+> 
+51,52c43
 < @(
 < $self
 ---
 > $(elf
-54,55c37
+54,55c45
 < $date
 < @)
 ---
 > $date)
-59,61c41
+58,60c48,49
+< @=
 < $datedayofyear
 < @;
-< procedure
 ---
-> $datedayofyear;procedure
-63,546c43
+> $= datedayofyear;
+> 
+63,64c52
 < @(
 < $self
-< @:
+---
+> $(elf
+66,70c54,56
 < $date
 < @)
 < @=
 < $dateincrement
 < @;
-< function
-< $equalsdate
+---
+> $date)
+> $= dateincrement;
+> 
+73,76c59,60
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+78,79c62
 < $date
 < @)
-< @:
-< $boolean
+---
+> $date)
+82,84c65,66
 < @=
 < $dateequalsdate
 < @;
-< overrides
-< $print
+---
+> $= dateequalsdate;
+> 
+87,91c69,71
 < @=
 < $dateprint
 < @;
 < end
 < @;
-< var
-< $d
-< @:
+---
+> $= dateprint;
+> 
+> $end;
+95,96c75,76
 < $date
 < @;
-< $a
-< @:
+---
+> $date;
+> 
+99,100c79,80
 < $anyobject
 < @;
-< $r
-< @:
+---
+> $anyobject;
+> 
+103,104c83,84
 < $root
 < @;
-< procedure
-< $dateprint
+---
+> $root;
+> 
+107,546c87
 < @(
 < $self
 < @:
@@ -2991,7 +3275,7 @@ testobject.token:
 < $ret
 ---
 > $(elf
-548,559c45
+548,603c89,90
 < $boolean
 < @;
 < begin
@@ -3004,9 +3288,7 @@ testobject.token:
 < $self
 < @.
 < $y
----
-> $date)
-561,646c47
+< @=
 < $other
 < @.
 < $y
@@ -3050,7 +3332,10 @@ testobject.token:
 < $ret
 < end
 < @;
-< begin
+---
+> $date);
+> 
+605,946d91
 < $d
 < @:=
 < $mkdate
@@ -3093,9 +3378,7 @@ testobject.token:
 < @(
 < $d
 < @.
----
-> $dateincrement;function
-648,955d48
+< $equalsdate
 < @(
 < $mkdate
 < @(
@@ -3395,23 +3678,190 @@ testobject.token:
 < $date
 < @)
 < @;
-< $writeln
+948,953c93,259
 < @(
 < 'should not get here'
 < @)
 < @;
 < end
 < @.
-< EOF
-< EOF
+---
+> $(entered
+> 'dateprint');
+>     write(self.m);
+>     write('-');
+>     write(self.d);
+>     write('-');
+>     write(self.y);
+> END;
+> 
+> FUNCTION mkDate (m: Month; d: DayOfMonth; y: INTEGER): Date;
+>     VAR
+>         ret: Date;
+>     BEGIN
+>     writeln('Entered mkDate');
+>     
+>     ret := NEW(Date);
+>     ret.m := m;
+>     ret.d := d;
+>     ret.y := y;
+> 
+>     mkDate := ret;
+> END;
+> 
+> FUNCTION isLeapYear (y: INTEGER): BOOLEAN;
+>     VAR
+>         remainder: INTEGER;
+>         ret: BOOLEAN;
+>     BEGIN
+>     writeln('Entered isLeapYear');
+> 
+>     remainder := y MOD 4;
+>     IF remainder <> 0 THEN
+>         ret := false
+>     ELSE BEGIN
+>         remainder := y MOD 400;
+>         IF 0 = remainder THEN
+>             ret := true
+>         ELSE BEGIN
+>             remainder := y MOD 100;
+>             IF 0 = remainder THEN
+>                 ret := false
+>             ELSE
+>                 ret := true
+>         END
+>     END;
+> 
+>     isLeapYear := ret
+> END;
+> 
+> FUNCTION daysInMonth (m: Month; y: INTEGER): DayOfMonth;
+>     VAR
+>         ret: INTEGER;
+>     BEGIN
+>     writeln('Entered daysInMonth');
+> 
+>     CASE m OF
+>         { Thirty days hath September... }
+>         9, 4, 6, 11:
+>             ret := 30;
+>         2:
+>             IF isLeapYear(y) THEN
+>                 ret := 29
+>             ELSE
+>                 ret := 28;
+>         1, 3, 5, 7, 8, 10, 12:
+>             ret := 31
+>     END;
+>     daysInMonth := ret
+> END;
+> 
+> FUNCTION dateDayOfYear (self: Date): INTEGER;
+>     VAR
+>         m, ret: INTEGER;
+>     BEGIN
+>     writeln('Entered dateDayOfYear');
+> 
+>     m := self.m - 1;
+>     ret := self.d;
+> 
+>     FOR m := m DOWNTO 1 DO
+>         ret := ret + daysInMonth(self.m, self.y);
+> 
+>     dateDayOfYear := ret
+> END;
+> 
+> PROCEDURE dateIncrement (self: Date);
+>     VAR
+>         dim: DayOfMonth;
+>     BEGIN
+>     writeln('Entered dateIncrement');
+> 
+>     dim := daysInMonth(self.m, self.y);
+>     IF self.d = dim THEN BEGIN
+>         self.d := 1;
+>         IF self.m = 12 THEN BEGIN
+>             { New Years Eve... }
+>             self.y := self.y + 1;
+>             self.m := 1
+>             END
+>         ELSE
+>             self.m := self.m + 1;
+>         END
+>     ELSE
+>         self.d := self.d + 1
+> END;
+> 
+> FUNCTION dateEqualsDate (self, other: Date): BOOLEAN;
+>     VAR
+>         ret: BOOLEAN;
+>     BEGIN
+>     writeln('Entered dateEqualsDate');
+>     
+>     IF self.y = other.y THEN
+>         IF self.m = other.m THEN
+>             IF self.d = other.d THEN
+>                 ret := true
+>             ELSE
+>                 ret := false
+>         ELSE
+>             ret := false
+>     ELSE
+>         ret := false;
+>     dateEqualsDate := ret
+> END;
+> 
+> BEGIN
+>     d := mkDate(2, 9, 1985);
+>     d.increment;
+>     d.y := d.y + 10;
+>     d.print;
+>     writeln;
+>     writeln(d.dayOfYear);
+>     writeln(d.equalsDate(mkDate(2, 10, 1995)));
+>     a := d;
+>     d := NARROW(a, Date);
+>     write('ISTYPE ', 1);
+>     IF ISTYPE(d  , Root     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 2);
+>     IF ISTYPE(d  , Date     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 3);
+>     IF ISTYPE(d  , AnyObject) THEN writeln(' ok') ELSE writeln(' bad');
+> 
+> 
+>     write('ISTYPE ', 4);
+>     IF ISTYPE(NIL, ROOT     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 5);
+>     IF ISTYPE(NIL, Date     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 6);
+>     IF ISTYPE(NIL, AnyObject) THEN writeln(' ok') ELSE writeln(' bad');
+> 
+>     a := NARROW(NIL, AnyObject);
+>     writeln('should get here: NARROW(NIL, AnyObject)');
+>     a := NARROW(NIL, Date);
+>     writeln('should get here: NARROW(NIL, Date)');
+>     r := NEW(ROOT);
+> 
+>     write('ISTYPE ', 7);
+>     IF ISTYPE(r, ROOT     ) THEN writeln(' ok')  ELSE writeln(' bad');
+>     write('ISTYPE ', 8);
+>     IF ISTYPE(r, Date     ) THEN writeln(' bad') ELSE writeln(' ok');
+>     write('ISTYPE ', 9);
+>     IF ISTYPE(r, AnyObject) THEN writeln(' bad') ELSE writeln(' ok');
+>     writeln('got here, now should fail at NARROW(r, Date)');
+>     d := NARROW(r, Date);
+>     writeln('should not get here');
+> END.
+> '
 
 
 testobject2.err:
-0a1,9
+0a1,10
 > Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: integer;
+> java.lang.IllegalStateException: Operator was not found in the operator table: (bject3);
+> end.
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -3420,66 +3870,93 @@ testobject2.err:
 
 
 testobject2.token:
-2,4c2
+2,3c2,3
 < $testobject2
 < @;
-< type
 ---
-> $testobject2;type
-7,19c5
-< object
-< @;
-< $object2
+> $testobject2;
+> 
+6,8c6,7
 < @=
 < object
-< $a
-< @:
+< @;
+---
+> $= object;
+> 
+10,11c9
+< @=
+< object
+---
+> $= object
+14,18c12,14
 < $integer
 < @;
 < methods
 < end
 < @;
-< $object3
 ---
-> $object;object2
-24,70d9
+> $integer; methods
+> $end;
+> 
+20,21c16
+< @=
+< object
+---
+> $= object
+24,26c19
 < $integer
 < @;
 < overrides
-< $myprint
+---
+> $integer; overrides
+28,31c21,22
 < @=
 < $obj3print
 < end
 < @;
-< var
-< $o1
-< @:
+---
+> $= obj3print
+> $end;
+35,36c26,27
 < $object1
 < @;
-< $o2
-< @:
+---
+> $object1;
+> 
+39,40c30,31
 < $object2
 < @;
-< $o3
-< @:
+---
+> $object2;
+> 
+43,44c34
 < $object3
 < @;
-< begin
-< $o1
+---
+> $object3;
+47,52c37,39
 < @:=
 < $new
 < @(
 < $object1
 < @)
 < @;
-< $o2
+---
+> $:= new
+> $(bject1);
+> 
+54,59c41,43
 < @:=
 < $new
 < @(
 < $object2
 < @)
 < @;
-< $o3
+---
+> $:= new
+> $(bject2);
+> 
+61,70c45
 < @:=
 < $new
 < @(
@@ -3490,14 +3967,16 @@ testobject2.token:
 < @.
 < EOF
 < EOF
+---
+> $:= new
 
 
 testobject3.err:
 0a1,9
 > Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: object1;
+> java.lang.IllegalStateException: Operator was not found in the operator table: (elf.
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -3506,49 +3985,62 @@ testobject3.err:
 
 
 testobject3.token:
-2,4c2
+2,3c2,3
 < $testobject3
 < @;
-< type
 ---
-> $testobject3;type
-12,13c10
+> $testobject3;
+> 
+6,7c6
+< @=
+< $integer
+---
+> $= integer
+12,13c11
 < @(
 < $self
 ---
 > $(elf
-15,459d11
+15,17c13
 < $object1
 < @;
 < $x
-< @:
+---
+> $object1; x
+19,23c15,16
 < $integer
 < @)
 < @;
 < end
 < @;
-< $object2
+---
+> $integer); end;
+> 
+25,26c18
 < @=
 < $object3
-< object
-< overrides
-< $method
+---
+> $= object3
+30,33c22,24
 < @=
 < $object2method
 < end
 < @;
-< $object3
+---
+> $= object2method
+> $end;
+> 
+35,36c26
 < @=
 < object
-< $x
-< @:
-< $integer
-< methods
-< procedure
-< $method
+---
+> $= object
+43,44c33
 < @(
 < $self
-< @:
+---
+> $(elf
+46,52c35,39
 < $object3
 < @)
 < @=
@@ -3556,106 +4048,151 @@ testobject3.token:
 < @;
 < end
 < @;
-< $object4
+---
+> $object3)
+> $= object3method;
+> 
+> $end;
+> 
+54,55c41
 < @=
 < object
-< $x
-< @:
+---
+> $= object
+58,59c44,45
 < $integer
 < @;
-< methods
-< function
-< $multiply
+---
+> $integer;
+> 
+63,64c49
 < @(
 < $self
-< @:
+---
+> $(elf
+66,68c51
 < $object4
 < @;
 < $x
-< @:
+---
+> $object4; x
+70,71c53
 < $integer
 < @)
-< @:
+---
+> $integer)
+73,76c55,58
 < $object4
 < @;
 < end
 < @;
-< $object5
+---
+> $object4;
+> 
+> $end;
+> 
+78,79c60
 < @=
 < $object4
-< object
-< overrides
-< $multiply
+---
+> $= object4
+83,86c64,66
 < @=
 < $object5multiply
 < end
 < @;
-< $object6
+---
+> $= object5multiply
+> $end;
+> 
+88,89c68
 < @=
 < $object4
-< abstract
-< object
-< overrides
-< $multiply
+---
+> $= object4
+94,97c73,75
 < @=
 < $object6multiply
 < end
 < @;
-< $object7
+---
+> $= object6multiply
+> $end;
+> 
+99,100c77
 < @=
 < $object6
-< object
-< methods
-< function
-< $add
+---
+> $= object6
+105,106c82
 < @(
 < $self
-< @:
+---
+> $(elf
+108,110c84
 < $object7
 < @;
 < var
-< $x
-< @:
+---
+> $object7; var
+113,114c87
 < $integer
 < @)
-< @:
-< $object7
+---
+> $integer)
+117,121c90,92
 < @=
 < $object7add
 < @;
 < end
 < @;
-< var
-< $o1
-< @:
+---
+> $= object7add;
+> 
+> $end;
+125,126c96,97
 < $object1
 < @;
-< $o2
-< @:
+---
+> $object1;
+> 
+129,130c100,101
 < $object2
 < @;
-< $o3
-< @:
+---
+> $object2;
+> 
+133,134c104,105
 < $object3
 < @;
-< $o4
-< @:
+---
+> $object3;
+> 
+137,138c108,109
 < $object4
 < @;
-< $o5
-< @:
+---
+> $object4;
+> 
+141,142c112,113
 < $object5
 < @;
-< $o6
-< @:
+---
+> $object5;
+> 
+145,146c116,117
 < $object6
 < @;
-< $o7
-< @:
+---
+> $object6;
+> 
+149,150c120,121
 < $object7
 < @;
-< procedure
-< $object2method
+---
+> $object7;
+> 
+153,263c124
 < @(
 < $self
 < @:
@@ -3767,7 +4304,9 @@ testobject3.token:
 < $object7
 < @;
 < $x
-< @:
+---
+> $(elf
+265,297c126,127
 < $integer
 < @)
 < @:
@@ -3801,7 +4340,10 @@ testobject3.token:
 < $obj
 < end
 < @;
-< begin
+---
+> $object2);
+> 
+299,365d128
 < $o4
 < @:=
 < $new
@@ -3869,7 +4411,7 @@ testobject3.token:
 < $integer
 < @)
 < then
-< $writeln
+367,459d129
 < @;
 < if
 < $istype
@@ -3968,9 +4510,9 @@ testobject3.token:
 testobject4.err:
 0a1,9
 > Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: hasequals;
+> java.lang.IllegalStateException: Operator was not found in the operator table: (elf.
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -3979,268 +4521,417 @@ testobject4.err:
 
 
 testobject4.token:
-2,4c2
+2,3c2,3
 < $testobject4
 < @;
-< type
 ---
-> $testobject4;type
-12,13c10
+> $testobject4;
+> 
+6,7c6
+< @=
+< abstract
+---
+> $= abstract
+12,13c11
 < @(
 < $self
 ---
 > $(elf
-15,4618d11
+15,17c13
 < $hasequals
 < @;
 < $other
-< @:
+---
+> $hasequals; other
+19,20c15
 < $root
 < @)
-< @:
+---
+> $root)
+22,25c17,20
 < $boolean
 < @;
 < end
 < @;
-< $iterator
+---
+> $boolean;
+> 
+> $end;
+> 
+27,28c22
 < @=
 < abstract
-< object
-< methods
-< function
-< $next
+---
+> $= abstract
+33,34c27
 < @(
 < $self
-< @:
+---
+> $(elf
+36,37c29
 < $iterator
 < @)
-< @:
+---
+> $iterator)
+39,40c31,32
 < $root
 < @;
-< function
-< $hasnext
+---
+> $root;
+> 
+43,44c35
 < @(
 < $self
-< @:
+---
+> $(elf
+46,47c37
 < $iterator
 < @)
-< @:
+---
+> $iterator)
+49,50c39,40
 < $boolean
 < @;
-< procedure
-< $remove
+---
+> $boolean;
+> 
+53,54c43
 < @(
 < $self
-< @:
+---
+> $(elf
+56,60c45,48
 < $iterator
 < @)
 < @;
 < end
 < @;
-< $iterable
+---
+> $iterator);
+> 
+> $end;
+> 
+62,63c50
 < @=
 < abstract
-< object
-< methods
-< function
-< $getiterator
+---
+> $= abstract
+68,69c55
 < @(
 < $self
-< @:
+---
+> $(elf
+71,72c57
 < $iterable
 < @)
-< @:
+---
+> $iterable)
+74,77c59,62
 < $iterator
 < @;
 < end
 < @;
-< $collection
+---
+> $iterator;
+> 
+> $end;
+> 
+79,80c64
 < @=
 < $iterable
-< abstract
-< object
-< methods
+---
+> $= iterable
+84c68
 < function
-< $size
+---
+> $(* *function
+86,87c70
 < @(
 < $self
-< @:
+---
+> $(elf
+89,90c72
 < $collection
 < @)
-< @:
+---
+> $collection)
+92,93c74,75
 < $integer
 < @;
-< function
-< $isempty
+---
+> $integer;
+> 
+96,97c78
 < @(
 < $self
-< @:
+---
+> $(elf
+99,100c80
 < $collection
 < @)
-< @:
+---
+> $collection)
+102,104c82,84
 < $boolean
 < @;
 < function
-< $contains
+---
+> $boolean;
+> 
+> $(* *function
+106,107c86
 < @(
 < $self
-< @:
+---
+> $(elf
+109,111c88
 < $collection
 < @;
 < $o
-< @:
+---
+> $collection; o
+113,114c90
 < $hasequals
 < @)
-< @:
+---
+> $hasequals)
+116,117c92,93
 < $boolean
 < @;
-< function
-< $add
+---
+> $boolean;
+> 
+120,121c96
 < @(
 < $self
-< @:
+---
+> $(elf
+123,125c98
 < $collection
 < @;
 < $o
-< @:
+---
+> $collection; o
+127,128c100
 < $hasequals
 < @)
-< @:
+---
+> $hasequals)
+130,131c102,103
 < $boolean
 < @;
-< function
-< $remove
+---
+> $boolean;
+> 
+134,135c106
 < @(
 < $self
-< @:
+---
+> $(elf
+137,139c108
 < $collection
 < @;
 < $o
-< @:
+---
+> $collection; o
+141,142c110
 < $hasequals
 < @)
-< @:
+---
+> $hasequals)
+144,146c112,114
 < $boolean
 < @;
 < procedure
-< $clear
+---
+> $boolean;
+> 
+> $(* *procedure
+148,149c116
 < @(
 < $self
-< @:
+---
+> $(elf
+151,153c118,119
 < $collection
 < @)
 < @;
-< function
-< $addall
+---
+> $collection);
+> 
+156,159c122,123
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+161,162c125
 < $collection
 < @)
-< @:
+---
+> $collection)
+164,165c127,128
 < $boolean
 < @;
-< function
-< $containsall
+---
+> $boolean;
+> 
+168,171c131,132
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+173,174c134
 < $collection
 < @)
-< @:
+---
+> $collection)
+176,177c136,137
 < $boolean
 < @;
-< function
-< $equals
+---
+> $boolean;
+> 
+180,183c140,141
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+185,186c143
 < $collection
 < @)
-< @:
+---
+> $collection)
+188,189c145,146
 < $boolean
 < @;
-< function
-< $removeall
+---
+> $boolean;
+> 
+192,195c149,150
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+197,198c152
 < $collection
 < @)
-< @:
+---
+> $collection)
+200,201c154,155
 < $boolean
 < @;
-< function
-< $retainall
+---
+> $boolean;
+> 
+204,207c158,159
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+209,210c161
 < $collection
 < @)
-< @:
+---
+> $collection)
+212,215c163,166
 < $boolean
 < @;
 < end
 < @;
-< type
-< $abscoll
+---
+> $boolean;
+> 
+> $end;
+> 
+218,219c169
 < @=
 < $collection
-< abstract
-< object
-< overrides
-< $isempty
+---
+> $= collection
+224,226c174,175
 < @=
 < $acisempty
 < @;
-< $contains
+---
+> $= acisempty;
+> 
+228,230c177,178
 < @=
 < $accontains
 < @;
-< $clear
+---
+> $= accontains;
+> 
+232,234c180,181
 < @=
 < $acclear
 < @;
-< $addall
+---
+> $= acclear;
+> 
+236,238c183,184
 < @=
 < $acaddall
 < @;
-< $containsall
+---
+> $= acaddall;
+> 
+240,242c186,187
 < @=
 < $accontainsall
 < @;
-< $removeall
+---
+> $= accontainsall;
+> 
+244,246c189,190
 < @=
 < $acremoveall
 < @;
-< $retainall
+---
+> $= acremoveall;
+> 
+248,252c192,195
 < @=
 < $acretainall
 < @;
 < end
 < @;
-< function
-< $acisempty
+---
+> $= acretainall;
+> 
+> $end;
+> 
+255,256c198
 < @(
 < $self
-< @:
+---
+> $(elf
+258,259c200
 < $abscoll
 < @)
-< @:
+---
+> $abscoll)
+261,262c202
 < $boolean
 < @;
-< begin
-< $acisempty
+---
+> $boolean;
+265,4618c205
 < @:=
 < @(
 < $self
@@ -8595,6 +9286,8 @@ testobject4.token:
 < @.
 < EOF
 < EOF
+---
+> $:= 
 
 
 testprocdecl.err:
@@ -8602,7 +9295,7 @@ testprocdecl.err:
 > Exception occurred:
 > java.lang.IllegalStateException: Operator was not found in the operator table: (:
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -8611,19 +9304,18 @@ testprocdecl.err:
 
 
 testprocdecl.token:
-2,4c2
+2,3c2
 < $testprocdecl
 < @;
-< type
 ---
-> $testprocdecl;type
-7,9c5
+> $testprocdecl;
+6,8c5
+< @=
 < $integer
 < @;
-< procedure
 ---
-> $integer;procedure
-11,179d6
+> $= integer;
+11,179d7
 < @(
 < $a
 < @:
@@ -8795,40 +9487,28 @@ testprocdecl.token:
 < EOF
 
 
-testread.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: (,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
 testread.token:
-2,4c2
+2,3c2
 < $testread
 < @;
-< var
 ---
-> $testread;var
-7,9c5
+> $testread;
+7,8c6
 < $integer
 < @;
-< begin
 ---
-> $integer;begin
-11,27d6
+> $integer;
+11,16c9,10
 < @(
 < $x
 < @,
 < $x
 < @)
 < @;
-< $writeln
+---
+> $(, x);
+> 
+18,25c12,15
 < @(
 < 'x = '
 < @,
@@ -8837,7 +9517,10 @@ testread.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
+---
+> $(x
+> '= ', x);
+> END.
+> '
 
 

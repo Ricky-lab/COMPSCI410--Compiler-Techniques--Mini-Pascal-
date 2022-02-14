@@ -1,113 +1,155 @@
 testobject.token:
-2,4c2
+2,3c2,3
 < $testobject
 < @;
-< type
 ---
-> $testobject;type
-12,13c10
+> $testobject;
+> 
+6,7c6
+< @=
+< abstract
+---
+> $= abstract
+12,13c11
 < @(
 < $self
 ---
 > $(elf
-15,20c12
+15,19c13,16
 < $anyobject
 < @)
 < @;
 < end
 < @;
+---
+> $anyobject);
+> 
+> $end;
+> 
+21,25c18,20
+< @=
+< #1
+< @..
+< #12
+< @;
+---
+> $= 1
+> $.. 12;
+> 
+27,31c22,24
+< @=
+< #1
+< @..
+< #31
+< @;
+---
+> $= 1
+> $.. 31;
+> 
+33,34c26
+< @=
+< $anyobject
+---
+> $= anyobject
+38,39c30,31
 < $month
----
-> $anyobject);end;month
-25,26c17
 < @;
-< $dayofmonth
 ---
-> $;dayofmonth
-31,32c22
-< @;
-< $date
----
-> $;date
-38,40c28
-< $month
-< @;
-< $d
----
-> $month;d
-42,44c30
+> $month;
+> 
+42,43c34,35
 < $dayofmonth
 < @;
-< $y
 ---
-> $dayofmonth;y
-46,48c32
+> $dayofmonth;
+> 
+46,47c38,39
 < $integer
 < @;
-< methods
 ---
-> $integer;methods
-51,52c35
+> $integer;
+> 
+51,52c43
 < @(
 < $self
 ---
 > $(elf
-54,55c37
+54,55c45
 < $date
 < @)
 ---
 > $date)
-59,61c41
+58,60c48,49
+< @=
 < $datedayofyear
 < @;
-< procedure
 ---
-> $datedayofyear;procedure
-63,546c43
+> $= datedayofyear;
+> 
+63,64c52
 < @(
 < $self
-< @:
+---
+> $(elf
+66,70c54,56
 < $date
 < @)
 < @=
 < $dateincrement
 < @;
-< function
-< $equalsdate
+---
+> $date)
+> $= dateincrement;
+> 
+73,76c59,60
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+78,79c62
 < $date
 < @)
-< @:
-< $boolean
+---
+> $date)
+82,84c65,66
 < @=
 < $dateequalsdate
 < @;
-< overrides
-< $print
+---
+> $= dateequalsdate;
+> 
+87,91c69,71
 < @=
 < $dateprint
 < @;
 < end
 < @;
-< var
-< $d
-< @:
+---
+> $= dateprint;
+> 
+> $end;
+95,96c75,76
 < $date
 < @;
-< $a
-< @:
+---
+> $date;
+> 
+99,100c79,80
 < $anyobject
 < @;
-< $r
-< @:
+---
+> $anyobject;
+> 
+103,104c83,84
 < $root
 < @;
-< procedure
-< $dateprint
+---
+> $root;
+> 
+107,546c87
 < @(
 < $self
 < @:
@@ -550,7 +592,7 @@ testobject.token:
 < $ret
 ---
 > $(elf
-548,559c45
+548,603c89,90
 < $boolean
 < @;
 < begin
@@ -563,9 +605,7 @@ testobject.token:
 < $self
 < @.
 < $y
----
-> $date)
-561,646c47
+< @=
 < $other
 < @.
 < $y
@@ -609,7 +649,10 @@ testobject.token:
 < $ret
 < end
 < @;
-< begin
+---
+> $date);
+> 
+605,946d91
 < $d
 < @:=
 < $mkdate
@@ -652,9 +695,7 @@ testobject.token:
 < @(
 < $d
 < @.
----
-> $dateincrement;function
-648,955d48
+< $equalsdate
 < @(
 < $mkdate
 < @(
@@ -954,14 +995,180 @@ testobject.token:
 < $date
 < @)
 < @;
-< $writeln
+948,953c93,259
 < @(
 < 'should not get here'
 < @)
 < @;
 < end
 < @.
-< EOF
-< EOF
+---
+> $(entered
+> 'dateprint');
+>     write(self.m);
+>     write('-');
+>     write(self.d);
+>     write('-');
+>     write(self.y);
+> END;
+> 
+> FUNCTION mkDate (m: Month; d: DayOfMonth; y: INTEGER): Date;
+>     VAR
+>         ret: Date;
+>     BEGIN
+>     writeln('Entered mkDate');
+>     
+>     ret := NEW(Date);
+>     ret.m := m;
+>     ret.d := d;
+>     ret.y := y;
+> 
+>     mkDate := ret;
+> END;
+> 
+> FUNCTION isLeapYear (y: INTEGER): BOOLEAN;
+>     VAR
+>         remainder: INTEGER;
+>         ret: BOOLEAN;
+>     BEGIN
+>     writeln('Entered isLeapYear');
+> 
+>     remainder := y MOD 4;
+>     IF remainder <> 0 THEN
+>         ret := false
+>     ELSE BEGIN
+>         remainder := y MOD 400;
+>         IF 0 = remainder THEN
+>             ret := true
+>         ELSE BEGIN
+>             remainder := y MOD 100;
+>             IF 0 = remainder THEN
+>                 ret := false
+>             ELSE
+>                 ret := true
+>         END
+>     END;
+> 
+>     isLeapYear := ret
+> END;
+> 
+> FUNCTION daysInMonth (m: Month; y: INTEGER): DayOfMonth;
+>     VAR
+>         ret: INTEGER;
+>     BEGIN
+>     writeln('Entered daysInMonth');
+> 
+>     CASE m OF
+>         { Thirty days hath September... }
+>         9, 4, 6, 11:
+>             ret := 30;
+>         2:
+>             IF isLeapYear(y) THEN
+>                 ret := 29
+>             ELSE
+>                 ret := 28;
+>         1, 3, 5, 7, 8, 10, 12:
+>             ret := 31
+>     END;
+>     daysInMonth := ret
+> END;
+> 
+> FUNCTION dateDayOfYear (self: Date): INTEGER;
+>     VAR
+>         m, ret: INTEGER;
+>     BEGIN
+>     writeln('Entered dateDayOfYear');
+> 
+>     m := self.m - 1;
+>     ret := self.d;
+> 
+>     FOR m := m DOWNTO 1 DO
+>         ret := ret + daysInMonth(self.m, self.y);
+> 
+>     dateDayOfYear := ret
+> END;
+> 
+> PROCEDURE dateIncrement (self: Date);
+>     VAR
+>         dim: DayOfMonth;
+>     BEGIN
+>     writeln('Entered dateIncrement');
+> 
+>     dim := daysInMonth(self.m, self.y);
+>     IF self.d = dim THEN BEGIN
+>         self.d := 1;
+>         IF self.m = 12 THEN BEGIN
+>             { New Years Eve... }
+>             self.y := self.y + 1;
+>             self.m := 1
+>             END
+>         ELSE
+>             self.m := self.m + 1;
+>         END
+>     ELSE
+>         self.d := self.d + 1
+> END;
+> 
+> FUNCTION dateEqualsDate (self, other: Date): BOOLEAN;
+>     VAR
+>         ret: BOOLEAN;
+>     BEGIN
+>     writeln('Entered dateEqualsDate');
+>     
+>     IF self.y = other.y THEN
+>         IF self.m = other.m THEN
+>             IF self.d = other.d THEN
+>                 ret := true
+>             ELSE
+>                 ret := false
+>         ELSE
+>             ret := false
+>     ELSE
+>         ret := false;
+>     dateEqualsDate := ret
+> END;
+> 
+> BEGIN
+>     d := mkDate(2, 9, 1985);
+>     d.increment;
+>     d.y := d.y + 10;
+>     d.print;
+>     writeln;
+>     writeln(d.dayOfYear);
+>     writeln(d.equalsDate(mkDate(2, 10, 1995)));
+>     a := d;
+>     d := NARROW(a, Date);
+>     write('ISTYPE ', 1);
+>     IF ISTYPE(d  , Root     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 2);
+>     IF ISTYPE(d  , Date     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 3);
+>     IF ISTYPE(d  , AnyObject) THEN writeln(' ok') ELSE writeln(' bad');
+> 
+> 
+>     write('ISTYPE ', 4);
+>     IF ISTYPE(NIL, ROOT     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 5);
+>     IF ISTYPE(NIL, Date     ) THEN writeln(' ok') ELSE writeln(' bad');
+>     write('ISTYPE ', 6);
+>     IF ISTYPE(NIL, AnyObject) THEN writeln(' ok') ELSE writeln(' bad');
+> 
+>     a := NARROW(NIL, AnyObject);
+>     writeln('should get here: NARROW(NIL, AnyObject)');
+>     a := NARROW(NIL, Date);
+>     writeln('should get here: NARROW(NIL, Date)');
+>     r := NEW(ROOT);
+> 
+>     write('ISTYPE ', 7);
+>     IF ISTYPE(r, ROOT     ) THEN writeln(' ok')  ELSE writeln(' bad');
+>     write('ISTYPE ', 8);
+>     IF ISTYPE(r, Date     ) THEN writeln(' bad') ELSE writeln(' ok');
+>     write('ISTYPE ', 9);
+>     IF ISTYPE(r, AnyObject) THEN writeln(' bad') ELSE writeln(' ok');
+>     writeln('got here, now should fail at NARROW(r, Date)');
+>     d := NARROW(r, Date);
+>     writeln('should not get here');
+> END.
+> '
 
 

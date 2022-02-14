@@ -1,58 +1,77 @@
 testmin.token:
-2,4c2
+2,3c2,3
 < $test
 < @;
-< const
 ---
-> $test;const
-7,9c5
+> $test;
+> 
+6,8c6,7
+< @=
 < $true
 < @;
-< var
 ---
-> $true;var
-12,61d7
+> $=true;
+> 
+12,13c11,12
 < $boolean
 < @;
-< $w1
+---
+> $boolean;
+> 
+15,18c14,15
 < @,
 < $w2
 < @,
 < $w3
-< @:
+---
+> $,w2
+> $,w3
+20,21c17
 < $boolean
 < @;
-< begin
-< $b
+---
+> $boolean;
+24,26c20
 < @:=
 < $false
 < @;
-< while
-< $b
+---
+> $:=false; 
+29,30c23
 < @=
 < $n
-< do
-< begin
-< $w1
+---
+> $=n
+34,35c27
 < @:=
 < $w1
-< and
+---
+> $:=w1
+37,38c29,30
 < $true
 < @;
-< $w2
+---
+> $true;
+> 
+40,41c32
 < @:=
 < $w2
-< or
+---
+> $:=w2
+43,48c34,35
 < $false
 < @;
 < $w3
 < @:=
 < not
 < @(
-< $w3
-< or
-< $w2
-< and
+---
+> $false;
+> 
+49a37,38
+> $:=Not
+> #3
+53,61c42,43
 < $w1
 < @)
 < @;
@@ -62,5 +81,8 @@ testmin.token:
 < @.
 < EOF
 < EOF
+---
+> $w1);
+> 
 
 

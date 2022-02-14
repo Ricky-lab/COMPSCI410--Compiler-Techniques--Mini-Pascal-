@@ -1,47 +1,60 @@
 testobject3.token:
-2,4c2
+2,3c2,3
 < $testobject3
 < @;
-< type
 ---
-> $testobject3;type
-12,13c10
+> $testobject3;
+> 
+6,7c6
+< @=
+< $integer
+---
+> $= integer
+12,13c11
 < @(
 < $self
 ---
 > $(elf
-15,459d11
+15,17c13
 < $object1
 < @;
 < $x
-< @:
+---
+> $object1; x
+19,23c15,16
 < $integer
 < @)
 < @;
 < end
 < @;
-< $object2
+---
+> $integer); end;
+> 
+25,26c18
 < @=
 < $object3
-< object
-< overrides
-< $method
+---
+> $= object3
+30,33c22,24
 < @=
 < $object2method
 < end
 < @;
-< $object3
+---
+> $= object2method
+> $end;
+> 
+35,36c26
 < @=
 < object
-< $x
-< @:
-< $integer
-< methods
-< procedure
-< $method
+---
+> $= object
+43,44c33
 < @(
 < $self
-< @:
+---
+> $(elf
+46,52c35,39
 < $object3
 < @)
 < @=
@@ -49,106 +62,151 @@ testobject3.token:
 < @;
 < end
 < @;
-< $object4
+---
+> $object3)
+> $= object3method;
+> 
+> $end;
+> 
+54,55c41
 < @=
 < object
-< $x
-< @:
+---
+> $= object
+58,59c44,45
 < $integer
 < @;
-< methods
-< function
-< $multiply
+---
+> $integer;
+> 
+63,64c49
 < @(
 < $self
-< @:
+---
+> $(elf
+66,68c51
 < $object4
 < @;
 < $x
-< @:
+---
+> $object4; x
+70,71c53
 < $integer
 < @)
-< @:
+---
+> $integer)
+73,76c55,58
 < $object4
 < @;
 < end
 < @;
-< $object5
+---
+> $object4;
+> 
+> $end;
+> 
+78,79c60
 < @=
 < $object4
-< object
-< overrides
-< $multiply
+---
+> $= object4
+83,86c64,66
 < @=
 < $object5multiply
 < end
 < @;
-< $object6
+---
+> $= object5multiply
+> $end;
+> 
+88,89c68
 < @=
 < $object4
-< abstract
-< object
-< overrides
-< $multiply
+---
+> $= object4
+94,97c73,75
 < @=
 < $object6multiply
 < end
 < @;
-< $object7
+---
+> $= object6multiply
+> $end;
+> 
+99,100c77
 < @=
 < $object6
-< object
-< methods
-< function
-< $add
+---
+> $= object6
+105,106c82
 < @(
 < $self
-< @:
+---
+> $(elf
+108,110c84
 < $object7
 < @;
 < var
-< $x
-< @:
+---
+> $object7; var
+113,114c87
 < $integer
 < @)
-< @:
-< $object7
+---
+> $integer)
+117,121c90,92
 < @=
 < $object7add
 < @;
 < end
 < @;
-< var
-< $o1
-< @:
+---
+> $= object7add;
+> 
+> $end;
+125,126c96,97
 < $object1
 < @;
-< $o2
-< @:
+---
+> $object1;
+> 
+129,130c100,101
 < $object2
 < @;
-< $o3
-< @:
+---
+> $object2;
+> 
+133,134c104,105
 < $object3
 < @;
-< $o4
-< @:
+---
+> $object3;
+> 
+137,138c108,109
 < $object4
 < @;
-< $o5
-< @:
+---
+> $object4;
+> 
+141,142c112,113
 < $object5
 < @;
-< $o6
-< @:
+---
+> $object5;
+> 
+145,146c116,117
 < $object6
 < @;
-< $o7
-< @:
+---
+> $object6;
+> 
+149,150c120,121
 < $object7
 < @;
-< procedure
-< $object2method
+---
+> $object7;
+> 
+153,263c124
 < @(
 < $self
 < @:
@@ -260,7 +318,9 @@ testobject3.token:
 < $object7
 < @;
 < $x
-< @:
+---
+> $(elf
+265,297c126,127
 < $integer
 < @)
 < @:
@@ -294,7 +354,10 @@ testobject3.token:
 < $obj
 < end
 < @;
-< begin
+---
+> $object2);
+> 
+299,365d128
 < $o4
 < @:=
 < $new
@@ -362,7 +425,7 @@ testobject3.token:
 < $integer
 < @)
 < then
-< $writeln
+367,459d129
 < @;
 < if
 < $istype

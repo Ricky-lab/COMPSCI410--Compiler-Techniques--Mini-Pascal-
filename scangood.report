@@ -1,5 +1,5 @@
 scangood.err:
-0a1,161
+0a1,132
 > line 7: Unexpected character: '*' (code = 42 = 052 = \u002a)
 > { some more challenging ones **
 > ------------------------------^
@@ -132,35 +132,6 @@ scangood.err:
 > 2#1000_0001 2_000_000 1_2_3_
 > ---------------------------^
 > resetting to scan a new token
-> line 33: Unexpected character: '/' (code = 47 = 057 = \u002f)
-> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-./
-> ------------------------------------------------------------------------^
-> resetting to scan a new token
-> line 33: Unexpected character: '"' (code = 34 = 042 = \u0022)
-> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-./:"
-> --------------------------------------------------------------------------^
-> resetting to scan a new token
-> line 38: Unexpected character: '[' (code = 91 = 133 = \u005b)
-> +-*.:==<><<=>>=,;:..()[
-> ----------------------^
-> resetting to scan a new token
-> line 38: Unexpected character: ']' (code = 93 = 135 = \u005d)
-> +-*.:==<><<=>>=,;:..()[]
-> -----------------------^
-> resetting to scan a new token
-> line 38: Unexpected character: '^' (code = 94 = 136 = \u005e)
-> +-*.:==<><<=>>=,;:..()[]^
-> ------------------------^
-> resetting to scan a new token
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: a,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
 
 
 scangood.token:
@@ -187,7 +158,7 @@ scangood.token:
 > $c
 63a69
 > #10
-65,79c71,97
+65,97c71,80
 < #9
 < #63
 < #48879
@@ -203,6 +174,24 @@ scangood.token:
 < @-
 < @*
 < @.
+< @:=
+< @=
+< @<>
+< @<
+< @<=
+< @>
+< @>=
+< @,
+< @;
+< @:
+< @..
+< @(
+< @)
+< @[
+< @]
+< @^
+< $x
+< $w
 ---
 > #2
 > #1001
@@ -214,30 +203,8 @@ scangood.token:
 > $zyx
 > #2
 > #1000
-> #1
-> #2
-> #0
-> #0
-> #1
-> #2
-> #3
-> #4
-> $'Hello, COINS 610'
-> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-.
-> @:
-> $'
-> ''' umatched ''quote'' '
-> 'test'' nested'' string'
-> 
-> { Arithmetic, logical ops  and others}
-> +-*.
-91,95d108
-< @(
-< @)
-< @[
-< @]
-< @^
-100,119c113
+99,117c82,111
+< program
 < $scantest
 < @;
 < var
@@ -256,9 +223,36 @@ scangood.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
 ---
-> $scantest;var
+> #2
+> #0
+> #0
+> #1
+> #2
+> #3
+> #4
+> ''Hello, COINS 610'
+> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-./:"'
+> ''' umatched ''quote'' '
+> 'test'' nested'' string'
+> 
+> { Arithmetic, logical ops  and others}
+> +-*.:==<><<=>>=,;:..()[]^
+> 
+> { whitespace test: before the identifiers and numbers are unprintable
+>  characters }
+> 	x
+> w
+>  1
+> 
+> { a simple pascal subset program here! }
+> 
+> program scantest;
+> { simple variable declaration }
+> VAR a,b : INTEGER;
+> BEGIN
+>   a := 3000 + b;
+> END.
+> '
 
 

@@ -1,18 +1,23 @@
 testmisc2.token:
-2,4c2
+2,3c2,3
 < $bigtest
 < @;
-< const
 ---
-> $bigtest;const
-7,789d4
+> $bigtest;
+> 
+6,12c6,8
+< @=
 < 'string constant'
 < @;
 < $c2
 < @=
 < #100
 < @;
-< type
+---
+> '= 'string constant';
+>   c2 = 100;
+> 
+14,111c10,25
 < $t1
 < @=
 < #100
@@ -111,7 +116,24 @@ testmisc2.token:
 < @;
 < end
 < @;
-< const
+---
+>   t1 = 100..200;
+>   t2 = 'string1'..'string2';
+> 
+> var
+>   v1, v2 : array[10..20,20..30,30..40] of integer;
+>   v3,v4 : array[10..20] of array[20..30,30..40] of integer;
+>   v5 : array[10..20] of array [20..30] of array[30..40] of integer;
+> 
+> procedure p1;
+>   begin
+>   end;
+> 
+> function f1 : integer;
+>   begin;
+>   end;
+> 
+113,203c27,41
 < $c1
 < @=
 < @+
@@ -203,7 +225,23 @@ testmisc2.token:
 < @;
 < end
 < @;
-< type
+---
+>   c1 = +100;
+>   c2 = -c1;
+>   c3 = +100;
+>   c4 = -c3;
+> 
+> var
+>   a, b, c, d, e, f, g, h, i : 
+>     array[1..100] of 
+>       record
+>         a,b : array[50..60] of integer;
+>         c,d,e,f : array[100..110] of array[5..10,80..90] of
+>           record
+>           end;
+>       end;
+> 
+205,245c43,48
 < $ptr
 < @=
 < @^
@@ -245,7 +283,14 @@ testmisc2.token:
 < @:
 < $sometype
 < @;
-< type
+---
+>   ptr = ^sometype;
+> 
+> function f1(a:integer;
+>             var a,b,c:integer;
+>             d,e,f:integer;
+>             var g,h,i:integer):sometype;
+247,302c50,51
 < $a
 < @=
 < record
@@ -302,7 +347,10 @@ testmisc2.token:
 < @^
 < $integer
 < @;
-< const
+---
+>     a=record a:integer;b:integer;c:integer;end;
+>     b=record a:integer;b:integer;c:integer end;
+304,343c53,54
 < $c2
 < @=
 < #30000
@@ -343,10 +391,19 @@ testmisc2.token:
 < $integer
 < @)
 < @;
-< begin
+---
+>     constant = 1000;
+>   function infunc:type1;
+345,346c56,60
 < end
 < @;
-< begin
+---
+>     end;
+>   var x,y,z:^integer;
+>   const c2 = 30000; c4 = -2; c5 = 'this is a test';
+>   procedure inproc( var a:integer; var b:integer; c:integer;
+>              d:integer; var e:integer );
+348,395c62
 < end
 < @;
 < type
@@ -395,10 +452,15 @@ testmisc2.token:
 < procedure
 < $foo
 < @;
-< begin
+---
+>     end;
+397,398c64,65
 < end
 < @;
-< type
+---
+>   end;
+> 
+400,497c67,98
 < $a
 < @=
 < $integer
@@ -497,11 +559,46 @@ testmisc2.token:
 < $g
 < @:=
 < $h
-< else
+---
+>   x = record
+>         y: record
+>           z : record
+>             a: array [1..2,3..4,5..6,7..8,9..10] of integer;
+>           end;
+>         end;
+>       end;
+> 
+> procedure foo;
+>   begin
+>   end;
+> 
+> type a = integer;
+> 
+> var 
+>   a : integer;
+> 
+> function func1
+>   (var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z:type1):type2;
+>   begin
+>   end;
+> 
+> procedure proc1;
+>   begin
+>   end;
+> 
+> begin
+> 
+>   if a = b then
+>     if c = d then
+>       if e = f then
+>         g := h
+499,501c100
 < $g
 < @:=
 < #2
-< else
+---
+>         g := 2
+503,529c102,105
 < $g
 < @:=
 < #3
@@ -529,11 +626,17 @@ testmisc2.token:
 < #12
 < @)
 < do
-< begin
+---
+>       g := 3;
+> 
+>   a := 0;
+>   while (a <= 100) or (b > 20) or (g = 12) do
+531,532c107
 < end
 < @;
-< repeat
-< begin
+---
+>     end;
+535,787c110,159
 < end
 < @;
 < until
@@ -787,7 +890,56 @@ testmisc2.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
+---
+>     end;
+>   until (a <= 100) or (b > 20) or (g = 12);
+> 
+>   A := 10;
+>   B := 20;
+>   C := A * B;
+>   (* C := nil; *)
+>   A := A + 10 * B - C;
+>   A := - A + 10 * B - C;
+> 
+>   A := 0;
+>   B := 2;
+>   REPEAT
+>     A := A + 1;
+>     B := B * 2;
+>   UNTIL A = 10;
+> 
+>   FOR A := (10 + 20) TO (100 - 10) DO
+>     BEGIN
+>     B := B + 1;
+>     C := C + 2;
+>     END;
+>   
+>   FOR A := (10 + 20) DOWNTO (100 - 10) DO
+>     BEGIN
+>     B := B + 1;
+>     C := C + 2;
+>     END;
+>  
+>   CASE A OF
+>     1,2,3: B := 10;
+>     4,5,6: B := 20
+>   END;
+> 
+>   CASE A OF
+>     1,2,3: B := 10;
+>     4,5,6: B := 20;
+>   END;
+> 
+>   A := A.B.C.D;
+>   A := A.B.C.D^;
+>   A := A;
+> 
+>   B := A( 10, A + C, 'this is a test' );
+> 
+>   A := B[1];
+>   A := B[1,2,3,4,5];
+>  
+> end.
+> '
 
 

@@ -1,64 +1,91 @@
 testobject2.token:
-2,4c2
+2,3c2,3
 < $testobject2
 < @;
-< type
 ---
-> $testobject2;type
-7,19c5
-< object
-< @;
-< $object2
+> $testobject2;
+> 
+6,8c6,7
 < @=
 < object
-< $a
-< @:
+< @;
+---
+> $= object;
+> 
+10,11c9
+< @=
+< object
+---
+> $= object
+14,18c12,14
 < $integer
 < @;
 < methods
 < end
 < @;
-< $object3
 ---
-> $object;object2
-24,70d9
+> $integer; methods
+> $end;
+> 
+20,21c16
+< @=
+< object
+---
+> $= object
+24,26c19
 < $integer
 < @;
 < overrides
-< $myprint
+---
+> $integer; overrides
+28,31c21,22
 < @=
 < $obj3print
 < end
 < @;
-< var
-< $o1
-< @:
+---
+> $= obj3print
+> $end;
+35,36c26,27
 < $object1
 < @;
-< $o2
-< @:
+---
+> $object1;
+> 
+39,40c30,31
 < $object2
 < @;
-< $o3
-< @:
+---
+> $object2;
+> 
+43,44c34
 < $object3
 < @;
-< begin
-< $o1
+---
+> $object3;
+47,52c37,39
 < @:=
 < $new
 < @(
 < $object1
 < @)
 < @;
-< $o2
+---
+> $:= new
+> $(bject1);
+> 
+54,59c41,43
 < @:=
 < $new
 < @(
 < $object2
 < @)
 < @;
-< $o3
+---
+> $:= new
+> $(bject2);
+> 
+61,70c45
 < @:=
 < $new
 < @(
@@ -69,5 +96,7 @@ testobject2.token:
 < @.
 < EOF
 < EOF
+---
+> $:= new
 
 

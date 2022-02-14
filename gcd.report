@@ -1,53 +1,45 @@
-gcd.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: x,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
 gcd.token:
-2,54c2
+2,3c2,3
 < $gcd
 < @;
-< var
-< $x
+---
+> $gcd;
+> 
+6,7c6
 < @,
 < $y
-< @:
+---
+> $, y
+9,10c8,9
 < $integer
 < @;
-< begin
-< $readln
+---
+> $integer;
+> 
+13,18c12,13
 < @(
 < $x
 < @,
 < $y
 < @)
 < @;
-< while
-< $x
+---
+> $(, y);
+> 
+21,22c16
 < @<>
 < $y
-< do
-< begin
-< if
-< $x
-< @>
-< $y
-< then
-< $x
+---
+> $<> y
+31,34c25,26
 < @:=
 < $x
 < @-
 < $y
-< else
-< $y
+---
+> $:= x
+> $- y
+37,43c29,33
 < @:=
 < $y
 < @-
@@ -55,7 +47,13 @@ gcd.token:
 < @;
 < end
 < @;
-< $writeln
+---
+> $:= y
+> $- x;
+> 
+> $end;
+> 
+45,52c35,38
 < @(
 < 'GCD = '
 < @,
@@ -64,9 +62,10 @@ gcd.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
 ---
-> $gcd;var
+> $(gcd
+> '= ', x);
+> END.
+> '
 
 

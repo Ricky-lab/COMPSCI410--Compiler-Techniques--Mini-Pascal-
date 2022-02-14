@@ -22,7 +22,7 @@ scangood.token:
 > $c
 63a69
 > #10
-65,79c71,97
+65,97c71,80
 < #9
 < #63
 < #48879
@@ -38,6 +38,24 @@ scangood.token:
 < @-
 < @*
 < @.
+< @:=
+< @=
+< @<>
+< @<
+< @<=
+< @>
+< @>=
+< @,
+< @;
+< @:
+< @..
+< @(
+< @)
+< @[
+< @]
+< @^
+< $x
+< $w
 ---
 > #2
 > #1001
@@ -49,30 +67,8 @@ scangood.token:
 > $zyx
 > #2
 > #1000
-> #1
-> #2
-> #0
-> #0
-> #1
-> #2
-> #3
-> #4
-> $'Hello, COINS 610'
-> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-.
-> @:
-> $'
-> ''' umatched ''quote'' '
-> 'test'' nested'' string'
-> 
-> { Arithmetic, logical ops  and others}
-> +-*.
-91,95d108
-< @(
-< @)
-< @[
-< @]
-< @^
-100,119c113
+99,117c82,111
+< program
 < $scantest
 < @;
 < var
@@ -91,9 +87,36 @@ scangood.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
 ---
-> $scantest;var
+> #2
+> #0
+> #0
+> #1
+> #2
+> #3
+> #4
+> ''Hello, COINS 610'
+> 'Special characters here : (:-)=<===<!!!!;<=>?@[]  ^_`{|}~!#$%&  ()*+,-./:"'
+> ''' umatched ''quote'' '
+> 'test'' nested'' string'
+> 
+> { Arithmetic, logical ops  and others}
+> +-*.:==<><<=>>=,;:..()[]^
+> 
+> { whitespace test: before the identifiers and numbers are unprintable
+>  characters }
+> 	x
+> w
+>  1
+> 
+> { a simple pascal subset program here! }
+> 
+> program scantest;
+> { simple variable declaration }
+> VAR a,b : INTEGER;
+> BEGIN
+>   a := 3000 + b;
+> END.
+> '
 
 

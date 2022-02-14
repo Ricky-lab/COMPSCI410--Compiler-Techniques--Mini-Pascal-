@@ -3,7 +3,7 @@ proctest.err:
 > Exception occurred:
 > java.lang.IllegalStateException: Operator was not found in the operator table: (:
 > 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
+> 	at MPC.MPCScanner.next_token(MPCScanner.java:505)
 > 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
 > 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
 > 	at MPC.Parse.perform(Parse.java:45)
@@ -12,26 +12,34 @@ proctest.err:
 
 
 proctest.token:
-2,4c2
+2,3c2,3
 < $procfunctest
 < @;
-< type
 ---
-> $procfunctest;type
-10,17c8,10
+> $procfunctest;
+> 
+6,10c6,8
+< @=
+< #1
+< @..
+< #10
 < @;
-< procedure
+---
+> $= 1
+> $.. 10;
+> 
+12,13c10
 < $p0
 < @;
-< begin
+---
+> $p0;
+15,16c12,13
 < end
 < @;
-< procedure
 ---
-> $;procedure
-> $p0;begin
-> $end;procedure
-19,452d11
+> $end;
+> 
+19,452d15
 < @(
 < $x
 < @:

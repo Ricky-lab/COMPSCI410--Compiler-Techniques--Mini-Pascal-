@@ -1,37 +1,25 @@
-testread.err:
-0a1,9
-> Exception occurred:
-> java.lang.IllegalStateException: Operator was not found in the operator table: (,
-> 	at MPC.TokenOp.get(TokenOp.java:89)
-> 	at MPC.MPCScanner.next_token(MPCScanner.java:498)
-> 	at java_cup.runtime.lr_parser.scan(lr_parser.java:349)
-> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:578)
-> 	at MPC.Parse.perform(Parse.java:45)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
 testread.token:
-2,4c2
+2,3c2
 < $testread
 < @;
-< var
 ---
-> $testread;var
-7,9c5
+> $testread;
+7,8c6
 < $integer
 < @;
-< begin
 ---
-> $integer;begin
-11,27d6
+> $integer;
+11,16c9,10
 < @(
 < $x
 < @,
 < $x
 < @)
 < @;
-< $writeln
+---
+> $(, x);
+> 
+18,25c12,15
 < @(
 < 'x = '
 < @,
@@ -40,7 +28,10 @@ testread.token:
 < @;
 < end
 < @.
-< EOF
-< EOF
+---
+> $(x
+> '= ', x);
+> END.
+> '
 
 

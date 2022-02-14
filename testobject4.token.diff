@@ -1,266 +1,415 @@
 testobject4.token:
-2,4c2
+2,3c2,3
 < $testobject4
 < @;
-< type
 ---
-> $testobject4;type
-12,13c10
+> $testobject4;
+> 
+6,7c6
+< @=
+< abstract
+---
+> $= abstract
+12,13c11
 < @(
 < $self
 ---
 > $(elf
-15,4618d11
+15,17c13
 < $hasequals
 < @;
 < $other
-< @:
+---
+> $hasequals; other
+19,20c15
 < $root
 < @)
-< @:
+---
+> $root)
+22,25c17,20
 < $boolean
 < @;
 < end
 < @;
-< $iterator
+---
+> $boolean;
+> 
+> $end;
+> 
+27,28c22
 < @=
 < abstract
-< object
-< methods
-< function
-< $next
+---
+> $= abstract
+33,34c27
 < @(
 < $self
-< @:
+---
+> $(elf
+36,37c29
 < $iterator
 < @)
-< @:
+---
+> $iterator)
+39,40c31,32
 < $root
 < @;
-< function
-< $hasnext
+---
+> $root;
+> 
+43,44c35
 < @(
 < $self
-< @:
+---
+> $(elf
+46,47c37
 < $iterator
 < @)
-< @:
+---
+> $iterator)
+49,50c39,40
 < $boolean
 < @;
-< procedure
-< $remove
+---
+> $boolean;
+> 
+53,54c43
 < @(
 < $self
-< @:
+---
+> $(elf
+56,60c45,48
 < $iterator
 < @)
 < @;
 < end
 < @;
-< $iterable
+---
+> $iterator);
+> 
+> $end;
+> 
+62,63c50
 < @=
 < abstract
-< object
-< methods
-< function
-< $getiterator
+---
+> $= abstract
+68,69c55
 < @(
 < $self
-< @:
+---
+> $(elf
+71,72c57
 < $iterable
 < @)
-< @:
+---
+> $iterable)
+74,77c59,62
 < $iterator
 < @;
 < end
 < @;
-< $collection
+---
+> $iterator;
+> 
+> $end;
+> 
+79,80c64
 < @=
 < $iterable
-< abstract
-< object
-< methods
+---
+> $= iterable
+84c68
 < function
-< $size
+---
+> $(* *function
+86,87c70
 < @(
 < $self
-< @:
+---
+> $(elf
+89,90c72
 < $collection
 < @)
-< @:
+---
+> $collection)
+92,93c74,75
 < $integer
 < @;
-< function
-< $isempty
+---
+> $integer;
+> 
+96,97c78
 < @(
 < $self
-< @:
+---
+> $(elf
+99,100c80
 < $collection
 < @)
-< @:
+---
+> $collection)
+102,104c82,84
 < $boolean
 < @;
 < function
-< $contains
+---
+> $boolean;
+> 
+> $(* *function
+106,107c86
 < @(
 < $self
-< @:
+---
+> $(elf
+109,111c88
 < $collection
 < @;
 < $o
-< @:
+---
+> $collection; o
+113,114c90
 < $hasequals
 < @)
-< @:
+---
+> $hasequals)
+116,117c92,93
 < $boolean
 < @;
-< function
-< $add
+---
+> $boolean;
+> 
+120,121c96
 < @(
 < $self
-< @:
+---
+> $(elf
+123,125c98
 < $collection
 < @;
 < $o
-< @:
+---
+> $collection; o
+127,128c100
 < $hasequals
 < @)
-< @:
+---
+> $hasequals)
+130,131c102,103
 < $boolean
 < @;
-< function
-< $remove
+---
+> $boolean;
+> 
+134,135c106
 < @(
 < $self
-< @:
+---
+> $(elf
+137,139c108
 < $collection
 < @;
 < $o
-< @:
+---
+> $collection; o
+141,142c110
 < $hasequals
 < @)
-< @:
+---
+> $hasequals)
+144,146c112,114
 < $boolean
 < @;
 < procedure
-< $clear
+---
+> $boolean;
+> 
+> $(* *procedure
+148,149c116
 < @(
 < $self
-< @:
+---
+> $(elf
+151,153c118,119
 < $collection
 < @)
 < @;
-< function
-< $addall
+---
+> $collection);
+> 
+156,159c122,123
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+161,162c125
 < $collection
 < @)
-< @:
+---
+> $collection)
+164,165c127,128
 < $boolean
 < @;
-< function
-< $containsall
+---
+> $boolean;
+> 
+168,171c131,132
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+173,174c134
 < $collection
 < @)
-< @:
+---
+> $collection)
+176,177c136,137
 < $boolean
 < @;
-< function
-< $equals
+---
+> $boolean;
+> 
+180,183c140,141
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+185,186c143
 < $collection
 < @)
-< @:
+---
+> $collection)
+188,189c145,146
 < $boolean
 < @;
-< function
-< $removeall
+---
+> $boolean;
+> 
+192,195c149,150
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+197,198c152
 < $collection
 < @)
-< @:
+---
+> $collection)
+200,201c154,155
 < $boolean
 < @;
-< function
-< $retainall
+---
+> $boolean;
+> 
+204,207c158,159
 < @(
 < $self
 < @,
 < $other
-< @:
+---
+> $(elf
+> $, other
+209,210c161
 < $collection
 < @)
-< @:
+---
+> $collection)
+212,215c163,166
 < $boolean
 < @;
 < end
 < @;
-< type
-< $abscoll
+---
+> $boolean;
+> 
+> $end;
+> 
+218,219c169
 < @=
 < $collection
-< abstract
-< object
-< overrides
-< $isempty
+---
+> $= collection
+224,226c174,175
 < @=
 < $acisempty
 < @;
-< $contains
+---
+> $= acisempty;
+> 
+228,230c177,178
 < @=
 < $accontains
 < @;
-< $clear
+---
+> $= accontains;
+> 
+232,234c180,181
 < @=
 < $acclear
 < @;
-< $addall
+---
+> $= acclear;
+> 
+236,238c183,184
 < @=
 < $acaddall
 < @;
-< $containsall
+---
+> $= acaddall;
+> 
+240,242c186,187
 < @=
 < $accontainsall
 < @;
-< $removeall
+---
+> $= accontainsall;
+> 
+244,246c189,190
 < @=
 < $acremoveall
 < @;
-< $retainall
+---
+> $= acremoveall;
+> 
+248,252c192,195
 < @=
 < $acretainall
 < @;
 < end
 < @;
-< function
-< $acisempty
+---
+> $= acretainall;
+> 
+> $end;
+> 
+255,256c198
 < @(
 < $self
-< @:
+---
+> $(elf
+258,259c200
 < $abscoll
 < @)
-< @:
+---
+> $abscoll)
+261,262c202
 < $boolean
 < @;
-< begin
-< $acisempty
+---
+> $boolean;
+265,4618c205
 < @:=
 < @(
 < $self
@@ -4615,5 +4764,7 @@ testobject4.token:
 < @.
 < EOF
 < EOF
+---
+> $:= 
 
 
