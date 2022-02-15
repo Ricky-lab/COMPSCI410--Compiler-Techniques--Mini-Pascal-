@@ -1,35 +1,3 @@
-scanints.err:
-21c21
-< line 12: Integer literal digit a too large for number base 10
----
-> line 12: Integer literal digit A too large for number base 10
-25c25,29
-< line 14: Integer literal digit g too large for number base 16
----
-> line 13: Integer literal digit F too large for number base 16
-> 16#1F
-> ----^
-> resetting to scan a new token
-> line 14: Integer literal digit G too large for number base 16
-29c33,37
-< line 17: Integer literal digit z too large for number base 35
----
-> line 15: Integer literal digit Y too large for number base 35
-> 35#Y
-> ---^
-> resetting to scan a new token
-> line 17: Integer literal digit Z too large for number base 35
-
-
-scanints.token:
-10c10
-< #511
----
-> $f
-12d11
-< #34
-
-
 scanstringnl.err:
 1,8d0
 < line 3: Unexpected character: '\u000a' (code = 10 = 012 = \u000a)

@@ -199,7 +199,7 @@ public class MPCScanner implements java_cup.runtime.Scanner {
 	
 	SHas(Accept.NONE), // for integers just having seen hash 
 	SUNH(Accept.NONE), // for integers just having seen an underscore without ever having seen a hash
-	SNtH(Accept.NONE), // for integers just having hash after digits
+	SNtH(Accept.INT), // for integers just having hash after digits
 	SUaH(Accept.NONE), // for integers just seen an underscore after having seen an earlier hash
 	  
 	SQUO(Accept.STR); // for the begin of the string
@@ -354,16 +354,19 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     State.SNum.setTransition(CharClass.UNDER, new Transition(State.SUNH)); // dit_
     State.SUNH.setTransition(CharClass.DIG  , new Transition(State.SNum, Action.DIGIT)); //dig_dig
     
-    State.SNum.setTransition(CharClass.HASH , new Transition(State.SHas, Action.SETBASE)); // dit_
-    State.SHas.setTransition(CharClass.DIG  , new Transition(State.SHas, Action.DIGIT)); // dit_
-    State.SHas.setTransition(CharClass.UNDER, new Transition(State.SNtH, Action.DIGIT)); // dit_
+    State.SNum.setTransition(CharClass.HASH , new Transition(State.SHas, Action.SETBASE)); // set the base of this number
+    
+    State.SHas.setTransition(CharClass.DIG  , new Transition(State.SNtH, Action.DIGIT)); // Int#dit
+    State.SHas.setTransition(CharClass.LET  , new Transition(State.SNtH, Action.LOWER, Action.DIGIT)); // Int#dit
+    
+    State.SNtH.setTransition(CharClass.DIG , new Transition(State.SNtH, Action.DIGIT)); // 
+    State.SNtH.setTransition(CharClass.LET , new Transition(State.SNtH, Action.LOWER, Action.DIGIT)); // 
 
+    State.SNtH.setTransition(CharClass.UNDER, new Transition(State.SUaH)); // Int#dit_
     
-    
-    State.SUNH.setTransition(CharClass.LET  , new Transition(State.SNum, Action.DIGIT)); //dig_LET
-    State.SNum.setTransition(CharClass.HASH , new Transition(State.SNtH, Action.SETBASE)); // dit to hash, then the received number would become the base
-    State.SNtH.setTransition(CharClass.DIG  , new Transition(State.SHas, Action.DIGIT));  // hash to dig
-    State.SNtH.setTransition(CharClass.LET  , new Transition(State.SHas, Action.DIGIT));  // hash to LET (actually is num)
+    State.SUaH.setTransition(CharClass.DIG , new Transition(State.SNtH, Action.DIGIT)); // 
+    State.SUaH.setTransition(CharClass.LET , new Transition(State.SNtH, Action.LOWER, Action.DIGIT)); // 
+
 
 
     
@@ -561,7 +564,7 @@ public class MPCScanner implements java_cup.runtime.Scanner {
           // non-accepting state: complain and restart
           mpc.ShowError(scanStr.getEndPos(),
                         "Unexpected character: " + charDescription(inChar));
-			markError("resetting to scan a new token"/* . The currState: "+currState.toString() */);
+			markError("resetting to scan a new token"/* . The currState: "+currState.toString()*/ );
           //tokStr.println(currState.toString());
           reset();
           currState = State.SBeg;
@@ -595,7 +598,7 @@ public class MPCScanner implements java_cup.runtime.Scanner {
                 }
               } else {
                 mpc.ShowError(scanStr.getEndPos(), "Integer literal digit " + (char)(inChar) + " too large for number base " + base);
-                markError("resetting to scan a new token");
+                markError("resetting to scan a new token"/*. The current base is: " + base*/);
                 reset();
                 currState = State.SBeg;
               }

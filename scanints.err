@@ -18,23 +18,15 @@ line 11: Integer literal digit 2 too large for number base 2
 2#102
 ----^
 resetting to scan a new token
-line 12: Integer literal digit A too large for number base 10
+line 12: Integer literal digit a too large for number base 10
 10#10A
 -----^
 resetting to scan a new token
-line 13: Integer literal digit F too large for number base 16
-16#1F
-----^
-resetting to scan a new token
-line 14: Integer literal digit G too large for number base 16
+line 14: Integer literal digit g too large for number base 16
 16#G
 ---^
 resetting to scan a new token
-line 15: Integer literal digit Y too large for number base 35
-35#Y
----^
-resetting to scan a new token
-line 17: Integer literal digit Z too large for number base 35
+line 17: Integer literal digit z too large for number base 35
 35#Z
 ---^
 resetting to scan a new token
