@@ -38,8 +38,9 @@ public class MPCScanner implements java_cup.runtime.Scanner {
 	HASH,	// number sign	# 
 	UNDER,	// underscore   _
 	DOT,	// for operator .
-	STR,	// for string
-	SEMI;	// for ;
+	STR 	// for string
+	//CAR		// for ^
+	//SEMI;	// for ;
   }
 
   /**
@@ -113,7 +114,7 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     
     // here is a good place to insert additional entries :-)
     // New added class range according to the new added CharClass
-  	//new ClassRange(CharClass.QUO  , '\042', '\042'),  // "
+    
   	new ClassRange(CharClass.QUO  , '\047', '\047'),  // '
   	new ClassRange(CharClass.AST  , '\052', '\052'),  // *
   	new ClassRange(CharClass.LP   , '\050', '\050'),  // (
@@ -122,7 +123,10 @@ public class MPCScanner implements java_cup.runtime.Scanner {
   	new ClassRange(CharClass.HASH , '\043', '\043'),  // #
   	new ClassRange(CharClass.UNDER, '\137', '\137'),  // _
   	new ClassRange(CharClass.DOT  , '\056', '\056'),  // operator ..
-  	new ClassRange(CharClass.SEMI , '\073', '\073'),  // ;
+  	new ClassRange(CharClass.OP  , '\136', '\136'),  // ^
+  	new ClassRange(CharClass.OP  , '\133', '\133'),  // [
+  	new ClassRange(CharClass.OP  , '\135', '\135'),  // ]
+
   	
     new ClassRange(CharClass.EOF  , '\u0100', '\u0100')
   	}; // EOF is 256 (only)
@@ -178,23 +182,28 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     SCom(Accept.NONE), // in a comment
     SErr(Accept.NONE), // the error state
     SEOF(Accept.EOF ), // saw EOF
-    SQUO(Accept.STR ), // saw ' (left ')
+    //SQUO(Accept.STR ), // saw ' (left ')
     
     //New added states according to new characters
 	SDOT(Accept.OP  ), // for operator ..
-	SLP (Accept.NONE), // for just having see a left parenthesis
+	SLP (Accept.OP), // for just having see a left parenthesis
 	SCA (Accept.NONE), // for being in a comment but having seen an AST
-	SSCA(Accept.NONE), // for being in a comment but having second AST
-	SEMP(Accept.NONE), // for empty string which is illegally ''
+	//SSCA(Accept.NONE), // for being in a comment but having second AST
+	//SEMP(Accept.NONE), // for empty string which is illegally ''
 	
 	//SNL (Accept.NONE), // for new line
-	SSTR(Accept.STR) , // in the string
+	SSTR(Accept.STR) ,   // in the string
+	SEST(Accept.STR) , // End the string
+	
 	SUND(Accept.NONE), // for identifier just after an underscore
 	
 	SHas(Accept.NONE), // for integers just having seen hash 
-	SNHa(Accept.NONE), // for integers just having seen an underscore without ever having seen a hash
+	SUNH(Accept.NONE), // for integers just having seen an underscore without ever having seen a hash
 	SNtH(Accept.NONE), // for integers just having hash after digits
-	SUaH(Accept.NONE); // for integers just seen an underscore after having seen an earlier hash
+	SUaH(Accept.NONE), // for integers just seen an underscore after having seen an earlier hash
+	  
+	SQUO(Accept.STR); // for the begin of the string
+	//SSQUO(Accept.STR);// for the ending quo, accept string
 	
 	
 
@@ -300,8 +309,11 @@ public class MPCScanner implements java_cup.runtime.Scanner {
       state.setDefault(State.errorTransition);
     }
     // set default transition, if not SErr
-    State.SCom.setDefault(new Transition(State.SCom));
-
+    State.SCom .setDefault(new Transition(State.SCom)); 					// in the comments
+    State.SCA  .setDefault(new Transition(State.SCom)); 	
+    
+    State.SSTR .setDefault(new Transition(State.SSTR, Action.HASH)); 		// in the string
+    
     // set individual, non-default, transitions for each state
     State.SBeg.setTransition(CharClass.EOF  , new Transition(State.SEOF)); // start: end of file
     State.SBeg.setTransition(CharClass.SPC  , new Transition(State.SBeg)); // start: white space
@@ -315,49 +327,70 @@ public class MPCScanner implements java_cup.runtime.Scanner {
     State.SBeg.setTransition(CharClass.LC   , new Transition(State.SCom));               // start: left curly bracket => comment
     State.SBeg.setTransition(CharClass.NL   , new Transition(State.SBeg));               // start: new line of the text; head of the text
     State.SBeg.setTransition(CharClass.DOT  , new Transition(State.SDOT , Action.HASH));// start: .
-    State.SBeg.setTransition(CharClass.LP   , new Transition(State.SLP , Action.HASH));  // start: for the comments: just saw the left (
-    State.SBeg.setTransition(CharClass.QUO  , new Transition(State.SQUO , Action.HASH));// start: for the start of a string
+    State.SBeg.setTransition(CharClass.LP   , new Transition(State.SLP  , Action.HASH));  // start: for the comments: just saw the left (
+    State.SBeg.setTransition(CharClass.QUO  , new Transition(State.SSTR ));				// start: for the start of a string
+    State.SBeg.setTransition(CharClass.RP   , new Transition(State.SOp  , Action.HASH));//)
+    State.SBeg.setTransition(CharClass.AST  , new Transition(State.SOp  , Action.HASH));
+    //State.SBeg.setTransition(CharClass.HASH , new Transition(State.SErr));
+    
     
     //single char operators
-    State.SOp.setTransition(CharClass.NL    , new Transition(State.SBeg));	 // new line of ;
-    State.SOp.setTransition(CharClass.SPC   , new Transition(State.SBeg));	 // new line of ;
     //State.SOp.setTransition(CharClass.LET   , new Transition(State.SId, Action.LOWER, Action.HASH));
-    State.SOp.setDefault(new Transition(State.SId, Action.HASH));						 // single character operator
+    //State.SOp.setDefault(new Transition(State.SId, Action.HASH));						 // single character operator
     
-    
-    // normal left parenthesis ( + Identifier
-    State.SOp.setTransition(CharClass.LET   , new Transition(State.SId,Action.HASH));
-    State.SLP.setDefault(new Transition(State.SBeg));						 
-    //State.SLP.setTransition(CharClass.LP   , new Transition(State.SLP , Action.HASH));
     
     State.SId .setTransition(CharClass.LET  , new Transition(State.SId , Action.LOWER, Action.HASH)); // identifiers continue with LET or DIG
     State.SId .setTransition(CharClass.DIG  , new Transition(State.SId , Action.HASH));
-    //State.SId .setTransition(CharClass.LP   , new Transition(State.SId , Action.HASH));
-    State.SId .setTransition(CharClass.SEMI   , new Transition(State.SOp , Action.HASH )); 				 // after an operator ;
-    State.SId .setTransition(CharClass.RP   , new Transition(State.SId , Action.HASH));  // right parenthesis ) 
-    //State.SId .setTransition(CharClass.DOT  , new Transition(State.SId , Action.HASH));
-    State.SId .setTransition(CharClass.QUO  , new Transition(State.SQUO, Action.HASH));
-    State.SId .setTransition(CharClass.DOT  , new Transition(State.SDOT, Action.HASH));
-    //State.SOp .setTransition(CharClass.NL   , new Transition(State.SBeg ,Action.HASH));
+    State.SId .setTransition(CharClass.UNDER, new Transition(State.SUND, Action.HASH));	//Id to an _
+    //State.SId .setTransition(CharClass.NL   , new Transition(State.SErr));				// Newline
+    State.SUND.setTransition(CharClass.DIG  , new Transition(State.SId , Action.HASH));	// _ to a digit
+    State.SUND.setTransition(CharClass.LET  , new Transition(State.SId , Action.LOWER, Action.HASH));	// _ to a letter
+    //State.SUND.setTransition(CharClass.UNDER, new Transition(State.SBeg));	// _ to an _, to SBeg
+    //State.SUND.setTransition(CharClass.NL	, new Transition(State.SBeg));
+
+    
     
     State.SNum.setTransition(CharClass.DIG  , new Transition(State.SNum, Action.DIGIT)); // integer literals continue with DIG
+    State.SNum.setTransition(CharClass.UNDER, new Transition(State.SUNH)); // dit_
+    State.SUNH.setTransition(CharClass.DIG  , new Transition(State.SNum, Action.DIGIT)); //dig_dig
     
-    State.SQUO .setTransition(CharClass.DOT , new Transition(State.SEMP));  			 // meet an empty string
-    State.SQUO .setTransition(CharClass.NL , new Transition(State.SErr));				 // nl in string is an error
-    State.SSTR .setTransition(CharClass.NL , new Transition(State.SErr));				 // nl in string is an error
-    State.SSTR .setTransition(CharClass.DOT , new Transition(State.SId, Action.HASH)); 	 // end the string
-    State.SQUO .setDefault(new Transition(State.SSTR, Action.HASH));	   				 // begin the string
-    State.SSTR .setDefault(new Transition(State.SSTR, Action.HASH)); 					 // in the string
+    State.SNum.setTransition(CharClass.HASH , new Transition(State.SHas, Action.SETBASE)); // dit_
+    State.SHas.setTransition(CharClass.DIG  , new Transition(State.SHas, Action.DIGIT)); // dit_
+    State.SHas.setTransition(CharClass.UNDER, new Transition(State.SNtH, Action.DIGIT)); // dit_
+
+    
+    
+    State.SUNH.setTransition(CharClass.LET  , new Transition(State.SNum, Action.DIGIT)); //dig_LET
+    State.SNum.setTransition(CharClass.HASH , new Transition(State.SNtH, Action.SETBASE)); // dit to hash, then the received number would become the base
+    State.SNtH.setTransition(CharClass.DIG  , new Transition(State.SHas, Action.DIGIT));  // hash to dig
+    State.SNtH.setTransition(CharClass.LET  , new Transition(State.SHas, Action.DIGIT));  // hash to LET (actually is num)
+
+
+    
+    //State.SQUO .setTransition(CharClass.QUO , new Transition(State.SQUO));  			// begin the string
+    //State.SQUO .setTransition(CharClass.QUO , new Transition(State.SQUO));
+    State.SSTR .setTransition(CharClass.NL  , new Transition(State.SErr));				 // nl in string is an error
+    State.SSTR .setTransition(CharClass.QUO , new Transition(State.SQUO)); 	 			 // find one quo
+    State.SQUO .setTransition(CharClass.QUO , new Transition(State.SSTR, Action.HASH)); 
+    //State.SSQUO.setTransition(CharClass.QUO, new Transition(State.SSTR,Action.HASH));  //second quo followed by quo
+    
     
     State.SDOT .setTransition(CharClass.DOT , new Transition(State.SOp , Action.HASH)); // operator ..
     
+    //after (
+    //State.SLP.setTransition(CharClass.AST  , new Transition(State.SSTR , Action.HASH )); // meet QUO to string
+    //State.SLP.setTransition(CharClass.LET  , new Transition(State.SId , Action.LOWER, Action.HASH)); // start: letter => get identifier
+    //State.SLP.setTransition(CharClass.OP   , new Transition(State.SOp , Action.HASH )); // start: single character operator
+    
+    
     //comments
-    State.SLP  .setTransition(CharClass.AST , new Transition(State.SCA , Action.HASH)); // first left parenthesis
-    State.SCom .setTransition(CharClass.AST , new Transition(State.SSCA , Action.HASH));// saw the second star
-    State.SSCA .setTransition(CharClass.RP  , new Transition(State.SBeg)); 				// finish a comment with *)
+    				// star in the comments but not ) following
+    State.SLP  .setTransition(CharClass.AST , new Transition(State.SCom, Action.CLEAR)); 	// first left parenthesis
+    State.SCom .setTransition(CharClass.AST , new Transition(State.SCA ));					// saw an * in comment
+    State.SCA  .setTransition(CharClass.AST , new Transition(State.SCA)); 				// finish a comment with *)
+    State.SCA  .setTransition(CharClass.RP  , new Transition(State.SBeg)); 				// finish a comment with *)
+    State.SCA  .setTransition(CharClass.RC  , new Transition(State.SBeg)); 				// finish a comment with } from 
     State.SCom .setTransition(CharClass.RC  , new Transition(State.SBeg)); 			    // finish a comment with }
-    State.SCA  .setDefault(new Transition(State.SCom, Action.HASH)); 					// start the comments
-    State.SCA  .setDefault(new Transition(State.SCom, Action.HASH)); 					// in the comments
     // SOp has no outgoing transitions
 
     State.SLt .setTransition(CharClass.EQ , new Transition(State.SOp, Action.HASH)); // double char operator <=
@@ -528,7 +561,8 @@ public class MPCScanner implements java_cup.runtime.Scanner {
           // non-accepting state: complain and restart
           mpc.ShowError(scanStr.getEndPos(),
                         "Unexpected character: " + charDescription(inChar));
-          markError("resetting to scan a new token");
+			markError("resetting to scan a new token"/* . The currState: "+currState.toString() */);
+          //tokStr.println(currState.toString());
           reset();
           currState = State.SBeg;
         }

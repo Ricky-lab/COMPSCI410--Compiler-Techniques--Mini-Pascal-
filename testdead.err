@@ -1,4 +1,0 @@
-line 13: Unexpected character: '!' (code = 33 = 041 = \u0021)
-   writeln('Got here!
---------------------^
-resetting to scan a new token
