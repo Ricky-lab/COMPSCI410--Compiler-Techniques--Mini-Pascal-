@@ -1,0 +1,185 @@
+(program: 
+  (decls: 
+    (decl->program: testsub2[1]))
+  (block: 
+    (decls: 
+      (decl->type: at[4]
+        (type->kind=array:(type->kind=subrange:
+            (expr->[value=1] int: 1
+              type->(type->kind=integer))
+            (expr->[value=10] int: 10
+              type->(type->kind=integer)))
+          (type->kind=ident: integer[4])))
+      (decl->type: aat[5]
+        (type->kind=array:(type->kind=subrange:
+            (expr->[value=1] int: 1
+              type->(type->kind=integer))
+            (expr->[value=10] int: 10
+              type->(type->kind=integer)))
+          (type->kind=array:(type->kind=subrange:
+              (expr->[value=1] int: 1
+                type->(type->kind=integer))
+              (expr->[value=10] int: 10
+                type->(type->kind=integer)))
+            (type->kind=ident: integer[5]))))
+      (decl->type: bt[6]
+        (type->kind=array:(type->kind=subrange:
+            (expr->[value=0] int: 0
+              type->(type->kind=integer))
+            (expr->[value=9] int: 9
+              type->(type->kind=integer)))
+          (type->kind=array:(type->kind=subrange:
+              (expr->[value=0] int: 0
+                type->(type->kind=integer))
+              (expr->[value=15] int: 15
+                type->(type->kind=integer)))
+            (type->kind=ident: integer[6]))))
+      (decl->variable: a[9]
+        (type->kind=ident: at[9]))
+      (decl->variable: aa[10]
+        (type->kind=ident: aat[10]))
+      (decl->variable: i[11]
+        (type->kind=ident: integer[11]))
+      (decl->variable: j[11]
+        (type->kind=ident: integer[11]))
+      (decl->variable: ii[12]
+        (type->kind=subrange:
+          (expr->[value=1] int: 1
+            type->(type->kind=integer))
+          (expr->[value=10] int: 10
+            type->(type->kind=integer))))
+      (decl->variable: jj[12]
+        (type->kind=subrange:
+          (expr->[value=1] int: 1
+            type->(type->kind=integer))
+          (expr->[value=10] int: 10
+            type->(type->kind=integer))))
+      (decl->variable: ll[13]
+        (type->kind=subrange:
+          (expr->[value=0] int: 0
+            type->(type->kind=integer))
+          (expr->[value=9] int: 9
+            type->(type->kind=integer))))
+      (decl->variable: hh[14]
+        (type->kind=subrange:
+          (expr->[value=2] int: 2
+            type->(type->kind=integer))
+          (expr->[value=11] int: 11
+            type->(type->kind=integer))))
+      (decl->variable: b[15]
+        (type->kind=ident: bt[15]))
+      (decl->function: f1[17]
+        (type->kind=ident: integer[17])
+        (block: 
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: f1[19])
+              (expr->[value=1] int: 1
+                type->(type->kind=integer)))
+            (stmt->emptystmt:)))))
+    (stmts: 
+      (stmt->assignstmt:
+        (expr-> binding: i[23])
+        (expr-> binexp: +
+          (expr-> binexp: +
+            (expr-> binexp: +
+              (expr-> binexp: +
+                (expr-> binexp: +
+                  (expr-> binexp: [
+                    (expr-> binding: a[23])
+                    (expr-> binding: i[23]))
+                  (expr-> binexp: [
+                    (expr-> binding: a[23])
+                    (expr-> binding: ii[23])))
+                (expr-> binexp: [
+                  (expr-> binexp: [
+                    (expr-> binding: aa[23])
+                    (expr-> binding: i[23]))
+                  (expr-> binding: j[23])))
+              (expr-> binexp: [
+                (expr-> binexp: [
+                  (expr-> binding: aa[23])
+                  (expr-> binding: i[23]))
+                (expr-> binding: jj[23])))
+            (expr-> binexp: [
+              (expr-> binexp: [
+                (expr-> binding: aa[23])
+                (expr-> binding: ii[23]))
+              (expr-> binding: j[23])))
+          (expr-> binexp: [
+            (expr-> binexp: [
+              (expr-> binding: aa[23])
+              (expr-> binding: ii[23]))
+            (expr-> binding: jj[23]))))
+      (stmt->assignstmt:
+        (expr-> binding: ii[24])
+        (expr-> binding: jj[24]))
+      (stmt->assignstmt:
+        (expr-> binding: ii[25])
+        (expr-> binding: i[25]))
+      (stmt->ifstmt: 
+        (expr-> binexp: =
+          (expr-> binding: f1[26])
+          (expr->[value=0] int: 0
+            type->(type->kind=integer)))
+        (stmt->compoundstmt:
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: ii[27])
+              (expr->[value=0] int: 0
+                type->(type->kind=integer)))
+            (stmt->assignstmt:
+              (expr-> binding: ii[28])
+              (expr->[value=5] int: 5
+                type->(type->kind=integer)))
+            (stmt->assignstmt:
+              (expr-> binding: ii[29])
+              (expr->[value=11] int: 11
+                type->(type->kind=integer)))
+            (stmt->emptystmt:))))
+      (stmt->assignstmt:
+        (expr-> binding: ll[31])
+        (expr-> binding: f1[31]))
+      (stmt->assignstmt:
+        (expr-> binding: hh[32])
+        (expr-> binexp: +
+          (expr-> binding: f1[32])
+          (expr->[value=1] int: 1
+            type->(type->kind=integer))))
+      (stmt->assignstmt:
+        (expr-> binding: ii[33])
+        (expr-> binding: ll[33]))
+      (stmt->assignstmt:
+        (expr-> binding: ii[34])
+        (expr-> binding: hh[34]))
+      (stmt->assignstmt:
+        (expr-> binding: i[35])
+        (expr-> binexp: +
+          (expr-> binexp: [
+            (expr-> binding: a[35])
+            (expr-> binding: ll[35]))
+          (expr-> binexp: [
+            (expr-> binding: a[35])
+            (expr-> binding: hh[35]))))
+      (stmt->assignstmt:
+        (expr-> binding: i[36])
+        (expr-> binexp: +
+          (expr-> binexp: +
+            (expr-> binexp: [
+              (expr-> binexp: [
+                (expr-> binding: b[36])
+                (expr->[value=0] int: 0
+                  type->(type->kind=integer)))
+              (expr-> binding: ll[36]))
+            (expr-> binexp: [
+              (expr-> binexp: [
+                (expr-> binding: b[36])
+                (expr-> binding: ll[36]))
+              (expr->[value=0] int: 0
+                type->(type->kind=integer))))
+          (expr-> binexp: [
+            (expr-> binexp: [
+              (expr-> binding: b[36])
+              (expr-> binding: ll[36]))
+            (expr-> binding: ll[36]))))
+      (stmt->emptystmt:))))

@@ -1,0 +1,40 @@
+(program: 
+  (decls: 
+    (decl->program: test[1]))
+  (block: 
+    (decls: 
+      (decl->type: p[3]
+        (type->kind=pointer:
+          ))
+      (decl->type: q[4]
+        (type->kind=pointer:
+          ))
+      (decl->type: r[5]
+        (type->kind=pointer:
+          ))
+      (decl->type: x[7]
+        (type->kind=pointer:
+          ))
+      (decl->type: y[8]
+        (type->kind=pointer:
+          ))
+      (decl->type: z[9]
+        (type->kind=pointer:
+          ))
+      (decl->type: t[11]
+        (type->kind=pointer:
+          ))
+      (decl->type: a[13]
+        (type->kind=pointer:
+          ))
+      (decl->type: b[14]
+        (type->kind=pointer:
+          ))
+      (decl->type: c[15]
+        (type->kind=pointer:
+          ))
+      (decl->type: d[16]
+        (type->kind=pointer:
+          )))
+    (stmts: 
+      (stmt->emptystmt:))))

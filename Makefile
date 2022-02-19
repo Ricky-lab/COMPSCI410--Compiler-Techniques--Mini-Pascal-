@@ -70,7 +70,7 @@ JCFLAGS = -g $(JSOURCE) -d . $(JCLASSP) $(XJCFLAGS)
 JDFLAGS = $(JSOURCE) $(JCLASSP)
 
 # extensions of output files built by this phase
-OUTEXTS := token
+OUTEXTS := parse
 RPTEXTS := $(OUTEXTS)
 
 # insures that make does not delete outputs
@@ -84,6 +84,24 @@ javas =     mpc.java Phase.java MPCContext.java Parse.java \
               TokenOp.java TokenString.java \
             MPCStream.java InputPos.java \
             ASTNode.java Program.java \
+            ASTVisitor.java ASTNullVisitor.java ASTPrintVisitor.java \
+            Block.java Binding.java \
+            Decls.java Decl.java DeclConst.java DeclFormal.java \
+              DeclProcFunc.java DeclProgram.java DeclType.java \
+              DeclVar.java DeclField.java DeclSpecial.java \
+            Exprs.java Expr.java ExprBinary.java ExprBinding.java ExprCall.java \
+              ExprError.java ExprInt.java ExprNil.java ExprString.java \
+              ExprUnary.java ExprId.java \
+            Stmts.java Stmt.java StmtAssign.java StmtCall.java \
+              StmtCase.java CaseElement.java CaseLabelList.java StmtCompound.java \
+              StmtEmpty.java StmtFor.java StmtIf.java StmtRepeat.java \
+              StmtWhile.java \
+            Type.java TypeArray.java TypeError.java TypeId.java \
+              TypePointer.java TypePrim.java \
+              TypePrimBool.java TypePrimInt.java TypePrimNil.java TypePrimString.java \
+              TypeRange.java TypeRecord.java \
+            MPCObject.java ObjectValueInteger.java ObjectValueString.java ObjectValueError.java \
+            ObjectVisitor.java TokenVisitor.java \
 # must have this comment line here, to terminate above definition
 
 srcs = $(addprefix MPC/,$(javas))
@@ -95,7 +113,10 @@ cupclass = $(subst java,class,$(cupgens))
 # defines Pascal test files for this phase
 testfiles = gcd.pas testbranch.pas testfor.pas testmin.pas testmisc2.pas testprocdecl.pas \
             testread.pas \
-            scancomment.pas scaneof1.pas scaneof2.pas scangood.pas scanmin.pas \
+            proctest.pas stchain.pas testb2.pas testbad.pas testcall.pas testdiv.pas \
+            testgood.pas testio.pas testmisc.pas testnilnil.pas testparse.pas testptr.pas \
+            testptrptr.pas testptrptr2.pas testrec.pas testrecord.pas testregs.pas \
+            testregs2.pas testsub.pas testsub2.pas \
 # must have this comment line here, to terminate above definition
 
 # defines the spim command to use (xspim for the X window version,
@@ -107,6 +128,9 @@ spim = xspim
 # target/outputs vary according to phase
 
 %.token: %.pas mpcr
+	-mpcr -t $<
+
+%.parse: %.pas mpcr
 	-mpcr $<
 
 
@@ -130,7 +154,7 @@ MPC/mpc.class $(cupclass): $(srcs) $(cupgens) \
 
 # Rule for building Parser and sym Java source using java_cup
 $(cupgens): mpc.cup java_cup.jar build.xml
-	$(JAVA) $(JCLASSP) java_cup.Main -package MPC -parser Parser -expect 0 mpc.cup
+	$(JAVA) $(JCLASSP) java_cup.Main -package MPC -parser Parser -expect 1 mpc.cup
 	mv -f Parser.java sym.java MPC
 
 # builds javadoc documentation
@@ -178,6 +202,7 @@ oclean:     clean
 # cleans up output from running mpc
 clean:
 	rm -f reports *.out *.err *.report *.token \
+	      *.parse \
 # must have this comment line here, to terminate above definition
 
 # variable defining output filenames

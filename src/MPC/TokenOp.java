@@ -92,6 +92,37 @@ public enum TokenOp implements Token {
   }
 
   /**
+   * provides a "hook" for a visitor to do something before each Token
+   *
+   * @param v the TokenVisitor whose method we will invoke
+   */
+  public void acceptBefore (TokenVisitor v) {
+    v.visitEveryBefore(this);
+  }
+
+  /**
+   * Supports visiting objects in the Token class hierarchy; calls
+   * acceptBefore() and acceptAfter() hooks as well as a visit method
+   * particular to this class.
+   *
+   * @param v the TokenVisitor to call, indicating this object is a TokenOp
+   */
+  public void accept (TokenVisitor v) {
+    this.acceptBefore(v);
+    v.visitTokenOp(this);
+    this.acceptAfter(v);
+  }
+
+  /**
+   * provides a "hook" for a visitor to do something after each Token
+   *
+   * @param v the TokenVisitor whose method we will invoke
+   */
+  public void acceptAfter (TokenVisitor v) {
+    v.visitEveryAfter(this);
+  }
+
+  /**
    * String representation of an operator.
    *
    * @return the String defining this operator

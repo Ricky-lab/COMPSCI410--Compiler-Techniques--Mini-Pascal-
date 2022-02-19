@@ -1,0 +1,93 @@
+(program: 
+  (decls: 
+    (decl->program: test[1]))
+  (block: 
+    (decls: 
+      (decl->const: n[3]
+        (expr->[value=10] int: 10
+          type->(type->kind=integer)))
+      (decl->function: incr[5]
+        (formals: 
+          (decl->formal x[5]
+            (varmode=false)
+            (type->kind=ident: integer[5])))
+        (type->kind=ident: integer[5])
+        (block: 
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: incr[7])
+              (expr-> binexp: +
+                (expr-> binding: x[7])
+                (expr->[value=1] int: 1
+                  type->(type->kind=integer))))
+            (stmt->emptystmt:))))
+      (decl->variable: i[10]
+        (type->kind=ident: integer[10]))
+      (decl->variable: w1[11]
+        (type->kind=ident: integer[11]))
+      (decl->variable: w2[11]
+        (type->kind=ident: integer[11]))
+      (decl->variable: w3[11]
+        (type->kind=ident: integer[11])))
+    (stmts: 
+      (stmt->assignstmt:
+        (expr-> binding: i[12])
+        (expr->[value=0] int: 0
+          type->(type->kind=integer)))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false readln[13]
+          (exprs: 
+            (expr-> binding: w1[13])
+            (expr-> binding: w2[13])
+            (expr-> binding: w3[13]))))
+      (stmt->repeatstmt:
+        (expr-> binexp: =
+          (expr-> binding: i[20])
+          (expr-> call: isMethodCall=false incr[20]
+            (exprs: 
+              (expr-> binding: n[20]))))
+        (stmts: 
+          (stmt->assignstmt:
+            (expr-> binding: i[14])
+            (expr-> binexp: +
+              (expr-> binding: i[14])
+              (expr->[value=1] int: 1
+                type->(type->kind=integer))))
+          (stmt->assignstmt:
+            (expr-> binding: w1[15])
+            (expr-> binexp: *
+              (expr-> binding: w1[15])
+              (expr->[value=1] int: 1
+                type->(type->kind=integer))))
+          (stmt->assignstmt:
+            (expr-> binding: w2[16])
+            (expr-> binexp: *
+              (expr-> binding: w2[16])
+              (expr->[value=2] int: 2
+                type->(type->kind=integer))))
+          (stmt->assignstmt:
+            (expr-> binding: w3[17])
+            (expr-> binexp: *
+              (expr-> binding: w3[17])
+              (expr->[value=3] int: 3
+                type->(type->kind=integer))))
+          (stmt->callstmt:
+            (expr-> call: isMethodCall=false writeln[18]
+              (exprs: 
+                (expr->[value='this is a test '] string: 'this is a test '
+                  type->(type->kind=string))
+                (expr-> binding: i[18])
+                (expr->[value=' :'] string: ' :'
+                  type->(type->kind=string)))))
+          (stmt->callstmt:
+            (expr-> call: isMethodCall=false writeln[19]
+              (exprs: 
+                (expr->[value=' '] string: ' '
+                  type->(type->kind=string))
+                (expr-> binding: w3[19])
+                (expr->[value=' '] string: ' '
+                  type->(type->kind=string))
+                (expr-> binding: w2[19])
+                (expr->[value=' '] string: ' '
+                  type->(type->kind=string))
+                (expr-> binding: w1[19])))))))))

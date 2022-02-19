@@ -1,0 +1,337 @@
+(program: 
+  (decls: 
+    (decl->program: procfunctest[1]))
+  (block: 
+    (decls: 
+      (decl->type: rng[3]
+        (type->kind=subrange:
+          (expr->[value=1] int: 1
+            type->(type->kind=integer))
+          (expr->[value=10] int: 10
+            type->(type->kind=integer))))
+      (decl->procedure: p0[5]
+        (block: 
+          (stmts: 
+            (stmt->emptystmt:))))
+      (decl->procedure: p1[9]
+        (formals: 
+          (decl->formal x[9]
+            (varmode=false)
+            (type->kind=ident: integer[9])))
+        (block: 
+          (stmts: 
+            (stmt->emptystmt:))))
+      (decl->procedure: p2[13]
+        (formals: 
+          (decl->formal x[13]
+            (varmode=false)
+            (type->kind=ident: integer[13]))
+          (decl->formal y[13]
+            (varmode=false)
+            (type->kind=ident: boolean[13])))
+        (block: 
+          (stmts: 
+            (stmt->emptystmt:))))
+      (decl->procedure: p3[17]
+        (formals: 
+          (decl->formal x[17]
+            (varmode=false)
+            (type->kind=ident: integer[17]))
+          (decl->formal r[17]
+            (varmode=false)
+            (type->kind=ident: rng[17]))
+          (decl->formal xx[17]
+            (varmode=true)
+            (type->kind=ident: integer[17]))
+          (decl->formal rr[17]
+            (varmode=true)
+            (type->kind=ident: rng[17])))
+        (block: 
+          (stmts: 
+            (stmt->emptystmt:))))
+      (decl->function: f0[21]
+        (type->kind=ident: integer[21])
+        (block: 
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: f0[23])
+              (expr->[value=0] int: 0
+                type->(type->kind=integer)))
+            (stmt->emptystmt:))))
+      (decl->function: f1[26]
+        (formals: 
+          (decl->formal x[26]
+            (varmode=false)
+            (type->kind=ident: integer[26])))
+        (type->kind=ident: integer[26])
+        (block: 
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: f1[28])
+              (expr-> binding: x[28]))
+            (stmt->emptystmt:))))
+      (decl->function: f2[31]
+        (formals: 
+          (decl->formal x[31]
+            (varmode=false)
+            (type->kind=ident: integer[31]))
+          (decl->formal y[31]
+            (varmode=false)
+            (type->kind=ident: boolean[31])))
+        (type->kind=ident: boolean[31])
+        (block: 
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: f2[33])
+              (expr-> binding: y[33]))
+            (stmt->emptystmt:))))
+      (decl->function: f3[36]
+        (type->kind=ident: boolean[36])
+        (block: 
+          (decls: 
+            (decl->procedure: pp[37]
+              (block: 
+                (decls: 
+                  (decl->procedure: qq[38]
+                    (block: 
+                      (stmts: 
+                        (stmt->assignstmt:
+                          (expr-> binding: pp[40])
+                          (expr->[value=5] int: 5
+                            type->(type->kind=integer)))
+                        (stmt->emptystmt:)))))
+                (stmts: 
+                  (stmt->assignstmt:
+                    (expr-> binding: f3[43])
+                    (expr-> binding: false[43]))
+                  (stmt->assignstmt:
+                    (expr-> binding: pp[44])
+                    (expr->[value=17] int: 17
+                      type->(type->kind=integer)))
+                  (stmt->emptystmt:))))
+            (decl->function: ff[46]
+              (type->kind=ident: boolean[46])
+              (block: 
+                (stmts: 
+                  (stmt->assignstmt:
+                    (expr-> binding: f3[48])
+                    (expr-> binding: true[48]))
+                  (stmt->assignstmt:
+                    (expr-> binding: ff[49])
+                    (expr-> binding: false[49]))
+                  (stmt->emptystmt:)))))
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: f3[52])
+              (expr-> binding: true[52]))
+            (stmt->assignstmt:
+              (expr-> binding: f3[53])
+              (expr->[value=3] int: 3
+                type->(type->kind=integer)))
+            (stmt->emptystmt:))))
+      (decl->type: pint[58]
+        (type->kind=pointer:
+          ))
+      (decl->variable: r[61]
+        (type->kind=ident: rng[61]))
+      (decl->variable: x[62]
+        (type->kind=ident: integer[62]))
+      (decl->variable: y[63]
+        (type->kind=ident: boolean[63]))
+      (decl->variable: p[64]
+        (type->kind=pointer:
+          )))
+    (stmts: 
+      (stmt->callstmt:
+        (expr-> binding: p0[66]))
+      (stmt->callstmt:
+        (expr-> binding: p1[67]))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p0[68]
+          (exprs: 
+            (expr-> binding: x[68]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p1[69]
+          (exprs: 
+            (expr-> binding: x[69]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p1[70]
+          (exprs: 
+            (expr-> binding: y[70]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p1[71]
+          (exprs: 
+            (expr-> binding: x[71])
+            (expr-> binding: y[71]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p2[72]
+          (exprs: 
+            (expr-> binding: x[72]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p2[73]
+          (exprs: 
+            (expr-> binding: x[73])
+            (expr-> binding: y[73]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p2[74]
+          (exprs: 
+            (expr-> binding: y[74])
+            (expr-> binding: x[74]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p3[75]
+          (exprs: 
+            (expr-> binding: x[75])
+            (expr-> binding: r[75])
+            (expr-> binding: x[75])
+            (expr-> binding: r[75]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p3[76]
+          (exprs: 
+            (expr-> binding: r[76])
+            (expr-> binding: x[76])
+            (expr-> binding: x[76])
+            (expr-> binding: r[76]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p3[77]
+          (exprs: 
+            (expr-> binding: x[77])
+            (expr-> binding: r[77])
+            (expr-> binding: r[77])
+            (expr-> binding: x[77]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p3[78]
+          (exprs: 
+            (expr->[value=50] int: 50
+              type->(type->kind=integer))
+            (expr->[value=50] int: 50
+              type->(type->kind=integer))
+            (expr-> binding: x[78])
+            (expr-> binding: r[78]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false p3[79]
+          (exprs: 
+            (expr->[value=50] int: 50
+              type->(type->kind=integer))
+            (expr->[value=50] int: 50
+              type->(type->kind=integer))
+            (expr->[value=50] int: 50
+              type->(type->kind=integer))
+            (expr->[value=50] int: 50
+              type->(type->kind=integer)))))
+      (stmt->assignstmt:
+        (expr-> binding: x[80])
+        (expr-> binding: f0[80]))
+      (stmt->assignstmt:
+        (expr-> binding: x[81])
+        (expr-> binding: f1[81]))
+      (stmt->assignstmt:
+        (expr-> binding: x[82])
+        (expr-> call: isMethodCall=false f0[82]
+          (exprs: 
+            (expr-> binding: x[82]))))
+      (stmt->assignstmt:
+        (expr-> binding: x[83])
+        (expr-> call: isMethodCall=false f1[83]
+          (exprs: 
+            (expr-> binding: x[83]))))
+      (stmt->assignstmt:
+        (expr-> binding: x[84])
+        (expr-> call: isMethodCall=false f1[84]
+          (exprs: 
+            (expr-> binding: y[84]))))
+      (stmt->assignstmt:
+        (expr-> binding: y[85])
+        (expr-> call: isMethodCall=false f2[85]
+          (exprs: 
+            (expr-> binding: x[85]))))
+      (stmt->assignstmt:
+        (expr-> binding: x[86])
+        (expr-> call: isMethodCall=false f2[86]
+          (exprs: 
+            (expr-> binding: x[86])
+            (expr-> binding: y[86]))))
+      (stmt->assignstmt:
+        (expr-> binding: y[87])
+        (expr-> call: isMethodCall=false f2[87]
+          (exprs: 
+            (expr-> binding: x[87])
+            (expr-> binding: y[87]))))
+      (stmt->assignstmt:
+        (expr-> binding: y[88])
+        (expr-> call: isMethodCall=false f2[88]
+          (exprs: 
+            (expr-> binding: y[88])
+            (expr-> binding: x[88]))))
+      (stmt->callstmt:
+        (expr-> binding: readln[89]))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false readln[90]
+          (exprs: 
+            (expr->[value=3] int: 3
+              type->(type->kind=integer)))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false readln[91]
+          (exprs: 
+            (expr-> binding: x[91]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false readln[92]
+          (exprs: 
+            (expr-> binding: x[92])
+            (expr->[value=3] int: 3
+              type->(type->kind=integer)))))
+      (stmt->callstmt:
+        (expr-> binding: write[93]))
+      (stmt->callstmt:
+        (expr-> binding: writeln[94]))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false write[95]
+          (exprs: 
+            (expr-> binding: x[95])
+            (expr->[value=3] int: 3
+              type->(type->kind=integer)))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false writeln[96]
+          (exprs: 
+            (expr-> binding: x[96])
+            (expr->[value=3] int: 3
+              type->(type->kind=integer)))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false write[97]
+          (exprs: 
+            (expr-> binding: p[97]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false new[98]
+          (exprs: 
+            (expr-> binding: p[98]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false new[99]
+          (exprs: 
+            (expr-> binding: x[99]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false new[100]
+          (exprs: 
+            (expr->[value=3] int: 3
+              type->(type->kind=integer)))))
+      (stmt->callstmt:
+        (expr-> binding: new[101]))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false new[102]
+          (exprs: 
+            (expr-> binding: p[102])
+            (expr-> binding: x[102]))))
+      (stmt->assignstmt:
+        (expr-> binding: p[103])
+        (expr-> call: isMethodCall=false new[103]
+          (exprs: 
+            (expr-> binding: pint[103]))))
+      (stmt->assignstmt:
+        (expr-> binding: x[104])
+        (expr-> call: isMethodCall=false new[104]
+          (exprs: 
+            (expr-> binding: pint[104]))))
+      (stmt->assignstmt:
+        (expr-> binding: y[105])
+        (expr-> call: isMethodCall=false new[105]
+          (exprs: 
+            (expr-> binding: boolean[105]))))
+      (stmt->emptystmt:))))

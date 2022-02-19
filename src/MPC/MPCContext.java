@@ -78,7 +78,7 @@ public class MPCContext {
    * Default flags
    */
   public static final EnumSet<Flag> DefaultFlags = EnumSet.of(
-    Flag.TokenPrint
+    Flag.ParsePrint
     );
 
   /**
@@ -89,6 +89,8 @@ public class MPCContext {
                "to request verbose output"),
     TokenPrint('t', "token output",
                "to control output of tokens to a .token file"),
+    ParsePrint('p', "parse tree output",
+               "to control printing of AST to a .parse file"),
     Debug('d', "debugging output",
           "for debugging output") {
       void toggle (EnumSet<Flag> flags) { flags.add(this); }

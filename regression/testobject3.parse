@@ -1,0 +1,336 @@
+(program: 
+  (decls: 
+    (decl->program: testobject3[3]))
+  (block: 
+    (decls: 
+      (decl->type: object1[6]
+        (type->kind=pointer:
+          (type->kind=object: name=object1
+            (extends: (type->kind=ident: integer[6]))
+            (abstract: false)
+            (methods: 
+              (decl->((type->kind=method procedure name=add
+                    (formals: 
+                      (decl->formal self[6]
+                        (varmode=false)
+                        (type->kind=ident: object1[6]))
+                      (decl->formal x[6]
+                        (varmode=false)
+                        (type->kind=ident: integer[6]))))
+                  implemented-by: add[6]))))))
+      (decl->type: object2[7]
+        (type->kind=pointer:
+          (type->kind=object: name=object2
+            (extends: (type->kind=ident: object3[7]))
+            (abstract: false)
+            (overrides: 
+              (method[7] object2method[7])))))
+      (decl->type: object3[8]
+        (type->kind=pointer:
+          (type->kind=object: name=object3
+            (extends: (type->kind=ident: root[8]))
+            (abstract: false)
+            (fields: 
+              (decl->field: x[9]
+                (type->kind=ident: integer[9])))
+            (methods: 
+              (decl->((type->kind=method procedure name=method
+                    (formals: 
+                      (decl->formal self[11]
+                        (varmode=false)
+                        (type->kind=ident: object3[11]))))
+                  implemented-by: method[11]))))))
+      (decl->type: object4[13]
+        (type->kind=pointer:
+          (type->kind=object: name=object4
+            (extends: (type->kind=ident: root[8]))
+            (abstract: false)
+            (fields: 
+              (decl->field: x[14]
+                (type->kind=ident: integer[14])))
+            (methods: 
+              (decl->((type->kind=method function name=multiply
+                    (formals: 
+                      (decl->formal self[16]
+                        (varmode=false)
+                        (type->kind=ident: object4[16]))
+                      (decl->formal x[16]
+                        (varmode=false)
+                        (type->kind=ident: integer[16])))
+                    (type->kind=ident: object4[16]))
+                  implemented-by: multiply[16]))))))
+      (decl->type: object5[18]
+        (type->kind=pointer:
+          (type->kind=object: name=object5
+            (extends: (type->kind=ident: object4[18]))
+            (abstract: false)
+            (overrides: 
+              (multiply[20] object5multiply[20])))))
+      (decl->type: object6[22]
+        (type->kind=pointer:
+          (type->kind=object: name=object6
+            (extends: (type->kind=ident: object4[22]))
+            (abstract: true)
+            (overrides: 
+              (multiply[24] object6multiply[24])))))
+      (decl->type: object7[26]
+        (type->kind=pointer:
+          (type->kind=object: name=object7
+            (extends: (type->kind=ident: object6[26]))
+            (abstract: false)
+            (methods: 
+              (decl->((type->kind=method function name=add
+                    (formals: 
+                      (decl->formal self[28]
+                        (varmode=false)
+                        (type->kind=ident: object7[28]))
+                      (decl->formal x[28]
+                        (varmode=true)
+                        (type->kind=ident: integer[28])))
+                    (type->kind=ident: object7[28]))
+                  implemented-by: add[28]))))))
+      (decl->variable: o1[31]
+        (type->kind=ident: object1[31]))
+      (decl->variable: o2[32]
+        (type->kind=ident: object2[32]))
+      (decl->variable: o3[33]
+        (type->kind=ident: object3[33]))
+      (decl->variable: o4[34]
+        (type->kind=ident: object4[34]))
+      (decl->variable: o5[35]
+        (type->kind=ident: object5[35]))
+      (decl->variable: o6[36]
+        (type->kind=ident: object6[36]))
+      (decl->variable: o7[37]
+        (type->kind=ident: object7[37]))
+      (decl->procedure: object2method[39]
+        (formals: 
+          (decl->formal self[39]
+            (varmode=false)
+            (type->kind=ident: object2[39])))
+        (block: 
+          (stmts: 
+            (stmt->callstmt:
+              (expr-> call: isMethodCall=false writeln[41]
+                (exprs: 
+                  (expr-> binexp: .
+                    (expr-> binding: self[41])
+                    (expr-> id: x)))))
+            (stmt->emptystmt:))))
+      (decl->function: object3method[44]
+        (formals: 
+          (decl->formal x[44]
+            (varmode=false)
+            (type->kind=ident: integer[44])))
+        (type->kind=ident: integer[44])
+        (block: 
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: object3method[46])
+              (expr-> binexp: *
+                (expr->[value=2] int: 2
+                  type->(type->kind=integer))
+                (expr-> binding: x[46])))
+            (stmt->emptystmt:))))
+      (decl->function: object5multiply[49]
+        (formals: 
+          (decl->formal self[49]
+            (varmode=false)
+            (type->kind=ident: object5[49]))
+          (decl->formal x[49]
+            (varmode=false)
+            (type->kind=ident: integer[49])))
+        (type->kind=ident: integer[49])
+        (block: 
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: object5multiply[51])
+              (expr-> binexp: *
+                (expr-> binexp: .
+                  (expr-> binding: self[51])
+                  (expr-> id: x))
+                (expr-> binding: x[51])))
+            (stmt->emptystmt:))))
+      (decl->function: object6multiply[54]
+        (formals: 
+          (decl->formal self[54]
+            (varmode=false)
+            (type->kind=ident: object7[54]))
+          (decl->formal x[54]
+            (varmode=false)
+            (type->kind=ident: integer[54])))
+        (type->kind=ident: object6[54])
+        (block: 
+          (decls: 
+            (decl->variable: obj[56]
+              (type->kind=ident: object6[56])))
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: obj[58])
+              (expr-> call: isMethodCall=false new[58]
+                (exprs: 
+                  (expr-> binding: object7[58]))))
+            (stmt->assignstmt:
+              (expr-> binexp: .
+                (expr-> binding: obj[59])
+                (expr-> id: x))
+              (expr-> binexp: *
+                (expr-> binexp: .
+                  (expr-> binding: self[59])
+                  (expr-> id: x))
+                (expr-> binding: x[59])))
+            (stmt->assignstmt:
+              (expr-> binding: object6multiply[60])
+              (expr-> binding: obj[60]))
+            (stmt->emptystmt:))))
+      (decl->function: object7add[63]
+        (formals: 
+          (decl->formal self[63]
+            (varmode=false)
+            (type->kind=ident: object7[63]))
+          (decl->formal x[63]
+            (varmode=false)
+            (type->kind=ident: integer[63])))
+        (type->kind=ident: object7[63])
+        (block: 
+          (decls: 
+            (decl->variable: obj[65]
+              (type->kind=ident: object7[65])))
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: obj[67])
+              (expr-> call: isMethodCall=false new[67]
+                (exprs: 
+                  (expr-> binding: object7[67]))))
+            (stmt->assignstmt:
+              (expr-> binexp: .
+                (expr-> binding: obj[68])
+                (expr-> id: x))
+              (expr-> binexp: +
+                (expr-> binexp: .
+                  (expr-> binding: self[68])
+                  (expr-> id: x))
+                (expr-> binding: x[68])))
+            (stmt->assignstmt:
+              (expr-> binding: object7add[69])
+              (expr-> binding: obj[69]))))))
+    (stmts: 
+      (stmt->assignstmt:
+        (expr-> binding: o4[72])
+        (expr-> call: isMethodCall=false new[72]
+          (exprs: 
+            (expr-> binding: object4[72]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false writeln[73]
+          (exprs: 
+            (expr-> binexp: .
+              (expr-> unexp: ^
+                (expr-> binding: o4[73]))
+              (expr-> id: x)))))
+      (stmt->assignstmt:
+        (expr-> binding: o6[74])
+        (expr-> call: isMethodCall=false new[74]
+          (exprs: 
+            (expr-> binding: object6[74]))))
+      (stmt->callstmt:
+        (expr-> call: isMethodCall=false new[75]
+          (exprs: 
+            (expr-> binding: o6[75]))))
+      (stmt->assignstmt:
+        (expr-> binding: o6[76])
+        (expr-> binding: o4[76]))
+      (stmt->assignstmt:
+        (expr-> binding: o4[77])
+        (expr-> binding: o6[77]))
+      (stmt->assignstmt:
+        (expr-> binding: o4[78])
+        (expr-> binding: o4[78]))
+      (stmt->ifstmt: 
+        (expr-> call: isMethodCall=false istype[79]
+          (exprs: 
+            (expr-> binding: o4[79])))
+        (stmt->callstmt:
+          (expr-> binding: writeln[79])))
+      (stmt->ifstmt: 
+        (expr-> call: isMethodCall=false istype[80]
+          (exprs: 
+            (expr-> binding: o4[80])
+            (expr-> binding: object4[80])
+            (expr->[value=3] int: 3
+              type->(type->kind=integer))))
+        (stmt->callstmt:
+          (expr-> binding: writeln[80])))
+      (stmt->ifstmt: 
+        (expr-> call: isMethodCall=false istype[81]
+          (exprs: 
+            (expr-> binding: o4[81])
+            (expr-> binding: integer[81])))
+        (stmt->callstmt:
+          (expr-> binding: writeln[81])))
+      (stmt->ifstmt: 
+        (expr-> call: isMethodCall=false istype[82]
+          (exprs: 
+            (expr-> binding: o4[82])
+            (expr-> binding: object4[82])))
+        (stmt->callstmt:
+          (expr-> binding: writeln[82])))
+      (stmt->ifstmt: 
+        (expr-> call: isMethodCall=false istype[83]
+          (exprs: 
+            (expr->[value=35] int: 35
+              type->(type->kind=integer))
+            (expr-> binding: object4[83])))
+        (stmt->callstmt:
+          (expr-> binding: writeln[83])))
+      (stmt->ifstmt: 
+        (expr-> call: isMethodCall=false istype[84]
+          (exprs: 
+            (expr->[value=0] nil:
+              type->(type->kind=<NIL>))
+            (expr-> binding: object4[84])))
+        (stmt->callstmt:
+          (expr-> binding: writeln[84])))
+      (stmt->assignstmt:
+        (expr-> binding: o4[85])
+        (expr-> call: isMethodCall=false narrow[85]
+          (exprs: 
+            (expr-> binding: o4[85]))))
+      (stmt->assignstmt:
+        (expr-> binding: o4[86])
+        (expr-> call: isMethodCall=false narrow[86]
+          (exprs: 
+            (expr-> binding: o4[86])
+            (expr-> binding: object4[86])
+            (expr->[value=3] int: 3
+              type->(type->kind=integer)))))
+      (stmt->assignstmt:
+        (expr-> binding: o4[87])
+        (expr-> call: isMethodCall=false narrow[87]
+          (exprs: 
+            (expr-> binding: o4[87])
+            (expr-> binding: integer[87]))))
+      (stmt->assignstmt:
+        (expr-> binding: o4[88])
+        (expr-> call: isMethodCall=false narrow[88]
+          (exprs: 
+            (expr-> binding: o4[88])
+            (expr-> binding: object4[88]))))
+      (stmt->assignstmt:
+        (expr-> binding: o4[89])
+        (expr-> call: isMethodCall=false narrow[89]
+          (exprs: 
+            (expr->[value=35] int: 35
+              type->(type->kind=integer))
+            (expr-> binding: object4[89]))))
+      (stmt->assignstmt:
+        (expr-> binding: o4[90])
+        (expr-> call: isMethodCall=false narrow[90]
+          (exprs: 
+            (expr->[value=0] nil:
+              type->(type->kind=<NIL>))
+            (expr-> binding: object4[90]))))
+      (stmt->assignstmt:
+        (expr-> binding: o4[91])
+        (expr->[value=0] nil:
+          type->(type->kind=<NIL>)))
+      (stmt->emptystmt:))))

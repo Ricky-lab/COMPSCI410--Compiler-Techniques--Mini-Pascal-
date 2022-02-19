@@ -1,4 +1,0 @@
-line 6: Unexpected character: '\u0100' (code = 256 = 400 = \u0100)
-\u0100
-^
-resetting to scan a new token

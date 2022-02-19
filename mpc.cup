@@ -27,6 +27,7 @@ parser code {:
     error = true;
   }
 
+  public static TypeId ROOT_TYPE = new TypeId(new Binding((TokenId)(TokenId.get("root")), -1, -1));
 
 :}
 
@@ -53,21 +54,200 @@ terminal TokenId     ID;
 // Non-terminal symbols with their Java types
 non terminal Program     program;
 
-non terminal Token       token;
+non terminal Block       block;
 
+non terminal Binding     binding;
+
+non terminal List<Decl> optDefns, constDefns, varDecls, varDecl;
+non terminal List<Stmt> stmtList;
+non terminal List<Binding> bindingList;
+
+non terminal Decl        constDefn;
+non terminal Expr        expr, constant, unsignedConstant, variable;
+non terminal Expr        simpleExpr, term, factor;
+
+non terminal Type        type, simpleType;
+
+non terminal Stmt        stmt, optElse;
+
+non terminal Token       sign, relOp, addOp, multOp, optSemi;
+
+
+
+// The grammar
 program
-    ::=               {: RESULT = (Program)null; :}
-     |  program token {: RESULT = (Program)null; :}
-     |  error         {: RESULT = (Program)null; :}
+    ::= PROGRAM:p binding:b SEMI block:blk DOT:dot
+          {:
+             Decl d = new DeclProgram(b);
+             Decls dd = new Decls(d);
+             RESULT = new Program(dd, blk, pleft, dotright);
+           :}
+     |  error {: RESULT = (Program)null; :}
      ;
 
-token
-    ::= ABSTRACT | AND | ARRAY | BEGIN | CASE | CONST | DIV | DO | DOWNTO
-     |  ELSE | END | FOR | FUNCTION | IF | METHODS | MOD | NIL | NOT
-     |  OBJECT | OF | OR | OVERRIDES | PROCEDURE | PROGRAM |  RECORD | REPEAT
-     |  THEN | TO | TYPE | UNTIL | VAR | WHILE
-     |  LPAREN | RPAREN | COMMA | DOT | COLON | SEMI
-     |  LT | EQ | GT | LE | NE | GE | ASSIGN
-     |  AST | PLUS | MINUS | LBRACK | RBRACK | CARET | DOTDOT
-     |  INT | STRING | ID
+block
+    ::= optDefns:dd BEGIN:b stmtList:ss END:e
+          {: int pos  = (dd == null) ? bleft : ddleft;
+             int dEnd = (dd == null) ? bleft : ddright;
+             RESULT = new Block(new Decls(dd, pos, dEnd), new Stmts(ss, bleft, eright), pos, eright);
+           :}
+     ;
+
+binding
+    ::= ID:n {: RESULT = new Binding(n, nleft, nright); :}
+     ;
+
+// The empty RHS rule, which occurs first in the input, creates an empty
+// ArrayList of Decl nodes; other rules either tack a whole list onto it or add a
+// single element. Each should be some kind of Decl node.
+
+optDefns
+    ::=
+          {: RESULT = new ArrayList<Decl>(); :}
+     |  optDefns:dd CONST constDefns:cc
+          {: (RESULT = dd).addAll(cc); :}
+     |  optDefns:dd VAR   varDecls:vv
+          {: (RESULT = dd).addAll(vv); :}
+     ;
+
+// The single-item rule, which occurs first in the input, creates an empty
+// ArrayList and adds the item to it. The second rule adds one item to an
+// existing list.
+
+constDefns
+    ::= constDefn:d                 {: (RESULT = new ArrayList<Decl>(1)).add(d); :}
+     |  constDefns:dd constDefn:d   {: (RESULT = dd).add(d); :}
+     ;
+
+constDefn
+    ::= binding:b EQ constant:c SEMI
+          {: RESULT = new DeclConst(b, c); :}
+     |  error SEMI
+          {: RESULT = null; :}
+        // try to prevent errors from flowing into other declarations
+     ;
+
+// built-up somewhat like constDefns
+
+varDecls
+    ::= varDecl:d               {: RESULT = d; :}
+     |  varDecls:dd varDecl:d   {: (RESULT = dd).addAll(d); :}
+     ;
+
+varDecl
+    ::= bindingList:bb COLON type:t SEMI
+          {: RESULT = Decl.varDeclsOf(bb, t); :}
+     |  error SEMI
+          {: RESULT = new ArrayList<Decl>(0); :}
+     ;
+
+bindingList
+    ::= binding:b
+          {: (RESULT = new ArrayList<Binding>(1)).add(b); :}
+     |  bindingList:bb COMMA binding:b
+          {: (RESULT = bb).add(b); :}
+     ;
+
+constant
+    ::= unsignedConstant:u
+          {: RESULT = u; :}
+     ;
+
+unsignedConstant
+    ::= binding:b   {: RESULT = new ExprBinding(b); :}
+     ;
+
+type
+    ::= simpleType:t
+          {: RESULT = t; :}
+     |  error
+          {: RESULT = Type.theErrorType; :}
+     ;
+
+simpleType
+    ::= binding:b
+          {: RESULT = new TypeId(b); :}
+     ;
+
+stmt
+    ::= variable:v ASSIGN expr:e
+          {: RESULT = new StmtAssign(v, e); :}
+     |  BEGIN:b stmtList:ss END:e
+          {: RESULT = new StmtCompound(new Stmts(ss, bleft, eright), bleft, eright); :}
+     |  IF:i expr:e THEN stmt:s1 optElse:s2
+          {: int endPos = ((s2 == null) ? s1right : s2right);
+             RESULT = new StmtIf(e, s1, s2, ileft, endPos);
+           :}
+     |  WHILE:w expr:e DO stmt:s
+          {: RESULT = new StmtWhile(e, s, wleft, sright); :}
+     |
+          {: RESULT = new StmtEmpty(); :}
+     | error
+          {: RESULT = new StmtEmpty(); :}
+     ;
+
+optElse
+    ::=               {: RESULT = null; :}
+     |  ELSE stmt:s   {: RESULT = s;    :}
+     ;
+
+// carefully designed to allow empty statements where
+// appropriate but without ambiguity in parsing
+
+stmtList
+    ::= stmt:s                    {: (RESULT = new ArrayList<Stmt>(1)).add(s); :}
+     |  stmtList:ss SEMI stmt:s   {: (RESULT = ss).add(s); :}
+     ;
+
+variable
+    ::= binding:b   {: RESULT = new ExprBinding(b); :}
+     ;
+expr
+    ::= simpleExpr:e
+          {: RESULT = e; :}
+     |  simpleExpr:e1 relOp:op simpleExpr:e2
+          {: RESULT = new ExprBinary(op, e1, e2); :}
+     ;
+
+relOp
+    ::= EQ   {: RESULT = TokenOp.EQ; :}
+     |  NE   {: RESULT = TokenOp.NE; :}
+     |  LT   {: RESULT = TokenOp.LT; :}
+     |  LE   {: RESULT = TokenOp.LE; :}
+     |  GE   {: RESULT = TokenOp.GE; :}
+     |  GT   {: RESULT = TokenOp.GT; :}
+     ;
+
+simpleExpr
+    ::= term:e
+          {: RESULT = e; :}
+     |  simpleExpr:e1 addOp:op term:e2
+          {: RESULT = new ExprBinary(op, e1, e2); :}
+
+     ;
+
+addOp
+    ::= OR      {: RESULT = TokenKey.OR;   :}
+     ;
+
+term
+    ::= factor:e
+          {: RESULT = e; :}
+     |  term:e1 multOp:op factor:e2
+          {: RESULT = new ExprBinary(op, e1, e2); :}
+     ;
+
+multOp
+    ::= AND   {: RESULT = TokenKey.AND; :}
+     ;
+
+factor
+    ::= variable:v
+          {: RESULT = v; :}
+     |  LPAREN expr:e RPAREN
+          {: RESULT = e; :}
+     |  LPAREN:l error RPAREN:r
+          {: RESULT = new ExprError(lleft, rright); :}
+     |  NOT:n factor:e
+          {: RESULT = new ExprUnary(TokenKey.NOT, e, nleft, eright); :}
      ;

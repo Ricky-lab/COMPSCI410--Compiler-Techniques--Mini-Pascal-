@@ -51,6 +51,14 @@ public class Parse extends Phase<Boolean,InputStream> {
     }
 
     if (context.parser.error) return true;
+    // ... and otherwise, print the parse tree, if requested
+    if (context.flag(ParsePrint)) {
+      MPCStream str = mpc.makeMPCStream(context.baseName, "parse", "parser");
+      if (str != null) {
+        context.program.accept(new ASTPrintVisitor(str));
+        str.close();
+      }
+    }
     return false;
   }
 

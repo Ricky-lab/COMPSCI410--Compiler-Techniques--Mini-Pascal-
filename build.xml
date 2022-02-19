@@ -43,7 +43,7 @@
          name="clean"
          description="Delete mpc outputs and derivatives.">
       <delete quiet="true">
-         <fileset dir="." includes="reports.txt,*.out,*.err,*.diff,*.report,*.token"/>
+         <fileset dir="." includes="reports.txt,*.out,*.err,*.diff,*.report,*.token,*.parse"/>
       </delete>
    </target>
 
@@ -73,7 +73,7 @@
             <istrue  value="${force}"/>
          </or>
          <then>
-            <cup srcfile="${basedir}/mpc.cup" destdir="src" parser="Parser" expect="0"/>
+            <cup srcfile="${basedir}/mpc.cup" destdir="src" parser="Parser" expect="1"/>
          </then>
       </if>
    </target>
@@ -94,7 +94,7 @@
             <istrue  value="${force}"/>
          </or>
          <then>
-            <cup srcfile="${basedir}/mpc.cup" destdir="src" parser="Parser" dump="true" expect="0"/>
+            <cup srcfile="${basedir}/mpc.cup" destdir="src" parser="Parser" dump="true" expect="1"/>
          </then>
       </if>
    </target>
@@ -219,7 +219,7 @@
             <mapper>
                <mapper type="merge" to="@{testfile}.out"/>
                <mapper type="merge" to="@{testfile}.err"/>
-               <mapper type="merge" to="@{testfile}.token"/>
+               <mapper type="merge" to="@{testfile}.parse"/>
             </mapper>
          </uptodate>
          <if>
@@ -232,7 +232,7 @@
                   <fileset dir="." includes="@{testfile}.out,@{testfile}.err"/>
                </delete>
                <delete quiet="true">
-                  <fileset dir="." includes="@{testfile}.token"/>
+                  <fileset dir="." includes="@{testfile}.parse"/>
                </delete>
                <echo message="testing compiler on @{testfile}"/>
                <java
@@ -341,7 +341,7 @@
                   <fileset dir="." includes="@{reportfile}.pas"/>
                   <globmapper from="*.pas" to="*.out"  />
                   <globmapper from="@{reportfile}.pas" to="@{reportfile}.err"  />
-                  <globmapper from="@{reportfile}.pas" to="@{reportfile}.token"/>
+                  <globmapper from="@{reportfile}.pas" to="@{reportfile}.parse"/>
 
                </diff>
                </sequential>
@@ -410,7 +410,7 @@
             <mapper>
                <mapper type="merge" to="@{ref-file}.out"/>
                <mapper type="merge" to="@{ref-file}.err"/>
-               <mapper type="merge" to="@{ref-file}.token"/>
+               <mapper type="merge" to="@{ref-file}.parse"/>
             </mapper>
          </uptodate>
          <if>
@@ -423,7 +423,7 @@
                   <fileset dir="." includes="@{ref-file}.out,@{ref-file}.err"/>
                </delete>
                <delete quiet="true">
-                  <fileset dir="." includes="@{ref-file}.token"/>
+                  <fileset dir="." includes="@{ref-file}.parse"/>
                </delete>
                <java
                      jar="ref.jar"
@@ -444,7 +444,7 @@
          name="make-jar"
          description="Build a jar file for turning in"
          depends="compile">
-      <jar destfile="p10x.jar" filesetmanifest="mergewithoutmain">
+      <jar destfile="p20x.jar" filesetmanifest="mergewithoutmain">
          <manifest>
             <attribute name="Built-By" value="${user.name}"/>
             <attribute name="Main-Class" value="MPC.mpc"/>

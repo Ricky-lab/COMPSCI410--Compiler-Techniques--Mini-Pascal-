@@ -73,6 +73,37 @@ public enum TokenKey implements Token {
   // map at class initialization time
 
   /**
+   * provides a "hook" for a visitor to do something before each Token
+   *
+   * @param v the TokenVisitor whose method we will invoke
+   */
+  public void acceptBefore (TokenVisitor v) {
+    v.visitEveryBefore(this);
+  }
+
+  /**
+   * Supports visiting objects in the Token class hierarchy; calls
+   * acceptBefore and acceptAfter hooks as well as a visit method particular
+   * to this class.
+   *
+   * @param v the TokenVisitor to call, indicating this object is a TokenKey
+   */
+  public void accept (TokenVisitor v) {
+    this.acceptBefore(v);
+    v.visitTokenKey(this);
+    this.acceptAfter(v);
+  }
+
+  /**
+   * provides a "hook" for a visitor to do something after each Token
+   *
+   * @param v the TokenVisitor whose method we will invoke
+   */
+  public void acceptAfter (TokenVisitor v) {
+    v.visitEveryAfter(this);
+  }
+
+  /**
    * String representation of this TokenKey.
    *
    * @return String defining this TokenKey

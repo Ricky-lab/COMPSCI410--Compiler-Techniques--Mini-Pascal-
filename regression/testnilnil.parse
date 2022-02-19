@@ -1,0 +1,23 @@
+(program: 
+  (decls: 
+    (decl->program: testnil[1]))
+  (block: 
+    (stmts: 
+      (stmt->ifstmt: 
+        (expr-> binexp: =
+          (expr->[value=0] nil:
+            type->(type->kind=<NIL>))
+          (expr->[value=0] nil:
+            type->(type->kind=<NIL>)))
+        (stmt->callstmt:
+          (expr-> call: isMethodCall=false writeln[4]
+            (exprs: 
+              (expr->[value='yes'] string: 'yes'
+                type->(type->kind=string)))))
+        (else: 
+          (stmt->callstmt:
+            (expr-> call: isMethodCall=false writeln[4]
+              (exprs: 
+                (expr->[value='no'] string: 'no'
+                  type->(type->kind=string)))))))
+      (stmt->emptystmt:))))
