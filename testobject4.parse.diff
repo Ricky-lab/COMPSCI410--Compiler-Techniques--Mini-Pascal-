@@ -1,0 +1,3491 @@
+testobject4.parse:
+1,3487d0
+< (program: 
+<   (decls: 
+<     (decl->program: testobject4[3]))
+<   (block: 
+<     (decls: 
+<       (decl->type: hasequals[6]
+<         (type->kind=pointer:
+<           (type->kind=object: name=hasequals
+<             (extends: (type->kind=ident: root[6]))
+<             (abstract: true)
+<             (methods: 
+<               (decl->((type->kind=method function name=equals
+<                     (formals: 
+<                       (decl->formal self[8]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[8]))
+<                       (decl->formal other[8]
+<                         (varmode=false)
+<                         (type->kind=ident: root[8])))
+<                     (type->kind=ident: boolean[8]))
+<                   implemented-by: equals[8]))))))
+<       (decl->type: iterator[11]
+<         (type->kind=pointer:
+<           (type->kind=object: name=iterator
+<             (extends: (type->kind=ident: root[6]))
+<             (abstract: true)
+<             (methods: 
+<               (decl->((type->kind=method function name=next
+<                     (formals: 
+<                       (decl->formal self[13]
+<                         (varmode=false)
+<                         (type->kind=ident: iterator[13])))
+<                     (type->kind=ident: root[13]))
+<                   implemented-by: next[13]))
+<               (decl->((type->kind=method function name=hasnext
+<                     (formals: 
+<                       (decl->formal self[14]
+<                         (varmode=false)
+<                         (type->kind=ident: iterator[14])))
+<                     (type->kind=ident: boolean[14]))
+<                   implemented-by: hasnext[14]))
+<               (decl->((type->kind=method procedure name=remove
+<                     (formals: 
+<                       (decl->formal self[15]
+<                         (varmode=false)
+<                         (type->kind=ident: iterator[15]))))
+<                   implemented-by: remove[15]))))))
+<       (decl->type: iterable[18]
+<         (type->kind=pointer:
+<           (type->kind=object: name=iterable
+<             (extends: (type->kind=ident: root[6]))
+<             (abstract: true)
+<             (methods: 
+<               (decl->((type->kind=method function name=getiterator
+<                     (formals: 
+<                       (decl->formal self[20]
+<                         (varmode=false)
+<                         (type->kind=ident: iterable[20])))
+<                     (type->kind=ident: iterator[20]))
+<                   implemented-by: getiterator[20]))))))
+<       (decl->type: collection[23]
+<         (type->kind=pointer:
+<           (type->kind=object: name=collection
+<             (extends: (type->kind=ident: iterable[23]))
+<             (abstract: true)
+<             (methods: 
+<               (decl->((type->kind=method function name=size
+<                     (formals: 
+<                       (decl->formal self[26]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[26])))
+<                     (type->kind=ident: integer[26]))
+<                   implemented-by: size[26]))
+<               (decl->((type->kind=method function name=isempty
+<                     (formals: 
+<                       (decl->formal self[27]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[27])))
+<                     (type->kind=ident: boolean[27]))
+<                   implemented-by: isempty[27]))
+<               (decl->((type->kind=method function name=contains
+<                     (formals: 
+<                       (decl->formal self[29]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[29]))
+<                       (decl->formal o[29]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[29])))
+<                     (type->kind=ident: boolean[29]))
+<                   implemented-by: contains[29]))
+<               (decl->((type->kind=method function name=add
+<                     (formals: 
+<                       (decl->formal self[30]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[30]))
+<                       (decl->formal o[30]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[30])))
+<                     (type->kind=ident: boolean[30]))
+<                   implemented-by: add[30]))
+<               (decl->((type->kind=method function name=remove
+<                     (formals: 
+<                       (decl->formal self[31]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[31]))
+<                       (decl->formal o[31]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[31])))
+<                     (type->kind=ident: boolean[31]))
+<                   implemented-by: remove[31]))
+<               (decl->((type->kind=method procedure name=clear
+<                     (formals: 
+<                       (decl->formal self[33]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[33]))))
+<                   implemented-by: clear[33]))
+<               (decl->((type->kind=method function name=addall
+<                     (formals: 
+<                       (decl->formal self[34]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[34]))
+<                       (decl->formal other[34]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[34])))
+<                     (type->kind=ident: boolean[34]))
+<                   implemented-by: addall[34]))
+<               (decl->((type->kind=method function name=containsall
+<                     (formals: 
+<                       (decl->formal self[35]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[35]))
+<                       (decl->formal other[35]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[35])))
+<                     (type->kind=ident: boolean[35]))
+<                   implemented-by: containsall[35]))
+<               (decl->((type->kind=method function name=equals
+<                     (formals: 
+<                       (decl->formal self[36]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[36]))
+<                       (decl->formal other[36]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[36])))
+<                     (type->kind=ident: boolean[36]))
+<                   implemented-by: equals[36]))
+<               (decl->((type->kind=method function name=removeall
+<                     (formals: 
+<                       (decl->formal self[37]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[37]))
+<                       (decl->formal other[37]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[37])))
+<                     (type->kind=ident: boolean[37]))
+<                   implemented-by: removeall[37]))
+<               (decl->((type->kind=method function name=retainall
+<                     (formals: 
+<                       (decl->formal self[38]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[38]))
+<                       (decl->formal other[38]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[38])))
+<                     (type->kind=ident: boolean[38]))
+<                   implemented-by: retainall[38]))))))
+<       (decl->type: abscoll[42]
+<         (type->kind=pointer:
+<           (type->kind=object: name=abscoll
+<             (extends: (type->kind=ident: collection[42]))
+<             (abstract: true)
+<             (overrides: 
+<               (isempty[44] acisempty[44])
+<               (contains[45] accontains[45])
+<               (clear[46] acclear[46])
+<               (addall[47] acaddall[47])
+<               (containsall[48] accontainsall[48])
+<               (removeall[49] acremoveall[49])
+<               (retainall[50] acretainall[50])))))
+<       (decl->function: acisempty[53]
+<         (formals: 
+<           (decl->formal self[53]
+<             (varmode=false)
+<             (type->kind=ident: abscoll[53])))
+<         (type->kind=ident: boolean[53])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: acisempty[55])
+<               (expr-> binexp: =
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[55])
+<                   (expr-> id: size))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (decl->function: accontains[58]
+<         (formals: 
+<           (decl->formal self[58]
+<             (varmode=false)
+<             (type->kind=ident: abscoll[58]))
+<           (decl->formal item[58]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[58])))
+<         (type->kind=ident: boolean[58])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[60]
+<               (type->kind=ident: iterator[60]))
+<             (decl->variable: searching[61]
+<               (type->kind=ident: boolean[61])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: accontains[63])
+<               (expr-> binding: false[63]))
+<             (stmt->assignstmt:
+<               (expr-> binding: searching[64])
+<               (expr-> binding: true[64]))
+<             (stmt->assignstmt:
+<               (expr-> binding: it[65])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[65])
+<                 (expr-> id: getiterator)))
+<             (stmt->whilestmt:
+<               (expr-> binding: searching[66])
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[67])
+<                       (expr-> id: hasnext))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->ifstmt: 
+<                           (expr-> call: isMethodCall=true equals[68]
+<                             (exprs: 
+<                               (expr-> call: isMethodCall=false narrow[68]
+<                                 (exprs: 
+<                                   (expr-> binexp: .
+<                                     (expr-> binding: it[68])
+<                                     (expr-> id: next))
+<                                   (expr-> binding: hasequals[68])))
+<                               (expr-> binding: item[68])))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: accontains[69])
+<                                 (expr-> binding: true[69]))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: searching[70])
+<                                 (expr-> binding: false[70]))
+<                               (stmt->emptystmt:))))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->compoundstmt:
+<                         (stmts: 
+<                           (stmt->assignstmt:
+<                             (expr-> binding: searching[73])
+<                             (expr-> binding: false[73]))
+<                           (stmt->emptystmt:)))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: acclear[78]
+<         (formals: 
+<           (decl->formal self[78]
+<             (varmode=false)
+<             (type->kind=ident: abscoll[78])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[80]
+<               (type->kind=ident: iterator[80]))
+<             (decl->variable: o[81]
+<               (type->kind=ident: root[81])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: it[83])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[83])
+<                 (expr-> id: getiterator)))
+<             (stmt->whilestmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: it[84])
+<                 (expr-> id: hasnext))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: o[85])
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[85])
+<                       (expr-> id: next)))
+<                   (stmt->callstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[86])
+<                       (expr-> id: remove)))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: acaddall[90]
+<         (formals: 
+<           (decl->formal self[90]
+<             (varmode=false)
+<             (type->kind=ident: abscoll[90]))
+<           (decl->formal other[90]
+<             (varmode=false)
+<             (type->kind=ident: collection[90])))
+<         (type->kind=ident: boolean[90])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[91]
+<               (type->kind=ident: iterator[91])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: it[93])
+<               (expr-> binexp: .
+<                 (expr-> binding: other[93])
+<                 (expr-> id: getiterator)))
+<             (stmt->assignstmt:
+<               (expr-> binding: acaddall[94])
+<               (expr-> binding: false[94]))
+<             (stmt->whilestmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: it[95])
+<                 (expr-> id: hasnext))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> call: isMethodCall=true add[96]
+<                       (exprs: 
+<                         (expr-> binding: self[96])
+<                         (expr-> call: isMethodCall=false narrow[96]
+<                           (exprs: 
+<                             (expr-> binexp: .
+<                               (expr-> binding: it[96])
+<                               (expr-> id: next))
+<                             (expr-> binding: hasequals[96])))))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: acaddall[97])
+<                           (expr-> binding: true[97]))
+<                         (stmt->emptystmt:))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: accontainsall[102]
+<         (formals: 
+<           (decl->formal self[102]
+<             (varmode=false)
+<             (type->kind=ident: abscoll[102]))
+<           (decl->formal other[102]
+<             (varmode=false)
+<             (type->kind=ident: collection[102])))
+<         (type->kind=ident: boolean[102])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[104]
+<               (type->kind=ident: iterator[104]))
+<             (decl->variable: searching[105]
+<               (type->kind=ident: boolean[105])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: accontainsall[107])
+<               (expr-> binding: true[107]))
+<             (stmt->assignstmt:
+<               (expr-> binding: searching[108])
+<               (expr-> binding: true[108]))
+<             (stmt->assignstmt:
+<               (expr-> binding: it[109])
+<               (expr-> binexp: .
+<                 (expr-> binding: other[109])
+<                 (expr-> id: getiterator)))
+<             (stmt->whilestmt:
+<               (expr-> binding: searching[110])
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[111])
+<                       (expr-> id: hasnext))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->ifstmt: 
+<                           (expr-> unexp: not
+<                             (expr-> call: isMethodCall=true contains[112]
+<                               (exprs: 
+<                                 (expr-> binding: self[112])
+<                                 (expr-> call: isMethodCall=false narrow[112]
+<                                   (exprs: 
+<                                     (expr-> binexp: .
+<                                       (expr-> binding: it[112])
+<                                       (expr-> id: next))
+<                                     (expr-> binding: hasequals[112]))))))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: accontainsall[113])
+<                                 (expr-> binding: false[113]))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: searching[114])
+<                                 (expr-> binding: false[114]))
+<                               (stmt->emptystmt:))))
+<                         (stmt->emptystmt:))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: acremoveall[120]
+<         (formals: 
+<           (decl->formal self[120]
+<             (varmode=false)
+<             (type->kind=ident: abscoll[120]))
+<           (decl->formal other[120]
+<             (varmode=false)
+<             (type->kind=ident: collection[120])))
+<         (type->kind=ident: boolean[120])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[121]
+<               (type->kind=ident: iterator[121])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: it[123])
+<               (expr-> binexp: .
+<                 (expr-> binding: other[123])
+<                 (expr-> id: getiterator)))
+<             (stmt->assignstmt:
+<               (expr-> binding: acremoveall[124])
+<               (expr-> binding: false[124]))
+<             (stmt->whilestmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: it[125])
+<                 (expr-> id: hasnext))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> call: isMethodCall=true remove[126]
+<                       (exprs: 
+<                         (expr-> binding: self[126])
+<                         (expr-> call: isMethodCall=false narrow[126]
+<                           (exprs: 
+<                             (expr-> binexp: .
+<                               (expr-> binding: it[126])
+<                               (expr-> id: next))
+<                             (expr-> binding: hasequals[126])))))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: acremoveall[127])
+<                           (expr-> binding: true[127]))
+<                         (stmt->emptystmt:))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: acretainall[132]
+<         (formals: 
+<           (decl->formal self[132]
+<             (varmode=false)
+<             (type->kind=ident: abscoll[132]))
+<           (decl->formal other[132]
+<             (varmode=false)
+<             (type->kind=ident: collection[132])))
+<         (type->kind=ident: boolean[132])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[133]
+<               (type->kind=ident: iterator[133])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: it[135])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[135])
+<                 (expr-> id: getiterator)))
+<             (stmt->assignstmt:
+<               (expr-> binding: acretainall[136])
+<               (expr-> binding: false[136]))
+<             (stmt->whilestmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: it[137])
+<                 (expr-> id: hasnext))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> unexp: not
+<                       (expr-> call: isMethodCall=true contains[138]
+<                         (exprs: 
+<                           (expr-> binding: other[138])
+<                           (expr-> call: isMethodCall=false narrow[138]
+<                             (exprs: 
+<                               (expr-> binexp: .
+<                                 (expr-> binding: it[138])
+<                                 (expr-> id: next))
+<                               (expr-> binding: hasequals[138]))))))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->callstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: it[139])
+<                             (expr-> id: remove)))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: acretainall[140])
+<                           (expr-> binding: true[140]))
+<                         (stmt->emptystmt:))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->type: listiterator[146]
+<         (type->kind=pointer:
+<           (type->kind=object: name=listiterator
+<             (extends: (type->kind=ident: iterator[146]))
+<             (abstract: true)
+<             (methods: 
+<               (decl->((type->kind=method procedure name=add
+<                     (formals: 
+<                       (decl->formal self[149]
+<                         (varmode=false)
+<                         (type->kind=ident: listiterator[149]))
+<                       (decl->formal o[149]
+<                         (varmode=false)
+<                         (type->kind=ident: root[149]))))
+<                   implemented-by: add[149]))
+<               (decl->((type->kind=method procedure name=set
+<                     (formals: 
+<                       (decl->formal self[150]
+<                         (varmode=false)
+<                         (type->kind=ident: listiterator[150]))
+<                       (decl->formal o[150]
+<                         (varmode=false)
+<                         (type->kind=ident: root[150]))))
+<                   implemented-by: set[150]))
+<               (decl->((type->kind=method function name=nextindex
+<                     (formals: 
+<                       (decl->formal self[152]
+<                         (varmode=false)
+<                         (type->kind=ident: listiterator[152])))
+<                     (type->kind=ident: integer[152]))
+<                   implemented-by: nextindex[152]))
+<               (decl->((type->kind=method function name=hasprevious
+<                     (formals: 
+<                       (decl->formal self[153]
+<                         (varmode=false)
+<                         (type->kind=ident: listiterator[153])))
+<                     (type->kind=ident: boolean[153]))
+<                   implemented-by: hasprevious[153]))
+<               (decl->((type->kind=method function name=previous
+<                     (formals: 
+<                       (decl->formal self[154]
+<                         (varmode=false)
+<                         (type->kind=ident: listiterator[154])))
+<                     (type->kind=ident: root[154]))
+<                   implemented-by: previous[154]))
+<               (decl->((type->kind=method function name=previousindex
+<                     (formals: 
+<                       (decl->formal self[155]
+<                         (varmode=false)
+<                         (type->kind=ident: listiterator[155])))
+<                     (type->kind=ident: integer[155]))
+<                   implemented-by: previousindex[155]))))))
+<       (decl->type: abslist[158]
+<         (type->kind=pointer:
+<           (type->kind=object: name=abslist
+<             (extends: (type->kind=ident: abscoll[158]))
+<             (abstract: true)
+<             (methods: 
+<               (decl->((type->kind=method function name=addith
+<                     (formals: 
+<                       (decl->formal self[161]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[161]))
+<                       (decl->formal index[161]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[161]))
+<                       (decl->formal o[161]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[161])))
+<                     (type->kind=ident: boolean[161]))
+<                   implemented-by: addith[161]))
+<               (decl->((type->kind=method function name=getith
+<                     (formals: 
+<                       (decl->formal self[162]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[162]))
+<                       (decl->formal index[162]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[162])))
+<                     (type->kind=ident: hasequals[162]))
+<                   implemented-by: getith[162]))
+<               (decl->((type->kind=method function name=removeith
+<                     (formals: 
+<                       (decl->formal self[163]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[163]))
+<                       (decl->formal index[163]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[163])))
+<                     (type->kind=ident: boolean[163]))
+<                   implemented-by: removeith[163]))
+<               (decl->((type->kind=method function name=setith
+<                     (formals: 
+<                       (decl->formal self[164]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[164]))
+<                       (decl->formal index[164]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[164]))
+<                       (decl->formal o[164]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[164])))
+<                     (type->kind=ident: hasequals[164]))
+<                   implemented-by: setith[164]))
+<               (decl->((type->kind=method function name=indexof
+<                     (formals: 
+<                       (decl->formal self[166]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[166]))
+<                       (decl->formal o[166]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[166])))
+<                     (type->kind=ident: integer[166]))
+<                   implemented-by: indexof[166]))
+<               (decl->((type->kind=method function name=lastindexof
+<                     (formals: 
+<                       (decl->formal self[167]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[167]))
+<                       (decl->formal o[167]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[167])))
+<                     (type->kind=ident: integer[167]))
+<                   implemented-by: lastindexof[167]))
+<               (decl->((type->kind=method function name=getlistiterator
+<                     (formals: 
+<                       (decl->formal self[169]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[169])))
+<                     (type->kind=ident: listiterator[169]))
+<                   implemented-by: getlistiterator[169]))
+<               (decl->((type->kind=method function name=getlistiteratorith
+<                     (formals: 
+<                       (decl->formal self[170]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[170]))
+<                       (decl->formal index[170]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[170])))
+<                     (type->kind=ident: listiterator[170]))
+<                   implemented-by: getlistiteratorith[170]))
+<               (decl->((type->kind=method function name=removerange
+<                     (formals: 
+<                       (decl->formal self[172]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[172]))
+<                       (decl->formal fromindex[172]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[172]))
+<                       (decl->formal toindex[172]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[172])))
+<                     (type->kind=ident: boolean[172]))
+<                   implemented-by: removerange[172]))
+<               (decl->((type->kind=method function name=addallith
+<                     (formals: 
+<                       (decl->formal self[173]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[173]))
+<                       (decl->formal index[173]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[173]))
+<                       (decl->formal other[173]
+<                         (varmode=false)
+<                         (type->kind=ident: collection[173])))
+<                     (type->kind=ident: boolean[173]))
+<                   implemented-by: addallith[173])))
+<             (overrides: 
+<               (add[175] aladd[175])
+<               (clear[176] alclear[176])
+<               (equals[177] alequals[177])
+<               (getiterator[178] algetiterator[178])))))
+<       (decl->type: alitr[181]
+<         (type->kind=pointer:
+<           (type->kind=object: name=alitr
+<             (extends: (type->kind=ident: iterator[181]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: cursor[182]
+<                 (type->kind=ident: integer[182]))
+<               (decl->field: lastret[183]
+<                 (type->kind=ident: integer[183]))
+<               (decl->field: thelist[184]
+<                 (type->kind=ident: abslist[184])))
+<             (methods: 
+<               (decl->((type->kind=method function name=init
+<                     (formals: 
+<                       (decl->formal self[186]
+<                         (varmode=false)
+<                         (type->kind=ident: alitr[186]))
+<                       (decl->formal lst[186]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[186])))
+<                     (type->kind=ident: alitr[186]))
+<                   implemented-by: init[186])))
+<             (overrides: 
+<               (hasnext[188] alihasnext[188])
+<               (next[189] alinext[189])
+<               (remove[190] aliremove[190])))))
+<       (decl->type: allstitr[193]
+<         (type->kind=pointer:
+<           (type->kind=object: name=allstitr
+<             (extends: (type->kind=ident: listiterator[193]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: cursor[194]
+<                 (type->kind=ident: integer[194]))
+<               (decl->field: lastret[195]
+<                 (type->kind=ident: integer[195]))
+<               (decl->field: thelist[196]
+<                 (type->kind=ident: abslist[196])))
+<             (methods: 
+<               (decl->((type->kind=method function name=init
+<                     (formals: 
+<                       (decl->formal self[198]
+<                         (varmode=false)
+<                         (type->kind=ident: allstitr[198]))
+<                       (decl->formal index[198]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[198]))
+<                       (decl->formal lst[198]
+<                         (varmode=false)
+<                         (type->kind=ident: abslist[198])))
+<                     (type->kind=ident: allstitr[198]))
+<                   implemented-by: init[198])))
+<             (overrides: 
+<               (hasnext[200] allihasnext[200])
+<               (next[201] allinext[201])
+<               (nextindex[202] allinextindex[202])
+<               (hasprevious[203] allihasprevious[203])
+<               (previous[204] alliprevious[204])
+<               (previousindex[205] allipreviousindex[205])
+<               (set[206] alliset[206])
+<               (add[207] alliadd[207])
+<               (remove[208] alliremove[208])))))
+<       (decl->function: aladd[211]
+<         (formals: 
+<           (decl->formal self[211]
+<             (varmode=false)
+<             (type->kind=ident: abslist[211]))
+<           (decl->formal o[211]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[211])))
+<         (type->kind=ident: boolean[211])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: aladd[213])
+<               (expr-> call: isMethodCall=true addith[213]
+<                 (exprs: 
+<                   (expr-> binding: self[213])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[213])
+<                     (expr-> id: size))
+<                   (expr-> binding: o[213]))))
+<             (stmt->emptystmt:))))
+<       (decl->function: alindexof[216]
+<         (formals: 
+<           (decl->formal self[216]
+<             (varmode=false)
+<             (type->kind=ident: abslist[216]))
+<           (decl->formal o[216]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[216])))
+<         (type->kind=ident: integer[216])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[218]
+<               (type->kind=ident: listiterator[218]))
+<             (decl->variable: searching[219]
+<               (type->kind=ident: boolean[219])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: it[221])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[221])
+<                 (expr-> id: getlistiterator)))
+<             (stmt->assignstmt:
+<               (expr-> binding: alindexof[222])
+<               (expr-> unexp: -
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: searching[223])
+<               (expr-> binding: true[223]))
+<             (stmt->whilestmt:
+<               (expr-> binding: searching[224])
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[225])
+<                       (expr-> id: hasnext))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->ifstmt: 
+<                           (expr-> call: isMethodCall=true equals[226]
+<                             (exprs: 
+<                               (expr-> binding: o[226])
+<                               (expr-> binexp: .
+<                                 (expr-> binding: it[226])
+<                                 (expr-> id: next))))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: alindexof[227])
+<                                 (expr-> binexp: .
+<                                   (expr-> binding: it[227])
+<                                   (expr-> id: previousindex)))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: searching[228])
+<                                 (expr-> binding: false[228]))
+<                               (stmt->emptystmt:))))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->compoundstmt:
+<                         (stmts: 
+<                           (stmt->assignstmt:
+<                             (expr-> binding: searching[231])
+<                             (expr-> binding: false[231]))
+<                           (stmt->emptystmt:)))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: allastindexof[236]
+<         (formals: 
+<           (decl->formal self[236]
+<             (varmode=false)
+<             (type->kind=ident: abslist[236]))
+<           (decl->formal o[236]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[236])))
+<         (type->kind=ident: integer[236])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[238]
+<               (type->kind=ident: listiterator[238]))
+<             (decl->variable: searching[239]
+<               (type->kind=ident: boolean[239])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: it[241])
+<               (expr-> call: isMethodCall=true getlistiteratorith[241]
+<                 (exprs: 
+<                   (expr-> binding: self[241])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[241])
+<                     (expr-> id: size)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: allastindexof[242])
+<               (expr-> unexp: -
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: searching[243])
+<               (expr-> binding: true[243]))
+<             (stmt->whilestmt:
+<               (expr-> binding: searching[244])
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[245])
+<                       (expr-> id: hasprevious))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->ifstmt: 
+<                           (expr-> call: isMethodCall=true equals[246]
+<                             (exprs: 
+<                               (expr-> binding: o[246])
+<                               (expr-> binexp: .
+<                                 (expr-> binding: it[246])
+<                                 (expr-> id: previous))))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: allastindexof[247])
+<                                 (expr-> binexp: .
+<                                   (expr-> binding: it[247])
+<                                   (expr-> id: nextindex)))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: searching[248])
+<                                 (expr-> binding: false[248]))
+<                               (stmt->emptystmt:))))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->compoundstmt:
+<                         (stmts: 
+<                           (stmt->assignstmt:
+<                             (expr-> binding: searching[251])
+<                             (expr-> binding: false[251]))
+<                           (stmt->emptystmt:)))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: alclear[256]
+<         (formals: 
+<           (decl->formal self[256]
+<             (varmode=false)
+<             (type->kind=ident: abslist[256])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: b[257]
+<               (type->kind=ident: boolean[257])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: b[259])
+<               (expr-> call: isMethodCall=true removerange[259]
+<                 (exprs: 
+<                   (expr-> binding: self[259])
+<                   (expr->[value=0] int: 0
+<                     type->(type->kind=integer))
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[259])
+<                     (expr-> id: size)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: aladdallith[262]
+<         (formals: 
+<           (decl->formal self[262]
+<             (varmode=false)
+<             (type->kind=ident: abslist[262]))
+<           (decl->formal index[262]
+<             (varmode=false)
+<             (type->kind=ident: integer[262]))
+<           (decl->formal other[262]
+<             (varmode=false)
+<             (type->kind=ident: collection[262])))
+<         (type->kind=ident: boolean[262])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[264]
+<               (type->kind=ident: iterator[264]))
+<             (decl->variable: b[265]
+<               (type->kind=ident: boolean[265])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: aladdallith[267])
+<               (expr-> binding: false[267]))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: and
+<                 (expr-> binexp: >=
+<                   (expr-> binding: index[268])
+<                   (expr->[value=0] int: 0
+<                     type->(type->kind=integer)))
+<                 (expr-> binexp: <=
+<                   (expr-> binding: index[268])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[268])
+<                     (expr-> id: size))))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: it[269])
+<                     (expr-> binexp: .
+<                       (expr-> binding: other[269])
+<                       (expr-> id: getiterator)))
+<                   (stmt->whilestmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[270])
+<                       (expr-> id: hasnext))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: b[271])
+<                           (expr-> call: isMethodCall=true addith[271]
+<                             (exprs: 
+<                               (expr-> binding: self[271])
+<                               (expr-> binding: index[271])
+<                               (expr-> call: isMethodCall=false narrow[271]
+<                                 (exprs: 
+<                                   (expr-> binexp: .
+<                                     (expr-> binding: it[271])
+<                                     (expr-> id: next))
+<                                   (expr-> binding: hasequals[271]))))))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: index[272])
+<                           (expr-> binexp: +
+<                             (expr-> binding: index[272])
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: aladdallith[273])
+<                           (expr-> binding: true[273]))
+<                         (stmt->emptystmt:))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: algetiterator[278]
+<         (formals: 
+<           (decl->formal self[278]
+<             (varmode=false)
+<             (type->kind=ident: abslist[278])))
+<         (type->kind=ident: iterator[278])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: algetiterator[280])
+<               (expr-> call: isMethodCall=true init[280]
+<                 (exprs: 
+<                   (expr-> call: isMethodCall=false new[280]
+<                     (exprs: 
+<                       (expr-> binding: alitr[280])))
+<                   (expr-> binding: self[280]))))
+<             (stmt->emptystmt:))))
+<       (decl->function: algetlistiterator[283]
+<         (formals: 
+<           (decl->formal self[283]
+<             (varmode=false)
+<             (type->kind=ident: abslist[283])))
+<         (type->kind=ident: listiterator[283])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: algetlistiterator[285])
+<               (expr-> call: isMethodCall=true getlistiteratorith[285]
+<                 (exprs: 
+<                   (expr-> binding: self[285])
+<                   (expr->[value=0] int: 0
+<                     type->(type->kind=integer)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: algetlistiteratorith[288]
+<         (formals: 
+<           (decl->formal self[288]
+<             (varmode=false)
+<             (type->kind=ident: abslist[288]))
+<           (decl->formal index[288]
+<             (varmode=false)
+<             (type->kind=ident: integer[288])))
+<         (type->kind=ident: listiterator[288])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: algetlistiteratorith[290])
+<               (expr-> call: isMethodCall=true init[290]
+<                 (exprs: 
+<                   (expr-> call: isMethodCall=false new[290]
+<                     (exprs: 
+<                       (expr-> binding: allstitr[290])))
+<                   (expr-> binding: index[290])
+<                   (expr-> binding: self[290]))))
+<             (stmt->emptystmt:))))
+<       (decl->function: alremoverange[293]
+<         (formals: 
+<           (decl->formal self[293]
+<             (varmode=false)
+<             (type->kind=ident: abslist[293]))
+<           (decl->formal fromindex[293]
+<             (varmode=false)
+<             (type->kind=ident: integer[293]))
+<           (decl->formal toindex[293]
+<             (varmode=false)
+<             (type->kind=ident: integer[293])))
+<         (type->kind=ident: boolean[293])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[295]
+<               (type->kind=ident: listiterator[295]))
+<             (decl->variable: i[296]
+<               (type->kind=ident: integer[296]))
+<             (decl->variable: o[297]
+<               (type->kind=ident: root[297])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: it[299])
+<               (expr-> call: isMethodCall=true getlistiteratorith[299]
+<                 (exprs: 
+<                   (expr-> binding: self[299])
+<                   (expr-> binding: fromindex[299]))))
+<             (stmt->forstmt:i[300]
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer))
+<               (expr-> binexp: -
+<                 (expr-> binexp: -
+<                   (expr-> binding: toindex[300])
+<                   (expr-> binding: fromindex[300]))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer)))
+<               (upward:true)
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: o[301])
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[301])
+<                       (expr-> id: next)))
+<                   (stmt->callstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[302])
+<                       (expr-> id: remove)))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: alequals[306]
+<         (formals: 
+<           (decl->formal self[306]
+<             (varmode=false)
+<             (type->kind=ident: abslist[306]))
+<           (decl->formal other[306]
+<             (varmode=false)
+<             (type->kind=ident: collection[306])))
+<         (type->kind=ident: boolean[306])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it1[308]
+<               (type->kind=ident: iterator[308]))
+<             (decl->variable: it2[308]
+<               (type->kind=ident: iterator[308]))
+<             (decl->variable: searching[309]
+<               (type->kind=ident: boolean[309]))
+<             (decl->variable: o1[310]
+<               (type->kind=ident: hasequals[310]))
+<             (decl->variable: o2[310]
+<               (type->kind=ident: hasequals[310])))
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binding: self[312])
+<                 (expr-> binding: other[312]))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: alequals[313])
+<                     (expr-> binding: true[313]))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->ifstmt: 
+<                   (expr-> unexp: not
+<                     (expr-> call: isMethodCall=false istype[314]
+<                       (exprs: 
+<                         (expr-> binding: other[314])
+<                         (expr-> binding: abslist[314]))))
+<                   (stmt->compoundstmt:
+<                     (stmts: 
+<                       (stmt->assignstmt:
+<                         (expr-> binding: alequals[315])
+<                         (expr-> binding: false[315]))
+<                       (stmt->emptystmt:)))
+<                   (else: 
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: it1[317])
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[317])
+<                             (expr-> id: getiterator)))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: it2[318])
+<                           (expr-> binexp: .
+<                             (expr-> binding: other[318])
+<                             (expr-> id: getiterator)))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: searching[319])
+<                           (expr-> binding: true[319]))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: alequals[320])
+<                           (expr-> binding: true[320]))
+<                         (stmt->whilestmt:
+<                           (expr-> binding: searching[321])
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->ifstmt: 
+<                                 (expr-> binexp: and
+<                                   (expr-> binexp: .
+<                                     (expr-> binding: it1[322])
+<                                     (expr-> id: hasnext))
+<                                   (expr-> binexp: .
+<                                     (expr-> binding: it2[322])
+<                                     (expr-> id: hasnext)))
+<                                 (stmt->compoundstmt:
+<                                   (stmts: 
+<                                     (stmt->assignstmt:
+<                                       (expr-> binding: o1[323])
+<                                       (expr-> call: isMethodCall=false narrow[323]
+<                                         (exprs: 
+<                                           (expr-> binexp: .
+<                                             (expr-> binding: it1[323])
+<                                             (expr-> id: next))
+<                                           (expr-> binding: hasequals[323]))))
+<                                     (stmt->assignstmt:
+<                                       (expr-> binding: o2[324])
+<                                       (expr-> call: isMethodCall=false narrow[324]
+<                                         (exprs: 
+<                                           (expr-> binexp: .
+<                                             (expr-> binding: it2[324])
+<                                             (expr-> id: next))
+<                                           (expr-> binding: hasequals[324]))))
+<                                     (stmt->ifstmt: 
+<                                       (expr-> unexp: not
+<                                         (expr-> call: isMethodCall=true equals[325]
+<                                           (exprs: 
+<                                             (expr-> binding: o1[325])
+<                                             (expr-> binding: o2[325]))))
+<                                       (stmt->compoundstmt:
+<                                         (stmts: 
+<                                           (stmt->assignstmt:
+<                                             (expr-> binding: alequals[326])
+<                                             (expr-> binding: false[326]))
+<                                           (stmt->assignstmt:
+<                                             (expr-> binding: searching[327])
+<                                             (expr-> binding: false[327]))
+<                                           (stmt->emptystmt:))))
+<                                     (stmt->emptystmt:)))
+<                                 (else: 
+<                                   (stmt->compoundstmt:
+<                                     (stmts: 
+<                                       (stmt->assignstmt:
+<                                         (expr-> binding: searching[330])
+<                                         (expr-> binding: false[330]))
+<                                       (stmt->emptystmt:)))))
+<                               (stmt->emptystmt:))))
+<                         (stmt->ifstmt: 
+<                           (expr-> binexp: or
+<                             (expr-> binexp: .
+<                               (expr-> binding: it1[333])
+<                               (expr-> id: hasnext))
+<                             (expr-> binexp: .
+<                               (expr-> binding: it2[333])
+<                               (expr-> id: hasnext)))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: alequals[334])
+<                                 (expr-> binding: false[334]))
+<                               (stmt->emptystmt:))))
+<                         (stmt->emptystmt:)))))))
+<             (stmt->emptystmt:))))
+<       (decl->function: aliinit[340]
+<         (formals: 
+<           (decl->formal self[340]
+<             (varmode=false)
+<             (type->kind=ident: alitr[340]))
+<           (decl->formal lst[340]
+<             (varmode=false)
+<             (type->kind=ident: abslist[340])))
+<         (type->kind=ident: alitr[340])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[342])
+<                 (expr-> id: cursor))
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[343])
+<                 (expr-> id: lastret))
+<               (expr-> unexp: -
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[344])
+<                 (expr-> id: thelist))
+<               (expr-> binding: lst[344]))
+<             (stmt->assignstmt:
+<               (expr-> binding: aliinit[345])
+<               (expr-> binding: self[345]))
+<             (stmt->emptystmt:))))
+<       (decl->function: alihasnext[348]
+<         (formals: 
+<           (decl->formal self[348]
+<             (varmode=false)
+<             (type->kind=ident: alitr[348])))
+<         (type->kind=ident: boolean[348])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: alihasnext[350])
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[350])
+<                   (expr-> id: cursor))
+<                 (expr-> binexp: .
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[350])
+<                     (expr-> id: thelist))
+<                   (expr-> id: size))))
+<             (stmt->emptystmt:))))
+<       (decl->function: alinext[353]
+<         (formals: 
+<           (decl->formal self[353]
+<             (varmode=false)
+<             (type->kind=ident: alitr[353])))
+<         (type->kind=ident: root[353])
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: >=
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[355])
+<                   (expr-> id: cursor))
+<                 (expr-> binexp: .
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[355])
+<                     (expr-> id: thelist))
+<                   (expr-> id: size)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: alinext[356])
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: alinext[358])
+<                       (expr-> call: isMethodCall=true getith[358]
+<                         (exprs: 
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[358])
+<                             (expr-> id: thelist))
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[358])
+<                             (expr-> id: cursor)))))
+<                     (stmt->assignstmt:
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[359])
+<                         (expr-> id: lastret))
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[359])
+<                         (expr-> id: cursor)))
+<                     (stmt->assignstmt:
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[360])
+<                         (expr-> id: cursor))
+<                       (expr-> binexp: +
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[360])
+<                           (expr-> id: cursor))
+<                         (expr->[value=1] int: 1
+<                           type->(type->kind=integer))))
+<                     (stmt->emptystmt:)))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: aliremove[364]
+<         (formals: 
+<           (decl->formal self[364]
+<             (varmode=false)
+<             (type->kind=ident: alitr[364])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: b[365]
+<               (type->kind=ident: boolean[365])))
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: >=
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[367])
+<                   (expr-> id: lastret))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: b[368])
+<                     (expr-> call: isMethodCall=true removeith[368]
+<                       (exprs: 
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[368])
+<                           (expr-> id: thelist))
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[368])
+<                           (expr-> id: lastret)))))
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: <
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[369])
+<                         (expr-> id: lastret))
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[369])
+<                         (expr-> id: cursor)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[370])
+<                             (expr-> id: cursor))
+<                           (expr-> binexp: -
+<                             (expr-> binexp: .
+<                               (expr-> binding: self[370])
+<                               (expr-> id: cursor))
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->emptystmt:))))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[372])
+<                       (expr-> id: lastret))
+<                     (expr-> unexp: -
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: alliinit[377]
+<         (formals: 
+<           (decl->formal self[377]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[377]))
+<           (decl->formal index[377]
+<             (varmode=false)
+<             (type->kind=ident: integer[377]))
+<           (decl->formal lst[377]
+<             (varmode=false)
+<             (type->kind=ident: abslist[377])))
+<         (type->kind=ident: allstitr[377])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[379])
+<                 (expr-> id: cursor))
+<               (expr-> binding: index[379]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[380])
+<                 (expr-> id: lastret))
+<               (expr-> unexp: -
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[381])
+<                 (expr-> id: thelist))
+<               (expr-> binding: lst[381]))
+<             (stmt->assignstmt:
+<               (expr-> binding: alliinit[382])
+<               (expr-> binding: self[382]))
+<             (stmt->emptystmt:))))
+<       (decl->function: allihasnext[385]
+<         (formals: 
+<           (decl->formal self[385]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[385])))
+<         (type->kind=ident: boolean[385])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: allihasnext[387])
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[387])
+<                   (expr-> id: cursor))
+<                 (expr-> binexp: .
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[387])
+<                     (expr-> id: thelist))
+<                   (expr-> id: size))))
+<             (stmt->emptystmt:))))
+<       (decl->function: allinext[390]
+<         (formals: 
+<           (decl->formal self[390]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[390])))
+<         (type->kind=ident: root[390])
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: >=
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[392])
+<                   (expr-> id: cursor))
+<                 (expr-> binexp: .
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[392])
+<                     (expr-> id: thelist))
+<                   (expr-> id: size)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: allinext[393])
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: allinext[395])
+<                       (expr-> call: isMethodCall=true getith[395]
+<                         (exprs: 
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[395])
+<                             (expr-> id: thelist))
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[395])
+<                             (expr-> id: cursor)))))
+<                     (stmt->assignstmt:
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[396])
+<                         (expr-> id: lastret))
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[396])
+<                         (expr-> id: cursor)))
+<                     (stmt->assignstmt:
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[397])
+<                         (expr-> id: cursor))
+<                       (expr-> binexp: +
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[397])
+<                           (expr-> id: cursor))
+<                         (expr->[value=1] int: 1
+<                           type->(type->kind=integer))))
+<                     (stmt->emptystmt:)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: allinextindex[401]
+<         (formals: 
+<           (decl->formal self[401]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[401])))
+<         (type->kind=ident: integer[401])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: allinextindex[403])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[403])
+<                 (expr-> id: cursor)))
+<             (stmt->emptystmt:))))
+<       (decl->function: allihasprevious[406]
+<         (formals: 
+<           (decl->formal self[406]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[406])))
+<         (type->kind=ident: boolean[406])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: allihasprevious[408])
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[408])
+<                   (expr-> id: cursor))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (decl->function: alliprevious[411]
+<         (formals: 
+<           (decl->formal self[411]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[411])))
+<         (type->kind=ident: root[411])
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: <=
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[413])
+<                   (expr-> id: cursor))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: alliprevious[414])
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[416])
+<                         (expr-> id: cursor))
+<                       (expr-> binexp: -
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[416])
+<                           (expr-> id: cursor))
+<                         (expr->[value=1] int: 1
+<                           type->(type->kind=integer))))
+<                     (stmt->assignstmt:
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[417])
+<                         (expr-> id: lastret))
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[417])
+<                         (expr-> id: cursor)))
+<                     (stmt->assignstmt:
+<                       (expr-> binding: alliprevious[418])
+<                       (expr-> call: isMethodCall=true getith[418]
+<                         (exprs: 
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[418])
+<                             (expr-> id: thelist))
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[418])
+<                             (expr-> id: cursor)))))
+<                     (stmt->emptystmt:)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: allipreviousindex[422]
+<         (formals: 
+<           (decl->formal self[422]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[422])))
+<         (type->kind=ident: integer[422])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: allipreviousindex[424])
+<               (expr-> binexp: -
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[424])
+<                   (expr-> id: cursor))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: alliset[427]
+<         (formals: 
+<           (decl->formal self[427]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[427]))
+<           (decl->formal o[427]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[427])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: oo[428]
+<               (type->kind=ident: hasequals[428])))
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: >=
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[430])
+<                   (expr-> id: lastret))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: oo[431])
+<                     (expr-> call: isMethodCall=true setith[431]
+<                       (exprs: 
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[431])
+<                           (expr-> id: thelist))
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[431])
+<                           (expr-> id: lastret))
+<                         (expr-> binding: o[431]))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: alliadd[435]
+<         (formals: 
+<           (decl->formal self[435]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[435]))
+<           (decl->formal o[435]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[435])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: b[436]
+<               (type->kind=ident: boolean[436])))
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: and
+<                 (expr-> binexp: >=
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[438])
+<                     (expr-> id: cursor))
+<                   (expr->[value=0] int: 0
+<                     type->(type->kind=integer)))
+<                 (expr-> binexp: <=
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[438])
+<                     (expr-> id: cursor))
+<                   (expr-> binexp: .
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[438])
+<                       (expr-> id: thelist))
+<                     (expr-> id: size))))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: b[439])
+<                     (expr-> call: isMethodCall=true addith[439]
+<                       (exprs: 
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[439])
+<                           (expr-> id: thelist))
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[439])
+<                           (expr-> id: cursor))
+<                         (expr-> binding: o[439]))))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[440])
+<                       (expr-> id: lastret))
+<                     (expr-> unexp: -
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[441])
+<                       (expr-> id: cursor))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[441])
+<                         (expr-> id: cursor))
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: alliremove[445]
+<         (formals: 
+<           (decl->formal self[445]
+<             (varmode=false)
+<             (type->kind=ident: allstitr[445])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: oo[447]
+<               (type->kind=ident: hasequals[447]))
+<             (decl->variable: b[448]
+<               (type->kind=ident: boolean[448])))
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: >=
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[450])
+<                   (expr-> id: lastret))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: b[451])
+<                     (expr-> call: isMethodCall=true removeith[451]
+<                       (exprs: 
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[451])
+<                           (expr-> id: thelist))
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[451])
+<                           (expr-> id: lastret)))))
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: <
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[452])
+<                         (expr-> id: lastret))
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[452])
+<                         (expr-> id: cursor)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[453])
+<                             (expr-> id: cursor))
+<                           (expr-> binexp: -
+<                             (expr-> binexp: .
+<                               (expr-> binding: self[453])
+<                               (expr-> id: cursor))
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->emptystmt:))))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[455])
+<                       (expr-> id: lastret))
+<                     (expr-> unexp: -
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->type: llentry[461]
+<         (type->kind=pointer:
+<           (type->kind=object: name=llentry
+<             (extends: (type->kind=ident: root[6]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: element[462]
+<                 (type->kind=ident: hasequals[462]))
+<               (decl->field: next[463]
+<                 (type->kind=ident: llentry[463]))
+<               (decl->field: previous[464]
+<                 (type->kind=ident: llentry[464])))
+<             (methods: 
+<               (decl->((type->kind=method function name=init
+<                     (formals: 
+<                       (decl->formal self[466]
+<                         (varmode=false)
+<                         (type->kind=ident: llentry[466]))
+<                       (decl->formal element[466]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[466]))
+<                       (decl->formal next[466]
+<                         (varmode=false)
+<                         (type->kind=ident: llentry[466]))
+<                       (decl->formal previous[466]
+<                         (varmode=false)
+<                         (type->kind=ident: llentry[466])))
+<                     (type->kind=ident: llentry[466]))
+<                   implemented-by: init[466]))))))
+<       (decl->type: linkedlist[469]
+<         (type->kind=pointer:
+<           (type->kind=object: name=linkedlist
+<             (extends: (type->kind=ident: abslist[469]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: header[470]
+<                 (type->kind=ident: llentry[470]))
+<               (decl->field: mysize[471]
+<                 (type->kind=ident: integer[471])))
+<             (methods: 
+<               (decl->((type->kind=method function name=init
+<                     (formals: 
+<                       (decl->formal self[473]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[473])))
+<                     (type->kind=ident: linkedlist[473]))
+<                   implemented-by: init[473]))
+<               (decl->((type->kind=method function name=getfirst
+<                     (formals: 
+<                       (decl->formal self[474]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[474])))
+<                     (type->kind=ident: hasequals[474]))
+<                   implemented-by: getfirst[474]))
+<               (decl->((type->kind=method function name=getlast
+<                     (formals: 
+<                       (decl->formal self[475]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[475])))
+<                     (type->kind=ident: hasequals[475]))
+<                   implemented-by: getlast[475]))
+<               (decl->((type->kind=method function name=removefirst
+<                     (formals: 
+<                       (decl->formal self[476]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[476])))
+<                     (type->kind=ident: hasequals[476]))
+<                   implemented-by: removefirst[476]))
+<               (decl->((type->kind=method function name=removelast
+<                     (formals: 
+<                       (decl->formal self[477]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[477])))
+<                     (type->kind=ident: hasequals[477]))
+<                   implemented-by: removelast[477]))
+<               (decl->((type->kind=method function name=removeentry
+<                     (formals: 
+<                       (decl->formal self[478]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[478]))
+<                       (decl->formal entry[478]
+<                         (varmode=false)
+<                         (type->kind=ident: llentry[478])))
+<                     (type->kind=ident: hasequals[478]))
+<                   implemented-by: removeentry[478]))
+<               (decl->((type->kind=method procedure name=addfirst
+<                     (formals: 
+<                       (decl->formal self[479]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[479]))))
+<                   implemented-by: addfirst[479]))
+<               (decl->((type->kind=method procedure name=addlast
+<                     (formals: 
+<                       (decl->formal self[480]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[480]))))
+<                   implemented-by: addlast[480]))
+<               (decl->((type->kind=method procedure name=addbeforeentry
+<                     (formals: 
+<                       (decl->formal self[481]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[481]))
+<                       (decl->formal e[481]
+<                         (varmode=false)
+<                         (type->kind=ident: hasequals[481]))
+<                       (decl->formal entry[481]
+<                         (varmode=false)
+<                         (type->kind=ident: llentry[481]))))
+<                   implemented-by: addbeforeentry[481]))
+<               (decl->((type->kind=method function name=entryith
+<                     (formals: 
+<                       (decl->formal self[482]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[482]))
+<                       (decl->formal index[482]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[482])))
+<                     (type->kind=ident: llentry[482]))
+<                   implemented-by: entryith[482])))
+<             (overrides: 
+<               (contains[484] llcontains[484])
+<               (size[485] llsize[485])
+<               (add[486] lladd[486])
+<               (remove[487] llremove[487])
+<               (addall[488] lladdall[488])
+<               (addallith[489] lladdallith[489])
+<               (clear[490] llclear[490])
+<               (getith[491] llgetith[491])
+<               (setith[492] llsetith[492])
+<               (addith[493] lladdith[493])
+<               (removeith[494] llremoveith[494])
+<               (indexof[495] llindexof[495])
+<               (lastindexof[496] lllastindexof[496])
+<               (getlistiteratorith[497] llgetlistiteratorith[497])))))
+<       (decl->type: lllstitr[500]
+<         (type->kind=pointer:
+<           (type->kind=object: name=lllstitr
+<             (extends: (type->kind=ident: listiterator[500]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: lastreturned[501]
+<                 (type->kind=ident: llentry[501]))
+<               (decl->field: nextent[502]
+<                 (type->kind=ident: llentry[502]))
+<               (decl->field: nextidx[503]
+<                 (type->kind=ident: integer[503]))
+<               (decl->field: thelist[504]
+<                 (type->kind=ident: linkedlist[504])))
+<             (methods: 
+<               (decl->((type->kind=method function name=init
+<                     (formals: 
+<                       (decl->formal self[506]
+<                         (varmode=false)
+<                         (type->kind=ident: lllstitr[506]))
+<                       (decl->formal lst[506]
+<                         (varmode=false)
+<                         (type->kind=ident: linkedlist[506]))
+<                       (decl->formal index[506]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[506])))
+<                     (type->kind=ident: lllstitr[506]))
+<                   implemented-by: init[506])))
+<             (overrides: 
+<               (hasnext[508] lllihasnext[508])
+<               (next[509] lllinext[509])
+<               (nextindex[510] lllinextindex[510])
+<               (hasprevious[511] lllihasprevious[511])
+<               (previous[512] llliprevious[512])
+<               (previousindex[513] lllipreviousindex[513])
+<               (remove[514] llliremove[514])
+<               (set[515] llliset[515])
+<               (add[516] llliadd[516])))))
+<       (decl->function: lleinit[519]
+<         (formals: 
+<           (decl->formal self[519]
+<             (varmode=false)
+<             (type->kind=ident: llentry[519]))
+<           (decl->formal element[519]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[519]))
+<           (decl->formal next[519]
+<             (varmode=false)
+<             (type->kind=ident: llentry[519]))
+<           (decl->formal previous[519]
+<             (varmode=false)
+<             (type->kind=ident: llentry[519])))
+<         (type->kind=ident: llentry[519])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[521])
+<                 (expr-> id: element))
+<               (expr-> binding: element[521]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[522])
+<                 (expr-> id: next))
+<               (expr-> binding: next[522]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[523])
+<                 (expr-> id: previous))
+<               (expr-> binding: previous[523]))
+<             (stmt->assignstmt:
+<               (expr-> binding: lleinit[524])
+<               (expr-> binding: self[524]))
+<             (stmt->emptystmt:))))
+<       (decl->function: llinit[527]
+<         (formals: 
+<           (decl->formal self[527]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[527])))
+<         (type->kind=ident: linkedlist[527])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[529])
+<                 (expr-> id: header))
+<               (expr-> call: isMethodCall=true init[529]
+<                 (exprs: 
+<                   (expr-> call: isMethodCall=false new[529]
+<                     (exprs: 
+<                       (expr-> binding: llentry[529])))
+<                   (expr->[value=0] nil:
+<                     type->(type->kind=<NIL>))
+<                   (expr->[value=0] nil:
+<                     type->(type->kind=<NIL>))
+<                   (expr->[value=0] nil:
+<                     type->(type->kind=<NIL>)))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[530])
+<                   (expr-> id: header))
+<                 (expr-> id: next))
+<               (expr-> binexp: .
+<                 (expr-> binding: self[530])
+<                 (expr-> id: header)))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[531])
+<                   (expr-> id: header))
+<                 (expr-> id: previous))
+<               (expr-> binexp: .
+<                 (expr-> binding: self[531])
+<                 (expr-> id: header)))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[532])
+<                 (expr-> id: size))
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->assignstmt:
+<               (expr-> binding: llinit[533])
+<               (expr-> binding: self[533]))
+<             (stmt->emptystmt:))))
+<       (decl->function: llgetfirst[536]
+<         (formals: 
+<           (decl->formal self[536]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[536])))
+<         (type->kind=ident: hasequals[536])
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[538])
+<                   (expr-> id: size))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: llgetfirst[539])
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: llgetfirst[541])
+<                       (expr-> binexp: .
+<                         (expr-> binexp: .
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[541])
+<                             (expr-> id: header))
+<                           (expr-> id: next))
+<                         (expr-> id: element)))
+<                     (stmt->emptystmt:)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llgetlast[545]
+<         (formals: 
+<           (decl->formal self[545]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[545])))
+<         (type->kind=ident: hasequals[545])
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[547])
+<                   (expr-> id: size))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: llgetlast[548])
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: llgetlast[550])
+<                       (expr-> binexp: .
+<                         (expr-> binexp: .
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[550])
+<                             (expr-> id: header))
+<                           (expr-> id: previous))
+<                         (expr-> id: element)))
+<                     (stmt->emptystmt:)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llremovefirst[554]
+<         (formals: 
+<           (decl->formal self[554]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[554])))
+<         (type->kind=ident: hasequals[554])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llremovefirst[556])
+<               (expr-> call: isMethodCall=true removeentry[556]
+<                 (exprs: 
+<                   (expr-> binding: self[556])
+<                   (expr-> binexp: .
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[556])
+<                       (expr-> id: header))
+<                     (expr-> id: next)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llremovelast[559]
+<         (formals: 
+<           (decl->formal self[559]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[559])))
+<         (type->kind=ident: hasequals[559])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llremovelast[561])
+<               (expr-> call: isMethodCall=true removeentry[561]
+<                 (exprs: 
+<                   (expr-> binding: self[561])
+<                   (expr-> binexp: .
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[561])
+<                       (expr-> id: header))
+<                     (expr-> id: previous)))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: lladdfirst[564]
+<         (formals: 
+<           (decl->formal self[564]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[564]))
+<           (decl->formal e[564]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[564])))
+<         (block: 
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=true addbeforeentry[566]
+<                 (exprs: 
+<                   (expr-> binding: self[566])
+<                   (expr-> binding: e[566])
+<                   (expr-> binexp: .
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[566])
+<                       (expr-> id: header))
+<                     (expr-> id: next)))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: lladdlast[569]
+<         (formals: 
+<           (decl->formal self[569]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[569]))
+<           (decl->formal e[569]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[569])))
+<         (block: 
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=true addbeforeentry[571]
+<                 (exprs: 
+<                   (expr-> binding: self[571])
+<                   (expr-> binding: e[571])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[571])
+<                     (expr-> id: header)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llcontains[574]
+<         (formals: 
+<           (decl->formal self[574]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[574]))
+<           (decl->formal e[574]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[574])))
+<         (type->kind=ident: boolean[574])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llcontains[576])
+<               (expr-> binexp: <>
+<                 (expr-> call: isMethodCall=true indexof[576]
+<                   (exprs: 
+<                     (expr-> binding: self[576])
+<                     (expr-> binding: e[576])))
+<                 (expr-> unexp: -
+<                   (expr->[value=1] int: 1
+<                     type->(type->kind=integer)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llsize[579]
+<         (formals: 
+<           (decl->formal self[579]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[579])))
+<         (type->kind=ident: integer[579])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llsize[581])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[581])
+<                 (expr-> id: mysize)))
+<             (stmt->emptystmt:))))
+<       (decl->function: lladd[584]
+<         (formals: 
+<           (decl->formal self[584]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[584]))
+<           (decl->formal e[584]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[584])))
+<         (type->kind=ident: boolean[584])
+<         (block: 
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=true addbeforeentry[586]
+<                 (exprs: 
+<                   (expr-> binding: self[586])
+<                   (expr-> binding: e[586])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[586])
+<                     (expr-> id: header)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: lladd[587])
+<               (expr-> binding: true[587]))
+<             (stmt->emptystmt:))))
+<       (decl->function: llremove[590]
+<         (formals: 
+<           (decl->formal self[590]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[590]))
+<           (decl->formal o[590]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[590])))
+<         (type->kind=ident: boolean[590])
+<         (block: 
+<           (decls: 
+<             (decl->variable: e[592]
+<               (type->kind=ident: llentry[592]))
+<             (decl->variable: searching[593]
+<               (type->kind=ident: boolean[593]))
+<             (decl->variable: oo[594]
+<               (type->kind=ident: hasequals[594])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llremove[596])
+<               (expr-> binding: false[596]))
+<             (stmt->assignstmt:
+<               (expr-> binding: searching[597])
+<               (expr-> binding: true[597]))
+<             (stmt->assignstmt:
+<               (expr-> binding: e[598])
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[598])
+<                   (expr-> id: header))
+<                 (expr-> id: next)))
+<             (stmt->whilestmt:
+<               (expr-> binding: searching[599])
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: <>
+<                       (expr-> binding: e[600])
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[600])
+<                         (expr-> id: header)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->ifstmt: 
+<                           (expr-> call: isMethodCall=true equals[601]
+<                             (exprs: 
+<                               (expr-> binding: o[601])
+<                               (expr-> binexp: .
+<                                 (expr-> binding: e[601])
+<                                 (expr-> id: element))))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: oo[602])
+<                                 (expr-> call: isMethodCall=true removeentry[602]
+<                                   (exprs: 
+<                                     (expr-> binding: self[602])
+<                                     (expr-> binding: e[602]))))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: llremove[603])
+<                                 (expr-> binding: true[603]))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: searching[604])
+<                                 (expr-> binding: false[604]))
+<                               (stmt->emptystmt:))))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->compoundstmt:
+<                         (stmts: 
+<                           (stmt->assignstmt:
+<                             (expr-> binding: searching[607])
+<                             (expr-> binding: false[607]))
+<                           (stmt->emptystmt:)))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lladdall[612]
+<         (formals: 
+<           (decl->formal self[612]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[612]))
+<           (decl->formal other[612]
+<             (varmode=false)
+<             (type->kind=ident: collection[612])))
+<         (type->kind=ident: boolean[612])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lladdall[614])
+<               (expr-> call: isMethodCall=true addallith[614]
+<                 (exprs: 
+<                   (expr-> binding: self[614])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[614])
+<                     (expr-> id: size))
+<                   (expr-> binding: other[614]))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lladdallith[617]
+<         (formals: 
+<           (decl->formal self[617]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[617]))
+<           (decl->formal index[617]
+<             (varmode=false)
+<             (type->kind=ident: integer[617]))
+<           (decl->formal other[617]
+<             (varmode=false)
+<             (type->kind=ident: collection[617])))
+<         (type->kind=ident: boolean[617])
+<         (block: 
+<           (decls: 
+<             (decl->variable: it[619]
+<               (type->kind=ident: iterator[619]))
+<             (decl->variable: succ[620]
+<               (type->kind=ident: llentry[620]))
+<             (decl->variable: pred[621]
+<               (type->kind=ident: llentry[621]))
+<             (decl->variable: o[622]
+<               (type->kind=ident: hasequals[622]))
+<             (decl->variable: newent[623]
+<               (type->kind=ident: llentry[623])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lladdallith[625])
+<               (expr-> binding: false[625]))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: and
+<                 (expr-> binexp: >=
+<                   (expr-> binding: index[626])
+<                   (expr->[value=0] int: 0
+<                     type->(type->kind=integer)))
+<                 (expr-> binexp: <=
+<                   (expr-> binding: index[626])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[626])
+<                     (expr-> id: size))))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: it[627])
+<                     (expr-> binexp: .
+<                       (expr-> binding: other[627])
+<                       (expr-> id: getiterator)))
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: =
+<                       (expr-> binding: index[628])
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[628])
+<                         (expr-> id: size)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: succ[629])
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[629])
+<                             (expr-> id: header)))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->compoundstmt:
+<                         (stmts: 
+<                           (stmt->assignstmt:
+<                             (expr-> binding: succ[631])
+<                             (expr-> call: isMethodCall=true entryith[631]
+<                               (exprs: 
+<                                 (expr-> binding: self[631])
+<                                 (expr-> binding: index[631]))))
+<                           (stmt->emptystmt:)))))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: pred[633])
+<                     (expr-> binexp: .
+<                       (expr-> binding: succ[633])
+<                       (expr-> id: previous)))
+<                   (stmt->whilestmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: it[634])
+<                       (expr-> id: hasnext))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: o[635])
+<                           (expr-> call: isMethodCall=false narrow[635]
+<                             (exprs: 
+<                               (expr-> binexp: .
+<                                 (expr-> binding: it[635])
+<                                 (expr-> id: next))
+<                               (expr-> binding: hasequals[635]))))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: newent[636])
+<                           (expr-> call: isMethodCall=true init[636]
+<                             (exprs: 
+<                               (expr-> call: isMethodCall=false new[636]
+<                                 (exprs: 
+<                                   (expr-> binding: llentry[636])))
+<                               (expr-> binding: o[636])
+<                               (expr-> binding: succ[636])
+<                               (expr-> binding: pred[636]))))
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: pred[637])
+<                             (expr-> id: next))
+<                           (expr-> binding: newent[637]))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: pred[638])
+<                           (expr-> binding: newent[638]))
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[639])
+<                             (expr-> id: mysize))
+<                           (expr-> binexp: +
+<                             (expr-> binexp: .
+<                               (expr-> binding: self[639])
+<                               (expr-> id: mysize))
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->emptystmt:))))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: succ[641])
+<                       (expr-> id: previous))
+<                     (expr-> binding: pred[641]))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: lladdallith[642])
+<                     (expr-> binding: true[642]))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: llclear[646]
+<         (formals: 
+<           (decl->formal self[646]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[646])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: e[647]
+<               (type->kind=ident: llentry[647]))
+<             (decl->variable: next[647]
+<               (type->kind=ident: llentry[647])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: e[649])
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[649])
+<                   (expr-> id: header))
+<                 (expr-> id: next)))
+<             (stmt->whilestmt:
+<               (expr-> binexp: <>
+<                 (expr-> binding: e[650])
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[650])
+<                   (expr-> id: header)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: next[651])
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[651])
+<                       (expr-> id: next)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[652])
+<                       (expr-> id: next))
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[653])
+<                       (expr-> id: previous))
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: e[654])
+<                     (expr-> binding: next[654]))
+<                   (stmt->emptystmt:))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[656])
+<                   (expr-> id: header))
+<                 (expr-> id: next))
+<               (expr-> binexp: .
+<                 (expr-> binding: self[656])
+<                 (expr-> id: header)))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[657])
+<                   (expr-> id: header))
+<                 (expr-> id: previous))
+<               (expr-> binexp: .
+<                 (expr-> binding: self[657])
+<                 (expr-> id: header)))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[658])
+<                 (expr-> id: mysize))
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->emptystmt:))))
+<       (decl->function: llgetith[661]
+<         (formals: 
+<           (decl->formal self[661]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[661]))
+<           (decl->formal index[661]
+<             (varmode=false)
+<             (type->kind=ident: integer[661])))
+<         (type->kind=ident: hasequals[661])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llgetith[663])
+<               (expr-> binexp: .
+<                 (expr-> call: isMethodCall=true entryith[663]
+<                   (exprs: 
+<                     (expr-> binding: self[663])
+<                     (expr-> binding: index[663])))
+<                 (expr-> id: element)))
+<             (stmt->emptystmt:))))
+<       (decl->function: llsetith[666]
+<         (formals: 
+<           (decl->formal self[666]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[666]))
+<           (decl->formal index[666]
+<             (varmode=false)
+<             (type->kind=ident: integer[666]))
+<           (decl->formal element[666]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[666])))
+<         (type->kind=ident: hasequals[666])
+<         (block: 
+<           (decls: 
+<             (decl->variable: e[667]
+<               (type->kind=ident: llentry[667])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llsetith[669])
+<               (expr->[value=0] nil:
+<                 type->(type->kind=<NIL>)))
+<             (stmt->assignstmt:
+<               (expr-> binding: e[670])
+<               (expr-> call: isMethodCall=true entryith[670]
+<                 (exprs: 
+<                   (expr-> binding: self[670])
+<                   (expr-> binding: index[670]))))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: <>
+<                 (expr-> binding: e[671])
+<                 (expr->[value=0] nil:
+<                   type->(type->kind=<NIL>)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: llsetith[672])
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[672])
+<                       (expr-> id: element)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[673])
+<                       (expr-> id: element))
+<                     (expr-> binding: element[673]))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lladdith[677]
+<         (formals: 
+<           (decl->formal self[677]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[677]))
+<           (decl->formal index[677]
+<             (varmode=false)
+<             (type->kind=ident: integer[677]))
+<           (decl->formal element[677]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[677])))
+<         (type->kind=ident: boolean[677])
+<         (block: 
+<           (decls: 
+<             (decl->variable: e[678]
+<               (type->kind=ident: llentry[678])))
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binding: index[680])
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[680])
+<                   (expr-> id: size)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: e[681])
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[681])
+<                       (expr-> id: header)))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: e[683])
+<                       (expr-> call: isMethodCall=true entryith[683]
+<                         (exprs: 
+<                           (expr-> binding: self[683])
+<                           (expr-> binding: index[683]))))
+<                     (stmt->emptystmt:)))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=true addbeforeentry[685]
+<                 (exprs: 
+<                   (expr-> binding: self[685])
+<                   (expr-> binding: element[685])
+<                   (expr-> binding: e[685]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: lladdith[686])
+<               (expr-> binding: true[686]))
+<             (stmt->emptystmt:))))
+<       (decl->function: llremoveith[689]
+<         (formals: 
+<           (decl->formal self[689]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[689]))
+<           (decl->formal index[689]
+<             (varmode=false)
+<             (type->kind=ident: integer[689])))
+<         (type->kind=ident: boolean[689])
+<         (block: 
+<           (decls: 
+<             (decl->variable: oo[690]
+<               (type->kind=ident: hasequals[690])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: oo[692])
+<               (expr-> call: isMethodCall=true removeentry[692]
+<                 (exprs: 
+<                   (expr-> binding: self[692])
+<                   (expr-> call: isMethodCall=true entryith[692]
+<                     (exprs: 
+<                       (expr-> binding: self[692])
+<                       (expr-> binding: index[692]))))))
+<             (stmt->assignstmt:
+<               (expr-> binding: llremoveith[693])
+<               (expr-> binding: true[693]))
+<             (stmt->emptystmt:))))
+<       (decl->function: llentryith[696]
+<         (formals: 
+<           (decl->formal self[696]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[696]))
+<           (decl->formal index[696]
+<             (varmode=false)
+<             (type->kind=ident: integer[696])))
+<         (type->kind=ident: llentry[696])
+<         (block: 
+<           (decls: 
+<             (decl->variable: e[697]
+<               (type->kind=ident: llentry[697])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llentryith[699])
+<               (expr->[value=0] nil:
+<                 type->(type->kind=<NIL>)))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: and
+<                 (expr-> binexp: >=
+<                   (expr-> binding: index[700])
+<                   (expr->[value=0] int: 0
+<                     type->(type->kind=integer)))
+<                 (expr-> binexp: <
+<                   (expr-> binding: index[700])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[700])
+<                     (expr-> id: size))))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: e[701])
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[701])
+<                         (expr-> id: header))
+<                       (expr-> id: next)))
+<                   (stmt->whilestmt:
+<                     (expr-> binexp: >
+<                       (expr-> binding: index[702])
+<                       (expr->[value=0] int: 0
+<                         type->(type->kind=integer)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: e[703])
+<                           (expr-> binexp: .
+<                             (expr-> binding: e[703])
+<                             (expr-> id: next)))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: index[704])
+<                           (expr-> binexp: -
+<                             (expr-> binding: index[704])
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->emptystmt:))))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: llentryith[706])
+<                     (expr-> binding: e[706]))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llindexof[710]
+<         (formals: 
+<           (decl->formal self[710]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[710]))
+<           (decl->formal o[710]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[710])))
+<         (type->kind=ident: integer[710])
+<         (block: 
+<           (decls: 
+<             (decl->variable: index[712]
+<               (type->kind=ident: integer[712]))
+<             (decl->variable: e[713]
+<               (type->kind=ident: llentry[713]))
+<             (decl->variable: searching[714]
+<               (type->kind=ident: boolean[714])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llindexof[716])
+<               (expr-> unexp: -
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: index[717])
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->assignstmt:
+<               (expr-> binding: e[718])
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[718])
+<                   (expr-> id: header))
+<                 (expr-> id: next)))
+<             (stmt->assignstmt:
+<               (expr-> binding: searching[719])
+<               (expr-> binding: true[719]))
+<             (stmt->whilestmt:
+<               (expr-> binding: searching[720])
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: <>
+<                       (expr-> binding: e[721])
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[721])
+<                         (expr-> id: header)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->ifstmt: 
+<                           (expr-> call: isMethodCall=true equals[722]
+<                             (exprs: 
+<                               (expr-> binding: o[722])
+<                               (expr-> binexp: .
+<                                 (expr-> binding: e[722])
+<                                 (expr-> id: element))))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: llindexof[723])
+<                                 (expr-> binding: index[723]))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: searching[724])
+<                                 (expr-> binding: false[724]))
+<                               (stmt->emptystmt:)))
+<                           (else: 
+<                             (stmt->compoundstmt:
+<                               (stmts: 
+<                                 (stmt->assignstmt:
+<                                   (expr-> binding: index[726])
+<                                   (expr-> binexp: +
+<                                     (expr-> binding: index[726])
+<                                     (expr->[value=1] int: 1
+<                                       type->(type->kind=integer))))
+<                                 (stmt->assignstmt:
+<                                   (expr-> binding: e[727])
+<                                   (expr-> binexp: .
+<                                     (expr-> binding: e[727])
+<                                     (expr-> id: next)))
+<                                 (stmt->emptystmt:)))))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->compoundstmt:
+<                         (stmts: 
+<                           (stmt->assignstmt:
+<                             (expr-> binding: searching[730])
+<                             (expr-> binding: false[730]))
+<                           (stmt->emptystmt:)))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lllastindexof[735]
+<         (formals: 
+<           (decl->formal self[735]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[735]))
+<           (decl->formal o[735]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[735])))
+<         (type->kind=ident: integer[735])
+<         (block: 
+<           (decls: 
+<             (decl->variable: index[737]
+<               (type->kind=ident: integer[737]))
+<             (decl->variable: e[738]
+<               (type->kind=ident: llentry[738]))
+<             (decl->variable: searching[739]
+<               (type->kind=ident: boolean[739])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lllastindexof[741])
+<               (expr-> unexp: -
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: index[742])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[742])
+<                 (expr-> id: size)))
+<             (stmt->assignstmt:
+<               (expr-> binding: e[743])
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[743])
+<                   (expr-> id: header))
+<                 (expr-> id: previous)))
+<             (stmt->assignstmt:
+<               (expr-> binding: searching[744])
+<               (expr-> binding: true[744]))
+<             (stmt->whilestmt:
+<               (expr-> binding: searching[745])
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: <>
+<                       (expr-> binding: e[746])
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[746])
+<                         (expr-> id: header)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: index[747])
+<                           (expr-> binexp: -
+<                             (expr-> binding: index[747])
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->ifstmt: 
+<                           (expr-> call: isMethodCall=true equals[748]
+<                             (exprs: 
+<                               (expr-> binding: o[748])
+<                               (expr-> binexp: .
+<                                 (expr-> binding: e[748])
+<                                 (expr-> id: element))))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: lllastindexof[749])
+<                                 (expr-> binding: index[749]))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: searching[750])
+<                                 (expr-> binding: false[750]))
+<                               (stmt->emptystmt:)))
+<                           (else: 
+<                             (stmt->compoundstmt:
+<                               (stmts: 
+<                                 (stmt->assignstmt:
+<                                   (expr-> binding: e[752])
+<                                   (expr-> binexp: .
+<                                     (expr-> binding: e[752])
+<                                     (expr-> id: previous)))
+<                                 (stmt->emptystmt:)))))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->compoundstmt:
+<                         (stmts: 
+<                           (stmt->assignstmt:
+<                             (expr-> binding: searching[755])
+<                             (expr-> binding: false[755]))
+<                           (stmt->emptystmt:)))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: lladdbeforeentry[760]
+<         (formals: 
+<           (decl->formal self[760]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[760]))
+<           (decl->formal e[760]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[760]))
+<           (decl->formal entry[760]
+<             (varmode=false)
+<             (type->kind=ident: llentry[760])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: newent[761]
+<               (type->kind=ident: llentry[761])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: newent[763])
+<               (expr-> call: isMethodCall=true init[763]
+<                 (exprs: 
+<                   (expr-> call: isMethodCall=false new[763]
+<                     (exprs: 
+<                       (expr-> binding: llentry[763])))
+<                   (expr-> binding: e[763])
+<                   (expr-> binding: entry[763])
+<                   (expr-> binexp: .
+<                     (expr-> binding: entry[763])
+<                     (expr-> id: previous)))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: newent[764])
+<                   (expr-> id: previous))
+<                 (expr-> id: next))
+<               (expr-> binding: newent[764]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: newent[765])
+<                   (expr-> id: next))
+<                 (expr-> id: previous))
+<               (expr-> binding: newent[765]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[766])
+<                 (expr-> id: mysize))
+<               (expr-> binexp: +
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[766])
+<                   (expr-> id: mysize))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llremoveentry[769]
+<         (formals: 
+<           (decl->formal self[769]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[769]))
+<           (decl->formal e[769]
+<             (varmode=false)
+<             (type->kind=ident: llentry[769])))
+<         (type->kind=ident: hasequals[769])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llremoveentry[771])
+<               (expr->[value=0] nil:
+<                 type->(type->kind=<NIL>)))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: and
+<                 (expr-> binexp: <>
+<                   (expr-> binding: e[772])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[772])
+<                     (expr-> id: header)))
+<                 (expr-> binexp: <>
+<                   (expr-> binding: e[772])
+<                   (expr->[value=0] nil:
+<                     type->(type->kind=<NIL>))))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: llremoveentry[773])
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[773])
+<                       (expr-> id: element)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: e[774])
+<                         (expr-> id: previous))
+<                       (expr-> id: next))
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[774])
+<                       (expr-> id: next)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: e[775])
+<                         (expr-> id: next))
+<                       (expr-> id: previous))
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[775])
+<                       (expr-> id: previous)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[776])
+<                       (expr-> id: previous))
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[777])
+<                       (expr-> id: next))
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: e[778])
+<                       (expr-> id: element))
+<                     (expr->[value=0] nil:
+<                       type->(type->kind=<NIL>)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[779])
+<                       (expr-> id: mysize))
+<                     (expr-> binexp: -
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[779])
+<                         (expr-> id: mysize))
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llgetlistiteratorith[783]
+<         (formals: 
+<           (decl->formal self[783]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[783]))
+<           (decl->formal index[783]
+<             (varmode=false)
+<             (type->kind=ident: integer[783])))
+<         (type->kind=ident: listiterator[783])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llgetlistiteratorith[785])
+<               (expr-> call: isMethodCall=true init[785]
+<                 (exprs: 
+<                   (expr-> call: isMethodCall=false new[785]
+<                     (exprs: 
+<                       (expr-> binding: lllstitr[785])))
+<                   (expr-> binding: self[785])
+<                   (expr-> binding: index[785]))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llliinit[789]
+<         (formals: 
+<           (decl->formal self[789]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[789]))
+<           (decl->formal lst[789]
+<             (varmode=false)
+<             (type->kind=ident: linkedlist[789]))
+<           (decl->formal index[789]
+<             (varmode=false)
+<             (type->kind=ident: integer[789])))
+<         (type->kind=ident: lllstitr[789])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[791])
+<                 (expr-> id: lastreturned))
+<               (expr-> binexp: .
+<                 (expr-> binding: lst[791])
+<                 (expr-> id: header)))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[792])
+<                 (expr-> id: thelist))
+<               (expr-> binding: lst[792]))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: and
+<                 (expr-> binexp: >=
+<                   (expr-> binding: index[793])
+<                   (expr->[value=0] int: 0
+<                     type->(type->kind=integer)))
+<                 (expr-> binexp: <=
+<                   (expr-> binding: index[793])
+<                   (expr-> binexp: .
+<                     (expr-> binding: lst[793])
+<                     (expr-> id: size))))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[794])
+<                       (expr-> id: nextent))
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[794])
+<                           (expr-> id: thelist))
+<                         (expr-> id: header))
+<                       (expr-> id: next)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[795])
+<                       (expr-> id: nextidx))
+<                     (expr->[value=0] int: 0
+<                       type->(type->kind=integer)))
+<                   (stmt->whilestmt:
+<                     (expr-> binexp: >
+<                       (expr-> binding: index[796])
+<                       (expr->[value=0] int: 0
+<                         type->(type->kind=integer)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[797])
+<                             (expr-> id: nextent))
+<                           (expr-> binexp: .
+<                             (expr-> binexp: .
+<                               (expr-> binding: self[797])
+<                               (expr-> id: nextent))
+<                             (expr-> id: next)))
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[798])
+<                             (expr-> id: nextidx))
+<                           (expr-> binexp: +
+<                             (expr-> binexp: .
+<                               (expr-> binding: self[798])
+<                               (expr-> id: nextidx))
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: index[799])
+<                           (expr-> binexp: -
+<                             (expr-> binding: index[799])
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->emptystmt:))))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lllihasnext[804]
+<         (formals: 
+<           (decl->formal self[804]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[804])))
+<         (type->kind=ident: boolean[804])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lllihasnext[806])
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[806])
+<                   (expr-> id: nextidx))
+<                 (expr-> binexp: .
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[806])
+<                     (expr-> id: thelist))
+<                   (expr-> id: size))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lllinext[809]
+<         (formals: 
+<           (decl->formal self[809]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[809])))
+<         (type->kind=ident: hasequals[809])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lllinext[811])
+<               (expr->[value=0] nil:
+<                 type->(type->kind=<NIL>)))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[812])
+<                   (expr-> id: nextidx))
+<                 (expr-> binexp: .
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[812])
+<                     (expr-> id: thelist))
+<                   (expr-> id: size)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[813])
+<                       (expr-> id: lastreturned))
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[813])
+<                       (expr-> id: nextent)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[814])
+<                       (expr-> id: nextent))
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[814])
+<                         (expr-> id: nextent))
+<                       (expr-> id: next)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[815])
+<                       (expr-> id: nextidx))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[815])
+<                         (expr-> id: nextidx))
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: lllinext[816])
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[816])
+<                         (expr-> id: lastreturned))
+<                       (expr-> id: element)))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lllinextindex[820]
+<         (formals: 
+<           (decl->formal self[820]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[820])))
+<         (type->kind=ident: integer[820])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lllinextindex[822])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[822])
+<                 (expr-> id: nextidx)))
+<             (stmt->emptystmt:))))
+<       (decl->function: lllihasprevious[825]
+<         (formals: 
+<           (decl->formal self[825]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[825])))
+<         (type->kind=ident: boolean[825])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lllihasprevious[827])
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[827])
+<                   (expr-> id: nextidx))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (decl->function: llliprevious[830]
+<         (formals: 
+<           (decl->formal self[830]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[830])))
+<         (type->kind=ident: hasequals[830])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: llliprevious[832])
+<               (expr->[value=0] nil:
+<                 type->(type->kind=<NIL>)))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[833])
+<                   (expr-> id: nextidx))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[834])
+<                       (expr-> id: lastreturned))
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[834])
+<                         (expr-> id: nextent))
+<                       (expr-> id: previous)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[835])
+<                       (expr-> id: nextent))
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[835])
+<                         (expr-> id: nextent))
+<                       (expr-> id: previous)))
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[836])
+<                       (expr-> id: nextidx))
+<                     (expr-> binexp: -
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[836])
+<                         (expr-> id: nextidx))
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: llliprevious[837])
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[837])
+<                         (expr-> id: lastreturned))
+<                       (expr-> id: element)))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->function: lllipreviousindex[841]
+<         (formals: 
+<           (decl->formal self[841]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[841])))
+<         (type->kind=ident: integer[841])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lllipreviousindex[843])
+<               (expr-> binexp: -
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[843])
+<                   (expr-> id: nextidx))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: llliremove[846]
+<         (formals: 
+<           (decl->formal self[846]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[846])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: lastnext[848]
+<               (type->kind=ident: llentry[848]))
+<             (decl->variable: oo[849]
+<               (type->kind=ident: hasequals[849])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: lastnext[851])
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[851])
+<                   (expr-> id: lastreturned))
+<                 (expr-> id: next)))
+<             (stmt->assignstmt:
+<               (expr-> binding: oo[852])
+<               (expr-> call: isMethodCall=true removeentry[852]
+<                 (exprs: 
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[852])
+<                     (expr-> id: thelist))
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[852])
+<                     (expr-> id: lastreturned)))))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[853])
+<                   (expr-> id: nextent))
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[853])
+<                   (expr-> id: lastreturned)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[854])
+<                       (expr-> id: nextent))
+<                     (expr-> binding: lastnext[854]))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[856])
+<                         (expr-> id: nextidx))
+<                       (expr-> binexp: -
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[856])
+<                           (expr-> id: nextidx))
+<                         (expr->[value=1] int: 1
+<                           type->(type->kind=integer))))
+<                     (stmt->emptystmt:)))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[858])
+<                 (expr-> id: lastreturned))
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[858])
+<                   (expr-> id: thelist))
+<                 (expr-> id: header)))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: llliset[861]
+<         (formals: 
+<           (decl->formal self[861]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[861]))
+<           (decl->formal e[861]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[861])))
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: <>
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[863])
+<                   (expr-> id: lastreturned))
+<                 (expr-> binexp: .
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[863])
+<                     (expr-> id: thelist))
+<                   (expr-> id: header)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[864])
+<                         (expr-> id: lastreturned))
+<                       (expr-> id: element))
+<                     (expr-> binding: e[864]))
+<                   (stmt->emptystmt:))))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: llliadd[868]
+<         (formals: 
+<           (decl->formal self[868]
+<             (varmode=false)
+<             (type->kind=ident: lllstitr[868]))
+<           (decl->formal e[868]
+<             (varmode=false)
+<             (type->kind=ident: hasequals[868])))
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[870])
+<                 (expr-> id: lastreturned))
+<               (expr-> binexp: .
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[870])
+<                   (expr-> id: thelist))
+<                 (expr-> id: header)))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=true addbeforeentry[871]
+<                 (exprs: 
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[871])
+<                     (expr-> id: thelist))
+<                   (expr-> binding: e[871])
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[871])
+<                     (expr-> id: nextent)))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: self[872])
+<                 (expr-> id: nextidx))
+<               (expr-> binexp: +
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[872])
+<                   (expr-> id: nextidx))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->emptystmt:))))
+
+

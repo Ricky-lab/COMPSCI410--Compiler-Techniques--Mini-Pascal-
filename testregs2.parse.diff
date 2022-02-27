@@ -1,0 +1,172 @@
+testregs2.parse:
+1,168d0
+< (program: 
+<   (decls: 
+<     (decl->program: testregs2[1]))
+<   (block: 
+<     (decls: 
+<       (decl->type: rr[4]
+<         (type->kind=record:
+<           (fields: 
+<             (decl->field: x[4]
+<               (type->kind=ident: integer[4]))
+<             (decl->field: y[4]
+<               (type->kind=ident: integer[4])))))
+<       (decl->type: range1[5]
+<         (type->kind=subrange:
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer))
+<           (expr->[value=10] int: 10
+<             type->(type->kind=integer))))
+<       (decl->type: range2[6]
+<         (type->kind=subrange:
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer))
+<           (expr->[value=2] int: 2
+<             type->(type->kind=integer))))
+<       (decl->variable: a[8]
+<         (type->kind=array:(type->kind=ident: range1[8])
+<           (type->kind=ident: rr[8])))
+<       (decl->variable: b[9]
+<         (type->kind=array:(type->kind=ident: range2[9])
+<           (type->kind=array:(type->kind=ident: range2[9])
+<             (type->kind=ident: rr[9]))))
+<       (decl->variable: r[10]
+<         (type->kind=ident: rr[10]))
+<       (decl->variable: i[11]
+<         (type->kind=ident: range1[11]))
+<       (decl->variable: j[11]
+<         (type->kind=ident: range1[11]))
+<       (decl->variable: m[12]
+<         (type->kind=ident: range2[12]))
+<       (decl->variable: n[12]
+<         (type->kind=ident: range2[12]))
+<       (decl->function: f1[13]
+<         (type->kind=ident: integer[13])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: f1[15])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer)))
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->assignstmt:
+<         (expr-> binding: i[19])
+<         (expr-> binding: f1[19]))
+<       (stmt->assignstmt:
+<         (expr-> binding: j[20])
+<         (expr-> binding: f1[20]))
+<       (stmt->assignstmt:
+<         (expr-> binding: m[21])
+<         (expr-> binding: f1[21]))
+<       (stmt->assignstmt:
+<         (expr-> binding: n[22])
+<         (expr-> binding: f1[22]))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[23])
+<             (expr-> binding: i[23]))
+<           (expr-> id: x))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[23])
+<             (expr-> binding: j[23]))
+<           (expr-> id: x)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[24])
+<             (expr-> binding: i[24]))
+<           (expr-> id: x))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[24])
+<             (expr-> binding: j[24]))
+<           (expr-> id: y)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[25])
+<             (expr-> binding: i[25]))
+<           (expr-> id: y))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[25])
+<             (expr-> binding: j[25]))
+<           (expr-> id: x)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[26])
+<             (expr-> binding: i[26]))
+<           (expr-> id: y))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[26])
+<             (expr-> binding: j[26]))
+<           (expr-> id: y)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[27])
+<               (expr-> binding: m[27]))
+<             (expr-> binding: n[27]))
+<           (expr-> id: x))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[27])
+<               (expr-> binding: n[27]))
+<             (expr-> binding: m[27]))
+<           (expr-> id: x)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[28])
+<               (expr-> binding: m[28]))
+<             (expr-> binding: n[28]))
+<           (expr-> id: x))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[28])
+<               (expr-> binding: n[28]))
+<             (expr-> binding: m[28]))
+<           (expr-> id: y)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[29])
+<               (expr-> binding: m[29]))
+<             (expr-> binding: n[29]))
+<           (expr-> id: y))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[29])
+<               (expr-> binding: n[29]))
+<             (expr-> binding: m[29]))
+<           (expr-> id: x)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[30])
+<               (expr-> binding: m[30]))
+<             (expr-> binding: n[30]))
+<           (expr-> id: y))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[30])
+<               (expr-> binding: n[30]))
+<             (expr-> binding: m[30]))
+<           (expr-> id: y)))
+<       (stmt->emptystmt:))))
+
+

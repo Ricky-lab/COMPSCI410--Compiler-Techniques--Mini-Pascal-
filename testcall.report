@@ -1,0 +1,261 @@
+testcall.err:
+0a1,5
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.Parse.perform(Parse.java:58)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testcall.parse:
+1,248d0
+< (program: 
+<   (decls: 
+<     (decl->program: testcall[1]))
+<   (block: 
+<     (decls: 
+<       (decl->type: r[3]
+<         (type->kind=record:
+<           (fields: 
+<             (decl->field: a[3]
+<               (type->kind=ident: integer[3]))
+<             (decl->field: b[3]
+<               (type->kind=ident: integer[3])))))
+<       (decl->type: pt[4]
+<         (type->kind=pointer:
+<           ))
+<       (decl->variable: rr[6]
+<         (type->kind=ident: r[6]))
+<       (decl->variable: ii[6]
+<         (type->kind=ident: integer[6]))
+<       (decl->variable: pp[6]
+<         (type->kind=ident: pt[6]))
+<       (decl->procedure: p1[8]
+<         (formals: 
+<           (decl->formal x[8]
+<             (varmode=false)
+<             (type->kind=ident: r[8]))
+<           (decl->formal y[8]
+<             (varmode=true)
+<             (type->kind=ident: r[8]))
+<           (decl->formal i[8]
+<             (varmode=false)
+<             (type->kind=ident: integer[8]))
+<           (decl->formal j[8]
+<             (varmode=true)
+<             (type->kind=ident: integer[8]))
+<           (decl->formal p[9]
+<             (varmode=false)
+<             (type->kind=ident: pt[9]))
+<           (decl->formal q[9]
+<             (varmode=true)
+<             (type->kind=ident: pt[9])))
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: y[11])
+<               (expr-> binding: x[11]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: x[12])
+<                 (expr-> id: a))
+<               (expr-> binexp: .
+<                 (expr-> binding: y[12])
+<                 (expr-> id: a)))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[13])
+<               (expr-> binding: j[13]))
+<             (stmt->assignstmt:
+<               (expr-> binding: j[14])
+<               (expr-> binding: i[14]))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[15])
+<               (expr-> binexp: .
+<                 (expr-> unexp: ^
+<                   (expr-> binding: p[15]))
+<                 (expr-> id: a)))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[16])
+<               (expr-> binexp: .
+<                 (expr-> unexp: ^
+<                   (expr-> binding: p[16]))
+<                 (expr-> id: b)))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[17])
+<               (expr-> binexp: .
+<                 (expr-> unexp: ^
+<                   (expr-> binding: q[17]))
+<                 (expr-> id: a)))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[18])
+<               (expr-> binexp: .
+<                 (expr-> unexp: ^
+<                   (expr-> binding: q[18]))
+<                 (expr-> id: b)))
+<             (stmt->emptystmt:))))
+<       (decl->function: f1[21]
+<         (formals: 
+<           (decl->formal x[21]
+<             (varmode=false)
+<             (type->kind=ident: r[21])))
+<         (type->kind=ident: r[21])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: f1[23])
+<               (expr-> binding: x[23]))
+<             (stmt->assignstmt:
+<               (expr-> binding: f1[24])
+<               (expr-> binding: rr[24]))
+<             (stmt->emptystmt:))))
+<       (decl->function: f2[27]
+<         (formals: 
+<           (decl->formal i[27]
+<             (varmode=true)
+<             (type->kind=ident: integer[27])))
+<         (type->kind=ident: integer[27])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: f2[29])
+<               (expr-> binexp: +
+<                 (expr-> binding: i[29])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (decl->function: f3[32]
+<         (type->kind=ident: pt[32])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: f3[34])
+<               (expr-> binding: pp[34]))
+<             (stmt->emptystmt:))))
+<       (decl->variable: nesting[37]
+<         (type->kind=ident: integer[37]))
+<       (decl->procedure: nest1[39]
+<         (block: 
+<           (decls: 
+<             (decl->procedure: nest2[40]
+<               (block: 
+<                 (decls: 
+<                   (decl->procedure: nest3[41]
+<                     (block: 
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: nesting[43])
+<                           (expr-> binexp: -
+<                             (expr-> binding: nesting[43])
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->ifstmt: 
+<                           (expr-> binexp: >
+<                             (expr-> binding: nesting[44])
+<                             (expr->[value=0] int: 0
+<                               type->(type->kind=integer)))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->callstmt:
+<                                 (expr-> binding: nest3[45]))
+<                               (stmt->callstmt:
+<                                 (expr-> binding: nest2[46]))
+<                               (stmt->callstmt:
+<                                 (expr-> binding: nest1[47]))
+<                               (stmt->emptystmt:))))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: nesting[49])
+<                           (expr-> binexp: +
+<                             (expr-> binding: nesting[49])
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->emptystmt:)))))
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: nesting[52])
+<                     (expr-> binexp: -
+<                       (expr-> binding: nesting[52])
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: >
+<                       (expr-> binding: nesting[53])
+<                       (expr->[value=0] int: 0
+<                         type->(type->kind=integer)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->callstmt:
+<                           (expr-> binding: nest3[54]))
+<                         (stmt->callstmt:
+<                           (expr-> binding: nest2[55]))
+<                         (stmt->callstmt:
+<                           (expr-> binding: nest1[56]))
+<                         (stmt->emptystmt:))))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: nesting[58])
+<                     (expr-> binexp: +
+<                       (expr-> binding: nesting[58])
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer))))
+<                   (stmt->emptystmt:)))))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: nesting[61])
+<               (expr-> binexp: -
+<                 (expr-> binding: nesting[61])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: >
+<                 (expr-> binding: nesting[62])
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->callstmt:
+<                     (expr-> binding: nest2[63]))
+<                   (stmt->callstmt:
+<                     (expr-> binding: nest1[64]))
+<                   (stmt->emptystmt:))))
+<             (stmt->assignstmt:
+<               (expr-> binding: nesting[66])
+<               (expr-> binexp: +
+<                 (expr-> binding: nesting[66])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->assignstmt:
+<         (expr-> binding: nesting[70])
+<         (expr->[value=10] int: 10
+<           type->(type->kind=integer)))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false new[71]
+<           (exprs: 
+<             (expr-> binding: pp[71]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false p1[72]
+<           (exprs: 
+<             (expr-> binding: rr[72])
+<             (expr-> binding: rr[72])
+<             (expr-> binding: ii[72])
+<             (expr-> binding: ii[72])
+<             (expr-> binding: pp[72])
+<             (expr-> binding: pp[72]))))
+<       (stmt->assignstmt:
+<         (expr-> binding: rr[73])
+<         (expr-> call: isMethodCall=false f1[73]
+<           (exprs: 
+<             (expr-> binding: rr[73]))))
+<       (stmt->assignstmt:
+<         (expr-> binding: ii[74])
+<         (expr-> call: isMethodCall=false f2[74]
+<           (exprs: 
+<             (expr-> binding: ii[74]))))
+<       (stmt->assignstmt:
+<         (expr-> binding: pp[75])
+<         (expr-> binding: f3[75]))
+<       (stmt->callstmt:
+<         (expr-> binding: nest1[76]))
+<       (stmt->emptystmt:))))
+
+

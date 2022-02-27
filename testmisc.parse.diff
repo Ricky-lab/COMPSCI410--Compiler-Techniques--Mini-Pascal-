@@ -1,0 +1,942 @@
+testmisc.parse:
+1,938d0
+< (program: 
+<   (decls: 
+<     (decl->program: phase4test[1]))
+<   (block: 
+<     (decls: 
+<       (decl->const: firstval[4]
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (decl->const: lastval[5]
+<         (expr->[value=5] int: 5
+<           type->(type->kind=integer)))
+<       (decl->const: exitval[6]
+<         (expr->[value=3] int: 3
+<           type->(type->kind=integer)))
+<       (decl->variable: i[9]
+<         (type->kind=ident: integer[9]))
+<       (decl->variable: j[9]
+<         (type->kind=ident: integer[9]))
+<       (decl->variable: k[9]
+<         (type->kind=ident: integer[9]))
+<       (decl->variable: l[10]
+<         (type->kind=ident: boolean[10]))
+<       (decl->variable: x[14]
+<         (type->kind=ident: integer[14]))
+<       (decl->variable: y[14]
+<         (type->kind=ident: integer[14]))
+<       (decl->variable: z[14]
+<         (type->kind=ident: integer[14]))
+<       (decl->procedure: passints[16]
+<         (formals: 
+<           (decl->formal x[16]
+<             (varmode=false)
+<             (type->kind=ident: integer[16]))
+<           (decl->formal y[16]
+<             (varmode=false)
+<             (type->kind=ident: integer[16]))
+<           (decl->formal z[16]
+<             (varmode=false)
+<             (type->kind=ident: integer[16])))
+<         (block: 
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[18]
+<                 (exprs: 
+<                   (expr->[value='Values of arguments x, y, z within passints: '] string: 'Values of arguments x, y, z within passints: '
+<                     type->(type->kind=string))
+<                   (expr-> binding: x[18])
+<                   (expr->[value=' '] string: ' '
+<                     type->(type->kind=string))
+<                   (expr-> binding: y[18])
+<                   (expr->[value=' '] string: ' '
+<                     type->(type->kind=string))
+<                   (expr-> binding: z[18]))))
+<             (stmt->emptystmt:))))
+<       (decl->function: factorial[22]
+<         (formals: 
+<           (decl->formal n[22]
+<             (varmode=false)
+<             (type->kind=ident: integer[22])))
+<         (type->kind=ident: integer[22])
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: <=
+<                 (expr-> binding: n[24])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer)))
+<               (stmt->assignstmt:
+<                 (expr-> binding: factorial[25])
+<                 (expr-> binding: n[25]))
+<               (else: 
+<                 (stmt->assignstmt:
+<                   (expr-> binding: factorial[27])
+<                   (expr-> binexp: *
+<                     (expr-> binding: n[27])
+<                     (expr-> call: isMethodCall=false factorial[27]
+<                       (exprs: 
+<                         (expr-> binexp: -
+<                           (expr-> binding: n[27])
+<                           (expr->[value=1] int: 1
+<                             type->(type->kind=integer)))))))))
+<             (stmt->emptystmt:))))
+<       (decl->function: prime[32]
+<         (formals: 
+<           (decl->formal n[32]
+<             (varmode=false)
+<             (type->kind=ident: integer[32])))
+<         (type->kind=ident: boolean[32])
+<         (block: 
+<           (decls: 
+<             (decl->variable: result[34]
+<               (type->kind=ident: boolean[34]))
+<             (decl->variable: loop[34]
+<               (type->kind=ident: boolean[34]))
+<             (decl->variable: i[35]
+<               (type->kind=ident: integer[35])))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: result[37])
+<               (expr-> binding: true[37]))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: >=
+<                 (expr-> binding: n[38])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: <>
+<                       (expr-> binexp: mod
+<                         (expr-> binding: n[40])
+<                         (expr->[value=2] int: 2
+<                           type->(type->kind=integer)))
+<                       (expr->[value=0] int: 0
+<                         type->(type->kind=integer)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: i[42])
+<                           (expr->[value=3] int: 3
+<                             type->(type->kind=integer)))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: loop[43])
+<                           (expr-> binding: true[43]))
+<                         (stmt->whilestmt:
+<                           (expr-> binding: loop[44])
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->ifstmt: 
+<                                 (expr-> binexp: >
+<                                   (expr-> binexp: *
+<                                     (expr-> binding: i[46])
+<                                     (expr-> binding: i[46]))
+<                                   (expr-> binding: n[46]))
+<                                 (stmt->compoundstmt:
+<                                   (stmts: 
+<                                     (stmt->assignstmt:
+<                                       (expr-> binding: result[48])
+<                                       (expr-> binding: true[48]))
+<                                     (stmt->assignstmt:
+<                                       (expr-> binding: loop[49])
+<                                       (expr-> binding: false[49]))
+<                                     (stmt->emptystmt:)))
+<                                 (else: 
+<                                   (stmt->ifstmt: 
+<                                     (expr-> binexp: =
+<                                       (expr-> binexp: mod
+<                                         (expr-> binding: n[52])
+<                                         (expr-> binding: i[52]))
+<                                       (expr->[value=0] int: 0
+<                                         type->(type->kind=integer)))
+<                                     (stmt->compoundstmt:
+<                                       (stmts: 
+<                                         (stmt->assignstmt:
+<                                           (expr-> binding: result[54])
+<                                           (expr-> binding: false[54]))
+<                                         (stmt->assignstmt:
+<                                           (expr-> binding: loop[55])
+<                                           (expr-> binding: false[55]))
+<                                         (stmt->emptystmt:)))
+<                                     (else: 
+<                                       (stmt->assignstmt:
+<                                         (expr-> binding: i[57])
+<                                         (expr-> binexp: +
+<                                           (expr-> binding: i[57])
+<                                           (expr->[value=1] int: 1
+<                                             type->(type->kind=integer))))))))
+<                               (stmt->emptystmt:))))
+<                         (stmt->emptystmt:)))
+<                     (else: 
+<                       (stmt->assignstmt:
+<                         (expr-> binding: result[60])
+<                         (expr-> binding: false[60]))))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->assignstmt:
+<                   (expr-> binding: result[62])
+<                   (expr-> binding: false[62]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: prime[63])
+<               (expr-> binding: result[63]))
+<             (stmt->emptystmt:))))
+<       (decl->procedure: simple[67]
+<         (formals: 
+<           (decl->formal a[67]
+<             (varmode=false)
+<             (type->kind=ident: integer[67]))
+<           (decl->formal b[67]
+<             (varmode=true)
+<             (type->kind=ident: integer[67]))
+<           (decl->formal c[67]
+<             (varmode=false)
+<             (type->kind=ident: boolean[67])))
+<         (block: 
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[69]
+<                 (exprs: 
+<                   (expr->[value='enter procedure a='] string: 'enter procedure a='
+<                     type->(type->kind=string))
+<                   (expr-> binding: a[69])
+<                   (expr->[value=', b='] string: ', b='
+<                     type->(type->kind=string))
+<                   (expr-> binding: b[69])
+<                   (expr->[value=', c='] string: ', c='
+<                     type->(type->kind=string))
+<                   (expr-> binding: c[69]))))
+<             (stmt->ifstmt: 
+<               (expr-> binding: c[70])
+<               (stmt->assignstmt:
+<                 (expr-> binding: b[70])
+<                 (expr-> binexp: +
+<                   (expr-> binding: a[70])
+<                   (expr->[value=6] int: 6
+<                     type->(type->kind=integer))))
+<               (else: 
+<                 (stmt->assignstmt:
+<                   (expr-> binding: b[71])
+<                   (expr-> binexp: -
+<                     (expr-> binding: a[71])
+<                     (expr->[value=6] int: 6
+<                       type->(type->kind=integer))))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[72]
+<                 (exprs: 
+<                   (expr->[value='exit procedure a='] string: 'exit procedure a='
+<                     type->(type->kind=string))
+<                   (expr-> binding: a[72])
+<                   (expr->[value=', b='] string: ', b='
+<                     type->(type->kind=string))
+<                   (expr-> binding: b[72])
+<                   (expr->[value=', c='] string: ', c='
+<                     type->(type->kind=string))
+<                   (expr-> binding: c[72]))))
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[78]
+<           (exprs: 
+<             (expr->[value='IF tests'] string: 'IF tests'
+<               type->(type->kind=string)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[79]
+<           (exprs: 
+<             (expr->[value='Enter an integer>'] string: 'Enter an integer>'
+<               type->(type->kind=string)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false readln[80]
+<           (exprs: 
+<             (expr-> binding: i[80]))))
+<       (stmt->ifstmt: 
+<         (expr-> binexp: >
+<           (expr-> binding: i[81])
+<           (expr->[value=0] int: 0
+<             type->(type->kind=integer)))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[82]
+<             (exprs: 
+<               (expr-> binding: i[82])
+<               (expr->[value=' is a positive integer'] string: ' is a positive integer'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->ifstmt: 
+<             (expr-> binexp: <
+<               (expr-> binding: i[83])
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[84]
+<                 (exprs: 
+<                   (expr-> binding: i[84])
+<                   (expr->[value=' is a negative integer'] string: ' is a negative integer'
+<                     type->(type->kind=string)))))
+<             (else: 
+<               (stmt->callstmt:
+<                 (expr-> call: isMethodCall=false writeln[86]
+<                   (exprs: 
+<                     (expr-> binding: i[86])
+<                     (expr->[value=' is zero'] string: ' is zero'
+<                       type->(type->kind=string)))))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[88]
+<           (exprs: 
+<             (expr->[value='Nested IFs'] string: 'Nested IFs'
+<               type->(type->kind=string)))))
+<       (stmt->ifstmt: 
+<         (expr-> binexp: >
+<           (expr-> binding: i[89])
+<           (expr->[value=0] int: 0
+<             type->(type->kind=integer)))
+<         (stmt->ifstmt: 
+<           (expr-> binexp: =
+<             (expr-> binexp: mod
+<               (expr-> binding: i[90])
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer)))
+<             (expr->[value=0] int: 0
+<               type->(type->kind=integer)))
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[91]
+<               (exprs: 
+<                 (expr-> binding: i[91])
+<                 (expr->[value=' is a positive, even integer'] string: ' is a positive, even integer'
+<                   type->(type->kind=string)))))
+<           (else: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[93]
+<                 (exprs: 
+<                   (expr-> binding: i[93])
+<                   (expr->[value=' is a positive, odd integer'] string: ' is a positive, odd integer'
+<                     type->(type->kind=string)))))))
+<         (else: 
+<           (stmt->ifstmt: 
+<             (expr-> binexp: <
+<               (expr-> binding: i[94])
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binexp: mod
+<                   (expr-> binding: i[95])
+<                   (expr->[value=2] int: 2
+<                     type->(type->kind=integer)))
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->callstmt:
+<                 (expr-> call: isMethodCall=false writeln[96]
+<                   (exprs: 
+<                     (expr-> binding: i[96])
+<                     (expr->[value=' is a negative, even integer'] string: ' is a negative, even integer'
+<                       type->(type->kind=string)))))
+<               (else: 
+<                 (stmt->callstmt:
+<                   (expr-> call: isMethodCall=false writeln[98]
+<                     (exprs: 
+<                       (expr-> binding: i[98])
+<                       (expr->[value=' is a negative, odd integer'] string: ' is a negative, odd integer'
+<                         type->(type->kind=string)))))))
+<             (else: 
+<               (stmt->callstmt:
+<                 (expr-> call: isMethodCall=false writeln[100]
+<                   (exprs: 
+<                     (expr-> binding: i[100])
+<                     (expr->[value=' is zero'] string: ' is zero'
+<                       type->(type->kind=string)))))))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[102]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[103]
+<           (exprs: 
+<             (expr->[value='WHILE tests'] string: 'WHILE tests'
+<               type->(type->kind=string)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[104]
+<           (exprs: 
+<             (expr->[value='WHILE i <= 5'] string: 'WHILE i <= 5'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[105])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->whilestmt:
+<         (expr-> binexp: <=
+<           (expr-> binding: i[106])
+<           (expr->[value=5] int: 5
+<             type->(type->kind=integer)))
+<         (stmt->compoundstmt:
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[108]
+<                 (exprs: 
+<                   (expr->[value='i = '] string: 'i = '
+<                     type->(type->kind=string))
+<                   (expr-> binding: i[108]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[109])
+<               (expr-> binexp: +
+<                 (expr-> binding: i[109])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[112]
+<           (exprs: 
+<             (expr->[value='WHILE i <= 1'] string: 'WHILE i <= 1'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[113])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->whilestmt:
+<         (expr-> binexp: <=
+<           (expr-> binding: i[114])
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer)))
+<         (stmt->compoundstmt:
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[116]
+<                 (exprs: 
+<                   (expr->[value='i = '] string: 'i = '
+<                     type->(type->kind=string))
+<                   (expr-> binding: i[116]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[117])
+<               (expr-> binexp: +
+<                 (expr-> binding: i[117])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[119]
+<           (exprs: 
+<             (expr->[value='WHILE i <= 0'] string: 'WHILE i <= 0'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[120])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->whilestmt:
+<         (expr-> binexp: <=
+<           (expr-> binding: i[121])
+<           (expr->[value=0] int: 0
+<             type->(type->kind=integer)))
+<         (stmt->compoundstmt:
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[123]
+<                 (exprs: 
+<                   (expr->[value='i = '] string: 'i = '
+<                     type->(type->kind=string))
+<                   (expr-> binding: i[123]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[124])
+<               (expr-> binexp: +
+<                 (expr-> binding: i[124])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer)))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[127])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[128]
+<           (exprs: 
+<             (expr->[value='Nested WHILEs'] string: 'Nested WHILEs'
+<               type->(type->kind=string)))))
+<       (stmt->whilestmt:
+<         (expr-> binexp: <=
+<           (expr-> binding: i[129])
+<           (expr->[value=3] int: 3
+<             type->(type->kind=integer)))
+<         (stmt->compoundstmt:
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: j[131])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer)))
+<             (stmt->whilestmt:
+<               (expr-> binexp: <=
+<                 (expr-> binding: j[132])
+<                 (expr->[value=3] int: 3
+<                   type->(type->kind=integer)))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->callstmt:
+<                     (expr-> call: isMethodCall=false writeln[134]
+<                       (exprs: 
+<                         (expr-> binding: i[134])
+<                         (expr->[value=' + '] string: ' + '
+<                           type->(type->kind=string))
+<                         (expr-> binding: j[134])
+<                         (expr->[value=' = '] string: ' = '
+<                           type->(type->kind=string))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[134])
+<                           (expr-> binding: j[134])))))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: j[135])
+<                     (expr-> binexp: +
+<                       (expr-> binding: j[135])
+<                       (expr->[value=1] int: 1
+<                         type->(type->kind=integer)))))))
+<             (stmt->assignstmt:
+<               (expr-> binding: i[137])
+<               (expr-> binexp: +
+<                 (expr-> binding: i[137])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[140]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[141]
+<           (exprs: 
+<             (expr->[value='REPEAT tests'] string: 'REPEAT tests'
+<               type->(type->kind=string)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[142]
+<           (exprs: 
+<             (expr->[value='REPEAT UNTIL i > 5'] string: 'REPEAT UNTIL i > 5'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[143])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->repeatstmt:
+<         (expr-> binexp: >
+<           (expr-> binding: i[147])
+<           (expr->[value=5] int: 5
+<             type->(type->kind=integer)))
+<         (stmts: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[145]
+<               (exprs: 
+<                 (expr->[value='i = '] string: 'i = '
+<                   type->(type->kind=string))
+<                 (expr-> binding: i[145]))))
+<           (stmt->assignstmt:
+<             (expr-> binding: i[146])
+<             (expr-> binexp: +
+<               (expr-> binding: i[146])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[148]
+<           (exprs: 
+<             (expr->[value='REPEAT UNTIL i > 1'] string: 'REPEAT UNTIL i > 1'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[149])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->repeatstmt:
+<         (expr-> binexp: >
+<           (expr-> binding: i[153])
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer)))
+<         (stmts: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[151]
+<               (exprs: 
+<                 (expr->[value='i = '] string: 'i = '
+<                   type->(type->kind=string))
+<                 (expr-> binding: i[151]))))
+<           (stmt->assignstmt:
+<             (expr-> binding: i[152])
+<             (expr-> binexp: +
+<               (expr-> binding: i[152])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[154]
+<           (exprs: 
+<             (expr->[value='REPEAT UNTIL i > 0'] string: 'REPEAT UNTIL i > 0'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[155])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->repeatstmt:
+<         (expr-> binexp: >
+<           (expr-> binding: i[159])
+<           (expr->[value=0] int: 0
+<             type->(type->kind=integer)))
+<         (stmts: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[157]
+<               (exprs: 
+<                 (expr->[value='i = '] string: 'i = '
+<                   type->(type->kind=string))
+<                 (expr-> binding: i[157]))))
+<           (stmt->assignstmt:
+<             (expr-> binding: i[158])
+<             (expr-> binexp: +
+<               (expr-> binding: i[158])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[160]
+<           (exprs: 
+<             (expr->[value='Nested REPEATs'] string: 'Nested REPEATs'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[161])
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->repeatstmt:
+<         (expr-> binexp: >
+<           (expr-> binding: i[169])
+<           (expr->[value=3] int: 3
+<             type->(type->kind=integer)))
+<         (stmts: 
+<           (stmt->assignstmt:
+<             (expr-> binding: j[163])
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer)))
+<           (stmt->repeatstmt:
+<             (expr-> binexp: >
+<               (expr-> binding: j[167])
+<               (expr->[value=3] int: 3
+<                 type->(type->kind=integer)))
+<             (stmts: 
+<               (stmt->callstmt:
+<                 (expr-> call: isMethodCall=false writeln[165]
+<                   (exprs: 
+<                     (expr-> binding: i[165])
+<                     (expr->[value=' + '] string: ' + '
+<                       type->(type->kind=string))
+<                     (expr-> binding: j[165])
+<                     (expr->[value=' = '] string: ' = '
+<                       type->(type->kind=string))
+<                     (expr-> binexp: +
+<                       (expr-> binding: i[165])
+<                       (expr-> binding: j[165])))))
+<               (stmt->assignstmt:
+<                 (expr-> binding: j[166])
+<                 (expr-> binexp: +
+<                   (expr-> binding: j[166])
+<                   (expr->[value=1] int: 1
+<                     type->(type->kind=integer))))))
+<           (stmt->assignstmt:
+<             (expr-> binding: i[168])
+<             (expr-> binexp: +
+<               (expr-> binding: i[168])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: j[171])
+<         (expr->[value=2] int: 2
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: k[172])
+<         (expr->[value=6] int: 6
+<           type->(type->kind=integer)))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[173]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[174]
+<           (exprs: 
+<             (expr->[value='FOR tests'] string: 'FOR tests'
+<               type->(type->kind=string)))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[175]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[176]
+<           (exprs: 
+<             (expr->[value=' 1 TO 5'] string: ' 1 TO 5'
+<               type->(type->kind=string)))))
+<       (stmt->forstmt:i[177]
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (expr->[value=5] int: 5
+<           type->(type->kind=integer))
+<         (upward:true)
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false write[178]
+<             (exprs: 
+<               (expr->[value=' '] string: ' '
+<                 type->(type->kind=string))
+<               (expr-> binding: i[178])))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[179]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[180]
+<           (exprs: 
+<             (expr->[value=' 1 TO j*5='] string: ' 1 TO j*5='
+<               type->(type->kind=string))
+<             (expr-> binexp: *
+<               (expr-> binding: j[180])
+<               (expr->[value=5] int: 5
+<                 type->(type->kind=integer))))))
+<       (stmt->forstmt:i[181]
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (expr-> binexp: *
+<           (expr-> binding: j[181])
+<           (expr->[value=5] int: 5
+<             type->(type->kind=integer)))
+<         (upward:true)
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false write[182]
+<             (exprs: 
+<               (expr->[value=' '] string: ' '
+<                 type->(type->kind=string))
+<               (expr-> binding: i[182])))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[183]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[184]
+<           (exprs: 
+<             (expr->[value=' 1 TO j='] string: ' 1 TO j='
+<               type->(type->kind=string))
+<             (expr-> binding: j[184]))))
+<       (stmt->forstmt:i[185]
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (expr-> binding: j[185])
+<         (upward:true)
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false write[186]
+<             (exprs: 
+<               (expr->[value=' '] string: ' '
+<                 type->(type->kind=string))
+<               (expr-> binding: i[186])))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[187]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[188]
+<           (exprs: 
+<             (expr->[value='K='] string: 'K='
+<               type->(type->kind=string))
+<             (expr-> binding: k[188])
+<             (expr->[value=' DOWNTO j='] string: ' DOWNTO j='
+<               type->(type->kind=string))
+<             (expr-> binding: j[188]))))
+<       (stmt->forstmt:i[189]
+<         (expr-> binding: k[189])
+<         (expr-> binding: j[189])
+<         (upward:false)
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false write[190]
+<             (exprs: 
+<               (expr->[value=' '] string: ' '
+<                 type->(type->kind=string))
+<               (expr-> binding: i[190])))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[191]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[192]
+<           (exprs: 
+<             (expr->[value=' 5 DOWNTO 1'] string: ' 5 DOWNTO 1'
+<               type->(type->kind=string)))))
+<       (stmt->forstmt:i[193]
+<         (expr->[value=5] int: 5
+<           type->(type->kind=integer))
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (upward:false)
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false write[194]
+<             (exprs: 
+<               (expr->[value=' '] string: ' '
+<                 type->(type->kind=string))
+<               (expr-> binding: i[194])))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[195]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[196]
+<           (exprs: 
+<             (expr->[value=' 1 TO 1'] string: ' 1 TO 1'
+<               type->(type->kind=string)))))
+<       (stmt->forstmt:i[197]
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (upward:true)
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false write[198]
+<             (exprs: 
+<               (expr->[value=' '] string: ' '
+<                 type->(type->kind=string))
+<               (expr-> binding: i[198])))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[199]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[200]
+<           (exprs: 
+<             (expr->[value=' 1 DOWNTO 0'] string: ' 1 DOWNTO 0'
+<               type->(type->kind=string)))))
+<       (stmt->forstmt:i[201]
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (expr->[value=0] int: 0
+<           type->(type->kind=integer))
+<         (upward:false)
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false write[202]
+<             (exprs: 
+<               (expr->[value=' '] string: ' '
+<                 type->(type->kind=string))
+<               (expr-> binding: i[202])))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[203]))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[205]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[206]
+<           (exprs: 
+<             (expr->[value='Nested FORs'] string: 'Nested FORs'
+<               type->(type->kind=string)))))
+<       (stmt->forstmt:i[207]
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer))
+<         (expr->[value=3] int: 3
+<           type->(type->kind=integer))
+<         (upward:true)
+<         (stmt->forstmt:j[208]
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer))
+<           (expr->[value=3] int: 3
+<             type->(type->kind=integer))
+<           (upward:true)
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[209]
+<               (exprs: 
+<                 (expr-> binding: i[209])
+<                 (expr->[value=' + '] string: ' + '
+<                   type->(type->kind=string))
+<                 (expr-> binding: j[209])
+<                 (expr->[value=' = '] string: ' = '
+<                   type->(type->kind=string))
+<                 (expr-> binexp: +
+<                   (expr-> binding: i[209])
+<                   (expr-> binding: j[209])))))))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[213]))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[213]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[214]
+<           (exprs: 
+<             (expr->[value='Pass by value test'] string: 'Pass by value test'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: x[215])
+<         (expr->[value=100] int: 100
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: y[216])
+<         (expr->[value=200] int: 200
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: z[217])
+<         (expr->[value=300] int: 300
+<           type->(type->kind=integer)))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false passints[218]
+<           (exprs: 
+<             (expr->[value=0] int: 0
+<               type->(type->kind=integer))
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[219]
+<           (exprs: 
+<             (expr->[value='Values of x, y, z after passints: '] string: 'Values of x, y, z after passints: '
+<               type->(type->kind=string))
+<             (expr-> binding: x[219])
+<             (expr->[value=' '] string: ' '
+<               type->(type->kind=string))
+<             (expr-> binding: y[219])
+<             (expr->[value=' '] string: ' '
+<               type->(type->kind=string))
+<             (expr-> binding: z[219]))))
+<       (stmt->ifstmt: 
+<         (expr-> binexp: and
+<           (expr-> binexp: and
+<             (expr-> call: isMethodCall=false prime[222]
+<               (exprs: 
+<                 (expr->[value=19] int: 19
+<                   type->(type->kind=integer))))
+<             (expr-> call: isMethodCall=false prime[222]
+<               (exprs: 
+<                 (expr->[value=31] int: 31
+<                   type->(type->kind=integer)))))
+<           (expr-> unexp: not
+<             (expr-> call: isMethodCall=false prime[222]
+<               (exprs: 
+<                 (expr->[value=63] int: 63
+<                   type->(type->kind=integer))))))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[223]
+<             (exprs: 
+<               (expr->[value='prime passes tests'] string: 'prime passes tests'
+<                 type->(type->kind=string))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: x[226])
+<         (expr-> call: isMethodCall=false factorial[226]
+<           (exprs: 
+<             (expr->[value=8] int: 8
+<               type->(type->kind=integer)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[227]
+<           (exprs: 
+<             (expr->[value='Recursion = '] string: 'Recursion = '
+<               type->(type->kind=string))
+<             (expr-> binding: x[227]))))
+<       (stmt->ifstmt: 
+<         (expr-> binexp: =
+<           (expr-> call: isMethodCall=false factorial[228]
+<             (exprs: 
+<               (expr->[value=8] int: 8
+<                 type->(type->kind=integer))))
+<           (expr->[value=40320] int: 40320
+<             type->(type->kind=integer)))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[229]
+<             (exprs: 
+<               (expr->[value='Recursion test passes'] string: 'Recursion test passes'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[231]
+<               (exprs: 
+<                 (expr->[value='Recursion test fails'] string: 'Recursion test fails'
+<                   type->(type->kind=string)))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[234])
+<         (expr->[value=3] int: 3
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: j[235])
+<         (expr->[value=4] int: 4
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: l[236])
+<         (expr-> binding: true[236]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false simple[238]
+<           (exprs: 
+<             (expr-> binding: i[238])
+<             (expr-> binding: j[238])
+<             (expr-> binding: l[238]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[240]
+<           (exprs: 
+<             (expr->[value='i='] string: 'i='
+<               type->(type->kind=string))
+<             (expr-> binding: i[240])
+<             (expr->[value=', j='] string: ', j='
+<               type->(type->kind=string))
+<             (expr-> binding: j[240])
+<             (expr->[value=', l='] string: ', l='
+<               type->(type->kind=string))
+<             (expr-> binding: l[240]))))
+<       (stmt->emptystmt:))))
+
+

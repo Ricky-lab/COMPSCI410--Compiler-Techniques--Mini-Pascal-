@@ -1,0 +1,12 @@
+testobject2.err:
+1,2c1,5
+< line 6: Syntax Error: @;
+< line 7: Syntax Error: end
+---
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.Parse.perform(Parse.java:58)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+

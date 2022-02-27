@@ -1,0 +1,33 @@
+testread.err:
+0a1,5
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.Parse.perform(Parse.java:58)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testread.parse:
+1,20d0
+< (program: 
+<   (decls: 
+<     (decl->program: testread[1]))
+<   (block: 
+<     (decls: 
+<       (decl->variable: x[3]
+<         (type->kind=ident: integer[3])))
+<     (stmts: 
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false readln[5]
+<           (exprs: 
+<             (expr-> binding: x[5])
+<             (expr-> binding: x[5]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[6]
+<           (exprs: 
+<             (expr->[value='x = '] string: 'x = '
+<               type->(type->kind=string))
+<             (expr-> binding: x[6]))))
+<       (stmt->emptystmt:))))
+
+

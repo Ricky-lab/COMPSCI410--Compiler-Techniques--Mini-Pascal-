@@ -1,0 +1,580 @@
+stchain.parse:
+1,576d0
+< (program: 
+<   (decls: 
+<     (decl->program: phase5test[1]))
+<   (block: 
+<     (decls: 
+<       (decl->procedure: printscores[3]
+<         (formals: 
+<           (decl->formal a[3]
+<             (varmode=false)
+<             (type->kind=ident: integer[3]))
+<           (decl->formal b[3]
+<             (varmode=false)
+<             (type->kind=ident: integer[3]))
+<           (decl->formal c[3]
+<             (varmode=false)
+<             (type->kind=ident: integer[3])))
+<         (block: 
+<           (stmts: 
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binding: a[5])
+<                 (expr-> binding: b[5]))
+<               (stmt->callstmt:
+<                 (expr-> call: isMethodCall=false writeln[6]
+<                   (exprs: 
+<                     (expr->[value='\t:-) GOOD : got full '] string: '\t:-) GOOD : got full '
+<                       type->(type->kind=string))
+<                     (expr-> binding: a[6])
+<                     (expr->[value=' pt(s).       TOTAL SCORE: '] string: ' pt(s).       TOTAL SCORE: '
+<                       type->(type->kind=string))
+<                     (expr-> binding: c[6]))))
+<               (else: 
+<                 (stmt->callstmt:
+<                   (expr-> call: isMethodCall=false writeln[8]
+<                     (exprs: 
+<                       (expr->[value='\t:-( SORRY: missed '] string: '\t:-( SORRY: missed '
+<                         type->(type->kind=string))
+<                       (expr-> binding: a[8])
+<                       (expr->[value=' pt(s).         TOTAL SCORE: '] string: ' pt(s).         TOTAL SCORE: '
+<                         type->(type->kind=string))
+<                       (expr-> binding: c[8]))))))
+<             (stmt->emptystmt:))))
+<       (decl->variable: score[12]
+<         (type->kind=ident: integer[12]))
+<       (decl->variable: localscore[13]
+<         (type->kind=ident: integer[13]))
+<       (decl->function: scope1[27]
+<         (formals: 
+<           (decl->formal l[27]
+<             (varmode=false)
+<             (type->kind=ident: integer[27]))
+<           (decl->formal m[27]
+<             (varmode=false)
+<             (type->kind=ident: integer[27]))
+<           (decl->formal n[27]
+<             (varmode=false)
+<             (type->kind=ident: integer[27]))
+<           (decl->formal o[27]
+<             (varmode=false)
+<             (type->kind=ident: integer[27])))
+<         (type->kind=ident: integer[27])
+<         (block: 
+<           (decls: 
+<             (decl->variable: a[29]
+<               (type->kind=ident: integer[29]))
+<             (decl->procedure: scope2[30]
+<               (formals: 
+<                 (decl->formal m[30]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[30]))
+<                 (decl->formal n[30]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[30]))
+<                 (decl->formal o[30]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[30])))
+<               (block: 
+<                 (decls: 
+<                   (decl->variable: b[32]
+<                     (type->kind=ident: integer[32]))
+<                   (decl->procedure: scope3[33]
+<                     (formals: 
+<                       (decl->formal n[33]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[33]))
+<                       (decl->formal o[33]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[33])))
+<                     (block: 
+<                       (decls: 
+<                         (decl->variable: c[35]
+<                           (type->kind=ident: integer[35]))
+<                         (decl->procedure: scope4[36]
+<                           (formals: 
+<                             (decl->formal o[36]
+<                               (varmode=false)
+<                               (type->kind=ident: integer[36])))
+<                           (block: 
+<                             (decls: 
+<                               (decl->variable: d[38]
+<                                 (type->kind=ident: integer[38])))
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: d[40])
+<                                 (expr-> binexp: *
+<                                   (expr-> binding: l[40])
+<                                   (expr-> binding: o[40])))
+<                               (stmt->ifstmt: 
+<                                 (expr-> binexp: and
+<                                   (expr-> binexp: and
+<                                     (expr-> binexp: =
+<                                       (expr-> binding: b[41])
+<                                       (expr-> binexp: *
+<                                         (expr->[value=2] int: 2
+<                                           type->(type->kind=integer))
+<                                         (expr-> binding: a[41])))
+<                                     (expr-> binexp: =
+<                                       (expr-> binding: c[41])
+<                                       (expr-> binexp: *
+<                                         (expr->[value=2] int: 2
+<                                           type->(type->kind=integer))
+<                                         (expr-> binding: b[41]))))
+<                                   (expr-> binexp: =
+<                                     (expr-> binding: d[41])
+<                                     (expr-> binexp: *
+<                                       (expr->[value=2] int: 2
+<                                         type->(type->kind=integer))
+<                                       (expr-> binding: c[41]))))
+<                                 (stmt->assignstmt:
+<                                   (expr-> binding: localscore[42])
+<                                   (expr->[value=10] int: 10
+<                                     type->(type->kind=integer)))
+<                                 (else: 
+<                                   (stmt->assignstmt:
+<                                     (expr-> binding: localscore[44])
+<                                     (expr->[value=0] int: 0
+<                                       type->(type->kind=integer)))))
+<                               (stmt->callstmt:
+<                                 (expr-> call: isMethodCall=false writeln[45]
+<                                   (exprs: 
+<                                     (expr->[value='\ta: '] string: '\ta: '
+<                                       type->(type->kind=string))
+<                                     (expr-> binding: a[45])
+<                                     (expr->[value='  b: '] string: '  b: '
+<                                       type->(type->kind=string))
+<                                     (expr-> binding: b[45])
+<                                     (expr->[value='  c: '] string: '  c: '
+<                                       type->(type->kind=string))
+<                                     (expr-> binding: c[45])
+<                                     (expr->[value='  d: '] string: '  d: '
+<                                       type->(type->kind=string))
+<                                     (expr-> binding: d[45]))))
+<                               (stmt->emptystmt:)))))
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: c[49])
+<                           (expr-> binexp: *
+<                             (expr-> binding: l[49])
+<                             (expr-> binding: o[49])))
+<                         (stmt->callstmt:
+<                           (expr-> call: isMethodCall=false scope4[50]
+<                             (exprs: 
+<                               (expr-> binexp: *
+<                                 (expr->[value=2] int: 2
+<                                   type->(type->kind=integer))
+<                                 (expr-> binding: o[50])))))
+<                         (stmt->emptystmt:)))))
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: b[53])
+<                     (expr-> binexp: *
+<                       (expr-> binding: l[53])
+<                       (expr-> binding: o[53])))
+<                   (stmt->callstmt:
+<                     (expr-> call: isMethodCall=false scope3[54]
+<                       (exprs: 
+<                         (expr-> binding: n[54])
+<                         (expr-> binexp: *
+<                           (expr->[value=2] int: 2
+<                             type->(type->kind=integer))
+<                           (expr-> binding: o[54])))))
+<                   (stmt->emptystmt:)))))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: a[57])
+<               (expr-> binexp: *
+<                 (expr-> binding: l[57])
+<                 (expr-> binding: o[57])))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false scope2[58]
+<                 (exprs: 
+<                   (expr-> binding: m[58])
+<                   (expr-> binding: n[58])
+<                   (expr-> binexp: *
+<                     (expr->[value=2] int: 2
+<                       type->(type->kind=integer))
+<                     (expr-> binding: o[58])))))
+<             (stmt->assignstmt:
+<               (expr-> binding: scope1[59])
+<               (expr-> binding: localscore[59]))
+<             (stmt->emptystmt:))))
+<       (decl->function: twistedchain[62]
+<         (formals: 
+<           (decl->formal l[62]
+<             (varmode=false)
+<             (type->kind=ident: integer[62]))
+<           (decl->formal m[62]
+<             (varmode=false)
+<             (type->kind=ident: integer[62])))
+<         (type->kind=ident: integer[62])
+<         (block: 
+<           (decls: 
+<             (decl->variable: store[63]
+<               (type->kind=ident: integer[63]))
+<             (decl->variable: count[63]
+<               (type->kind=ident: integer[63]))
+<             (decl->variable: localscore[63]
+<               (type->kind=ident: integer[63]))
+<             (decl->procedure: a1[65]
+<               (formals: 
+<                 (decl->formal i[65]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[65]))
+<                 (decl->formal j[65]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[65])))
+<               (block: 
+<                 (decls: 
+<                   (decl->variable: b[66]
+<                     (type->kind=ident: integer[66]))
+<                   (decl->procedure: a2[67]
+<                     (formals: 
+<                       (decl->formal k[67]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[67]))
+<                       (decl->formal l[67]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[67])))
+<                     (block: 
+<                       (decls: 
+<                         (decl->variable: a[68]
+<                           (type->kind=ident: integer[68])))
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binding: a[70])
+<                           (expr-> binding: i[70]))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: b[72])
+<                           (expr-> binexp: +
+<                             (expr-> binding: l[72])
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->callstmt:
+<                           (expr-> call: isMethodCall=false writeln[73]
+<                             (exprs: 
+<                               (expr->[value='a : '] string: 'a : '
+<                                 type->(type->kind=string))
+<                               (expr-> binding: a[73])
+<                               (expr->[value=', l : '] string: ', l : '
+<                                 type->(type->kind=string))
+<                               (expr-> binding: l[73]))))
+<                         (stmt->callstmt:
+<                           (expr-> call: isMethodCall=false writeln[74]
+<                             (exprs: 
+<                               (expr->[value='k : '] string: 'k : '
+<                                 type->(type->kind=string))
+<                               (expr-> binding: k[74])
+<                               (expr->[value=', b : '] string: ', b : '
+<                                 type->(type->kind=string))
+<                               (expr-> binding: b[74]))))
+<                         (stmt->ifstmt: 
+<                           (expr-> binexp: and
+<                             (expr-> binexp: and
+<                               (expr-> binexp: and
+<                                 (expr-> binexp: =
+<                                   (expr-> binding: a[75])
+<                                   (expr-> binding: store[75]))
+<                                 (expr-> binexp: =
+<                                   (expr-> binding: k[75])
+<                                   (expr-> binexp: -
+<                                     (expr-> binding: store[75])
+<                                     (expr->[value=1] int: 1
+<                                       type->(type->kind=integer)))))
+<                               (expr-> binexp: =
+<                                 (expr-> binding: l[75])
+<                                 (expr-> binding: count[75])))
+<                             (expr-> binexp: =
+<                               (expr-> binding: b[75])
+<                               (expr-> binexp: +
+<                                 (expr-> binding: count[75])
+<                                 (expr->[value=1] int: 1
+<                                   type->(type->kind=integer)))))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: localscore[78])
+<                                 (expr-> binexp: +
+<                                   (expr-> binding: localscore[78])
+<                                   (expr->[value=2] int: 2
+<                                     type->(type->kind=integer))))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: store[79])
+<                                 (expr-> binexp: -
+<                                   (expr-> binding: store[79])
+<                                   (expr->[value=2] int: 2
+<                                     type->(type->kind=integer))))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: count[80])
+<                                 (expr-> binexp: +
+<                                   (expr-> binding: count[80])
+<                                   (expr->[value=2] int: 2
+<                                     type->(type->kind=integer))))
+<                               (stmt->emptystmt:))))
+<                         (stmt->ifstmt: 
+<                           (expr-> binexp: and
+<                             (expr-> binexp: <>
+<                               (expr-> binding: i[82])
+<                               (expr->[value=0] int: 0
+<                                 type->(type->kind=integer)))
+<                             (expr-> binexp: <>
+<                               (expr-> binding: k[82])
+<                               (expr->[value=0] int: 0
+<                                 type->(type->kind=integer))))
+<                           (stmt->callstmt:
+<                             (expr-> call: isMethodCall=false a1[83]
+<                               (exprs: 
+<                                 (expr-> binexp: -
+<                                   (expr-> binding: k[83])
+<                                   (expr->[value=1] int: 1
+<                                     type->(type->kind=integer)))
+<                                 (expr-> binexp: +
+<                                   (expr-> binding: l[83])
+<                                   (expr->[value=1] int: 1
+<                                     type->(type->kind=integer)))))))
+<                         (stmt->emptystmt:)))))
+<                 (stmts: 
+<                   (stmt->callstmt:
+<                     (expr-> call: isMethodCall=false a2[86]
+<                       (exprs: 
+<                         (expr-> binexp: -
+<                           (expr-> binding: i[86])
+<                           (expr->[value=1] int: 1
+<                             type->(type->kind=integer)))
+<                         (expr-> binexp: +
+<                           (expr-> binding: j[86])
+<                           (expr->[value=1] int: 1
+<                             type->(type->kind=integer))))))
+<                   (stmt->emptystmt:))))
+<             (decl->variable: outerk[89]
+<               (type->kind=ident: integer[89]))
+<             (decl->variable: outerl[89]
+<               (type->kind=ident: integer[89]))
+<             (decl->procedure: b1[91]
+<               (formals: 
+<                 (decl->formal i[91]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[91]))
+<                 (decl->formal j[91]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[91])))
+<               (block: 
+<                 (decls: 
+<                   (decl->procedure: b2a[92]
+<                     (formals: 
+<                       (decl->formal k[92]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[92]))
+<                       (decl->formal l[92]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[92])))
+<                     (block: 
+<                       (stmts: 
+<                         (stmt->callstmt:
+<                           (expr-> call: isMethodCall=false writeln[94]
+<                             (exprs: 
+<                               (expr->[value='k : '] string: 'k : '
+<                                 type->(type->kind=string))
+<                               (expr-> binding: k[94])
+<                               (expr->[value=', l: '] string: ', l: '
+<                                 type->(type->kind=string))
+<                               (expr-> binding: l[94]))))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: outerk[95])
+<                           (expr-> binding: k[95]))
+<                         (stmt->assignstmt:
+<                           (expr-> binding: outerl[95])
+<                           (expr-> binding: l[95]))
+<                         (stmt->ifstmt: 
+<                           (expr-> binexp: and
+<                             (expr-> binexp: =
+<                               (expr-> binding: outerk[96])
+<                               (expr-> binding: store[96]))
+<                             (expr-> binexp: =
+<                               (expr-> binding: outerl[96])
+<                               (expr-> binding: count[96])))
+<                           (stmt->compoundstmt:
+<                             (stmts: 
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: localscore[99])
+<                                 (expr-> binexp: +
+<                                   (expr-> binding: localscore[99])
+<                                   (expr->[value=1] int: 1
+<                                     type->(type->kind=integer))))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: store[100])
+<                                 (expr-> binexp: -
+<                                   (expr-> binding: store[100])
+<                                   (expr->[value=1] int: 1
+<                                     type->(type->kind=integer))))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: count[101])
+<                                 (expr-> binexp: +
+<                                   (expr-> binding: count[101])
+<                                   (expr->[value=1] int: 1
+<                                     type->(type->kind=integer))))
+<                               (stmt->emptystmt:))))
+<                         (stmt->ifstmt: 
+<                           (expr-> binexp: <>
+<                             (expr-> binding: k[103])
+<                             (expr->[value=0] int: 0
+<                               type->(type->kind=integer)))
+<                           (stmt->callstmt:
+<                             (expr-> call: isMethodCall=false b1[104]
+<                               (exprs: 
+<                                 (expr-> binexp: -
+<                                   (expr-> binding: k[104])
+<                                   (expr->[value=1] int: 1
+<                                     type->(type->kind=integer)))
+<                                 (expr-> binexp: +
+<                                   (expr-> binding: l[104])
+<                                   (expr->[value=1] int: 1
+<                                     type->(type->kind=integer)))))))
+<                         (stmt->emptystmt:))))
+<                   (decl->procedure: b2b[106]
+<                     (formals: 
+<                       (decl->formal k[106]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[106]))
+<                       (decl->formal l[106]
+<                         (varmode=false)
+<                         (type->kind=ident: integer[106])))
+<                     (block: 
+<                       (stmts: 
+<                         (stmt->callstmt:
+<                           (expr-> call: isMethodCall=false b2a[108]
+<                             (exprs: 
+<                               (expr-> binding: k[108])
+<                               (expr-> binding: l[108]))))
+<                         (stmt->emptystmt:)))))
+<                 (stmts: 
+<                   (stmt->callstmt:
+<                     (expr-> call: isMethodCall=false b2b[111]
+<                       (exprs: 
+<                         (expr-> binding: i[111])
+<                         (expr-> binding: j[111]))))
+<                   (stmt->emptystmt:)))))
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: count[115])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer)))
+<             (stmt->assignstmt:
+<               (expr-> binding: localscore[116])
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[117]
+<                 (exprs: 
+<                   (expr->[value='TEST a : 10 pts'] string: 'TEST a : 10 pts'
+<                     type->(type->kind=string)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: store[118])
+<               (expr-> binding: l[118]))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false a1[119]
+<                 (exprs: 
+<                   (expr-> binding: l[119])
+<                   (expr-> binding: m[119]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: store[120])
+<               (expr-> binexp: -
+<                 (expr-> binding: l[120])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: count[121])
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->assignstmt:
+<               (expr-> binding: outerk[122])
+<               (expr-> binexp: -
+<                 (expr-> binding: l[122])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: outerl[123])
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer)))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[124]
+<                 (exprs: 
+<                   (expr->[value='TEST b : 10 pts'] string: 'TEST b : 10 pts'
+<                     type->(type->kind=string)))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false b1[125]
+<                 (exprs: 
+<                   (expr-> binexp: -
+<                     (expr-> binding: l[125])
+<                     (expr->[value=2] int: 2
+<                       type->(type->kind=integer)))
+<                   (expr-> binding: m[125]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: twistedchain[126])
+<               (expr-> binding: localscore[126]))
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[131]
+<           (exprs: 
+<             (expr->[value='TESTING STATIC CHAINS:'] string: 'TESTING STATIC CHAINS:'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: score[132])
+<         (expr-> binexp: +
+<           (expr-> binding: score[132])
+<           (expr-> call: isMethodCall=false scope1[132]
+<             (exprs: 
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer))
+<               (expr->[value=3] int: 3
+<                 type->(type->kind=integer))
+<               (expr->[value=4] int: 4
+<                 type->(type->kind=integer))
+<               (expr->[value=5] int: 5
+<                 type->(type->kind=integer))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[133]
+<           (exprs: 
+<             (expr->[value='TEST : simple static chain'] string: 'TEST : simple static chain'
+<               type->(type->kind=string)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false printscores[134]
+<           (exprs: 
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer))
+<             (expr-> binding: localscore[134])
+<             (expr-> binding: score[134]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[136]
+<           (exprs: 
+<             (expr->[value='TEST : twisted static chain'] string: 'TEST : twisted static chain'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: localscore[137])
+<         (expr-> binexp: *
+<           (expr->[value=2] int: 2
+<             type->(type->kind=integer))
+<           (expr-> call: isMethodCall=false twistedchain[137]
+<             (exprs: 
+<               (expr->[value=5] int: 5
+<                 type->(type->kind=integer))
+<               (expr->[value=0] int: 0
+<                 type->(type->kind=integer))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: score[138])
+<         (expr-> binexp: +
+<           (expr-> binding: score[138])
+<           (expr-> binding: localscore[138])))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false printscores[139]
+<           (exprs: 
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer))
+<             (expr-> binding: localscore[139])
+<             (expr-> binding: score[139]))))
+<       (stmt->emptystmt:))))
+
+

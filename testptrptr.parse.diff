@@ -1,0 +1,47 @@
+testptrptr.parse:
+1,43d0
+< (program: 
+<   (decls: 
+<     (decl->program: testptrptr[1]))
+<   (block: 
+<     (decls: 
+<       (decl->type: pi[3]
+<         (type->kind=pointer:
+<           ))
+<       (decl->type: ppi[4]
+<         (type->kind=pointer:
+<           ))
+<       (decl->variable: p[5]
+<         (type->kind=ident: pi[5]))
+<       (decl->variable: pp[5]
+<         (type->kind=ident: ppi[5])))
+<     (stmts: 
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false new[7]
+<           (exprs: 
+<             (expr-> binding: p[7]))))
+<       (stmt->assignstmt:
+<         (expr-> unexp: ^
+<           (expr-> binding: p[8]))
+<         (expr->[value=3] int: 3
+<           type->(type->kind=integer)))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false new[9]
+<           (exprs: 
+<             (expr-> binding: pp[9]))))
+<       (stmt->assignstmt:
+<         (expr-> unexp: ^
+<           (expr-> binding: pp[10]))
+<         (expr-> binding: p[10]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[11]
+<           (exprs: 
+<             (expr-> binexp: +
+<               (expr-> unexp: ^
+<                 (expr-> unexp: ^
+<                   (expr-> binding: pp[11])))
+<               (expr->[value=5] int: 5
+<                 type->(type->kind=integer))))))
+<       (stmt->emptystmt:))))
+
+

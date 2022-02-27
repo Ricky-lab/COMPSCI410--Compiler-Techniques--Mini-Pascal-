@@ -1,0 +1,128 @@
+testprocdecl.parse:
+1,124d0
+< (program: 
+<   (decls: 
+<     (decl->program: testprocdecl[1]))
+<   (block: 
+<     (decls: 
+<       (decl->type: t1[3]
+<         (type->kind=ident: integer[3]))
+<       (decl->procedure: p1[4]
+<         (formals: 
+<           (decl->formal a[4]
+<             (varmode=false)
+<             (type->kind=ident: a[4])))
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->procedure: p2[5]
+<         (formals: 
+<           (decl->formal t1[5]
+<             (varmode=false)
+<             (type->kind=ident: t1[5])))
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->procedure: p3[6]
+<         (formals: 
+<           (decl->formal x[6]
+<             (varmode=false)
+<             (type->kind=ident: y[6])))
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->procedure: p4[7]
+<         (formals: 
+<           (decl->formal x[7]
+<             (varmode=false)
+<             (type->kind=ident: t2[7])))
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f1[8]
+<         (formals: 
+<           (decl->formal a[8]
+<             (varmode=false)
+<             (type->kind=ident: a[8])))
+<         (type->kind=ident: integer[8])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f2[9]
+<         (formals: 
+<           (decl->formal t1[9]
+<             (varmode=false)
+<             (type->kind=ident: t1[9])))
+<         (type->kind=ident: integer[9])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f3[10]
+<         (formals: 
+<           (decl->formal x[10]
+<             (varmode=false)
+<             (type->kind=ident: y[10])))
+<         (type->kind=ident: integer[10])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f4[11]
+<         (formals: 
+<           (decl->formal x[11]
+<             (varmode=false)
+<             (type->kind=ident: t2[11])))
+<         (type->kind=ident: integer[11])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f5[12]
+<         (formals: 
+<           (decl->formal x[12]
+<             (varmode=false)
+<             (type->kind=ident: integer[12])))
+<         (type->kind=ident: x[12])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f6[13]
+<         (formals: 
+<           (decl->formal x[13]
+<             (varmode=false)
+<             (type->kind=ident: integer[13])))
+<         (type->kind=ident: y[13])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f7[14]
+<         (formals: 
+<           (decl->formal x[14]
+<             (varmode=false)
+<             (type->kind=ident: integer[14])))
+<         (type->kind=ident: t1[14])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f8[15]
+<         (formals: 
+<           (decl->formal t1[15]
+<             (varmode=false)
+<             (type->kind=ident: integer[15])))
+<         (type->kind=ident: t1[15])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f9[16]
+<         (formals: 
+<           (decl->formal x[16]
+<             (varmode=false)
+<             (type->kind=ident: integer[16])))
+<         (type->kind=ident: t2[16])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->type: t2[18]
+<         (type->kind=ident: boolean[18])))
+<     (stmts: 
+<       (stmt->emptystmt:))))
+
+

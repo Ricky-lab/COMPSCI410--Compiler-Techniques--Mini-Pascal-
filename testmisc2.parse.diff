@@ -1,0 +1,1474 @@
+testmisc2.parse:
+1,1470d0
+< (program: 
+<   (decls: 
+<     (decl->program: bigtest[1]))
+<   (block: 
+<     (decls: 
+<       (decl->const: c1[4]
+<         (expr->[value='string constant'] string: 'string constant'
+<           type->(type->kind=string)))
+<       (decl->const: c2[5]
+<         (expr->[value=100] int: 100
+<           type->(type->kind=integer)))
+<       (decl->type: t1[8]
+<         (type->kind=subrange:
+<           (expr->[value=100] int: 100
+<             type->(type->kind=integer))
+<           (expr->[value=200] int: 200
+<             type->(type->kind=integer))))
+<       (decl->type: t2[9]
+<         (type->kind=subrange:
+<           (expr->[value='string1'] string: 'string1'
+<             type->(type->kind=string))
+<           (expr->[value='string2'] string: 'string2'
+<             type->(type->kind=string))))
+<       (decl->variable: v1[12]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer))
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer)))
+<           (type->kind=array:(type->kind=subrange:
+<               (expr->[value=20] int: 20
+<                 type->(type->kind=integer))
+<               (expr->[value=30] int: 30
+<                 type->(type->kind=integer)))
+<             (type->kind=array:(type->kind=subrange:
+<                 (expr->[value=30] int: 30
+<                   type->(type->kind=integer))
+<                 (expr->[value=40] int: 40
+<                   type->(type->kind=integer)))
+<               (type->kind=ident: integer[12])))))
+<       (decl->variable: v2[12]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer))
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer)))
+<           (type->kind=array:(type->kind=subrange:
+<               (expr->[value=20] int: 20
+<                 type->(type->kind=integer))
+<               (expr->[value=30] int: 30
+<                 type->(type->kind=integer)))
+<             (type->kind=array:(type->kind=subrange:
+<                 (expr->[value=30] int: 30
+<                   type->(type->kind=integer))
+<                 (expr->[value=40] int: 40
+<                   type->(type->kind=integer)))
+<               (type->kind=ident: integer[12])))))
+<       (decl->variable: v3[13]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer))
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer)))
+<           (type->kind=array:(type->kind=subrange:
+<               (expr->[value=20] int: 20
+<                 type->(type->kind=integer))
+<               (expr->[value=30] int: 30
+<                 type->(type->kind=integer)))
+<             (type->kind=array:(type->kind=subrange:
+<                 (expr->[value=30] int: 30
+<                   type->(type->kind=integer))
+<                 (expr->[value=40] int: 40
+<                   type->(type->kind=integer)))
+<               (type->kind=ident: integer[13])))))
+<       (decl->variable: v4[13]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer))
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer)))
+<           (type->kind=array:(type->kind=subrange:
+<               (expr->[value=20] int: 20
+<                 type->(type->kind=integer))
+<               (expr->[value=30] int: 30
+<                 type->(type->kind=integer)))
+<             (type->kind=array:(type->kind=subrange:
+<                 (expr->[value=30] int: 30
+<                   type->(type->kind=integer))
+<                 (expr->[value=40] int: 40
+<                   type->(type->kind=integer)))
+<               (type->kind=ident: integer[13])))))
+<       (decl->variable: v5[14]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer))
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer)))
+<           (type->kind=array:(type->kind=subrange:
+<               (expr->[value=20] int: 20
+<                 type->(type->kind=integer))
+<               (expr->[value=30] int: 30
+<                 type->(type->kind=integer)))
+<             (type->kind=array:(type->kind=subrange:
+<                 (expr->[value=30] int: 30
+<                   type->(type->kind=integer))
+<                 (expr->[value=40] int: 40
+<                   type->(type->kind=integer)))
+<               (type->kind=ident: integer[14])))))
+<       (decl->procedure: p1[16]
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->function: f1[20]
+<         (type->kind=ident: integer[20])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:)
+<             (stmt->emptystmt:))))
+<       (decl->const: c1[25]
+<         (expr-> unexp: +
+<           (expr->[value=100] int: 100
+<             type->(type->kind=integer))))
+<       (decl->const: c2[26]
+<         (expr-> unexp: -
+<           (expr-> binding: c1[26])))
+<       (decl->const: c3[27]
+<         (expr-> unexp: +
+<           (expr->[value=100] int: 100
+<             type->(type->kind=integer))))
+<       (decl->const: c4[28]
+<         (expr-> unexp: -
+<           (expr-> binding: c3[28])))
+<       (decl->variable: a[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: b[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: c[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: d[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: e[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: f[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: g[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: h[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->variable: i[31]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=100] int: 100
+<               type->(type->kind=integer)))
+<           (type->kind=record:
+<             (fields: 
+<               (decl->field: a[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: b[34]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=50] int: 50
+<                       type->(type->kind=integer))
+<                     (expr->[value=60] int: 60
+<                       type->(type->kind=integer)))
+<                   (type->kind=ident: integer[34])))
+<               (decl->field: c[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: d[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: e[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))
+<               (decl->field: f[35]
+<                 (type->kind=array:(type->kind=subrange:
+<                     (expr->[value=100] int: 100
+<                       type->(type->kind=integer))
+<                     (expr->[value=110] int: 110
+<                       type->(type->kind=integer)))
+<                   (type->kind=array:(type->kind=subrange:
+<                       (expr->[value=5] int: 5
+<                         type->(type->kind=integer))
+<                       (expr->[value=10] int: 10
+<                         type->(type->kind=integer)))
+<                     (type->kind=array:(type->kind=subrange:
+<                         (expr->[value=80] int: 80
+<                           type->(type->kind=integer))
+<                         (expr->[value=90] int: 90
+<                           type->(type->kind=integer)))
+<                       (type->kind=record:)))))))))
+<       (decl->type: ptr[41]
+<         (type->kind=pointer:
+<           ))
+<       (decl->function: f1[43]
+<         (formals: 
+<           (decl->formal a[43]
+<             (varmode=false)
+<             (type->kind=ident: integer[43]))
+<           (decl->formal a[44]
+<             (varmode=true)
+<             (type->kind=ident: integer[44]))
+<           (decl->formal b[44]
+<             (varmode=true)
+<             (type->kind=ident: integer[44]))
+<           (decl->formal c[44]
+<             (varmode=true)
+<             (type->kind=ident: integer[44]))
+<           (decl->formal d[45]
+<             (varmode=false)
+<             (type->kind=ident: integer[45]))
+<           (decl->formal e[45]
+<             (varmode=false)
+<             (type->kind=ident: integer[45]))
+<           (decl->formal f[45]
+<             (varmode=false)
+<             (type->kind=ident: integer[45]))
+<           (decl->formal g[46]
+<             (varmode=true)
+<             (type->kind=ident: integer[46]))
+<           (decl->formal h[46]
+<             (varmode=true)
+<             (type->kind=ident: integer[46]))
+<           (decl->formal i[46]
+<             (varmode=true)
+<             (type->kind=ident: integer[46])))
+<         (type->kind=ident: sometype[46])
+<         (block: 
+<           (decls: 
+<             (decl->type: a[48]
+<               (type->kind=record:
+<                 (fields: 
+<                   (decl->field: a[48]
+<                     (type->kind=ident: integer[48]))
+<                   (decl->field: b[48]
+<                     (type->kind=ident: integer[48]))
+<                   (decl->field: c[48]
+<                     (type->kind=ident: integer[48])))))
+<             (decl->type: b[49]
+<               (type->kind=record:
+<                 (fields: 
+<                   (decl->field: a[49]
+<                     (type->kind=ident: integer[49]))
+<                   (decl->field: b[49]
+<                     (type->kind=ident: integer[49]))
+<                   (decl->field: c[49]
+<                     (type->kind=ident: integer[49])))))
+<             (decl->const: constant[51]
+<               (expr->[value=1000] int: 1000
+<                 type->(type->kind=integer)))
+<             (decl->function: infunc[52]
+<               (type->kind=ident: type1[52])
+<               (block: 
+<                 (stmts: 
+<                   (stmt->emptystmt:))))
+<             (decl->variable: x[55]
+<               (type->kind=pointer:
+<                 ))
+<             (decl->variable: y[55]
+<               (type->kind=pointer:
+<                 ))
+<             (decl->variable: z[55]
+<               (type->kind=pointer:
+<                 ))
+<             (decl->const: c2[56]
+<               (expr->[value=30000] int: 30000
+<                 type->(type->kind=integer)))
+<             (decl->const: c4[56]
+<               (expr-> unexp: -
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer))))
+<             (decl->const: c5[56]
+<               (expr->[value='this is a test'] string: 'this is a test'
+<                 type->(type->kind=string)))
+<             (decl->procedure: inproc[57]
+<               (formals: 
+<                 (decl->formal a[57]
+<                   (varmode=true)
+<                   (type->kind=ident: integer[57]))
+<                 (decl->formal b[57]
+<                   (varmode=true)
+<                   (type->kind=ident: integer[57]))
+<                 (decl->formal c[57]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[57]))
+<                 (decl->formal d[58]
+<                   (varmode=false)
+<                   (type->kind=ident: integer[58]))
+<                 (decl->formal e[58]
+<                   (varmode=true)
+<                   (type->kind=ident: integer[58])))
+<               (block: 
+<                 (stmts: 
+<                   (stmt->emptystmt:)))))
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->type: x[65]
+<         (type->kind=record:
+<           (fields: 
+<             (decl->field: y[66]
+<               (type->kind=record:
+<                 (fields: 
+<                   (decl->field: z[67]
+<                     (type->kind=record:
+<                       (fields: 
+<                         (decl->field: a[68]
+<                           (type->kind=array:(type->kind=subrange:
+<                               (expr->[value=1] int: 1
+<                                 type->(type->kind=integer))
+<                               (expr->[value=2] int: 2
+<                                 type->(type->kind=integer)))
+<                             (type->kind=array:(type->kind=subrange:
+<                                 (expr->[value=3] int: 3
+<                                   type->(type->kind=integer))
+<                                 (expr->[value=4] int: 4
+<                                   type->(type->kind=integer)))
+<                               (type->kind=array:(type->kind=subrange:
+<                                   (expr->[value=5] int: 5
+<                                     type->(type->kind=integer))
+<                                   (expr->[value=6] int: 6
+<                                     type->(type->kind=integer)))
+<                                 (type->kind=array:(type->kind=subrange:
+<                                     (expr->[value=7] int: 7
+<                                       type->(type->kind=integer))
+<                                     (expr->[value=8] int: 8
+<                                       type->(type->kind=integer)))
+<                                   (type->kind=array:(type->kind=subrange:
+<                                       (expr->[value=9] int: 9
+<                                         type->(type->kind=integer))
+<                                       (expr->[value=10] int: 10
+<                                         type->(type->kind=integer)))
+<                                     (type->kind=ident: integer[68]))))))))))))))))
+<       (decl->procedure: foo[73]
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->type: a[77]
+<         (type->kind=ident: integer[77]))
+<       (decl->variable: a[80]
+<         (type->kind=ident: integer[80]))
+<       (decl->function: func1[82]
+<         (formals: 
+<           (decl->formal a[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal b[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal c[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal d[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal e[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal f[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal g[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal h[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal i[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal j[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal k[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal l[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal m[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal n[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal o[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal p[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal q[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal r[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal s[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal t[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal u[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal v[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal w[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal x[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal y[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83]))
+<           (decl->formal z[83]
+<             (varmode=true)
+<             (type->kind=ident: type1[83])))
+<         (type->kind=ident: type2[83])
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->procedure: proc1[87]
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->ifstmt: 
+<         (expr-> binexp: =
+<           (expr-> binding: a[93])
+<           (expr-> binding: b[93]))
+<         (stmt->ifstmt: 
+<           (expr-> binexp: =
+<             (expr-> binding: c[94])
+<             (expr-> binding: d[94]))
+<           (stmt->ifstmt: 
+<             (expr-> binexp: =
+<               (expr-> binding: e[95])
+<               (expr-> binding: f[95]))
+<             (stmt->assignstmt:
+<               (expr-> binding: g[96])
+<               (expr-> binding: h[96]))
+<             (else: 
+<               (stmt->assignstmt:
+<                 (expr-> binding: g[98])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer)))))
+<           (else: 
+<             (stmt->assignstmt:
+<               (expr-> binding: g[100])
+<               (expr->[value=3] int: 3
+<                 type->(type->kind=integer))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[102])
+<         (expr->[value=0] int: 0
+<           type->(type->kind=integer)))
+<       (stmt->whilestmt:
+<         (expr-> binexp: or
+<           (expr-> binexp: or
+<             (expr-> binexp: <=
+<               (expr-> binding: a[103])
+<               (expr->[value=100] int: 100
+<                 type->(type->kind=integer)))
+<             (expr-> binexp: >
+<               (expr-> binding: b[103])
+<               (expr->[value=20] int: 20
+<                 type->(type->kind=integer))))
+<           (expr-> binexp: =
+<             (expr-> binding: g[103])
+<             (expr->[value=12] int: 12
+<               type->(type->kind=integer))))
+<         (stmt->compoundstmt:
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (stmt->repeatstmt:
+<         (expr-> binexp: or
+<           (expr-> binexp: or
+<             (expr-> binexp: <=
+<               (expr-> binding: a[109])
+<               (expr->[value=100] int: 100
+<                 type->(type->kind=integer)))
+<             (expr-> binexp: >
+<               (expr-> binding: b[109])
+<               (expr->[value=20] int: 20
+<                 type->(type->kind=integer))))
+<           (expr-> binexp: =
+<             (expr-> binding: g[109])
+<             (expr->[value=12] int: 12
+<               type->(type->kind=integer))))
+<         (stmts: 
+<           (stmt->compoundstmt:
+<             (stmts: 
+<               (stmt->emptystmt:)))
+<           (stmt->emptystmt:)))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[111])
+<         (expr->[value=10] int: 10
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: b[112])
+<         (expr->[value=20] int: 20
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: c[113])
+<         (expr-> binexp: *
+<           (expr-> binding: a[113])
+<           (expr-> binding: b[113])))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[115])
+<         (expr-> binexp: -
+<           (expr-> binexp: +
+<             (expr-> binding: a[115])
+<             (expr-> binexp: *
+<               (expr->[value=10] int: 10
+<                 type->(type->kind=integer))
+<               (expr-> binding: b[115])))
+<           (expr-> binding: c[115])))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[116])
+<         (expr-> binexp: -
+<           (expr-> binexp: +
+<             (expr-> unexp: -
+<               (expr-> binding: a[116]))
+<             (expr-> binexp: *
+<               (expr->[value=10] int: 10
+<                 type->(type->kind=integer))
+<               (expr-> binding: b[116])))
+<           (expr-> binding: c[116])))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[118])
+<         (expr->[value=0] int: 0
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: b[119])
+<         (expr->[value=2] int: 2
+<           type->(type->kind=integer)))
+<       (stmt->repeatstmt:
+<         (expr-> binexp: =
+<           (expr-> binding: a[123])
+<           (expr->[value=10] int: 10
+<             type->(type->kind=integer)))
+<         (stmts: 
+<           (stmt->assignstmt:
+<             (expr-> binding: a[121])
+<             (expr-> binexp: +
+<               (expr-> binding: a[121])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))
+<           (stmt->assignstmt:
+<             (expr-> binding: b[122])
+<             (expr-> binexp: *
+<               (expr-> binding: b[122])
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer))))
+<           (stmt->emptystmt:)))
+<       (stmt->forstmt:a[125]
+<         (expr-> binexp: +
+<           (expr->[value=10] int: 10
+<             type->(type->kind=integer))
+<           (expr->[value=20] int: 20
+<             type->(type->kind=integer)))
+<         (expr-> binexp: -
+<           (expr->[value=100] int: 100
+<             type->(type->kind=integer))
+<           (expr->[value=10] int: 10
+<             type->(type->kind=integer)))
+<         (upward:true)
+<         (stmt->compoundstmt:
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: b[127])
+<               (expr-> binexp: +
+<                 (expr-> binding: b[127])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: c[128])
+<               (expr-> binexp: +
+<                 (expr-> binding: c[128])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (stmt->forstmt:a[131]
+<         (expr-> binexp: +
+<           (expr->[value=10] int: 10
+<             type->(type->kind=integer))
+<           (expr->[value=20] int: 20
+<             type->(type->kind=integer)))
+<         (expr-> binexp: -
+<           (expr->[value=100] int: 100
+<             type->(type->kind=integer))
+<           (expr->[value=10] int: 10
+<             type->(type->kind=integer)))
+<         (upward:false)
+<         (stmt->compoundstmt:
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: b[133])
+<               (expr-> binexp: +
+<                 (expr-> binding: b[133])
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: c[134])
+<               (expr-> binexp: +
+<                 (expr-> binding: c[134])
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer))))
+<             (stmt->emptystmt:))))
+<       (stmt->casestmt:
+<         (expr-> binding: a[137])
+<         (caselist: 
+<           (labellist: 
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer))
+<             (expr->[value=3] int: 3
+<               type->(type->kind=integer)))
+<           (stmt->assignstmt:
+<             (expr-> binding: b[138])
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer)))
+<           (labellist: 
+<             (expr->[value=4] int: 4
+<               type->(type->kind=integer))
+<             (expr->[value=5] int: 5
+<               type->(type->kind=integer))
+<             (expr->[value=6] int: 6
+<               type->(type->kind=integer)))
+<           (stmt->assignstmt:
+<             (expr-> binding: b[139])
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer)))))
+<       (stmt->casestmt:
+<         (expr-> binding: a[142])
+<         (caselist: 
+<           (labellist: 
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer))
+<             (expr->[value=3] int: 3
+<               type->(type->kind=integer)))
+<           (stmt->assignstmt:
+<             (expr-> binding: b[143])
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer)))
+<           (labellist: 
+<             (expr->[value=4] int: 4
+<               type->(type->kind=integer))
+<             (expr->[value=5] int: 5
+<               type->(type->kind=integer))
+<             (expr->[value=6] int: 6
+<               type->(type->kind=integer)))
+<           (stmt->assignstmt:
+<             (expr-> binding: b[144])
+<             (expr->[value=20] int: 20
+<               type->(type->kind=integer)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[147])
+<         (expr-> binexp: .
+<           (expr-> binexp: .
+<             (expr-> binexp: .
+<               (expr-> binding: a[147])
+<               (expr-> id: b))
+<             (expr-> id: c))
+<           (expr-> id: d)))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[148])
+<         (expr-> unexp: ^
+<           (expr-> binexp: .
+<             (expr-> binexp: .
+<               (expr-> binexp: .
+<                 (expr-> binding: a[148])
+<                 (expr-> id: b))
+<               (expr-> id: c))
+<             (expr-> id: d))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[149])
+<         (expr-> binding: a[149]))
+<       (stmt->assignstmt:
+<         (expr-> binding: b[151])
+<         (expr-> call: isMethodCall=false a[151]
+<           (exprs: 
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer))
+<             (expr-> binexp: +
+<               (expr-> binding: a[151])
+<               (expr-> binding: c[151]))
+<             (expr->[value='this is a test'] string: 'this is a test'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[153])
+<         (expr-> binexp: [
+<           (expr-> binding: b[153])
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[154])
+<         (expr-> binexp: [
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binexp: [
+<                 (expr-> binexp: [
+<                   (expr-> binding: b[154])
+<                   (expr->[value=1] int: 1
+<                     type->(type->kind=integer)))
+<                 (expr->[value=2] int: 2
+<                   type->(type->kind=integer)))
+<               (expr->[value=3] int: 3
+<                 type->(type->kind=integer)))
+<             (expr->[value=4] int: 4
+<               type->(type->kind=integer)))
+<           (expr->[value=5] int: 5
+<             type->(type->kind=integer))))
+<       (stmt->emptystmt:))))
+
+

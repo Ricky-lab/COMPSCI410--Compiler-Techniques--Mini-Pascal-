@@ -1,0 +1,74 @@
+testdead.parse:
+1,70d0
+< (program: 
+<   (decls: 
+<     (decl->program: test[1]))
+<   (block: 
+<     (decls: 
+<       (decl->type: tabs1[4]
+<         (type->kind=pointer:
+<           (type->kind=object: name=tabs1
+<             (extends: (type->kind=ident: root[4]))
+<             (abstract: true)
+<             (fields: 
+<               (decl->field: x[4]
+<                 (type->kind=ident: integer[4]))))))
+<       (decl->type: tconc11[5]
+<         (type->kind=pointer:
+<           (type->kind=object: name=tconc11
+<             (extends: (type->kind=ident: tabs1[5]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: y[5]
+<                 (type->kind=ident: integer[5]))))))
+<       (decl->type: tconc12[6]
+<         (type->kind=pointer:
+<           (type->kind=object: name=tconc12
+<             (extends: (type->kind=ident: tabs1[6]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: z[6]
+<                 (type->kind=ident: integer[6]))))))
+<       (decl->type: tabs2[7]
+<         (type->kind=pointer:
+<           (type->kind=object: name=tabs2
+<             (extends: (type->kind=ident: root[4]))
+<             (abstract: true)
+<             (fields: 
+<               (decl->field: b[7]
+<                 (type->kind=ident: boolean[7]))))))
+<       (decl->variable: p1[9]
+<         (type->kind=ident: tabs1[9])))
+<     (stmts: 
+<       (stmt->assignstmt:
+<         (expr-> binding: p1[12])
+<         (expr-> call: isMethodCall=false new[12]
+<           (exprs: 
+<             (expr-> binding: tconc11[12]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[13]
+<           (exprs: 
+<             (expr->[value='Got here!'] string: 'Got here!'
+<               type->(type->kind=string)))))
+<       (stmt->whilestmt:
+<         (expr-> binding: true[14])
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[15]
+<             (exprs: 
+<               (expr->[value='Hello World'] string: 'Hello World'
+<                 type->(type->kind=string))))))
+<       (stmt->whilestmt:
+<         (expr-> binding: false[16])
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[17]
+<             (exprs: 
+<               (expr->[value='Not more?'] string: 'Not more?'
+<                 type->(type->kind=string))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[18]
+<           (exprs: 
+<             (expr->[value='More?'] string: 'More?'
+<               type->(type->kind=string)))))
+<       (stmt->emptystmt:))))
+
+

@@ -1,0 +1,834 @@
+testobject.err:
+0a1,5
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.Parse.perform(Parse.java:58)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testobject.parse:
+1,821d0
+< (program: 
+<   (decls: 
+<     (decl->program: testobject[3]))
+<   (block: 
+<     (decls: 
+<       (decl->type: anyobject[6]
+<         (type->kind=pointer:
+<           (type->kind=object: name=anyobject
+<             (extends: (type->kind=ident: root[6]))
+<             (abstract: true)
+<             (methods: 
+<               (decl->((type->kind=method procedure name=print
+<                     (formals: 
+<                       (decl->formal self[8]
+<                         (varmode=false)
+<                         (type->kind=ident: anyobject[8]))))
+<                   implemented-by: print[8]))))))
+<       (decl->type: month[11]
+<         (type->kind=subrange:
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer))
+<           (expr->[value=12] int: 12
+<             type->(type->kind=integer))))
+<       (decl->type: dayofmonth[12]
+<         (type->kind=subrange:
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer))
+<           (expr->[value=31] int: 31
+<             type->(type->kind=integer))))
+<       (decl->type: date[14]
+<         (type->kind=pointer:
+<           (type->kind=object: name=date
+<             (extends: (type->kind=ident: anyobject[14]))
+<             (abstract: false)
+<             (fields: 
+<               (decl->field: m[15]
+<                 (type->kind=ident: month[15]))
+<               (decl->field: d[16]
+<                 (type->kind=ident: dayofmonth[16]))
+<               (decl->field: y[17]
+<                 (type->kind=ident: integer[17])))
+<             (methods: 
+<               (decl->((type->kind=method function name=dayofyear
+<                     (formals: 
+<                       (decl->formal self[19]
+<                         (varmode=false)
+<                         (type->kind=ident: date[19])))
+<                     (type->kind=ident: integer[19]))
+<                   implemented-by: dayofyear[19]))
+<               (decl->((type->kind=method procedure name=increment
+<                     (formals: 
+<                       (decl->formal self[20]
+<                         (varmode=false)
+<                         (type->kind=ident: date[20]))))
+<                   implemented-by: increment[20]))
+<               (decl->((type->kind=method function name=equalsdate
+<                     (formals: 
+<                       (decl->formal self[21]
+<                         (varmode=false)
+<                         (type->kind=ident: date[21]))
+<                       (decl->formal other[21]
+<                         (varmode=false)
+<                         (type->kind=ident: date[21])))
+<                     (type->kind=ident: boolean[21]))
+<                   implemented-by: equalsdate[21])))
+<             (overrides: 
+<               (print[23] dateprint[23])))))
+<       (decl->variable: d[26]
+<         (type->kind=ident: date[26]))
+<       (decl->variable: a[27]
+<         (type->kind=ident: anyobject[27]))
+<       (decl->variable: r[28]
+<         (type->kind=ident: root[28]))
+<       (decl->procedure: dateprint[34]
+<         (formals: 
+<           (decl->formal self[34]
+<             (varmode=false)
+<             (type->kind=ident: date[34])))
+<         (block: 
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[36]
+<                 (exprs: 
+<                   (expr->[value='Entered datePrint'] string: 'Entered datePrint'
+<                     type->(type->kind=string)))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false write[37]
+<                 (exprs: 
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[37])
+<                     (expr-> id: m)))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false write[38]
+<                 (exprs: 
+<                   (expr->[value='-'] string: '-'
+<                     type->(type->kind=string)))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false write[39]
+<                 (exprs: 
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[39])
+<                     (expr-> id: d)))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false write[40]
+<                 (exprs: 
+<                   (expr->[value='-'] string: '-'
+<                     type->(type->kind=string)))))
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false write[41]
+<                 (exprs: 
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[41])
+<                     (expr-> id: y)))))
+<             (stmt->emptystmt:))))
+<       (decl->function: mkdate[44]
+<         (formals: 
+<           (decl->formal m[44]
+<             (varmode=false)
+<             (type->kind=ident: month[44]))
+<           (decl->formal d[44]
+<             (varmode=false)
+<             (type->kind=ident: dayofmonth[44]))
+<           (decl->formal y[44]
+<             (varmode=false)
+<             (type->kind=ident: integer[44])))
+<         (type->kind=ident: date[44])
+<         (block: 
+<           (decls: 
+<             (decl->variable: ret[46]
+<               (type->kind=ident: date[46])))
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[48]
+<                 (exprs: 
+<                   (expr->[value='Entered mkDate'] string: 'Entered mkDate'
+<                     type->(type->kind=string)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: ret[50])
+<               (expr-> call: isMethodCall=false new[50]
+<                 (exprs: 
+<                   (expr-> binding: date[50]))))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: ret[51])
+<                 (expr-> id: m))
+<               (expr-> binding: m[51]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: ret[52])
+<                 (expr-> id: d))
+<               (expr-> binding: d[52]))
+<             (stmt->assignstmt:
+<               (expr-> binexp: .
+<                 (expr-> binding: ret[53])
+<                 (expr-> id: y))
+<               (expr-> binding: y[53]))
+<             (stmt->assignstmt:
+<               (expr-> binding: mkdate[55])
+<               (expr-> binding: ret[55]))
+<             (stmt->emptystmt:))))
+<       (decl->function: isleapyear[58]
+<         (formals: 
+<           (decl->formal y[58]
+<             (varmode=false)
+<             (type->kind=ident: integer[58])))
+<         (type->kind=ident: boolean[58])
+<         (block: 
+<           (decls: 
+<             (decl->variable: remainder[60]
+<               (type->kind=ident: integer[60]))
+<             (decl->variable: ret[61]
+<               (type->kind=ident: boolean[61])))
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[63]
+<                 (exprs: 
+<                   (expr->[value='Entered isLeapYear'] string: 'Entered isLeapYear'
+<                     type->(type->kind=string)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: remainder[65])
+<               (expr-> binexp: mod
+<                 (expr-> binding: y[65])
+<                 (expr->[value=4] int: 4
+<                   type->(type->kind=integer))))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: <>
+<                 (expr-> binding: remainder[66])
+<                 (expr->[value=0] int: 0
+<                   type->(type->kind=integer)))
+<               (stmt->assignstmt:
+<                 (expr-> binding: ret[67])
+<                 (expr-> binding: false[67]))
+<               (else: 
+<                 (stmt->compoundstmt:
+<                   (stmts: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: remainder[69])
+<                       (expr-> binexp: mod
+<                         (expr-> binding: y[69])
+<                         (expr->[value=400] int: 400
+<                           type->(type->kind=integer))))
+<                     (stmt->ifstmt: 
+<                       (expr-> binexp: =
+<                         (expr->[value=0] int: 0
+<                           type->(type->kind=integer))
+<                         (expr-> binding: remainder[70]))
+<                       (stmt->assignstmt:
+<                         (expr-> binding: ret[71])
+<                         (expr-> binding: true[71]))
+<                       (else: 
+<                         (stmt->compoundstmt:
+<                           (stmts: 
+<                             (stmt->assignstmt:
+<                               (expr-> binding: remainder[73])
+<                               (expr-> binexp: mod
+<                                 (expr-> binding: y[73])
+<                                 (expr->[value=100] int: 100
+<                                   type->(type->kind=integer))))
+<                             (stmt->ifstmt: 
+<                               (expr-> binexp: =
+<                                 (expr->[value=0] int: 0
+<                                   type->(type->kind=integer))
+<                                 (expr-> binding: remainder[74]))
+<                               (stmt->assignstmt:
+<                                 (expr-> binding: ret[75])
+<                                 (expr-> binding: false[75]))
+<                               (else: 
+<                                 (stmt->assignstmt:
+<                                   (expr-> binding: ret[77])
+<                                   (expr-> binding: true[77]))))))))))))
+<             (stmt->assignstmt:
+<               (expr-> binding: isleapyear[81])
+<               (expr-> binding: ret[81])))))
+<       (decl->function: daysinmonth[84]
+<         (formals: 
+<           (decl->formal m[84]
+<             (varmode=false)
+<             (type->kind=ident: month[84]))
+<           (decl->formal y[84]
+<             (varmode=false)
+<             (type->kind=ident: integer[84])))
+<         (type->kind=ident: dayofmonth[84])
+<         (block: 
+<           (decls: 
+<             (decl->variable: ret[86]
+<               (type->kind=ident: integer[86])))
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[88]
+<                 (exprs: 
+<                   (expr->[value='Entered daysInMonth'] string: 'Entered daysInMonth'
+<                     type->(type->kind=string)))))
+<             (stmt->casestmt:
+<               (expr-> binding: m[90])
+<               (caselist: 
+<                 (labellist: 
+<                   (expr->[value=9] int: 9
+<                     type->(type->kind=integer))
+<                   (expr->[value=4] int: 4
+<                     type->(type->kind=integer))
+<                   (expr->[value=6] int: 6
+<                     type->(type->kind=integer))
+<                   (expr->[value=11] int: 11
+<                     type->(type->kind=integer)))
+<                 (stmt->assignstmt:
+<                   (expr-> binding: ret[93])
+<                   (expr->[value=30] int: 30
+<                     type->(type->kind=integer)))
+<                 (labellist: 
+<                   (expr->[value=2] int: 2
+<                     type->(type->kind=integer)))
+<                 (stmt->ifstmt: 
+<                   (expr-> call: isMethodCall=false isleapyear[95]
+<                     (exprs: 
+<                       (expr-> binding: y[95])))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: ret[96])
+<                     (expr->[value=29] int: 29
+<                       type->(type->kind=integer)))
+<                   (else: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: ret[98])
+<                       (expr->[value=28] int: 28
+<                         type->(type->kind=integer)))))
+<                 (labellist: 
+<                   (expr->[value=1] int: 1
+<                     type->(type->kind=integer))
+<                   (expr->[value=3] int: 3
+<                     type->(type->kind=integer))
+<                   (expr->[value=5] int: 5
+<                     type->(type->kind=integer))
+<                   (expr->[value=7] int: 7
+<                     type->(type->kind=integer))
+<                   (expr->[value=8] int: 8
+<                     type->(type->kind=integer))
+<                   (expr->[value=10] int: 10
+<                     type->(type->kind=integer))
+<                   (expr->[value=12] int: 12
+<                     type->(type->kind=integer)))
+<                 (stmt->assignstmt:
+<                   (expr-> binding: ret[100])
+<                   (expr->[value=31] int: 31
+<                     type->(type->kind=integer)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: daysinmonth[102])
+<               (expr-> binding: ret[102])))))
+<       (decl->function: datedayofyear[105]
+<         (formals: 
+<           (decl->formal self[105]
+<             (varmode=false)
+<             (type->kind=ident: date[105])))
+<         (type->kind=ident: integer[105])
+<         (block: 
+<           (decls: 
+<             (decl->variable: m[107]
+<               (type->kind=ident: integer[107]))
+<             (decl->variable: ret[107]
+<               (type->kind=ident: integer[107])))
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[109]
+<                 (exprs: 
+<                   (expr->[value='Entered dateDayOfYear'] string: 'Entered dateDayOfYear'
+<                     type->(type->kind=string)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: m[111])
+<               (expr-> binexp: -
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[111])
+<                   (expr-> id: m))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (stmt->assignstmt:
+<               (expr-> binding: ret[112])
+<               (expr-> binexp: .
+<                 (expr-> binding: self[112])
+<                 (expr-> id: d)))
+<             (stmt->forstmt:m[114]
+<               (expr-> binding: m[114])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))
+<               (upward:false)
+<               (stmt->assignstmt:
+<                 (expr-> binding: ret[115])
+<                 (expr-> binexp: +
+<                   (expr-> binding: ret[115])
+<                   (expr-> call: isMethodCall=false daysinmonth[115]
+<                     (exprs: 
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[115])
+<                         (expr-> id: m))
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[115])
+<                         (expr-> id: y)))))))
+<             (stmt->assignstmt:
+<               (expr-> binding: datedayofyear[117])
+<               (expr-> binding: ret[117])))))
+<       (decl->procedure: dateincrement[120]
+<         (formals: 
+<           (decl->formal self[120]
+<             (varmode=false)
+<             (type->kind=ident: date[120])))
+<         (block: 
+<           (decls: 
+<             (decl->variable: dim[122]
+<               (type->kind=ident: dayofmonth[122])))
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[124]
+<                 (exprs: 
+<                   (expr->[value='Entered dateIncrement'] string: 'Entered dateIncrement'
+<                     type->(type->kind=string)))))
+<             (stmt->assignstmt:
+<               (expr-> binding: dim[126])
+<               (expr-> call: isMethodCall=false daysinmonth[126]
+<                 (exprs: 
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[126])
+<                     (expr-> id: m))
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[126])
+<                     (expr-> id: y)))))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[127])
+<                   (expr-> id: d))
+<                 (expr-> binding: dim[127]))
+<               (stmt->compoundstmt:
+<                 (stmts: 
+<                   (stmt->assignstmt:
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[128])
+<                       (expr-> id: d))
+<                     (expr->[value=1] int: 1
+<                       type->(type->kind=integer)))
+<                   (stmt->ifstmt: 
+<                     (expr-> binexp: =
+<                       (expr-> binexp: .
+<                         (expr-> binding: self[129])
+<                         (expr-> id: m))
+<                       (expr->[value=12] int: 12
+<                         type->(type->kind=integer)))
+<                     (stmt->compoundstmt:
+<                       (stmts: 
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[131])
+<                             (expr-> id: y))
+<                           (expr-> binexp: +
+<                             (expr-> binexp: .
+<                               (expr-> binding: self[131])
+<                               (expr-> id: y))
+<                             (expr->[value=1] int: 1
+<                               type->(type->kind=integer))))
+<                         (stmt->assignstmt:
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[132])
+<                             (expr-> id: m))
+<                           (expr->[value=1] int: 1
+<                             type->(type->kind=integer)))))
+<                     (else: 
+<                       (stmt->assignstmt:
+<                         (expr-> binexp: .
+<                           (expr-> binding: self[135])
+<                           (expr-> id: m))
+<                         (expr-> binexp: +
+<                           (expr-> binexp: .
+<                             (expr-> binding: self[135])
+<                             (expr-> id: m))
+<                           (expr->[value=1] int: 1
+<                             type->(type->kind=integer))))))
+<                   (stmt->emptystmt:)))
+<               (else: 
+<                 (stmt->assignstmt:
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[138])
+<                     (expr-> id: d))
+<                   (expr-> binexp: +
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[138])
+<                       (expr-> id: d))
+<                     (expr->[value=1] int: 1
+<                       type->(type->kind=integer)))))))))
+<       (decl->function: dateequalsdate[141]
+<         (formals: 
+<           (decl->formal self[141]
+<             (varmode=false)
+<             (type->kind=ident: date[141]))
+<           (decl->formal other[141]
+<             (varmode=false)
+<             (type->kind=ident: date[141])))
+<         (type->kind=ident: boolean[141])
+<         (block: 
+<           (decls: 
+<             (decl->variable: ret[143]
+<               (type->kind=ident: boolean[143])))
+<           (stmts: 
+<             (stmt->callstmt:
+<               (expr-> call: isMethodCall=false writeln[145]
+<                 (exprs: 
+<                   (expr->[value='Entered dateEqualsDate'] string: 'Entered dateEqualsDate'
+<                     type->(type->kind=string)))))
+<             (stmt->ifstmt: 
+<               (expr-> binexp: =
+<                 (expr-> binexp: .
+<                   (expr-> binding: self[147])
+<                   (expr-> id: y))
+<                 (expr-> binexp: .
+<                   (expr-> binding: other[147])
+<                   (expr-> id: y)))
+<               (stmt->ifstmt: 
+<                 (expr-> binexp: =
+<                   (expr-> binexp: .
+<                     (expr-> binding: self[148])
+<                     (expr-> id: m))
+<                   (expr-> binexp: .
+<                     (expr-> binding: other[148])
+<                     (expr-> id: m)))
+<                 (stmt->ifstmt: 
+<                   (expr-> binexp: =
+<                     (expr-> binexp: .
+<                       (expr-> binding: self[149])
+<                       (expr-> id: d))
+<                     (expr-> binexp: .
+<                       (expr-> binding: other[149])
+<                       (expr-> id: d)))
+<                   (stmt->assignstmt:
+<                     (expr-> binding: ret[150])
+<                     (expr-> binding: true[150]))
+<                   (else: 
+<                     (stmt->assignstmt:
+<                       (expr-> binding: ret[152])
+<                       (expr-> binding: false[152]))))
+<                 (else: 
+<                   (stmt->assignstmt:
+<                     (expr-> binding: ret[154])
+<                     (expr-> binding: false[154]))))
+<               (else: 
+<                 (stmt->assignstmt:
+<                   (expr-> binding: ret[156])
+<                   (expr-> binding: false[156]))))
+<             (stmt->assignstmt:
+<               (expr-> binding: dateequalsdate[157])
+<               (expr-> binding: ret[157]))))))
+<     (stmts: 
+<       (stmt->assignstmt:
+<         (expr-> binding: d[161])
+<         (expr-> call: isMethodCall=false mkdate[161]
+<           (exprs: 
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer))
+<             (expr->[value=9] int: 9
+<               type->(type->kind=integer))
+<             (expr->[value=1985] int: 1985
+<               type->(type->kind=integer)))))
+<       (stmt->callstmt:
+<         (expr-> binexp: .
+<           (expr-> binding: d[162])
+<           (expr-> id: increment)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binding: d[163])
+<           (expr-> id: y))
+<         (expr-> binexp: +
+<           (expr-> binexp: .
+<             (expr-> binding: d[163])
+<             (expr-> id: y))
+<           (expr->[value=10] int: 10
+<             type->(type->kind=integer))))
+<       (stmt->callstmt:
+<         (expr-> binexp: .
+<           (expr-> binding: d[164])
+<           (expr-> id: print)))
+<       (stmt->callstmt:
+<         (expr-> binding: writeln[165]))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[166]
+<           (exprs: 
+<             (expr-> binexp: .
+<               (expr-> binding: d[166])
+<               (expr-> id: dayofyear)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[167]
+<           (exprs: 
+<             (expr-> call: isMethodCall=true equalsdate[167]
+<               (exprs: 
+<                 (expr-> binding: d[167])
+<                 (expr-> call: isMethodCall=false mkdate[167]
+<                   (exprs: 
+<                     (expr->[value=2] int: 2
+<                       type->(type->kind=integer))
+<                     (expr->[value=10] int: 10
+<                       type->(type->kind=integer))
+<                     (expr->[value=1995] int: 1995
+<                       type->(type->kind=integer)))))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[168])
+<         (expr-> binding: d[168]))
+<       (stmt->assignstmt:
+<         (expr-> binding: d[169])
+<         (expr-> call: isMethodCall=false narrow[169]
+<           (exprs: 
+<             (expr-> binding: a[169])
+<             (expr-> binding: date[169]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[170]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[171]
+<           (exprs: 
+<             (expr-> binding: d[171])
+<             (expr-> binding: root[171])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[171]
+<             (exprs: 
+<               (expr->[value=' ok'] string: ' ok'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[171]
+<               (exprs: 
+<                 (expr->[value=' bad'] string: ' bad'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[172]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[173]
+<           (exprs: 
+<             (expr-> binding: d[173])
+<             (expr-> binding: date[173])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[173]
+<             (exprs: 
+<               (expr->[value=' ok'] string: ' ok'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[173]
+<               (exprs: 
+<                 (expr->[value=' bad'] string: ' bad'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[174]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=3] int: 3
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[175]
+<           (exprs: 
+<             (expr-> binding: d[175])
+<             (expr-> binding: anyobject[175])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[175]
+<             (exprs: 
+<               (expr->[value=' ok'] string: ' ok'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[175]
+<               (exprs: 
+<                 (expr->[value=' bad'] string: ' bad'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[178]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=4] int: 4
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[179]
+<           (exprs: 
+<             (expr->[value=0] nil:
+<               type->(type->kind=<NIL>))
+<             (expr-> binding: root[179])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[179]
+<             (exprs: 
+<               (expr->[value=' ok'] string: ' ok'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[179]
+<               (exprs: 
+<                 (expr->[value=' bad'] string: ' bad'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[180]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=5] int: 5
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[181]
+<           (exprs: 
+<             (expr->[value=0] nil:
+<               type->(type->kind=<NIL>))
+<             (expr-> binding: date[181])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[181]
+<             (exprs: 
+<               (expr->[value=' ok'] string: ' ok'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[181]
+<               (exprs: 
+<                 (expr->[value=' bad'] string: ' bad'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[182]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=6] int: 6
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[183]
+<           (exprs: 
+<             (expr->[value=0] nil:
+<               type->(type->kind=<NIL>))
+<             (expr-> binding: anyobject[183])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[183]
+<             (exprs: 
+<               (expr->[value=' ok'] string: ' ok'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[183]
+<               (exprs: 
+<                 (expr->[value=' bad'] string: ' bad'
+<                   type->(type->kind=string)))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[185])
+<         (expr-> call: isMethodCall=false narrow[185]
+<           (exprs: 
+<             (expr->[value=0] nil:
+<               type->(type->kind=<NIL>))
+<             (expr-> binding: anyobject[185]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[186]
+<           (exprs: 
+<             (expr->[value='should get here: NARROW(NIL, AnyObject)'] string: 'should get here: NARROW(NIL, AnyObject)'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: a[187])
+<         (expr-> call: isMethodCall=false narrow[187]
+<           (exprs: 
+<             (expr->[value=0] nil:
+<               type->(type->kind=<NIL>))
+<             (expr-> binding: date[187]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[188]
+<           (exprs: 
+<             (expr->[value='should get here: NARROW(NIL, Date)'] string: 'should get here: NARROW(NIL, Date)'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: r[189])
+<         (expr-> call: isMethodCall=false new[189]
+<           (exprs: 
+<             (expr-> binding: root[189]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[191]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=7] int: 7
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[192]
+<           (exprs: 
+<             (expr-> binding: r[192])
+<             (expr-> binding: root[192])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[192]
+<             (exprs: 
+<               (expr->[value=' ok'] string: ' ok'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[192]
+<               (exprs: 
+<                 (expr->[value=' bad'] string: ' bad'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[193]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=8] int: 8
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[194]
+<           (exprs: 
+<             (expr-> binding: r[194])
+<             (expr-> binding: date[194])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[194]
+<             (exprs: 
+<               (expr->[value=' bad'] string: ' bad'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[194]
+<               (exprs: 
+<                 (expr->[value=' ok'] string: ' ok'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false write[195]
+<           (exprs: 
+<             (expr->[value='ISTYPE '] string: 'ISTYPE '
+<               type->(type->kind=string))
+<             (expr->[value=9] int: 9
+<               type->(type->kind=integer)))))
+<       (stmt->ifstmt: 
+<         (expr-> call: isMethodCall=false istype[196]
+<           (exprs: 
+<             (expr-> binding: r[196])
+<             (expr-> binding: anyobject[196])))
+<         (stmt->callstmt:
+<           (expr-> call: isMethodCall=false writeln[196]
+<             (exprs: 
+<               (expr->[value=' bad'] string: ' bad'
+<                 type->(type->kind=string)))))
+<         (else: 
+<           (stmt->callstmt:
+<             (expr-> call: isMethodCall=false writeln[196]
+<               (exprs: 
+<                 (expr->[value=' ok'] string: ' ok'
+<                   type->(type->kind=string)))))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[197]
+<           (exprs: 
+<             (expr->[value='got here, now should fail at NARROW(r, Date)'] string: 'got here, now should fail at NARROW(r, Date)'
+<               type->(type->kind=string)))))
+<       (stmt->assignstmt:
+<         (expr-> binding: d[198])
+<         (expr-> call: isMethodCall=false narrow[198]
+<           (exprs: 
+<             (expr-> binding: r[198])
+<             (expr-> binding: date[198]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false writeln[199]
+<           (exprs: 
+<             (expr->[value='should not get here'] string: 'should not get here'
+<               type->(type->kind=string)))))
+<       (stmt->emptystmt:))))
+
+

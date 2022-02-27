@@ -1,0 +1,11 @@
+scanids.err:
+1d0
+< line 1: Syntax Error: $x
+9a9,13
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.Parse.perform(Parse.java:58)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+

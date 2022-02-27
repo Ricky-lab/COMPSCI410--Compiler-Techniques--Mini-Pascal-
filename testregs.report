@@ -1,0 +1,475 @@
+testregs.err:
+0a1,5
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.Parse.perform(Parse.java:58)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testregs.parse:
+1,462d0
+< (program: 
+<   (decls: 
+<     (decl->program: testregs[1]))
+<   (block: 
+<     (decls: 
+<       (decl->type: rr[4]
+<         (type->kind=record:
+<           (fields: 
+<             (decl->field: x[4]
+<               (type->kind=ident: integer[4]))
+<             (decl->field: y[4]
+<               (type->kind=ident: integer[4])))))
+<       (decl->variable: a[6]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=10] int: 10
+<               type->(type->kind=integer)))
+<           (type->kind=ident: rr[6])))
+<       (decl->variable: b[7]
+<         (type->kind=array:(type->kind=subrange:
+<             (expr->[value=1] int: 1
+<               type->(type->kind=integer))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer)))
+<           (type->kind=array:(type->kind=subrange:
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer)))
+<             (type->kind=ident: rr[7]))))
+<       (decl->variable: r[8]
+<         (type->kind=ident: rr[8]))
+<       (decl->variable: i[9]
+<         (type->kind=ident: integer[9]))
+<       (decl->variable: j[9]
+<         (type->kind=ident: integer[9]))
+<       (decl->function: f1[11]
+<         (type->kind=ident: integer[11])
+<         (block: 
+<           (stmts: 
+<             (stmt->assignstmt:
+<               (expr-> binding: f1[13])
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer)))
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->assignstmt:
+<         (expr-> binding: i[17])
+<         (expr-> binding: f1[17]))
+<       (stmt->assignstmt:
+<         (expr-> binding: j[18])
+<         (expr-> binding: f1[18]))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[19])
+<             (expr->[value=3] int: 3
+<               type->(type->kind=integer)))
+<           (expr-> id: y))
+<         (expr->[value=1] int: 1
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[20])
+<             (expr-> binding: i[20]))
+<           (expr-> id: y))
+<         (expr->[value=2] int: 2
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binding: r[21])
+<           (expr-> id: y))
+<         (expr->[value=3] int: 3
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[22])
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer)))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer)))
+<           (expr-> id: y))
+<         (expr->[value=5] int: 5
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[23])
+<               (expr-> binding: i[23]))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer)))
+<           (expr-> id: y))
+<         (expr->[value=6] int: 6
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[24])
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer)))
+<             (expr-> binding: i[24]))
+<           (expr-> id: y))
+<         (expr->[value=7] int: 7
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[25])
+<               (expr-> binding: i[25]))
+<             (expr-> binding: j[25]))
+<           (expr-> id: y))
+<         (expr->[value=8] int: 8
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[26])
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer)))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer)))
+<           (expr-> id: x))
+<         (expr->[value=5] int: 5
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[27])
+<               (expr-> binding: i[27]))
+<             (expr->[value=2] int: 2
+<               type->(type->kind=integer)))
+<           (expr-> id: x))
+<         (expr->[value=6] int: 6
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[28])
+<               (expr->[value=2] int: 2
+<                 type->(type->kind=integer)))
+<             (expr-> binding: i[28]))
+<           (expr-> id: x))
+<         (expr->[value=7] int: 7
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binexp: [
+<               (expr-> binding: b[29])
+<               (expr-> binding: i[29]))
+<             (expr-> binding: j[29]))
+<           (expr-> id: x))
+<         (expr->[value=8] int: 8
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[30])
+<         (expr-> binexp: +
+<           (expr-> binding: i[30])
+<           (expr-> binding: j[30])))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[31])
+<         (expr->[value=9] int: 9
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: j[32])
+<         (expr-> binexp: +
+<           (expr-> binexp: +
+<             (expr-> binexp: +
+<               (expr-> binding: i[32])
+<               (expr-> binding: j[32]))
+<             (expr-> binexp: +
+<               (expr-> binding: i[32])
+<               (expr-> binding: j[32])))
+<           (expr-> binexp: +
+<             (expr-> binexp: +
+<               (expr-> binding: i[32])
+<               (expr-> binding: j[32]))
+<             (expr-> binexp: +
+<               (expr-> binding: i[32])
+<               (expr-> binding: j[32])))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[33])
+<         (expr->[value=8] int: 8
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[34])
+<         (expr-> binexp: +
+<           (expr-> binexp: +
+<             (expr-> binexp: +
+<               (expr-> binexp: +
+<                 (expr-> binding: i[34])
+<                 (expr-> binding: j[34]))
+<               (expr-> binexp: +
+<                 (expr-> binding: i[34])
+<                 (expr-> binding: j[34])))
+<             (expr-> binexp: +
+<               (expr-> binexp: +
+<                 (expr-> binding: i[34])
+<                 (expr-> binding: j[34]))
+<               (expr-> binexp: +
+<                 (expr-> binding: i[34])
+<                 (expr-> binding: j[34]))))
+<           (expr-> binexp: +
+<             (expr-> binexp: +
+<               (expr-> binexp: +
+<                 (expr-> binding: i[35])
+<                 (expr-> binding: j[35]))
+<               (expr-> binexp: +
+<                 (expr-> binding: i[35])
+<                 (expr-> binding: j[35])))
+<             (expr-> binexp: +
+<               (expr-> binexp: +
+<                 (expr-> binding: i[35])
+<                 (expr-> binding: j[35]))
+<               (expr-> binexp: +
+<                 (expr-> binding: i[35])
+<                 (expr-> binding: j[35]))))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[36])
+<         (expr->[value=7] int: 7
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binding: j[37])
+<         (expr-> binexp: +
+<           (expr-> binexp: .
+<             (expr-> binexp: [
+<               (expr-> binding: a[37])
+<               (expr-> binexp: +
+<                 (expr-> binexp: mod
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[37])
+<                           (expr-> binding: j[37]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[37])
+<                           (expr-> binding: j[37])))
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[37])
+<                           (expr-> binding: j[37]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[37])
+<                           (expr-> binding: j[37]))))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[38])
+<                           (expr-> binding: j[38]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[38])
+<                           (expr-> binding: j[38])))
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[38])
+<                           (expr-> binding: j[38]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[38])
+<                           (expr-> binding: j[38])))))
+<                   (expr->[value=10] int: 10
+<                     type->(type->kind=integer)))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (expr-> id: x))
+<           (expr-> binexp: .
+<             (expr-> binexp: [
+<               (expr-> binding: a[39])
+<               (expr-> binexp: +
+<                 (expr-> binexp: mod
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[39])
+<                           (expr-> binding: j[39]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[39])
+<                           (expr-> binding: j[39])))
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[39])
+<                           (expr-> binding: j[39]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[39])
+<                           (expr-> binding: j[39]))))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[40])
+<                           (expr-> binding: j[40]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[40])
+<                           (expr-> binding: j[40])))
+<                       (expr-> binexp: +
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[40])
+<                           (expr-> binding: j[40]))
+<                         (expr-> binexp: +
+<                           (expr-> binding: i[40])
+<                           (expr-> binding: j[40])))))
+<                   (expr->[value=10] int: 10
+<                     type->(type->kind=integer)))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (expr-> id: y))))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[41])
+<         (expr->[value=6] int: 6
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[42])
+<             (expr-> binexp: +
+<               (expr-> binexp: mod
+<                 (expr-> binexp: +
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[42])
+<                         (expr-> binding: j[42]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[42])
+<                         (expr-> binding: j[42])))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[42])
+<                         (expr-> binding: j[42]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[42])
+<                         (expr-> binding: j[42]))))
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[43])
+<                         (expr-> binding: j[43]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[43])
+<                         (expr-> binding: j[43])))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[43])
+<                         (expr-> binding: j[43]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[43])
+<                         (expr-> binding: j[43])))))
+<                 (expr->[value=10] int: 10
+<                   type->(type->kind=integer)))
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))
+<           (expr-> id: x))
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[44])
+<             (expr-> binexp: +
+<               (expr-> binexp: mod
+<                 (expr-> binexp: +
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[44])
+<                         (expr-> binding: j[44]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[44])
+<                         (expr-> binding: j[44])))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[44])
+<                         (expr-> binding: j[44]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[44])
+<                         (expr-> binding: j[44]))))
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[45])
+<                         (expr-> binding: j[45]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[45])
+<                         (expr-> binding: j[45])))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[45])
+<                         (expr-> binding: j[45]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[45])
+<                         (expr-> binding: j[45])))))
+<                 (expr->[value=10] int: 10
+<                   type->(type->kind=integer)))
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))
+<           (expr-> id: y)))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[46])
+<         (expr->[value=5] int: 5
+<           type->(type->kind=integer)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binexp: [
+<             (expr-> binding: a[47])
+<             (expr-> binexp: +
+<               (expr-> binexp: mod
+<                 (expr-> binexp: +
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binding: i[47])
+<                       (expr-> binding: j[47]))
+<                     (expr-> binexp: +
+<                       (expr-> binding: i[47])
+<                       (expr-> binding: j[47])))
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binding: i[47])
+<                       (expr-> binding: j[47]))
+<                     (expr-> binexp: +
+<                       (expr-> binding: i[47])
+<                       (expr-> binding: j[47]))))
+<                 (expr->[value=10] int: 10
+<                   type->(type->kind=integer)))
+<               (expr->[value=1] int: 1
+<                 type->(type->kind=integer))))
+<           (expr-> id: y))
+<         (expr-> binexp: +
+<           (expr-> binexp: .
+<             (expr-> binexp: [
+<               (expr-> binding: a[48])
+<               (expr-> binexp: +
+<                 (expr-> binexp: mod
+<                   (expr-> binexp: +
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[48])
+<                         (expr-> binding: j[48]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[48])
+<                         (expr-> binding: j[48])))
+<                     (expr-> binexp: +
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[48])
+<                         (expr-> binding: j[48]))
+<                       (expr-> binexp: +
+<                         (expr-> binding: i[48])
+<                         (expr-> binding: j[48]))))
+<                   (expr->[value=10] int: 10
+<                     type->(type->kind=integer)))
+<                 (expr->[value=1] int: 1
+<                   type->(type->kind=integer))))
+<             (expr-> id: y))
+<           (expr->[value=1] int: 1
+<             type->(type->kind=integer))))
+<       (stmt->emptystmt:))))
+
+

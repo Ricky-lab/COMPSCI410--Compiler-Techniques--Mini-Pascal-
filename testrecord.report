@@ -1,0 +1,163 @@
+testrecord.err:
+0a1,5
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.Parse.perform(Parse.java:58)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
+
+
+testrecord.parse:
+1,150d0
+< (program: 
+<   (decls: 
+<     (decl->program: testrecord[1]))
+<   (block: 
+<     (decls: 
+<       (decl->type: rec[3]
+<         (type->kind=record:
+<           (fields: 
+<             (decl->field: a[3]
+<               (type->kind=ident: integer[3]))
+<             (decl->field: b[3]
+<               (type->kind=ident: integer[3])))))
+<       (decl->type: prec[4]
+<         (type->kind=pointer:
+<           ))
+<       (decl->type: rec2[5]
+<         (type->kind=record:
+<           (fields: 
+<             (decl->field: x[5]
+<               (type->kind=ident: integer[5]))
+<             (decl->field: r[5]
+<               (type->kind=ident: rec[5])))))
+<       (decl->variable: i[7]
+<         (type->kind=ident: integer[7]))
+<       (decl->variable: r[8]
+<         (type->kind=ident: rec[8]))
+<       (decl->variable: p[9]
+<         (type->kind=ident: prec[9]))
+<       (decl->variable: r2[10]
+<         (type->kind=ident: rec2[10]))
+<       (decl->procedure: foo[12]
+<         (formals: 
+<           (decl->formal x[12]
+<             (varmode=true)
+<             (type->kind=ident: integer[12])))
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:))))
+<       (decl->procedure: bar[16]
+<         (formals: 
+<           (decl->formal r[16]
+<             (varmode=false)
+<             (type->kind=ident: rec[16]))
+<           (decl->formal rr[16]
+<             (varmode=true)
+<             (type->kind=ident: rec[16])))
+<         (block: 
+<           (stmts: 
+<             (stmt->emptystmt:)))))
+<     (stmts: 
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false new[21]
+<           (exprs: 
+<             (expr-> binding: p[21]))))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binding: r[22])
+<           (expr-> id: a))
+<         (expr-> binding: i[22]))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> binding: r[23])
+<           (expr-> id: b))
+<         (expr-> binding: i[23]))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[24])
+<         (expr-> binexp: .
+<           (expr-> binding: r[24])
+<           (expr-> id: a)))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[25])
+<         (expr-> binexp: .
+<           (expr-> binding: r[25])
+<           (expr-> id: b)))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> unexp: ^
+<             (expr-> binding: p[26]))
+<           (expr-> id: a))
+<         (expr-> binding: i[26]))
+<       (stmt->assignstmt:
+<         (expr-> binexp: .
+<           (expr-> unexp: ^
+<             (expr-> binding: p[27]))
+<           (expr-> id: b))
+<         (expr-> binding: i[27]))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[28])
+<         (expr-> binexp: .
+<           (expr-> unexp: ^
+<             (expr-> binding: p[28]))
+<           (expr-> id: a)))
+<       (stmt->assignstmt:
+<         (expr-> binding: i[29])
+<         (expr-> binexp: .
+<           (expr-> unexp: ^
+<             (expr-> binding: p[29]))
+<           (expr-> id: b)))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false foo[30]
+<           (exprs: 
+<             (expr-> binding: i[30]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false foo[31]
+<           (exprs: 
+<             (expr-> binexp: .
+<               (expr-> binding: r[31])
+<               (expr-> id: a)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false foo[32]
+<           (exprs: 
+<             (expr-> binexp: .
+<               (expr-> binding: r[32])
+<               (expr-> id: b)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false foo[33]
+<           (exprs: 
+<             (expr-> binexp: .
+<               (expr-> unexp: ^
+<                 (expr-> binding: p[33]))
+<               (expr-> id: a)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false foo[34]
+<           (exprs: 
+<             (expr-> binexp: .
+<               (expr-> unexp: ^
+<                 (expr-> binding: p[34]))
+<               (expr-> id: b)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false bar[35]
+<           (exprs: 
+<             (expr-> binding: r[35])
+<             (expr-> binding: r[35]))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false bar[36]
+<           (exprs: 
+<             (expr-> binexp: .
+<               (expr-> binding: r2[36])
+<               (expr-> id: r))
+<             (expr-> binexp: .
+<               (expr-> binding: r2[36])
+<               (expr-> id: r)))))
+<       (stmt->callstmt:
+<         (expr-> call: isMethodCall=false bar[37]
+<           (exprs: 
+<             (expr-> unexp: ^
+<               (expr-> binding: p[37]))
+<             (expr-> unexp: ^
+<               (expr-> binding: p[37])))))
+<       (stmt->emptystmt:))))
+
+
