@@ -2,12 +2,8 @@ line 3: Unexpected character: '\u000a' (code = 10 = 012 = \u000a)
 'Hello, 
 ^
 resetting to scan a new token
+line 3: Syntax Error: $coins
 line 4: Unexpected character: '\u000a' (code = 10 = 012 = \u000a)
 COINS 610'
 ^
 resetting to scan a new token
-Exception occurred:
-java.lang.NullPointerException
-	at MPC.Parse.perform(Parse.java:58)
-	at MPC.mpc.main(mpc.java:245)
-Aborting ...

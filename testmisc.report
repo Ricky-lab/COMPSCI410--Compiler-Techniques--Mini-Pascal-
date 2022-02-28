@@ -1,10 +1,85 @@
 testmisc.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,80
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #5
+> line -1: Syntax Error: #3
+> line 16: Syntax Error: procedure
+> line 18: Syntax Error: 'Values of arguments x, y, z within passints: '
+> line -1: Syntax Error: #2
+> line 32: Syntax Error: function
+> line -1: Syntax Error: #2
+> line 46: Syntax Error: @*
+> line 51: Syntax Error: else
+> line 57: Syntax Error: else
+> line 64: Syntax Error: @;
+> line 69: Syntax Error: 'enter procedure a='
+> line 70: Syntax Error: @+
+> line 71: Syntax Error: @-
+> line 72: Syntax Error: 'exit procedure a='
+> line 78: Syntax Error: 'IF tests'
+> line 79: Syntax Error: 'Enter an integer>'
+> line -1: Syntax Error: #0
+> line 88: Syntax Error: 'Nested IFs'
+> line -1: Syntax Error: #0
+> line 103: Syntax Error: 'WHILE tests'
+> line 104: Syntax Error: 'WHILE i <= 5'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #5
+> line 109: Syntax Error: @+
+> line 112: Syntax Error: 'WHILE i <= 1'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #1
+> line 117: Syntax Error: @+
+> line 119: Syntax Error: 'WHILE i <= 0'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #0
+> line 124: Syntax Error: @+
+> line -1: Syntax Error: #1
+> line 128: Syntax Error: 'Nested WHILEs'
+> line -1: Syntax Error: #3
+> line -1: Syntax Error: #3
+> line 135: Syntax Error: @+
+> line 137: Syntax Error: @+
+> line 141: Syntax Error: 'REPEAT tests'
+> line 142: Syntax Error: 'REPEAT UNTIL i > 5'
+> line -1: Syntax Error: #1
+> line 146: Syntax Error: @+
+> line 148: Syntax Error: 'REPEAT UNTIL i > 1'
+> line -1: Syntax Error: #1
+> line 152: Syntax Error: @+
+> line 154: Syntax Error: 'REPEAT UNTIL i > 0'
+> line -1: Syntax Error: #1
+> line 158: Syntax Error: @+
+> line 160: Syntax Error: 'Nested REPEATs'
+> line -1: Syntax Error: #1
+> line 166: Syntax Error: @+
+> line 168: Syntax Error: @+
+> line -1: Syntax Error: #2
+> line -1: Syntax Error: #6
+> line 174: Syntax Error: 'FOR tests'
+> line 176: Syntax Error: ' 1 TO 5'
+> line 180: Syntax Error: ' 1 TO j*5='
+> line 184: Syntax Error: ' 1 TO j='
+> line 188: Syntax Error: 'K='
+> line 192: Syntax Error: ' 5 DOWNTO 1'
+> line 196: Syntax Error: ' 1 TO 1'
+> line 200: Syntax Error: ' 1 DOWNTO 0'
+> line 206: Syntax Error: 'Nested FORs'
+> line 214: Syntax Error: 'Pass by value test'
+> line -1: Syntax Error: #100
+> line -1: Syntax Error: #200
+> line -1: Syntax Error: #300
+> line -1: Syntax Error: #0
+> line 219: Syntax Error: 'Values of x, y, z after passints: '
+> line -1: Syntax Error: #19
+> line -1: Syntax Error: #8
+> line 227: Syntax Error: 'Recursion = '
+> line -1: Syntax Error: #8
+> line 229: Syntax Error: 'Recursion test passes'
+> line 231: Syntax Error: 'Recursion test fails'
+> line -1: Syntax Error: #3
+> line -1: Syntax Error: #4
+> line 240: Syntax Error: 'i='
 
 
 testmisc.parse:

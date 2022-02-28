@@ -1,10 +1,8 @@
 testfor.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,3
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #0
+> line -1: Syntax Error: #0
 
 
 testfor.parse:

@@ -1,3 +1,4 @@
+line -1: Syntax Error: #0
 line 5: Integer literal value too large
 5000000000
 ---------^
@@ -50,8 +51,3 @@ line 25: Unexpected character: ' ' (code = 32 = 040 = \u0020)
 2#10_ 
 -----^
 resetting to scan a new token
-Exception occurred:
-java.lang.NullPointerException
-	at MPC.Parse.perform(Parse.java:58)
-	at MPC.mpc.main(mpc.java:245)
-Aborting ...

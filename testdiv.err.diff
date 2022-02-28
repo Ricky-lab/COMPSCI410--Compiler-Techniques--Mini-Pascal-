@@ -1,9 +1,6 @@
 testdiv.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,2
+> line 4: Syntax Error: div
+> line 5: Syntax Error: mod
 
 

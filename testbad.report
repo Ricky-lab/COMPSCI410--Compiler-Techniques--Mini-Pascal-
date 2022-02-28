@@ -1,13 +1,44 @@
 testbad.err:
-1,3c1,5
-< line 21: Syntax Error: @(
-< line 42: Syntax Error: begin
+0a1,5
+> line -1: Syntax Error: #10
+> line 5: Syntax Error: @-
+> line 9: Syntax Error: @-
+> line 15: Syntax Error: @^
+> line 16: Syntax Error: record
+1a7,14
+> line 23: Syntax Error: @..
+> line 24: Syntax Error: @..
+> line -1: Syntax Error: #1
+> line 27: Syntax Error: array
+> line 29: Syntax Error: function
+> line 31: Syntax Error: array
+> line -1: Syntax Error: #0
+> line 38: Syntax Error: @+
+3c16,38
 < line 95: Syntax Error: @.
 ---
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+> line 46: Syntax Error: 'Enter integer between 1 and 10>'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #10
+> line 48: Syntax Error: 'Invalid'
+> line 50: Syntax Error: 'Valid'
+> line 51: Syntax Error: 'Enter date between Sunday and Saturday[0..6] :'
+> line 53: Syntax Error: 'Sunday'
+> line 54: Syntax Error: 'Monday'
+> line 55: Syntax Error: 'Tuesday'
+> line 56: Syntax Error: 'Wednesday'
+> line 57: Syntax Error: 'Thursday'
+> line 58: Syntax Error: 'Friday'
+> line 59: Syntax Error: 'Saturday'
+> line 79: Syntax Error: @+
+> line -1: Syntax Error: #1
+> line 82: Syntax Error: @[
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #5
+> line 88: Syntax Error: @[
+> line 89: Syntax Error: '<5'
+> line 92: Syntax Error: '>=5'
+> line 94: Syntax Error: @+
 
 

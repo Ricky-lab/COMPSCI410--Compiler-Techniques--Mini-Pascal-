@@ -58,9 +58,12 @@ non terminal Block       block;
 
 non terminal Binding     binding;
 
-non terminal List<Decl> optDefns, constDefns, varDecls, varDecl;
+non terminal List<Decl> optDefns, constDefns, varDecls, varDecl, fieldList;
 non terminal List<Stmt> stmtList;
 non terminal List<Binding> bindingList;
+non terminal List<Expr> exprList;
+non terminal List<Expr> constantList;
+non terminal List<Expr> simpleTypeList;
 
 non terminal Decl        constDefn;
 non terminal Expr        expr, constant, unsignedConstant, variable;
@@ -160,9 +163,57 @@ unsignedConstant
 type
     ::= simpleType:t
           {: RESULT = t; :}
+     |
+      	ARRAY:a LBRACK simpleTypeList:spl RBRACK OF type:e
+      	{:
+      		
+      	   RESULT = new TypeArray(e.pos, e, aleft, eright);
+      	   :}
+     |
+     	RECORD:r fieldList:ff END:e
+     	{: 
+     		:}
      |  error
           {: RESULT = Type.theErrorType; :}
      ;
+
+fieldList
+	::= 
+		{:RESULT = null;:}
+	 |  field:e
+	    {:	ArrayList fl = new ArrayList<Decl>();
+	    	fl.add(e);
+	    	RESULT = fl; 
+	    	:}
+	 |  field:e SEMI
+	    {:  ArrayList fl = new ArrayList<Decl>();
+	    	fl.add(e);
+	    	RESULT = fl;
+	    	:}
+	 |  fieldList:ee SEMI field:e
+	    {: ee.add(e);
+	    	RESULT = ee;
+	    	:}
+	 | 	fieldList:ee SEMI field:e SEMI
+	 	{:	ee.add(e);
+	 		RESULT = ee;
+	 		:};
+	    
+field
+	::= bindingList:bb COLON type:t 
+          {: RESULT = Decl.varDeclsOf(bb, t); :};
+	    
+	   
+simpleTypeList
+	::= simpleTypeList:stl SEMI simpleType:s
+		{:stl.add(s);
+		  RESULT = stl;
+		  :}
+	 |  simpleType:s
+	    {:ArrayList stl = new ArrayList<Expr>();
+	      stl.add(s);
+	      RESULT = stl;
+	      :}
 
 simpleType
     ::= binding:b
@@ -170,21 +221,61 @@ simpleType
      ;
 
 stmt
-    ::= variable:v ASSIGN expr:e
+    ::= variable:v/*call statement*/
+    	  {:RESULT = new StmtCall(v);
+    	    :}
+     |  variable:v ASSIGN expr:e/*assign statement*/
           {: RESULT = new StmtAssign(v, e); :}
-     |  BEGIN:b stmtList:ss END:e
+     |  BEGIN:b stmtList:ss END:e /*compound_statement*/
           {: RESULT = new StmtCompound(new Stmts(ss, bleft, eright), bleft, eright); :}
-     |  IF:i expr:e THEN stmt:s1 optElse:s2
+     |  IF:i expr:e THEN stmt:s1 optElse:s2 /*if statement*/
           {: int endPos = ((s2 == null) ? s1right : s2right);
              RESULT = new StmtIf(e, s1, s2, ileft, endPos);
            :}
-     |  WHILE:w expr:e DO stmt:s
+     |  WHILE:w expr:e DO stmt:s/*while statement*/
           {: RESULT = new StmtWhile(e, s, wleft, sright); :}
-     |
+     |  /*empty statement*/
           {: RESULT = new StmtEmpty(); :}
-     | error
+     |  CASE:c expr:e OF caseElements:ce SEMI END:ed
+     	  {: :}
+     |  REPEAT:r stmtList:ss UNTIL expr:e
+     	  {: :}
+     |  FOR:f binding:b ASSIGN expr:e1 LPAREN TO OR DOWNTO RPAREN expr:e2 DO stmt:s
+     	  {: :}
+     | error /*error statement*/
           {: RESULT = new StmtEmpty(); :}
      ;
+     
+caseElements ::= 
+		caseElement:ce
+		{: :}
+	 |  caseElements:ces SEMI caseElement:ce
+	    {: :}
+	 ;
+	 
+caseElement ::=
+		constantList:cl COLON stmt:s
+		{: :};
+	 
+constantList ::=
+		constant:c
+		{::}
+	 |  constantList:cl COMMA constant:c	
+	 	{::}
+	 	;		
+     
+exprList
+	::= expr:e 
+		  {: ArrayList<Expr> ee = new ArrayList<Expr>();
+		  		ee.add(e);
+		  		RESULT = ee;
+		  		:}
+	|  exprList:ee COMMA:c expr:e 
+			{:
+			ee.add(e);
+			RESULT = ee;	
+			:} 
+	;
 
 optElse
     ::=               {: RESULT = null; :}
@@ -201,6 +292,14 @@ stmtList
 
 variable
     ::= binding:b   {: RESULT = new ExprBinding(b); :}
+    |  binding:b LPAREN exprList:ee RPAREN:r
+     	{: ExprCall cc = new ExprCall(false, b, new Exprs(ee, eeleft, eeright), bleft, rright);
+     	     RESULT = cc; 
+		:}
+	|  binding:b LBRACK exprList:ee RBRACK:r
+		{::}
+	|  binding:b DOT binding:bb LPAREN exprList:ee RPAREN:r
+		{::}
      ;
 expr
     ::= simpleExpr:e

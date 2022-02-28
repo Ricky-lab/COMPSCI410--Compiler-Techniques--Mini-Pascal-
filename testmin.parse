@@ -1,0 +1,45 @@
+(program: 
+  (decls: 
+    (decl->program: test[1]))
+  (block: 
+    (decls: 
+      (decl->const: n[3]
+        (expr-> binding: true[3]))
+      (decl->variable: b[5]
+        (type->kind=ident: boolean[5]))
+      (decl->variable: w1[6]
+        (type->kind=ident: boolean[6]))
+      (decl->variable: w2[6]
+        (type->kind=ident: boolean[6]))
+      (decl->variable: w3[6]
+        (type->kind=ident: boolean[6])))
+    (stmts: 
+      (stmt->assignstmt:
+        (expr-> binding: b[7])
+        (expr-> binding: false[7]))
+      (stmt->whilestmt:
+        (expr-> binexp: =
+          (expr-> binding: b[8])
+          (expr-> binding: n[8]))
+        (stmt->compoundstmt:
+          (stmts: 
+            (stmt->assignstmt:
+              (expr-> binding: w1[10])
+              (expr-> binexp: and
+                (expr-> binding: w1[10])
+                (expr-> binding: true[10])))
+            (stmt->assignstmt:
+              (expr-> binding: w2[11])
+              (expr-> binexp: or
+                (expr-> binding: w2[11])
+                (expr-> binding: false[11])))
+            (stmt->assignstmt:
+              (expr-> binding: w3[12])
+              (expr-> unexp: not
+                (expr-> binexp: or
+                  (expr-> binding: w3[12])
+                  (expr-> binexp: and
+                    (expr-> binding: w2[12])
+                    (expr-> binding: w1[12])))))
+            (stmt->emptystmt:))))
+      (stmt->emptystmt:))))

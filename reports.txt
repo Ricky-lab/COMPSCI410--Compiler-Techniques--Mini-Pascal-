@@ -1,10 +1,8 @@
 gcd.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,3
+> line 8: Syntax Error: @-
+> line 8: Syntax Error: @-
+> line 10: Syntax Error: 'GCD = '
 
 
 gcd.parse:
@@ -56,12 +54,8 @@ gcd.parse:
 
 
 proctest.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 proctest.parse:
@@ -406,97 +400,43 @@ proctest.parse:
 
 
 scancomment.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line -1: Syntax Error: EOF
 
 
 scancomment2.err:
-4a5,9
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+4a5
+> line -1: Syntax Error: EOF
 
 
 scaneof1.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 1: Syntax Error: @..
 
 
 scaneof2.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 1: Syntax Error: @<>
 
 
 scangood.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
-scanids.err:
-1d0
-< line 1: Syntax Error: $x
-9a9,13
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
-scanints.err:
-1d0
-< line -1: Syntax Error: #0
-53a53,57
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 1: Syntax Error: $a
 
 
 scanmin.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 8: Syntax Error: $integer
 
 
 scanstringnl.err:
-8a9,13
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+4a5
+> line 3: Syntax Error: $coins
 
 
 stchain.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: procedure
 
 
 stchain.parse:
@@ -1080,10 +1020,15 @@ stchain.parse:
 
 
 testb2.err:
-0a1,5
+0a1,10
+> line -1: Syntax Error: #2
+> Couldn't repair and continue parse
 > Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
+> java.lang.Exception: Can't recover from previous error(s)
+> 	at java_cup.runtime.lr_parser.report_fatal_error(lr_parser.java:375)
+> 	at java_cup.runtime.lr_parser.unrecovered_syntax_error(lr_parser.java:424)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:616)
+> 	at MPC.Parse.perform(Parse.java:45)
 > 	at MPC.mpc.main(mpc.java:245)
 > Aborting ...
 
@@ -1171,25 +1116,52 @@ testb2.parse:
 
 
 testbad.err:
-1,3c1,5
-< line 21: Syntax Error: @(
-< line 42: Syntax Error: begin
+0a1,5
+> line -1: Syntax Error: #10
+> line 5: Syntax Error: @-
+> line 9: Syntax Error: @-
+> line 15: Syntax Error: @^
+> line 16: Syntax Error: record
+1a7,14
+> line 23: Syntax Error: @..
+> line 24: Syntax Error: @..
+> line -1: Syntax Error: #1
+> line 27: Syntax Error: array
+> line 29: Syntax Error: function
+> line 31: Syntax Error: array
+> line -1: Syntax Error: #0
+> line 38: Syntax Error: @+
+3c16,38
 < line 95: Syntax Error: @.
 ---
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+> line 46: Syntax Error: 'Enter integer between 1 and 10>'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #10
+> line 48: Syntax Error: 'Invalid'
+> line 50: Syntax Error: 'Valid'
+> line 51: Syntax Error: 'Enter date between Sunday and Saturday[0..6] :'
+> line 53: Syntax Error: 'Sunday'
+> line 54: Syntax Error: 'Monday'
+> line 55: Syntax Error: 'Tuesday'
+> line 56: Syntax Error: 'Wednesday'
+> line 57: Syntax Error: 'Thursday'
+> line 58: Syntax Error: 'Friday'
+> line 59: Syntax Error: 'Saturday'
+> line 79: Syntax Error: @+
+> line -1: Syntax Error: #1
+> line 82: Syntax Error: @[
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #5
+> line 88: Syntax Error: @[
+> line 89: Syntax Error: '<5'
+> line 92: Syntax Error: '>=5'
+> line 94: Syntax Error: @+
 
 
 testbranch.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: procedure
 
 
 testbranch.parse:
@@ -1366,12 +1338,8 @@ testbranch.parse:
 
 
 testcall.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testcall.parse:
@@ -1627,12 +1595,8 @@ testcall.parse:
 
 
 testdead.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testdead.parse:
@@ -1710,12 +1674,9 @@ testdead.parse:
 
 
 testdiv.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,2
+> line 4: Syntax Error: div
+> line 5: Syntax Error: mod
 
 
 testdiv.parse:
@@ -1748,12 +1709,10 @@ testdiv.parse:
 
 
 testfor.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,3
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #0
+> line -1: Syntax Error: #0
 
 
 testfor.parse:
@@ -1846,10 +1805,23 @@ testfor.parse:
 
 
 testgood.err:
-0a1,5
+0a1,18
+> line -1: Syntax Error: #10
+> line 7: Syntax Error: @+
+> line -1: Syntax Error: #0
+> line 14: Syntax Error: repeat
+> line 15: Syntax Error: @*
+> line 16: Syntax Error: @*
+> line 17: Syntax Error: @*
+> line 18: Syntax Error: 'this is a test '
+> line 19: Syntax Error: ' '
+> Couldn't repair and continue parse
 > Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
+> java.lang.Exception: Can't recover from previous error(s)
+> 	at java_cup.runtime.lr_parser.report_fatal_error(lr_parser.java:375)
+> 	at java_cup.runtime.lr_parser.unrecovered_syntax_error(lr_parser.java:424)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:616)
+> 	at MPC.Parse.perform(Parse.java:45)
 > 	at MPC.mpc.main(mpc.java:245)
 > Aborting ...
 
@@ -1952,12 +1924,11 @@ testgood.parse:
 
 
 testio.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,4
+> line -1: Syntax Error: #10
+> line -1: Syntax Error: #20
+> line 9: Syntax Error: @+
+> line 10: Syntax Error: 'X = '
 
 
 testio.parse:
@@ -2003,71 +1974,88 @@ testio.parse:
 <       (stmt->emptystmt:))))
 
 
-testmin.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
-
-
-testmin.parse:
-1,45d0
-< (program: 
-<   (decls: 
-<     (decl->program: test[1]))
-<   (block: 
-<     (decls: 
-<       (decl->const: n[3]
-<         (expr-> binding: true[3]))
-<       (decl->variable: b[5]
-<         (type->kind=ident: boolean[5]))
-<       (decl->variable: w1[6]
-<         (type->kind=ident: boolean[6]))
-<       (decl->variable: w2[6]
-<         (type->kind=ident: boolean[6]))
-<       (decl->variable: w3[6]
-<         (type->kind=ident: boolean[6])))
-<     (stmts: 
-<       (stmt->assignstmt:
-<         (expr-> binding: b[7])
-<         (expr-> binding: false[7]))
-<       (stmt->whilestmt:
-<         (expr-> binexp: =
-<           (expr-> binding: b[8])
-<           (expr-> binding: n[8]))
-<         (stmt->compoundstmt:
-<           (stmts: 
-<             (stmt->assignstmt:
-<               (expr-> binding: w1[10])
-<               (expr-> binexp: and
-<                 (expr-> binding: w1[10])
-<                 (expr-> binding: true[10])))
-<             (stmt->assignstmt:
-<               (expr-> binding: w2[11])
-<               (expr-> binexp: or
-<                 (expr-> binding: w2[11])
-<                 (expr-> binding: false[11])))
-<             (stmt->assignstmt:
-<               (expr-> binding: w3[12])
-<               (expr-> unexp: not
-<                 (expr-> binexp: or
-<                   (expr-> binding: w3[12])
-<                   (expr-> binexp: and
-<                     (expr-> binding: w2[12])
-<                     (expr-> binding: w1[12])))))
-<             (stmt->emptystmt:))))
-<       (stmt->emptystmt:))))
-
-
 testmisc.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,80
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #5
+> line -1: Syntax Error: #3
+> line 16: Syntax Error: procedure
+> line 18: Syntax Error: 'Values of arguments x, y, z within passints: '
+> line -1: Syntax Error: #2
+> line 32: Syntax Error: function
+> line -1: Syntax Error: #2
+> line 46: Syntax Error: @*
+> line 51: Syntax Error: else
+> line 57: Syntax Error: else
+> line 64: Syntax Error: @;
+> line 69: Syntax Error: 'enter procedure a='
+> line 70: Syntax Error: @+
+> line 71: Syntax Error: @-
+> line 72: Syntax Error: 'exit procedure a='
+> line 78: Syntax Error: 'IF tests'
+> line 79: Syntax Error: 'Enter an integer>'
+> line -1: Syntax Error: #0
+> line 88: Syntax Error: 'Nested IFs'
+> line -1: Syntax Error: #0
+> line 103: Syntax Error: 'WHILE tests'
+> line 104: Syntax Error: 'WHILE i <= 5'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #5
+> line 109: Syntax Error: @+
+> line 112: Syntax Error: 'WHILE i <= 1'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #1
+> line 117: Syntax Error: @+
+> line 119: Syntax Error: 'WHILE i <= 0'
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #0
+> line 124: Syntax Error: @+
+> line -1: Syntax Error: #1
+> line 128: Syntax Error: 'Nested WHILEs'
+> line -1: Syntax Error: #3
+> line -1: Syntax Error: #3
+> line 135: Syntax Error: @+
+> line 137: Syntax Error: @+
+> line 141: Syntax Error: 'REPEAT tests'
+> line 142: Syntax Error: 'REPEAT UNTIL i > 5'
+> line -1: Syntax Error: #1
+> line 146: Syntax Error: @+
+> line 148: Syntax Error: 'REPEAT UNTIL i > 1'
+> line -1: Syntax Error: #1
+> line 152: Syntax Error: @+
+> line 154: Syntax Error: 'REPEAT UNTIL i > 0'
+> line -1: Syntax Error: #1
+> line 158: Syntax Error: @+
+> line 160: Syntax Error: 'Nested REPEATs'
+> line -1: Syntax Error: #1
+> line 166: Syntax Error: @+
+> line 168: Syntax Error: @+
+> line -1: Syntax Error: #2
+> line -1: Syntax Error: #6
+> line 174: Syntax Error: 'FOR tests'
+> line 176: Syntax Error: ' 1 TO 5'
+> line 180: Syntax Error: ' 1 TO j*5='
+> line 184: Syntax Error: ' 1 TO j='
+> line 188: Syntax Error: 'K='
+> line 192: Syntax Error: ' 5 DOWNTO 1'
+> line 196: Syntax Error: ' 1 TO 1'
+> line 200: Syntax Error: ' 1 DOWNTO 0'
+> line 206: Syntax Error: 'Nested FORs'
+> line 214: Syntax Error: 'Pass by value test'
+> line -1: Syntax Error: #100
+> line -1: Syntax Error: #200
+> line -1: Syntax Error: #300
+> line -1: Syntax Error: #0
+> line 219: Syntax Error: 'Values of x, y, z after passints: '
+> line -1: Syntax Error: #19
+> line -1: Syntax Error: #8
+> line 227: Syntax Error: 'Recursion = '
+> line -1: Syntax Error: #8
+> line 229: Syntax Error: 'Recursion test passes'
+> line 231: Syntax Error: 'Recursion test fails'
+> line -1: Syntax Error: #3
+> line -1: Syntax Error: #4
+> line 240: Syntax Error: 'i='
 
 
 testmisc.parse:
@@ -3013,12 +3001,42 @@ testmisc.parse:
 
 
 testmisc2.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,35
+> line 4: Syntax Error: 'string constant'
+> line -1: Syntax Error: #100
+> line 9: Syntax Error: 'string1'
+> line 12: Syntax Error: array
+> line 13: Syntax Error: array
+> line 14: Syntax Error: array
+> line 18: Syntax Error: @;
+> line 24: Syntax Error: const
+> line 55: Syntax Error: var
+> line 64: Syntax Error: type
+> line 77: Syntax Error: type
+> line 87: Syntax Error: procedure
+> line -1: Syntax Error: #2
+> line -1: Syntax Error: #3
+> line -1: Syntax Error: #0
+> line -1: Syntax Error: #100
+> line -1: Syntax Error: #20
+> line -1: Syntax Error: #12
+> line 106: Syntax Error: repeat
+> line -1: Syntax Error: #10
+> line -1: Syntax Error: #20
+> line 113: Syntax Error: @*
+> line 115: Syntax Error: @+
+> line 116: Syntax Error: @-
+> line -1: Syntax Error: #0
+> line -1: Syntax Error: #2
+> line 122: Syntax Error: @*
+> line 128: Syntax Error: @+
+> line 131: Syntax Error: for
+> line 134: Syntax Error: @+
+> line 147: Syntax Error: @.
+> line 148: Syntax Error: @.
+> line -1: Syntax Error: #10
+> line 153: Syntax Error: @[
+> line 154: Syntax Error: @[
 
 
 testmisc2.parse:
@@ -4496,12 +4514,8 @@ testmisc2.parse:
 
 
 testnilnil.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 4: Syntax Error: nil
 
 
 testnilnil.parse:
@@ -4532,12 +4546,8 @@ testnilnil.parse:
 
 
 testobject.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 5: Syntax Error: type
 
 
 testobject.parse:
@@ -5366,24 +5376,16 @@ testobject.parse:
 
 
 testobject2.err:
-1,2c1,5
+1,2c1
 < line 6: Syntax Error: @;
 < line 7: Syntax Error: end
 ---
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+> line 5: Syntax Error: type
 
 
 testobject3.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 5: Syntax Error: type
 
 
 testobject3.parse:
@@ -5727,12 +5729,8 @@ testobject3.parse:
 
 
 testobject4.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 5: Syntax Error: type
 
 
 testobject4.parse:
@@ -9227,12 +9225,52 @@ testobject4.parse:
 
 
 testparse.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1,45
+> line -1: Syntax Error: #10
+> line 10: Syntax Error: @^
+> line 11: Syntax Error: record
+> line -1: Syntax Error: #0
+> line -1: Syntax Error: #0
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #2
+> line -1: Syntax Error: #3
+> line -1: Syntax Error: #4
+> line -1: Syntax Error: #5
+> line -1: Syntax Error: #6
+> line -1: Syntax Error: #1
+> line 28: Syntax Error: array
+> line 29: Syntax Error: array
+> line 31: Syntax Error: function
+> line -1: Syntax Error: #2
+> line 36: Syntax Error: @-
+> line 37: Syntax Error: @+
+> line 39: Syntax Error: @*
+> line 46: Syntax Error: 'Enter integer between 1 and 10: '
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #10
+> line 49: Syntax Error: 'Invalid'
+> line -1: Syntax Error: #5
+> line 53: Syntax Error: 'Valid'
+> line 54: Syntax Error: 'Enter date between Sunday and Saturday[0..6]: '
+> line 56: Syntax Error: case
+> line 57: Syntax Error: 'Sunday'
+> line 58: Syntax Error: 'Monday'
+> line 59: Syntax Error: 'Tuesday'
+> line 60: Syntax Error: 'Wednesday'
+> line 61: Syntax Error: 'Thursday'
+> line 62: Syntax Error: 'Friday'
+> line 63: Syntax Error: 'Saturday'
+> line -1: Syntax Error: #1
+> line 83: Syntax Error: @+
+> line -1: Syntax Error: #1
+> line 86: Syntax Error: @[
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #1
+> line -1: Syntax Error: #5
+> line 92: Syntax Error: @[
+> line 94: Syntax Error: '<5'
+> line 97: Syntax Error: '>=5'
+> line 98: Syntax Error: @+
 
 
 testparse.parse:
@@ -9707,12 +9745,8 @@ testparse.parse:
 
 
 testprocdecl.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 2: Syntax Error: type
 
 
 testprocdecl.parse:
@@ -9844,12 +9878,8 @@ testprocdecl.parse:
 
 
 testptr.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 2: Syntax Error: type
 
 
 testptr.parse:
@@ -9977,12 +10007,8 @@ testptr.parse:
 
 
 testptrptr.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testptrptr.parse:
@@ -10033,12 +10059,8 @@ testptrptr.parse:
 
 
 testptrptr2.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testptrptr2.parse:
@@ -10409,12 +10431,8 @@ testptrptr2.parse:
 
 
 testread.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 6: Syntax Error: 'x = '
 
 
 testread.parse:
@@ -10442,12 +10460,8 @@ testread.parse:
 
 
 testrec.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 2: Syntax Error: type
 
 
 testrec.parse:
@@ -10495,12 +10509,8 @@ testrec.parse:
 
 
 testrecord.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 2: Syntax Error: type
 
 
 testrecord.parse:
@@ -10658,12 +10668,8 @@ testrecord.parse:
 
 
 testregs.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testregs.parse:
@@ -11133,12 +11139,8 @@ testregs.parse:
 
 
 testregs2.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testregs2.parse:
@@ -11314,12 +11316,8 @@ testregs2.parse:
 
 
 testsub.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testsub.parse:
@@ -11608,12 +11606,8 @@ testsub.parse:
 
 
 testsub2.err:
-0a1,5
-> Exception occurred:
-> java.lang.NullPointerException
-> 	at MPC.Parse.perform(Parse.java:58)
-> 	at MPC.mpc.main(mpc.java:245)
-> Aborting ...
+0a1
+> line 3: Syntax Error: type
 
 
 testsub2.parse:

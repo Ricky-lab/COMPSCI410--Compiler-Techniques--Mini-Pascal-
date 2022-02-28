@@ -1,5 +1,3 @@
-Exception occurred:
-java.lang.NullPointerException
-	at MPC.Parse.perform(Parse.java:58)
-	at MPC.mpc.main(mpc.java:245)
-Aborting ...
+line -1: Syntax Error: #1
+line -1: Syntax Error: #0
+line -1: Syntax Error: #0
