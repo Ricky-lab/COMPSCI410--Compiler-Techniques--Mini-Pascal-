@@ -58,12 +58,13 @@ non terminal Block       block;
 
 non terminal Binding     binding;
 
-non terminal List<Decl> optDefns, constDefns, varDecls, varDecl, fieldList;
+non terminal List<Decl> optDefns, constDefns, varDecls, varDecl;
 non terminal List<Stmt> stmtList;
 non terminal List<Binding> bindingList;
 non terminal List<Expr> exprList;
 non terminal List<Expr> constantList;
 non terminal List<Expr> simpleTypeList;
+non terminal List<CaseElement> caseElementList;
 
 non terminal Decl        constDefn;
 non terminal Expr        expr, constant, unsignedConstant, variable;
@@ -74,6 +75,8 @@ non terminal Type        type, simpleType;
 non terminal Stmt        stmt, optElse;
 
 non terminal Token       sign, relOp, addOp, multOp, optSemi;
+
+non terminal CaseElement caseElement;
 
 
 
@@ -152,12 +155,19 @@ bindingList
      ;
 
 constant
-    ::= unsignedConstant:u
+    ::= STRING:s
+    	  {: RESULT = new ExprString(s,sleft,sright); :} 
+     | unsignedConstant:u
           {: RESULT = u; :}
+     | PLUS:p unsignedConstant:u
+          {: RESULT = new ExprUnary(p, u, pleft, uright); :}
+     | MINUS:m unsignedConstant:u
+          {: RESULT = new ExprUnary(m, u, mleft, uright); :}
      ;
 
 unsignedConstant
     ::= binding:b   {: RESULT = new ExprBinding(b); :}
+    |	INT:i       {: RESULT = new ExprInt(i, ileft,iright); :}
      ;
 
 type
@@ -172,21 +182,26 @@ type
      |
      	RECORD:r fieldList:ff END:e
      	{: 
+     		RESULT = new TypeRecord(ff,ffleft,ffright);
      		:}
+     |  CARET binding:b 
+     	{: TypeId i = new TypeId(b); 
+     		RESULT = new TypePointer(i);
+     	:}
      |  error
           {: RESULT = Type.theErrorType; :}
      ;
 
 fieldList
 	::= 
-		{:RESULT = null;:}
+		{:RESULT = new ArrayList<Decl>(); :}
 	 |  field:e
-	    {:	ArrayList fl = new ArrayList<Decl>();
+	    {:	ArrayList fl = new ArrayList<DeclField>();
 	    	fl.add(e);
 	    	RESULT = fl; 
 	    	:}
 	 |  field:e SEMI
-	    {:  ArrayList fl = new ArrayList<Decl>();
+	    {:  ArrayList fl = new ArrayList<DeclField>();
 	    	fl.add(e);
 	    	RESULT = fl;
 	    	:}
@@ -201,7 +216,7 @@ fieldList
 	    
 field
 	::= bindingList:bb COLON type:t 
-          {: RESULT = Decl.varDeclsOf(bb, t); :};
+          {: RESULT = Decl.fieldDeclsOf(bb, t); :};
 	    
 	   
 simpleTypeList
@@ -218,6 +233,9 @@ simpleTypeList
 simpleType
     ::= binding:b
           {: RESULT = new TypeId(b); :}
+      | constant:c1 DOTDOT constant:c2
+      	  {: RESULT = new TypeRange(c1,c2);
+      	  :}
      ;
 
 stmt
@@ -234,34 +252,55 @@ stmt
            :}
      |  WHILE:w expr:e DO stmt:s/*while statement*/
           {: RESULT = new StmtWhile(e, s, wleft, sright); :}
-     |  /*empty statement*/
+     |                                                                 /*empty statement*/
           {: RESULT = new StmtEmpty(); :}
-     |  CASE:c expr:e OF caseElements:ce SEMI END:ed
-     	  {: :}
+     |  CASE:c expr:e OF caseElementList:cl SEMI END:ed
+     	  {:  	  	 
+     	  	RESULT = new StmtCase(e, cl, cleft, edright);
+     	  	:}
      |  REPEAT:r stmtList:ss UNTIL expr:e
-     	  {: :}
-     |  FOR:f binding:b ASSIGN expr:e1 LPAREN TO OR DOWNTO RPAREN expr:e2 DO stmt:s
-     	  {: :}
+     	  {:
+     	  	Stmts a = new Stmts(ss,ssleft,ssright); 
+     	    RESULT = new StmtRepeat(a, e, rleft, eright);
+     	  :}
+     |  FOR:f binding:b ASSIGN expr:e1 TO expr:e2 DO stmt:s
+     	  {: RESULT = new StmtFor(b, e1, true, e2, s, fleft, sright);
+     	  :}
+     |  FOR:f binding:b ASSIGN expr:e1 DOWNTO expr:e2 DO stmt:s
+     	  {: RESULT = new StmtFor(b, e1, false, e2, s, fleft, sright);
+     	  :}
      | error /*error statement*/
           {: RESULT = new StmtEmpty(); :}
      ;
      
-caseElements ::= 
+caseElementList ::= 
 		caseElement:ce
-		{: :}
-	 |  caseElements:ces SEMI caseElement:ce
-	    {: :}
+		{: 	ArrayList<CaseElement> cl = new ArrayList<>();
+			cl.add(ce);
+			RESULT = cl;
+			:}
+	 |  caseElementList:cl SEMI caseElement:ce
+	    {:  cl.add(ce); 
+	    	RESULT = cl;
+	    	:}
 	 ;
 	 
 caseElement ::=
 		constantList:cl COLON stmt:s
-		{: :};
+		{:  CaseLabelList cll = new CaseLabelList(cl);
+			RESULT = new CaseElement(cll,s,clleft,sright);
+			:};
 	 
 constantList ::=
 		constant:c
-		{::}
+		{:  ArrayList<Expr> ls = new ArrayList<>();
+			ls.add(c);
+			RESULT = ls;
+			:}
 	 |  constantList:cl COMMA constant:c	
-	 	{::}
+	 	{:	cl.add(c);
+	 		RESULT = cl;
+	 		:}
 	 	;		
      
 exprList
@@ -296,10 +335,23 @@ variable
      	{: ExprCall cc = new ExprCall(false, b, new Exprs(ee, eeleft, eeright), bleft, rright);
      	     RESULT = cc; 
 		:}
-	|  binding:b LBRACK exprList:ee RBRACK:r
-		{::}
-	|  binding:b DOT binding:bb LPAREN exprList:ee RPAREN:r
-		{::}
+	|  variable:v LBRACK exprList:ee RBRACK:r
+		{: RESULT= new Expr.subscriptedExprOf(v,ee);
+		:}
+	|  variable:v DOT binding:b 
+		{:Expr bb = new ExprBinding(b); 
+		  RESULT = new ExprBinary(DOT, v, bb);
+		:}
+	|  variable:v DOT binding:b LPAREN exprList:ee RPAREN:r
+		{: 
+		   Expr bb = new ExprBinding(b); 
+		   Expr a = new ExprBinary(DOT, v, bb);
+		   Expr vv = new Expr.subscriptedExprOf(a,ee);
+		   RESULT = vv;
+		:}
+	|  variable:v CARET:c
+		{: RESULT = new ExprUnary(CARET, v, vleft, cright);
+		:}
      ;
 expr
     ::= simpleExpr:e
