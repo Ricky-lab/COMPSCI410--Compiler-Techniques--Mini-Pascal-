@@ -1,6 +1,6 @@
 testprocdecl.err:
 0a1
-> line 2: Syntax Error: type
+> line 4: Syntax Error: @)
 
 
 testprocdecl.parse:

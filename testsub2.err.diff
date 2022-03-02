@@ -1,5 +1,6 @@
 testsub2.err:
-0a1
-> line 3: Syntax Error: type
+0a1,2
+> line 5: Syntax Error: @,
+> line 6: Syntax Error: @,
 
 

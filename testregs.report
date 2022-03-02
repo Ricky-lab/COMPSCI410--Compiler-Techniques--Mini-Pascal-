@@ -1,6 +1,6 @@
 testregs.err:
 0a1
-> line 3: Syntax Error: type
+> line 7: Syntax Error: @,
 
 
 testregs.parse:

@@ -1,6 +1,6 @@
 testcall.err:
 0a1
-> line 3: Syntax Error: type
+> line 8: Syntax Error: @;
 
 
 testcall.parse:

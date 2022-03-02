@@ -1,8 +1,13 @@
 testobject2.err:
-1,2c1
-< line 6: Syntax Error: @;
-< line 7: Syntax Error: end
----
-> line 5: Syntax Error: type
+2a3,11
+> Exception occurred:
+> java.lang.NullPointerException
+> 	at MPC.TypeId.<init>(TypeId.java:20)
+> 	at MPC.CUP$Parser$actions.CUP$Parser$do_action(Parser.java:1914)
+> 	at MPC.Parser.do_action(Parser.java:533)
+> 	at java_cup.runtime.lr_parser.parse(lr_parser.java:584)
+> 	at MPC.Parse.perform(Parse.java:45)
+> 	at MPC.mpc.main(mpc.java:245)
+> Aborting ...
 
 

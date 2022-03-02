@@ -1,8 +1,0 @@
-testio.err:
-0a1,4
-> line -1: Syntax Error: #10
-> line -1: Syntax Error: #20
-> line 9: Syntax Error: @+
-> line 10: Syntax Error: 'X = '
-
-

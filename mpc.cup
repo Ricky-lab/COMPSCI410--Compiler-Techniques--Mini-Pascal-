@@ -57,21 +57,27 @@ non terminal Program     program;
 non terminal Block       block;
 
 non terminal Binding     binding;
+non terminal Binding 	 optBinding, optAs;
 
-non terminal List<Decl> optDefns, constDefns, varDecls, varDecl;
+non terminal List<Decl> optDefns, constDefns, varDecls, varDecl, parameterGroup,formalParameters,typeDefns;
+non terminal List<DeclField> fieldList, field,optFieldList;
+non terminal List<DeclMethod> optMtdList, methodList;
 non terminal List<Stmt> stmtList;
 non terminal List<Binding> bindingList;
 non terminal List<Expr> exprList;
 non terminal List<Expr> constantList;
-non terminal List<Expr> simpleTypeList;
+non terminal List<Type> simpleTypeList;
 non terminal List<CaseElement> caseElementList;
+non terminal List<Overriding> overrides,optOverRideList;
 
-non terminal Decl        constDefn;
+non terminal Decl        constDefn, procDecl, funcDecl,typeDefn;
 non terminal Expr        expr, constant, unsignedConstant, variable;
 non terminal Expr        simpleExpr, term, factor;
+non terminal Overriding  override;
+non terminal DeclMethod  method;
 
 non terminal Type        type, simpleType;
-
+non terminal TypeProcFunc functionHeader, procedureHeader;
 non terminal Stmt        stmt, optElse;
 
 non terminal Token       sign, relOp, addOp, multOp, optSemi;
@@ -99,6 +105,8 @@ block
            :}
      ;
 
+
+		
 binding
     ::= ID:n {: RESULT = new Binding(n, nleft, nright); :}
      ;
@@ -112,9 +120,27 @@ optDefns
           {: RESULT = new ArrayList<Decl>(); :}
      |  optDefns:dd CONST constDefns:cc
           {: (RESULT = dd).addAll(cc); :}
+     |	optDefns:dd TYPE typeDefns:ff
+     	  {: (RESULT = dd).addAll(ff);:}
      |  optDefns:dd VAR   varDecls:vv
           {: (RESULT = dd).addAll(vv); :}
+     |	optDefns:dd procDecl:pp
+     	  {:dd.add(pp); 
+     	  RESULT = dd;:}
+     |  optDefns:dd funcDecl:ff
+     	  {:dd.add(ff); 
+     	  RESULT = dd;:}
      ;
+
+procDecl
+	::= PROCEDURE:p binding:b formalParameters:fp SEMI:s1 block:blk SEMI:s2
+		{:RESULT = new DeclProcFunc(new TypeProcFunc(b,new Decls(fp),null,bleft,s1right), blk, pleft,s2right);:}
+		;
+
+funcDecl
+	::= FUNCTION:f binding:b formalParameters:fp COLON binding:b2 SEMI:s1 block:blk SEMI:s2
+		{:RESULT = new DeclProcFunc(new TypeProcFunc(b, new Decls(fp), new TypeId(b2), bleft, s1right), blk, fleft,s2right);:}
+		;
 
 // The single-item rule, which occurs first in the input, creates an empty
 // ArrayList and adds the item to it. The second rule adds one item to an
@@ -124,7 +150,17 @@ constDefns
     ::= constDefn:d                 {: (RESULT = new ArrayList<Decl>(1)).add(d); :}
      |  constDefns:dd constDefn:d   {: (RESULT = dd).add(d); :}
      ;
-
+     
+typeDefns
+    ::= typeDefn:d                 {: (RESULT = new ArrayList<Decl>(1)).add(d); :}
+     |  typeDefns:dd typeDefn:d   {: (RESULT = dd).add(d); :}
+     ;
+     
+typeDefn
+	::= binding:b EQ type:t SEMI
+	{:RESULT = new DeclType(b,t,bleft,tright);:}; 
+	
+	
 constDefn
     ::= binding:b EQ constant:c SEMI
           {: RESULT = new DeclConst(b, c); :}
@@ -159,11 +195,13 @@ constant
     	  {: RESULT = new ExprString(s,sleft,sright); :} 
      | unsignedConstant:u
           {: RESULT = u; :}
-     | PLUS:p unsignedConstant:u
-          {: RESULT = new ExprUnary(p, u, pleft, uright); :}
-     | MINUS:m unsignedConstant:u
-          {: RESULT = new ExprUnary(m, u, mleft, uright); :}
+     | sign:s unsignedConstant:u
+          {: RESULT = new ExprUnary(s, u, sleft, uright); :}
      ;
+
+sign
+	::= MINUS:m {:RESULT = TokenOp.MINUS;:}
+	| 	PLUS:p  {:RESULT = TokenOp.PLUS;:};
 
 unsignedConstant
     ::= binding:b   {: RESULT = new ExprBinding(b); :}
@@ -175,9 +213,7 @@ type
           {: RESULT = t; :}
      |
       	ARRAY:a LBRACK simpleTypeList:spl RBRACK OF type:e
-      	{:
-      		
-      	   RESULT = new TypeArray(e.pos, e, aleft, eright);
+      	{:RESULT = new TypeArray(e, e, aleft, eright);
       	   :}
      |
      	RECORD:r fieldList:ff END:e
@@ -188,35 +224,153 @@ type
      	{: TypeId i = new TypeId(b); 
      		RESULT = new TypePointer(i);
      	:}
-     |  error
+     |  
+     	optBinding:b ABSTRACT OBJECT optFieldList:fds optMtdList:oml optOverRideList:oo END:ed
+     	{:RESULT = new TypeObject(new TypeId(b),fds,oml,oo,true, bleft,edright); :}
+     |  
+     	optBinding:b  OBJECT optFieldList:fds optMtdList:oml optOverRideList:oo END:ed
+     	{:RESULT = new TypeObject(new TypeId(b), fds, oml, oo, false, bleft, edright); :}
+     |   error
           {: RESULT = Type.theErrorType; :}
      ;
+     
+     
+
+	
+override
+	::= binding:b1 EQ binding:b2
+	{: RESULT = new Overriding(b1,b2,b1left,b2right);:};
+     
+optBinding
+	::= 	{:RESULT = null;:}
+	|	binding:b
+		{:RESULT = b;:};
+     
+optMtdList
+	::=	METHODS methodList:ml {:RESULT =ml;:}	
+		|	{:RESULT = new ArrayList<DeclMethod>(0);:};
+
+methodList
+    ::= method:mt
+    {:
+    ArrayList<DeclMethod> ls = new ArrayList<>();
+    ls.add(mt);
+    RESULT = ls;
+    :} 
+    |
+    methodList:ml SEMI
+    {:RESULT = ml;:}
+    |
+    methodList:ml SEMI method:mt
+    {:(RESULT = ml).add(mt);:}
+    ;
+
+		
+method
+	::= procedureHeader:p optAs:o
+		{: RESULT = new DeclMethod(p, o, pleft, oright); :}
+	|	functionHeader:f optAs:o
+		{: RESULT = new DeclMethod(f, o, fleft, oright); :}
+		;
+		
+procedureHeader
+	::= PROCEDURE:p binding:b formalParameters:fp
+	{:
+	  RESULT = new TypeProcFunc(b, new Decls(fp), null, pleft, fpright);
+		:};
+	
+functionHeader 
+	::= FUNCTION:f binding:b formalParameters:fp COLON binding:bb
+	{:
+	RESULT = new TypeProcFunc(b, new Decls(fp), new TypeId(bb), fleft, fpright);
+	:};
+	
+optAs
+	::= {:RESULT = null;:}
+	| EQ:e binding:b
+		{:RESULT = b   ;
+		:};
+	
+formalParameters
+	::= SEMI parameterGroup:pg formalParameters:fp
+		{:
+		fp.addAll(pg);
+		RESULT = fp;
+		:}
+	|	LPAREN  parameterGroup:pg formalParameters:fp RPAREN
+		{:fp.addAll(pg);
+		  RESULT = fp;:}
+	|	{:RESULT = new ArrayList<Decl>();:}	  
+	;
+		  
+parameterGroup
+	::= VAR bindingList:bl COLON binding:b
+	{:
+	Type t = new TypeId(b);
+	RESULT = Decl.formalDeclsOf(true, bl, new TypeId(b), bright);
+	:}
+	|		bindingList:bl COLON binding:b
+	{:RESULT = Decl.formalDeclsOf(false, bl, new TypeId(b), bright);
+	:}
+	;
+		
+
+
+optOverRideList
+	::=		{:RESULT = new ArrayList<Overriding>(0);:}
+	|	OVERRIDES overrides:ls
+		{:	RESULT = ls;:}
+	;
+
+overrides
+	::= overrides:ls SEMI override:o 
+		{:ls.add(o);:}
+		
+	|	override:o 
+		{:ArrayList<Overriding> ls = new ArrayList<>();
+		RESULT = ls;
+		:}
+	|	overrides:ls SEMI
+		{:
+		RESULT = ls;
+		:}
+		;
+		
+
+		
+
+
+optFieldList
+	::= {:RESULT = new ArrayList<DeclField>(0);:}
+	|
+	fieldList:fl{:RESULT = fl;:}
+	;
 
 fieldList
 	::= 
-		{:RESULT = new ArrayList<Decl>(); :}
-	 |  field:e
-	    {:	ArrayList fl = new ArrayList<DeclField>();
-	    	fl.add(e);
-	    	RESULT = fl; 
-	    	:}
-	 |  field:e SEMI
-	    {:  ArrayList fl = new ArrayList<DeclField>();
-	    	fl.add(e);
-	    	RESULT = fl;
-	    	:}
-	 |  fieldList:ee SEMI field:e
-	    {: ee.add(e);
-	    	RESULT = ee;
-	    	:}
-	 | 	fieldList:ee SEMI field:e SEMI
-	 	{:	ee.add(e);
-	 		RESULT = ee;
-	 		:};
+	field:fd 
+	{:
+	 ArrayList<DeclField> ls = new ArrayList<>();
+	 ls.addAll(fd);
+	 RESULT = ls;
+	 :}
+	|
+	fieldList:fds SEMI field:fd 
+	{:(RESULT = fds).addAll(fd);:}
+	|
+	fieldList:fds SEMI {:RESULT = fds;:}
+    ;
+	 		
+optSemi
+	::= 	 {:RESULT = null;:}
+	| SEMI:s {: RESULT = TokenOp.SEMI;:} 
+	;
 	    
 field
 	::= bindingList:bb COLON type:t 
-          {: RESULT = Decl.fieldDeclsOf(bb, t); :};
+          {: 
+          RESULT = Decl.fieldDeclsOf(bb,t); 
+          :};
 	    
 	   
 simpleTypeList
@@ -229,6 +383,7 @@ simpleTypeList
 	      stl.add(s);
 	      RESULT = stl;
 	      :}
+	      ;
 
 simpleType
     ::= binding:b
@@ -244,7 +399,7 @@ stmt
     	    :}
      |  variable:v ASSIGN expr:e/*assign statement*/
           {: RESULT = new StmtAssign(v, e); :}
-     |  BEGIN:b stmtList:ss END:e /*compound_statement*/
+     |  BEGIN:b stmtList:ss END:e 
           {: RESULT = new StmtCompound(new Stmts(ss, bleft, eright), bleft, eright); :}
      |  IF:i expr:e THEN stmt:s1 optElse:s2 /*if statement*/
           {: int endPos = ((s2 == null) ? s1right : s2right);
@@ -252,9 +407,9 @@ stmt
            :}
      |  WHILE:w expr:e DO stmt:s/*while statement*/
           {: RESULT = new StmtWhile(e, s, wleft, sright); :}
-     |                                                                 /*empty statement*/
+     |                                             /*empty statement*/
           {: RESULT = new StmtEmpty(); :}
-     |  CASE:c expr:e OF caseElementList:cl SEMI END:ed
+     |  CASE:c expr:e OF caseElementList:cl optSemi END:ed
      	  {:  	  	 
      	  	RESULT = new StmtCase(e, cl, cleft, edright);
      	  	:}
@@ -287,7 +442,7 @@ caseElementList ::=
 	 
 caseElement ::=
 		constantList:cl COLON stmt:s
-		{:  CaseLabelList cll = new CaseLabelList(cl);
+		{:  CaseLabelList cll = new CaseLabelList(cl,clleft,clright);
 			RESULT = new CaseElement(cll,s,clleft,sright);
 			:};
 	 
@@ -336,21 +491,23 @@ variable
      	     RESULT = cc; 
 		:}
 	|  variable:v LBRACK exprList:ee RBRACK:r
-		{: RESULT= new Expr.subscriptedExprOf(v,ee);
+		{: 
+		v.subscriptedExprOf(v,ee);
+		RESULT= v;
 		:}
-	|  variable:v DOT binding:b 
+	|  variable:v DOT:d binding:b 
 		{:Expr bb = new ExprBinding(b); 
-		  RESULT = new ExprBinary(DOT, v, bb);
+		  RESULT = new ExprBinary(d, v, bb);
 		:}
-	|  variable:v DOT binding:b LPAREN exprList:ee RPAREN:r
+	|  variable:v DOT:d binding:b LPAREN exprList:ee RPAREN:r
 		{: 
 		   Expr bb = new ExprBinding(b); 
-		   Expr a = new ExprBinary(DOT, v, bb);
-		   Expr vv = new Expr.subscriptedExprOf(a,ee);
-		   RESULT = vv;
+		   Expr a = new ExprBinary(d, v, bb); 
+		   a.subscriptedExprOf(a,ee);
+		   RESULT = a;
 		:}
 	|  variable:v CARET:c
-		{: RESULT = new ExprUnary(CARET, v, vleft, cright);
+		{: RESULT = new ExprUnary(c, v, vleft, cright);
 		:}
      ;
 expr
@@ -374,11 +531,12 @@ simpleExpr
           {: RESULT = e; :}
      |  simpleExpr:e1 addOp:op term:e2
           {: RESULT = new ExprBinary(op, e1, e2); :}
-
      ;
 
 addOp
-    ::= OR      {: RESULT = TokenKey.OR;   :}
+    ::= OR:o      {: RESULT = o;   :}
+     |	PLUS:p	{: RESULT = p; :}
+     |  MINUS:m	{: RESULT = m;:}
      ;
 
 term
@@ -390,6 +548,9 @@ term
 
 multOp
     ::= AND   {: RESULT = TokenKey.AND; :}
+    |   DIV	  {: RESULT = TokenKey.DIV; :}
+    |	MOD	  {: RESULT = TokenKey.MOD; :}
+    |	AST:a	  {: RESULT = a; :}
      ;
 
 factor
@@ -397,6 +558,12 @@ factor
           {: RESULT = v; :}
      |  LPAREN expr:e RPAREN
           {: RESULT = e; :}
+     |	INT:i
+     	  {: RESULT = new ExprInt(i, ileft,iright); :}
+     |	STRING:s
+     	  {: RESULT = new ExprString(s, sleft,sright); :}
+     |	NIL:n
+     	  {: RESULT = new ExprNil(nleft, nright); :}
      |  LPAREN:l error RPAREN:r
           {: RESULT = new ExprError(lleft, rright); :}
      |  NOT:n factor:e

@@ -1,49 +1,6 @@
 testparse.err:
-0a1,45
-> line -1: Syntax Error: #10
-> line 10: Syntax Error: @^
-> line 11: Syntax Error: record
-> line -1: Syntax Error: #0
-> line -1: Syntax Error: #0
-> line -1: Syntax Error: #1
-> line -1: Syntax Error: #2
-> line -1: Syntax Error: #3
-> line -1: Syntax Error: #4
-> line -1: Syntax Error: #5
-> line -1: Syntax Error: #6
-> line -1: Syntax Error: #1
-> line 28: Syntax Error: array
-> line 29: Syntax Error: array
-> line 31: Syntax Error: function
-> line -1: Syntax Error: #2
-> line 36: Syntax Error: @-
-> line 37: Syntax Error: @+
-> line 39: Syntax Error: @*
-> line 46: Syntax Error: 'Enter integer between 1 and 10: '
-> line -1: Syntax Error: #1
-> line -1: Syntax Error: #10
-> line 49: Syntax Error: 'Invalid'
-> line -1: Syntax Error: #5
-> line 53: Syntax Error: 'Valid'
-> line 54: Syntax Error: 'Enter date between Sunday and Saturday[0..6]: '
-> line 56: Syntax Error: case
-> line 57: Syntax Error: 'Sunday'
-> line 58: Syntax Error: 'Monday'
-> line 59: Syntax Error: 'Tuesday'
-> line 60: Syntax Error: 'Wednesday'
-> line 61: Syntax Error: 'Thursday'
-> line 62: Syntax Error: 'Friday'
-> line 63: Syntax Error: 'Saturday'
-> line -1: Syntax Error: #1
-> line 83: Syntax Error: @+
-> line -1: Syntax Error: #1
-> line 86: Syntax Error: @[
-> line -1: Syntax Error: #1
-> line -1: Syntax Error: #1
-> line -1: Syntax Error: #5
-> line 92: Syntax Error: @[
-> line 94: Syntax Error: '<5'
-> line 97: Syntax Error: '>=5'
-> line 98: Syntax Error: @+
+0a1,2
+> line 29: Syntax Error: @,
+> line 31: Syntax Error: @)
 
 

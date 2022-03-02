@@ -1,6 +1,8 @@
 testobject.err:
-0a1
-> line 5: Syntax Error: type
+0a1,3
+> line 8: Syntax Error: @)
+> line 19: Syntax Error: @)
+> line 20: Syntax Error: @)
 
 
 testobject.parse:

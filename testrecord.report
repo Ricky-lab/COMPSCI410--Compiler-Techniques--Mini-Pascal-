@@ -1,6 +1,6 @@
 testrecord.err:
 0a1
-> line 2: Syntax Error: type
+> line 12: Syntax Error: @)
 
 
 testrecord.parse:

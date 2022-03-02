@@ -1,0 +1,25 @@
+(program: 
+  (decls: 
+    (decl->program: testdiv[1]))
+  (block: 
+    (decls: 
+      (decl->variable: i[2]
+        (type->kind=ident: integer[2]))
+      (decl->variable: j[2]
+        (type->kind=ident: integer[2]))
+      (decl->variable: k[2]
+        (type->kind=ident: integer[2])))
+    (stmts: 
+      (stmt->assignstmt:
+        (expr-> binding: i[4])
+        (expr-> binexp: div
+          (expr-> binding: j[4])
+          (expr->[value=0] int: 0
+            type->(type->kind=integer))))
+      (stmt->assignstmt:
+        (expr-> binding: i[5])
+        (expr-> binexp: mod
+          (expr-> binding: j[5])
+          (expr->[value=0] int: 0
+            type->(type->kind=integer))))
+      (stmt->emptystmt:))))

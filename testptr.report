@@ -1,129 +1,35 @@
-testptr.err:
-0a1
-> line 2: Syntax Error: type
-
-
 testptr.parse:
-1,120d0
-< (program: 
-<   (decls: 
-<     (decl->program: testptr[1]))
-<   (block: 
-<     (decls: 
-<       (decl->type: r1[3]
-<         (type->kind=record:
-<           (fields: 
-<             (decl->field: x[3]
-<               (type->kind=ident: integer[3]))
-<             (decl->field: y[3]
-<               (type->kind=ident: integer[3])))))
-<       (decl->type: p1[4]
-<         (type->kind=pointer:
-<           ))
-<       (decl->type: p2[5]
-<         (type->kind=pointer:
-<           ))
-<       (decl->type: r2[6]
-<         (type->kind=record:
-<           (fields: 
-<             (decl->field: this[6]
-<               (type->kind=ident: integer[6]))
-<             (decl->field: rest[6]
-<               (type->kind=ident: p2[6])))))
-<       (decl->variable: p[8]
-<         (type->kind=ident: p1[8]))
-<       (decl->variable: q[9]
-<         (type->kind=ident: p2[9]))
-<       (decl->variable: qq[9]
-<         (type->kind=ident: p2[9]))
-<       (decl->variable: i[10]
-<         (type->kind=ident: integer[10])))
-<     (stmts: 
-<       (stmt->callstmt:
-<         (expr-> call: isMethodCall=false new[12]
-<           (exprs: 
-<             (expr-> binding: p[12]))))
-<       (stmt->assignstmt:
-<         (expr-> binexp: .
-<           (expr-> unexp: ^
-<             (expr-> binding: p[13]))
+43c43
 <           (expr-> id: x))
-<         (expr->[value=1] int: 1
-<           type->(type->kind=integer)))
-<       (stmt->assignstmt:
-<         (expr-> binexp: .
-<           (expr-> unexp: ^
-<             (expr-> binding: p[14]))
+---
+>           (expr-> binding: x[13]))
+50c50
 <           (expr-> id: y))
-<         (expr->[value=2] int: 2
-<           type->(type->kind=integer)))
-<       (stmt->callstmt:
-<         (expr-> call: isMethodCall=false writeln[15]
-<           (exprs: 
-<             (expr-> binexp: .
-<               (expr-> unexp: ^
-<                 (expr-> binding: p[15]))
+---
+>           (expr-> binding: y[14]))
+59c59
 <               (expr-> id: x))
-<             (expr-> binexp: .
-<               (expr-> unexp: ^
-<                 (expr-> binding: p[15]))
+---
+>               (expr-> binding: x[15]))
+63c63
 <               (expr-> id: y)))))
-<       (stmt->assignstmt:
-<         (expr-> binding: q[16])
-<         (expr->[value=0] nil:
-<           type->(type->kind=<NIL>)))
-<       (stmt->forstmt:i[17]
-<         (expr->[value=10] int: 10
-<           type->(type->kind=integer))
-<         (expr->[value=1] int: 1
-<           type->(type->kind=integer))
-<         (upward:false)
-<         (stmt->compoundstmt:
-<           (stmts: 
-<             (stmt->callstmt:
-<               (expr-> call: isMethodCall=false new[18]
-<                 (exprs: 
-<                   (expr-> binding: qq[18]))))
-<             (stmt->assignstmt:
-<               (expr-> binexp: .
-<                 (expr-> unexp: ^
-<                   (expr-> binding: qq[19]))
+---
+>               (expr-> binding: y[15])))))
+84c84
 <                 (expr-> id: this))
-<               (expr-> binding: i[19]))
-<             (stmt->assignstmt:
-<               (expr-> binexp: .
-<                 (expr-> unexp: ^
-<                   (expr-> binding: qq[20]))
+---
+>                 (expr-> binding: this[19]))
+90c90
 <                 (expr-> id: rest))
-<               (expr-> binding: q[20]))
-<             (stmt->assignstmt:
-<               (expr-> binding: q[21])
-<               (expr-> binding: qq[21]))
-<             (stmt->emptystmt:))))
-<       (stmt->assignstmt:
-<         (expr-> binding: qq[23])
-<         (expr-> binding: q[23]))
-<       (stmt->whilestmt:
-<         (expr-> binexp: <>
-<           (expr-> binding: qq[24])
-<           (expr->[value=0] nil:
-<             type->(type->kind=<NIL>)))
-<         (stmt->compoundstmt:
-<           (stmts: 
-<             (stmt->callstmt:
-<               (expr-> call: isMethodCall=false writeln[25]
-<                 (exprs: 
-<                   (expr-> binexp: .
-<                     (expr-> unexp: ^
-<                       (expr-> binding: qq[25]))
+---
+>                 (expr-> binding: rest[20]))
+112c112
 <                     (expr-> id: this)))))
-<             (stmt->assignstmt:
-<               (expr-> binding: qq[26])
-<               (expr-> binexp: .
-<                 (expr-> unexp: ^
-<                   (expr-> binding: qq[26]))
+---
+>                     (expr-> binding: this[25])))))
+118c118
 <                 (expr-> id: rest)))
-<             (stmt->emptystmt:))))
-<       (stmt->emptystmt:))))
+---
+>                 (expr-> binding: rest[26])))
 
 
